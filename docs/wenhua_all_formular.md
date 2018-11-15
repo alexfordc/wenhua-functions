@@ -1,108 +1,108 @@
-# K����̬
+# K线形态
 
-## K�� K��
+## K线 K线
 
 <code cpp>
 DRAWKLINE(0.75,COLORRED,1,COLORCYAN,0);
 </code>
 
-## BAR ����
+## BAR 竹线
 
 <code cpp>
 OPEN,BAMBOOLINE;
 </code>
 
-## TOWER ������
+## TOWER 宝塔线
 
 <code cpp>
 TOWER;
 </code>
 
-## CLOSE ���̼���
+## CLOSE 收盘价线
 
 <code cpp>
 CLOSE;
 </code>
 
-## WK �Ļ�k��ͼ
+## WK 文华k线图
 
 <code cpp>
 DRAWKLINE2(0.75,COLORRED,1,COLORCYAN,0);
 </code>
 
-# ���Ʒ���
+# 趋势分析
 
-## MA��� �ƶ�ƽ�������
+## MA组合 移动平均线组合
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 MA1:MA(CLOSE,N1);
 MA2:MA(CLOSE,N2);
 MA3:MA(CLOSE,N3);
 MA4:MA(CLOSE,N4);
 MA5:MA(CLOSE,N5);
-MA6:MA(CLOSE,N6);//����6������
+MA6:MA(CLOSE,N6);//定义6条均线
 </code>
 
-## BOLL ����ͨ����
+## BOLL 布林通道线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MID:MA(CLOSE,N);//��N�����ڵ����̼۾��ߣ���Ϊ����ͨ���й�
-TMP2:=STD(CLOSE,M);//��M�������ڵ����̼۵ı�׼��
-TOP:MID+P*TMP2;//����ͨ���Ϲ�
-BOTTOM:MID-P*TMP2;//����ͨ���¹�
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MID:MA(CLOSE,N);//求N个周期的收盘价均线，称为布林通道中轨
+TMP2:=STD(CLOSE,M);//求M个周期内的收盘价的标准差
+TOP:MID+P*TMP2;//布林通道上轨
+BOTTOM:MID-P*TMP2;//布林通道下轨
 </code>
 
-## CDP ���Ʋ���
+## CDP 逆势操作
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-PT  := REF(HIGH,1)-REF(LOW,1);//��һ������ǰ����߼�����ͼ۵Ĳ�ֵ
-CDP := (REF(HIGH,1) + REF(LOW,1) + REF(CLOSE,1))/3;//��ǰһ�����ڵ���߼ۣ���ͼۣ����̼����ߵļ�ƽ��
-AH  : MA(CDP + PT,N);//CDP��PT�ĺ���N�������ڵļ��ƶ�ƽ��
-AL  : MA(CDP - PT,N);//CDP��PT�Ĳ���N�������ڵļ��ƶ�ƽ��
-NH  :MA(2*CDP-LOW,N);//2����CDP����ͼ۵Ĳ���N�������ڵļ��ƶ�ƽ��
-NL  :MA(2*CDP-HIGH,N);//2����CDP����߼۵Ĳ���N�������ڵļ��ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+PT  := REF(HIGH,1)-REF(LOW,1);//求一个周期前的最高价与最低价的差值
+CDP := (REF(HIGH,1) + REF(LOW,1) + REF(CLOSE,1))/3;//求前一个周期的最高价，最低价，收盘价三者的简单平均
+AH  : MA(CDP + PT,N);//CDP与PT的和在N个周期内的简单移动平均
+AL  : MA(CDP - PT,N);//CDP与PT的差在N个周期内的简单移动平均
+NH  :MA(2*CDP-LOW,N);//2倍的CDP与最低价的差在N个周期内的简单移动平均
+NL  :MA(2*CDP-HIGH,N);//2倍的CDP与最高价的差在N个周期内的简单移动平均
 </code>
 
 ## ENV Envalops
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-UPPER : MA(CLOSE,N1)*(1+N2/100);//N1���������̼۾�ֵ��(1+N2/100)֮��������ΪUPPER
-LOWER : MA(CLOSE,N1)*(1-N2/100);//N1���������̼۾�ֵ��(1-N2/100)֮��������ΪLOWER
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+UPPER : MA(CLOSE,N1)*(1+N2/100);//N1个周期收盘价均值与(1+N2/100)之积，定义为UPPER
+LOWER : MA(CLOSE,N1)*(1-N2/100);//N1个周期收盘价均值与(1-N2/100)之积，定义为LOWER
 
 </code>
 
-## HCL ����ͨ��
+## HCL 均线通道
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MAH:MA(HIGH,N);//��߼۵�N����ƽ��
-MAL:MA(LOW,N);//��ͼ۵�N����ƽ��
-MAC:MA(CLOSE,N);//���̼۵�N����ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MAH:MA(HIGH,N);//最高价的N周期平均
+MAL:MA(LOW,N);//最低价的N周期平均
+MAC:MA(CLOSE,N);//收盘价的N周期平均
 </code>
 
-## MIKE ���ָ��
+## MIKE 麦克指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TYP:=(HIGH+LOW+CLOSE)/3;//����K�ߵ����ֵ���ֵ���̼۵ļ򵥾�ֵ����ΪTYP��
-LL:=LLV(LOW,N);//N�����ڵ����ֵ
-HH:=HHV(HIGH,N);//N�����ڵ����ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TYP:=(HIGH+LOW+CLOSE)/3;//当根K线的最高值最低值收盘价的简单均值定义为TYP。
+LL:=LLV(LOW,N);//N个周期的最低值
+HH:=HHV(HIGH,N);//N个周期的最高值
 WR:TYP+(TYP-LL);
 MR:TYP+(HH-LL);
 SR:2*HH-LL;
@@ -111,33 +111,33 @@ MS:TYP-(HH-LL);
 SS:2*LL-HH;
 </code>
 
-## PUBU �ٲ���
+## PUBU 瀑布线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 PB1:(EMA(CLOSE,M1)+MA(CLOSE,M1*2)+MA(CLOSE,M1*4))/3;
 PB2:(EMA(CLOSE,M2)+MA(CLOSE,M2*2)+MA(CLOSE,M2*4))/3;
 PB3:(EMA(CLOSE,M3)+MA(CLOSE,M3*2)+MA(CLOSE,M3*4))/3;
 PB4:(EMA(CLOSE,M4)+MA(CLOSE,M4*2)+MA(CLOSE,M4*4))/3;
 PB5:(EMA(CLOSE,M5)+MA(CLOSE,M5*2)+MA(CLOSE,M5*4))/3;
-PB6:(EMA(CLOSE,M6)+MA(CLOSE,M6*2)+MA(CLOSE,M6*4))/3; //����6���ٲ���
+PB6:(EMA(CLOSE,M6)+MA(CLOSE,M6*2)+MA(CLOSE,M6*4))/3; //定义6条瀑布线
 </code>
 
-## SAR ֹ���
+## SAR 止损点
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 STEP1:=STEP/100;
 MVALUE1:=MVALUE/100;
-SARLINE:SAR(N,STEP1,MVALUE1),CIRCLEDOT;//N�����ڵ�����ת�򣬲���ΪSTEP1������ֵΪMVALUE1.
-//�����Ż���֧�ֶ�С�������Ż��������Ҫ���в����Ż������Զ�ģ��Դ������޸ģ���ģ��Դ���е�С����������0.1����0.01�ȣ�Ȼ�󽫲����б��е�С��������ֵ����10����100��Ϊ��������
+SARLINE:SAR(N,STEP1,MVALUE1),CIRCLEDOT;//N个周期的抛物转向，步长为STEP1，极限值为MVALUE1.
+//参数优化不支持对小数进行优化。如果需要进行参数优化，可以对模型源码进行修改，将模型源码中的小数参数乘以0.1或者0.01等，然后将参数列表中的小数参数数值乘以10或者100变为整数即可
 </code>
 
-## SP ���ھ�����
+## SP 日内均价线
 
 <code cpp>
 SETTLE;
@@ -145,40 +145,40 @@ SETTLE;
 
 </code>
 
-## BBI ���ָ��
+## BBI 多空指数
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-BBI1:(MA(CLOSE,N1)+MA(CLOSE,N2)+MA(CLOSE,N3)+MA(CLOSE,N4))/4;//��N1���ڣ�N2���ڣ�N3���ڣ�N4�������̼۾��ߵļ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+BBI1:(MA(CLOSE,N1)+MA(CLOSE,N2)+MA(CLOSE,N3)+MA(CLOSE,N4))/4;//求N1周期，N2周期，N3周期，N4周期收盘价均线的简单平均
 </code>
 
-## DKX �����
+## DKX 多空线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-A:=(3*C+L+O+H)/6;//3�����̼�����߼ۡ���ͼۡ����̼�֮�͵ľ�ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+A:=(3*C+L+O+H)/6;//3倍收盘价与最高价、最低价、开盘价之和的均值。
 B:(20*A+19*REF(A,1)+18*REF(A,2)+17*REF(A,3)+16*REF(A,4)+15*REF(A,5)+14*REF(A,6)+13*REF(A,7)+12*REF(A,8)+11*REF(A,9)+10*REF(A,10)+9*REF(A,11)+8*REF(A,12)+7*REF(A,13)+6*REF(A,14)+5*REF(A,15)+4*REF(A,16)+3*REF(A,17)+2*REF(A,18)+REF(A,20))/210;
-//��Aֵ����Ȩ��ֵ���㡣
-D:MA(B,M);//��Bֵ��10����ƽ�����㡣
+//对A值做加权均值计算。
+D:MA(B,M);//对B值做10周期平均计算。
 </code>
 
-## SAR1 ֹ���
+## SAR1 止损点
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 STEP1:=STEP/100;
 MVALUE1:=MVALUE/10;
-SARLINE:SAR1(N,STEP1,MVALUE1),CIRCLEDOT;//N�����ڵ�����ת�򣬲���ΪSTEP1������ֵΪMVALUE1.
-//�����Ż���֧�ֶ�С�������Ż��������Ҫ���в����Ż������Զ�ģ��Դ������޸ģ���ģ��Դ���е�С����������0.1����0.01�ȣ�Ȼ�󽫲����б��е�С��������ֵ����10����100��Ϊ��������
+SARLINE:SAR1(N,STEP1,MVALUE1),CIRCLEDOT;//N个周期的抛物转向，步长为STEP1，极限值为MVALUE1.
+//参数优化不支持对小数进行优化。如果需要进行参数优化，可以对模型源码进行修改，将模型源码中的小数参数乘以0.1或者0.01等，然后将参数列表中的小数参数数值乘以10或者100变为整数即可
 </code>
 
-## WTD �Ļ�ͨ����
+## WTD 文华通道线
 
 <code cpp>
 MA(CLOSE,M);
@@ -188,7 +188,7 @@ DRAWCOLORLINE(RISING(N),MA(A,M),COLORRED,COLORGREEN);
 DRAWCOLORLINE(RISING(N),MA(B,M),COLORRED,COLORGREEN);
 </code>
 
-## BBIBOLL ��ղ�����
+## BBIBOLL 多空布林线
 
 <code cpp>
 BBIBOLL:(MA(C,3)+MA(C,6)+MA(C,12)+MA(C,24))/4;
@@ -196,197 +196,197 @@ UPR:BBIBOLL+M*STD(BBIBOLL,N);
 DWN:BBIBOLL-M*STD(BBIBOLL,N);
 </code>
 
-# �ڶ�����
+# 摆动分析
 
-## ADTM ��̬������ָ��
+## ADTM 动态买卖气指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-DTM:=IFELSE(OPEN<=REF(OPEN,1),0,MAX((HIGH-OPEN),(OPEN-REF(OPEN,1))));//������̼�С�ڵ���һ������ǰ�Ŀ��̼ۣ�DTMȡֵΪ0������ȡ��߼ۼ�ȥ���̼ۺͿ��̼ۼ�ȥǰһ�����ڿ��̼���������ֵ�е����ֵ
-DBM:=IFELSE(OPEN>=REF(OPEN,1),0,MAX((OPEN-LOW),(OPEN-REF(OPEN,1))));//������̼۴��ڵ���һ������ǰ�Ŀ��̼ۣ�DBMȡֵΪ0������ȡ���̼ۼ�ȥ��ͼۺͿ��̼ۼ�ȥǰһ�����ڿ��̼���������ֵ�е����ֵ
-STM:=SUM(DTM,N);//��N�������ڵ�DTM���ܺ�
-SBM:=SUM(DBM,N);//��N�������ڵ�DBM���ܺ�
-ADTM:IFELSE(STM>SBM,(STM-SBM)/STM,IFELSE(STM=SBM,0,(STM-SBM)/SBM));//���STM����SBM��ADTMȡֵΪ(STM-SBM)/STM�����STM����SBM��ADTMȡֵΪ0,���STMС��SBM��ADTMȡֵΪ(STM-SBM)/SBM
-ADTMMA:MA(ADTM,M);//��M�������ڵ�ADTM�ļ��ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+DTM:=IFELSE(OPEN<=REF(OPEN,1),0,MAX((HIGH-OPEN),(OPEN-REF(OPEN,1))));//如果开盘价小于等于一个周期前的开盘价，DTM取值为0，否则取最高价减去开盘价和开盘价减去前一个周期开盘价这两个差值中的最大值
+DBM:=IFELSE(OPEN>=REF(OPEN,1),0,MAX((OPEN-LOW),(OPEN-REF(OPEN,1))));//如果开盘价大于等于一个周期前的开盘价，DBM取值为0，否则取开盘价减去最低价和开盘价减去前一个周期开盘价这两个差值中的最大值
+STM:=SUM(DTM,N);//求N个周期内的DTM的总和
+SBM:=SUM(DBM,N);//求N个周期内的DBM的总和
+ADTM:IFELSE(STM>SBM,(STM-SBM)/STM,IFELSE(STM=SBM,0,(STM-SBM)/SBM));//如果STM大于SBM，ADTM取值为(STM-SBM)/STM，如果STM等于SBM，ADTM取值为0,如果STM小于SBM，ADTM取值为(STM-SBM)/SBM
+ADTMMA:MA(ADTM,M);//求M个周期内的ADTM的简单移动平均
 </code>
 
-## ARBR ������Ըָ��
+## ARBR 人气意愿指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-AR : SUM(HIGH-OPEN,N)/SUM(OPEN-LOW,N)*100;//N�������ڵ���߼ۼ�ȥ���̼۵ĺ���N�������ڵĿ��̼ۼ�ȥ��ͼ۵ĺ͵İٷֱ�
-BR : SUM(MAX(0,HIGH-REF(CLOSE,1)),N)/SUM(MAX(0,REF(CLOSE,1)-LOW),N)*100;//ȡ��߼ۼ�ȥһ������ǰ�����̼۵���0�е����ֵ����ͣ�ȡһ������ǰ�����̼ۼ�ȥ��ͼ���0�е����ֵ����ͣ������͵İٷֱ�
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+AR : SUM(HIGH-OPEN,N)/SUM(OPEN-LOW,N)*100;//N个周期内的最高价减去开盘价的和与N个周期内的开盘价减去最低价的和的百分比
+BR : SUM(MAX(0,HIGH-REF(CLOSE,1)),N)/SUM(MAX(0,REF(CLOSE,1)-LOW),N)*100;//取最高价减去一个周期前的收盘价的与0中的最大值，求和，取一个周期前的收盘价减去最低价与0中的最大值，求和，两个和的百分比
 </code>
 
-## ASI ������ָ��
+## ASI 振动升降指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-LC:=REF(CLOSE,1);//һ������ǰ�����̼�
-AA:=ABS(HIGH-LC);//��߼���һ������ǰ�����̼۵Ĳ�ֵ�ľ���ֵ
-BB:=ABS(LOW-LC);//��ͼ���һ������ǰ�����̼۵Ĳ�ֵ�ľ���ֵ
-CC:=ABS(HIGH-REF(LOW,1));//��߼���һ������ǰ����ͼ۵Ĳ�ֵ�ľ���ֵ
-DD:=ABS(LC-REF(OPEN,1));//һ������ǰ�����̼���һ������ǰ�Ŀ��̼۵Ĳ�ֵ�ľ���ֵ
-R:=IFELSE(AA>BB&&AA>CC,AA+BB/2+DD/4,IFELSE(BB>CC&&BB>AA,BB+AA/2+DD/4,CC+DD/4));//���AA>BB&&AA>CC,RȡֵΪAA+BB/2+DD/4,���BB>CC&&BB>AA,RȡֵΪBB+AA/2+DD/4,����RȡֵΪCC+DD/4
-X:=(CLOSE-LC+(CLOSE-OPEN)/2+LC-REF(OPEN,1));//���¼ۼ�ȥһ������ǰ�����̼ۼ��Ͽ��̼������¼۵Ķ���֮һ���ټ���һ������ǰ�����̼��뿪�̼۵Ĳ�ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+LC:=REF(CLOSE,1);//一个周期前的收盘价
+AA:=ABS(HIGH-LC);//最高价与一个周期前的收盘价的差值的绝对值
+BB:=ABS(LOW-LC);//最低价与一个周期前的收盘价的差值的绝对值
+CC:=ABS(HIGH-REF(LOW,1));//最高价与一个周期前的最低价的差值的绝对值
+DD:=ABS(LC-REF(OPEN,1));//一个周期前的收盘价与一个周期前的开盘价的差值的绝对值
+R:=IFELSE(AA>BB&&AA>CC,AA+BB/2+DD/4,IFELSE(BB>CC&&BB>AA,BB+AA/2+DD/4,CC+DD/4));//如果AA>BB&&AA>CC,R取值为AA+BB/2+DD/4,如果BB>CC&&BB>AA,R取值为BB+AA/2+DD/4,否则R取值为CC+DD/4
+X:=(CLOSE-LC+(CLOSE-OPEN)/2+LC-REF(OPEN,1));//最新价减去一个周期前的收盘价加上开盘价与最新价的二分之一，再加上一个周期前的收盘价与开盘价的差值
 SI:=16*X/R*MAX(AA,BB);
-ASI:SUM(SI,0);//�ӱ������ݵ�һ�����ݿ�ʼ��SI���ܺ�
+ASI:SUM(SI,0);//从本地数据第一个数据开始求SI的总和
 </code>
 
-## ATR ��ʵ����
+## ATR 真实波幅
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TR : MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));//����߼ۼ�ȥ��ͼۣ�һ������ǰ�����̼ۼ�ȥ��߼۵ľ���ֵ��һ������ǰ�����̼ۼ�ȥ��ͼ۵ľ���ֵ��������ֵ�е����ֵ
-ATR : MA(TR,N),COLORYELLOW;//��N�������ڵ�TR�ļ��ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TR : MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));//求最高价减去最低价，一个周期前的收盘价减去最高价的绝对值，一个周期前的收盘价减去最低价的绝对值，这三个值中的最大值
+ATR : MA(TR,N),COLORYELLOW;//求N个周期内的TR的简单移动平均
 </code>
 
-## B3612 �������չ���
+## B3612 三减六日乖离
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-B36 : MA(CLOSE,3)-MA(CLOSE,6);//3�������̼۾��߼�ȥ6�������̼۾���
-B612 : MA(CLOSE,6)-MA(CLOSE,12);//6�������̼۾��߼�ȥ12�������̼۾���
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+B36 : MA(CLOSE,3)-MA(CLOSE,6);//3周期收盘价均线减去6周期收盘价均线
+B612 : MA(CLOSE,6)-MA(CLOSE,12);//6周期收盘价均线减去12周期收盘价均线
 </code>
 
-## BIAS ������
+## BIAS 乖离率
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-BIAS1:(CLOSE-MA(CLOSE,L1))/MA(CLOSE,L1)*100;//���̼ۼ�ȥ���̼���L1�����ڵļ��ƶ�ƽ�����������̼���L1�����ڵļ��ƶ�ƽ������100��
-BIAS2:(CLOSE-MA(CLOSE,L2))/MA(CLOSE,L2)*100;//ͬ��
-BIAS3:(CLOSE-MA(CLOSE,L3))/MA(CLOSE,L3)*100;//ͬ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+BIAS1:(CLOSE-MA(CLOSE,L1))/MA(CLOSE,L1)*100;//收盘价减去收盘价在L1周期内的简单移动平均，除以收盘价在L1周期内的简单移动平均乘以100；
+BIAS2:(CLOSE-MA(CLOSE,L2))/MA(CLOSE,L2)*100;//同上
+BIAS3:(CLOSE-MA(CLOSE,L3))/MA(CLOSE,L3)*100;//同上
 </code>
 
-## CCI ˳��ָ��
+## CCI 顺势指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TYP:=(CLOSE+HIGH+LOW)/3;//�����¼ۣ���߼ۺ���ͼ����ߵļ�ƽ��
-CCI:(TYP-MA(TYP,N))/(0.015*AVEDEV(TYP,N));//TYP��TYP��N����ƽ��ֵ����ò�ֵ��TYP��N�������ڵ�0.015����ƽ������ƫ��ֵ����ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TYP:=(CLOSE+HIGH+LOW)/3;//求最新价，最高价和最低价三者的简单平均
+CCI:(TYP-MA(TYP,N))/(0.015*AVEDEV(TYP,N));//TYP与TYP的N周期平均值做差，该差值与TYP在N个周期内的0.015倍的平均绝对偏差值做比值
 </code>
 
-## CR CR����ָ��
+## CR CR能量指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MID := (HIGH+LOW+CLOSE)/3;//�����¼ۣ���߼ۺ���ͼ����ߵļ�ƽ��
-CR:SUM(MAX(0,HIGH-REF(MID,1)),N)/SUM(MAX(0,REF(MID,1)-LOW),N)*100;//ȡ��߼ۼ�ȥһ������ǰ��MID����0�е����ֵ����ͣ�ȡһ������ǰ��MID��ȥ��ͼ���0�е����ֵ����ͣ������͵İٷֱ�
-CRMA1:REF(MA(CR,M1),M1/2.5+1);//ȡ(M1/2.5+1)������ǰ��M1����CR��ƽ��ֵ
-CRMA2:REF(MA(CR,M2),M2/2.5+1);//ȡ(M2/2.5+1)������ǰ��M2����CR��ƽ��ֵ
-CRMA3:REF(MA(CR,M3),M3/2.5+1);//ȡ(M3/2.5+1)������ǰ��M3����CR��ƽ��ֵ
-CRMA4:REF(MA(CR,M4),M4/2.5+1);//ȡ(M4/2.5+1)������ǰ��M4����CR��ƽ��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MID := (HIGH+LOW+CLOSE)/3;//求最新价，最高价和最低价三者的简单平均
+CR:SUM(MAX(0,HIGH-REF(MID,1)),N)/SUM(MAX(0,REF(MID,1)-LOW),N)*100;//取最高价减去一个周期前的MID的与0中的最大值，求和，取一个周期前的MID减去最低价与0中的最大值，求和，两个和的百分比
+CRMA1:REF(MA(CR,M1),M1/2.5+1);//取(M1/2.5+1)个周期前的M1周期CR简单平均值
+CRMA2:REF(MA(CR,M2),M2/2.5+1);//取(M2/2.5+1)个周期前的M2周期CR简单平均值
+CRMA3:REF(MA(CR,M3),M3/2.5+1);//取(M3/2.5+1)个周期前的M3周期CR简单平均值
+CRMA4:REF(MA(CR,M4),M4/2.5+1);//取(M4/2.5+1)个周期前的M4周期CR简单平均值
 </code>
 
-## DBCD ��ͬ��������
+## DBCD 异同离差乖离率
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-BIAS:=(CLOSE-MA(CLOSE,N))/MA(CLOSE,N);//���̼ۼ����̼���N�������ڵļ��ƶ�ƽ�������̼���N�������ڵļ��ƶ�ƽ����
-DIF:=(BIAS-REF(BIAS,M));//BIAS��M������ǰ��BIAS;
-DBCD:SMA(DIF,T,1);//DIF��T�������ڵ��ƶ�ƽ��
-MM:MA(DBCD,5);//DBCD��5�������ڵļ��ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+BIAS:=(CLOSE-MA(CLOSE,N))/MA(CLOSE,N);//收盘价减收盘价在N个周期内的简单移动平均比收盘价在N个周期内的简单移动平均；
+DIF:=(BIAS-REF(BIAS,M));//BIAS减M个周期前的BIAS;
+DBCD:SMA(DIF,T,1);//DIF在T个周期内的移动平均
+MM:MA(DBCD,5);//DBCD在5个周期内的简单移动平均
 </code>
 
-## DDI �����׼���ָ��
+## DDI 方向标准离差指数
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TR:=MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1)));//����߼�-ǰһ������߼ۣ��ľ���ֵ�루��ͼ�-ǰһ������ͼۣ��ľ���ֵ����֮��ϴ��߶���ΪTR
-DMZ:=IFELSE((HIGH+LOW)<=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));//�������߼�+��ͼۣ�<=��ǰһ������߼�+ǰһ������ͼۣ���DMZ����0�����򷵻�TR
-DMF:=IFELSE((HIGH+LOW)>=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));//�������߼�+��ͼۣ�>=��ǰһ������߼�+ǰһ������ͼۣ���DMF����0�����򷵻�TR
-DIZ:=SUM(DMZ,N)/(SUM(DMZ,N)+SUM(DMF,N));//N������DMZ֮���루N������DMZ�ĺ�+N������DMF�ĺͣ�����ֵ
-DIF:=SUM(DMF,N)/(SUM(DMF,N)+SUM(DMZ,N));//N������DMF�ĺ��루N������DMF�ĺ�+N������DMZ�ĺͣ�����ֵ
-DDI:=DIZ-DIF;//DIZ��DIF�Ĳ�ֵ����ΪDDI
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TR:=MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1)));//（最高价-前一周期最高价）的绝对值与（最低价-前一周期最低价）的绝对值两者之间较大者定义为TR
+DMZ:=IFELSE((HIGH+LOW)<=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));//如果（最高价+最低价）<=（前一周期最高价+前一周期最低价），DMZ返回0，否则返回TR
+DMF:=IFELSE((HIGH+LOW)>=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));//如果（最高价+最低价）>=（前一周期最高价+前一周期最低价），DMF返回0，否则返回TR
+DIZ:=SUM(DMZ,N)/(SUM(DMZ,N)+SUM(DMF,N));//N个周期DMZ之和与（N个周期DMZ的和+N个周期DMF的和）作比值
+DIF:=SUM(DMF,N)/(SUM(DMF,N)+SUM(DMZ,N));//N个周期DMF的和与（N个周期DMF的和+N个周期DMZ的和）作比值
+DDI:=DIZ-DIF;//DIZ与DIF的差值定义为DDI
 DDI,COLORSTICK;
-ADDI:SMA(DDI,N1,M);//DDI��N1��������Ȩ��ΪM�ļ�Ȩƽ��
-AD:MA(ADDI,M1);//ADDI��M1�������ڵļ��ƶ�ƽ��
+ADDI:SMA(DDI,N1,M);//DDI在N1个周期内权重为M的加权平均
+AD:MA(ADDI,M1);//ADDI在M1个周期内的简单移动平均
 </code>
 
-## DMA ƽ���߲�
+## DMA 平均线差
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-DDD : MA(CLOSE,SHORT)-MA(CLOSE,LONG);//���������̼۾�ֵ�볤�������̼۾�ֵ����
-AMA : MA(DDD,M);//M�����ڵ�DDD��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+DDD : MA(CLOSE,SHORT)-MA(CLOSE,LONG);//短周期收盘价均值与长周期收盘价均值做差
+AMA : MA(DDD,M);//M个周期的DDD均值
 </code>
 
-## DMI ����ָ��
+## DMI 趋向指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-DDD : MA(CLOSE,SHORT)-MA(CLOSE,LONG);//���������̼۾�ֵ�볤�������̼۾�ֵ����
-AMA : MA(DDD,M);//M�����ڵ�DDD��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+DDD : MA(CLOSE,SHORT)-MA(CLOSE,LONG);//短周期收盘价均值与长周期收盘价均值做差
+AMA : MA(DDD,M);//M个周期的DDD均值
 </code>
 
-## KD ���ָ��
+## KD 随机指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//���̼���N�������ֵ���N�������ֵ��N�������ֵ�������֮������ֵ����ΪRSV
-K:SMA(RSV,M1,1);//RSV���ƶ�ƽ��
-D:SMA(K,M2,1);//Kֵ���ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//收盘价与N周期最低值做差，N周期最高值与N周期最低值做差，两差之间做比值定义为RSV
+K:SMA(RSV,M1,1);//RSV的移动平均
+D:SMA(K,M2,1);//K值的移动平均
 </code>
 
-## KDJ ���ָ��
+## KDJ 随机指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//���̼���N�������ֵ���N�������ֵ��N�������ֵ�������֮������ֵ��
-K:SMA(RSV,M1,1);//RSV���ƶ�ƽ��ֵ
-D:SMA(K,M2,1);//K���ƶ�ƽ��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//收盘价与N周期最低值做差，N周期最高值与N周期最低值做差，两差之间做比值。
+K:SMA(RSV,M1,1);//RSV的移动平均值
+D:SMA(K,M2,1);//K的移动平均值
 J:3*K-2*D;
 BACKGROUNDSTYLE(1);
 </code>
 
-## LWR ����ָ��
+## LWR 威廉指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-RSV:= (CLOSE-HHV(HIGH,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//���̼���N�������ֵ���N�������ֵ��N�������ֵ�������ֵ������ֵ��
-LWR1:SMA(RSV,M1,1);//RSV���ƶ�ƽ��
-LWR2:SMA(LWR1,M2,1);//LWR1���ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+RSV:= (CLOSE-HHV(HIGH,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//收盘价与N周期最高值做差，N周期最高值与N周期最低值做差，两差值间做比值。
+LWR1:SMA(RSV,M1,1);//RSV的移动平均
+LWR2:SMA(LWR1,M2,1);//LWR1的移动平均
 </code>
 
-## MACD ƽ���ƶ�ƽ����
+## MACD 平滑移动平均线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-DIFF : EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);//�������볤���ڵ����̼۵�ָ��ƽ���ƶ�ƽ��ֵ���
-DEA  : EMA(DIFF,M);//DIFF��M������ָ��ƽ���ƶ�ƽ��
-2*(DIFF-DEA),COLORSTICK;//DIFF��DEA��2������״��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+DIFF : EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);//短周期与长周期的收盘价的指数平滑移动平均值做差。
+DEA  : EMA(DIFF,M);//DIFF的M个周期指数平滑移动平均
+2*(DIFF-DEA),COLORSTICK;//DIFF减DEA的2倍画柱状线
 
 
 </code>
@@ -394,259 +394,259 @@ DEA  : EMA(DIFF,M);//DIFF��M������ָ��ƽ���ƶ�ƽ��
 ## MASS Mass Index
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MASS:SUM(EMA((HIGH-LOW),N1)/EMA(EMA((HIGH-LOW),N1),N1),N2);//N1���������ֵ�����ֵ֮����ָ��ƽ���ƶ�ƽ������ƽ��ֵ��N1�����ڸþ�ֵ��ָ��ƽ���ƶ�ƽ��ֵ���ȣ�����ñ�ֵ��N2�����ڵ��ۼ���͡�
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MASS:SUM(EMA((HIGH-LOW),N1)/EMA(EMA((HIGH-LOW),N1),N1),N2);//N1个周期最高值与最低值之差做指数平滑移动平均，该平均值与N1个周期该均值的指数平滑移动平均值做比，计算该比值的N2个周期的累加求和。
 </code>
 
-## MFI �ʽ�����ָ��
+## MFI 资金流量指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TYP := (HIGH + LOW + CLOSE)/3;//����K�ߵ����ֵ���ֵ���̼�3��֮��ȡ�򵥾�ֵ��
-MR:=SUM(IFELSE(TYP>REF(TYP,1),TYP*VOL,0),N)/SUM(IFELSE(TYP<REF(TYP,1),TYP*VOL,0),N);//���TYP����ǰһ����TYPʱȡTYP���Գɽ���������ȡ0���Ը�ֵ��N�����ۼ���͡����TYPС��ǰһ����TYPȡTYP���Գɽ���������ȡ0���Ը�ֵ��N�����ۼ���͡������ֵ֮����б�ֵ���㡣
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TYP := (HIGH + LOW + CLOSE)/3;//当根K线的最高值最低值收盘价3者之间取简单均值。
+MR:=SUM(IFELSE(TYP>REF(TYP,1),TYP*VOL,0),N)/SUM(IFELSE(TYP<REF(TYP,1),TYP*VOL,0),N);//如果TYP大于前一周期TYP时取TYP乘以成交量，否则取0，对该值做N周期累加求和。如果TYP小于前一周期TYP取TYP乘以成交量，否则取0，对该值做N周期累加求和。两求和值之间进行比值计算。
 MFI:100-(100/(1+MR));
 </code>
 
-## MI ����ָ��
+## MI 动量指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-A:CLOSE-REF(CLOSE,N);//���̼���N����ǰ���̼�����
-MI:SMA(A,N,1);//A���ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+A:CLOSE-REF(CLOSE,N);//收盘价与N周期前收盘价做差
+MI:SMA(A,N,1);//A的移动平均
 </code>
 
-## MICD ��ͬ����ָ��
+## MICD 异同离差动力指数
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MI:=CLOSE-REF(CLOSE,1);//���̼���ǰһ�������̼�֮��
-AMI:=SMA(MI,N,1);//MI���ƶ�ƽ��ֵ
-DIF:MA(REF(AMI,1),N1)-MA(REF(AMI,1),N2);//ǰһ����AMI��N1���ھ�ֵ��ǰһ����AMI��N2���ھ�ֵ֮�����
-MICD:SMA(DIF,10,1);//DIF���ƶ�ƽ��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MI:=CLOSE-REF(CLOSE,1);//收盘价与前一周期收盘价之差
+AMI:=SMA(MI,N,1);//MI的移动平均值
+DIF:MA(REF(AMI,1),N1)-MA(REF(AMI,1),N2);//前一周期AMI的N1周期均值与前一周期AMI的N2周期均值之间做差。
+MICD:SMA(DIF,10,1);//DIF的移动平均值
 </code>
 
-## MTM MTM����ָ��
+## MTM MTM动力指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MTM : CLOSE-REF(CLOSE,N);//���̼���N����ǰ���̼�����
-MTMMA : MA(MTM,N1);//MTM��N1���ڼ򵥾�ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MTM : CLOSE-REF(CLOSE,N);//收盘价与N周期前收盘价做差
+MTMMA : MA(MTM,N1);//MTM的N1周期简单均值。
 </code>
 
 ## PRICEOSC Price Oscillator
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-PRICEOSC:(MA(CLOSE,SHORT)-MA(CLOSE,LONG))/MA(CLOSE,SHORT)*100;//�������볤���ھ�ֵ����ò�������ھ�ֵ֮������ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+PRICEOSC:(MA(CLOSE,SHORT)-MA(CLOSE,LONG))/MA(CLOSE,SHORT)*100;//短周期与长周期均值做差，该差与短周期均值之间做比值。
 </code>
 
-## PSY ������
+## PSY 心理线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-PSY:COUNT(CLOSE>REF(CLOSE,1),N)/N*100;//N���������������̼۴���һ������ǰ�����̼۵�����������N*100��
-PSYMA:MA(PSY,M);//PSY��M�������ڵļ��ƶ�ƽ����
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+PSY:COUNT(CLOSE>REF(CLOSE,1),N)/N*100;//N个周期内满足收盘价大于一个周期前的收盘价的周期数，比N*100；
+PSYMA:MA(PSY,M);//PSY在M个周期内的简单移动平均；
 </code>
 
-## QHLSR ����ָ��
+## QHLSR 阻力指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-QHL:=(CLOSE-REF(CLOSE,1))-(VOL-REF(VOL,1))*(REF(HIGH,1)-REF(LOW,1))/REF(VOL,1);//���̼ۼ�ȥ�ϸ�K�ߵ����̼۵Ĳ�ֵ ��ȥ��ǰ�ɽ�����ȥ�ϸ��ɽ����Ĳ�ֵ�����ϸ��ĸߵ���ϸ��ĵ͵�Ļ������ϸ��ĳɽ�����
-A:=SUM(IFELSE(QHL>0,QHL,0),5);//���QHL>0 �򷵻�QHL��ֵ ���򷵻�0��ͳ���������ڵĺ͡�
-E:=SUM(IFELSE(QHL>0,QHL,0),10);//���QHL>0 �򷵻�QHL��ֵ ���򷵻�0��ͳ��ʮ�����ڵĺ͡�
-B:=ABS(SUM(IFELSE(QHL<0,QHL,0),5));//���QHL<0 �򷵻�QHL��ֵ ���򷵻�0��ͳ���������ڵĺͣ����ȡ����ֵ��
-F:=ABS(SUM(IFELSE(QHL<0,QHL,0),10));//���QHL<0 �򷵻�QHL��ֵ ���򷵻�0��ͳ��ʮ�����ڵĺͣ����ȡ����ֵ��
-D:=A/(A+B);//A����A+B�ĺͣ�
-G:=E/(E+F);//E����E+F�ĺͣ�
-QHL5:IFELSE(SUM(IFELSE(QHL>0,1,0),5)=5,1,IFELSE(SUM(IFELSE(QHL<0,1,0),5)=5,0,D));//���5��������������QHL���򷵻�1����������������������QHL<0ʱ������0�����򷵻�Dֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+QHL:=(CLOSE-REF(CLOSE,1))-(VOL-REF(VOL,1))*(REF(HIGH,1)-REF(LOW,1))/REF(VOL,1);//收盘价减去上根K线的收盘价的差值 减去当前成交量减去上根成交量的差值乘以上根的高点减上根的低点的积除以上根的成交量；
+A:=SUM(IFELSE(QHL>0,QHL,0),5);//如果QHL>0 则返回QHL的值 否则返回0，统计五周期内的和。
+E:=SUM(IFELSE(QHL>0,QHL,0),10);//如果QHL>0 则返回QHL的值 否则返回0，统计十周期内的和。
+B:=ABS(SUM(IFELSE(QHL<0,QHL,0),5));//如果QHL<0 则返回QHL的值 否则返回0，统计五周期内的和，结果取绝对值。
+F:=ABS(SUM(IFELSE(QHL<0,QHL,0),10));//如果QHL<0 则返回QHL的值 否则返回0，统计十周期内的和，结果取绝对值。
+D:=A/(A+B);//A除以A+B的和；
+G:=E/(E+F);//E除以E+F的和；
+QHL5:IFELSE(SUM(IFELSE(QHL>0,1,0),5)=5,1,IFELSE(SUM(IFELSE(QHL<0,1,0),5)=5,0,D));//如果5周期内连续满足QHL，则返回1，否则当五周期内连续满足QHL<0时，返回0，否则返回D值；
 QHL10:G;
 </code>
 
-## RC �仯��ָ��
+## RC 变化率指数
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-RC:=CLOSE/REF(CLOSE,N);//���̼���N����ǰ�����̼����ȡ�
-ARC:SMA(REF(RC,1),N,1);//ǰһ���ڵ�RCֵ���ƶ�ƽ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+RC:=CLOSE/REF(CLOSE,N);//收盘价与N周期前的收盘价做比。
+ARC:SMA(REF(RC,1),N,1);//前一周期的RC值做移动平均
 </code>
 
-## RCCD ��ͬ���仯��ָ��
+## RCCD 异同离差变化率指数
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-RC:=CLOSE/REF(CLOSE,N);//��ǰ�۸����N����ǰ�����̼ۣ�
-ARC:=SMA(REF(RC,1),N,1);//һ����ǰ��RC����1ΪȨ�ص��ƶ�ƽ����
-DIF:MA(REF(ARC,1),N1)-MA(REF(ARC,1),N2);//N1�����ڵ�һ����ǰ��ARC�ļ��ƶ�ƽ����N2������ǰһ���ڵ�ARC�ļ��ƶ�ƽ���Ĳ�ֵ��
-RCCD:SMA(DIF,N,1);//DIF��N���ڵ���1ΪȨ�ص��ƶ�ƽ����
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+RC:=CLOSE/REF(CLOSE,N);//当前价格除以N周期前的收盘价；
+ARC:=SMA(REF(RC,1),N,1);//一周期前的RC的以1为权重的移动平均；
+DIF:MA(REF(ARC,1),N1)-MA(REF(ARC,1),N2);//N1个周期的一周期前的ARC的简单移动平均与N2周期内前一周期的ARC的简单移动平均的差值；
+RCCD:SMA(DIF,N,1);//DIF的N周期的以1为权重的移动平均；
 </code>
 
-## ROC �䶯����
+## ROC 变动速率
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-ROC:(CLOSE-REF(CLOSE,N))/REF(CLOSE,N)*100;//���̼���N����ǰ���̼�����ò�ֵ��N����ǰ���̼�����ֵ������ΪROC��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+ROC:(CLOSE-REF(CLOSE,N))/REF(CLOSE,N)*100;//收盘价与N周期前收盘价做差，该差值与N周期前收盘价做比值，定义为ROC。
 ROCMA:MA(ROC,M);
 BACKGROUNDSTYLE(2);
 </code>
 
-## RSI ���ǿ��ָ��(Relative Strenth Index)
+## RSI 相对强弱指标(Relative Strenth Index)
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-LC := REF(CLOSE,1);//ǰһ�������̼�
-RSI1:SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;//����K�����̼���ǰһ�������̼�����ڸò�ֵ��0֮��ȡ���ֵ����N1�����ƶ�ƽ�������̼���ǰһ�������̼�����ֵ��ȡ�ò�ֵ��N1�����ƶ�ƽ��ֵ����ƽ��ֵ֮������ֵ��
-RSI2:SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;//����K�����̼���ǰһ�������̼�����ڸò�ֵ��0֮��ȡ���ֵ����N2�����ƶ�ƽ�������̼���ǰһ�������̼�����ֵ��ȡ�ò�ֵ��N2�����ƶ�ƽ��ֵ����ƽ��ֵ֮������ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+LC := REF(CLOSE,1);//前一周期收盘价
+RSI1:SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;//当根K线收盘价与前一周期收盘价做差，在该差值与0之间取最大值，做N1周期移动平均。收盘价与前一周期收盘价做差值，取该差值的N1周期移动平均值，两平均值之间做比值。
+RSI2:SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;//当根K线收盘价与前一周期收盘价做差，在该差值与0之间取最大值，做N2周期移动平均。收盘价与前一周期收盘价做差值，取该差值的N2周期移动平均值，两平均值之间做比值。
 BACKGROUNDSTYLE(0);
 </code>
 
-## SLOWKD ����KD
+## SLOWKD 慢速KD
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-RSV:= (CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//���̼���N�������ֵ���N�������ֵ��N�������ֵ�������֮������ֵ��
-FASTK:=SMA(RSV,M1,1);//RSV���ƶ�ƽ��ֵ
-K:SMA(FASTK,M2,1);//FASTK���ƶ�ƽ��ֵ
-D:SMA(K,M3,1);//K���ƶ�ƽ��ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+RSV:= (CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;//收盘价与N周期最高值做差，N周期最高值与N周期最低值做差，两差之间做比值。
+FASTK:=SMA(RSV,M1,1);//RSV的移动平均值
+K:SMA(FASTK,M2,1);//FASTK的移动平均值
+D:SMA(K,M3,1);//K的移动平均值
 
 </code>
 
-## SRDM �����ٶȱ���
+## SRDM 动向速度比率
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 DMZ:=IFELSE((HIGH+LOW)<=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));
-//����ߵ�ӵ͵�ļ۸�С�ڵ�������ĸߵ�ӵ͵�ļ۸��򷵻�0�����򷵻� ����K�ߵĸߵ����ϸ�K�ߵĸߵ�Ĳ�ֵ�ľ���ֵ�뵱��K�ߵĵ͵����ϸ�K�ߵĵ͵�ľ���ֵ�нϴ��ߣ�
+//如果高点加低点的价格小于等于昨天的高点加低点的价格，则返回0，否则返回 当根K线的高点与上根K线的高点的差值的绝对值与当根K线的低点与上根K线的低点的绝对值中较大者；
 DMF:=IFELSE((HIGH+LOW)>=(REF(HIGH,1)+REF(LOW,1)),0,MAX(ABS(HIGH-REF(HIGH,1)),ABS(LOW-REF(LOW,1))));
-//�������K�ߵĸߵ�ӵ͵�ļ۸���ڵ�������ĸߵ�ӵ͵�ļ۸��򷵻�0�����򷵻� ����K�ߵĸߵ����ϸ�K�ߵĸߵ�Ĳ�ֵ�ľ���ֵ�뵱��K�ߵĵ͵����ϸ�K�ߵĵ͵�ľ���ֵ�нϴ��ߣ�
-ADMZ:=MA(DMZ,10);//DMZֵ��10�ռ��ƶ�ƽ����
-ADMF:=MA(DMF,10);//DMFֵ��10�ռ��ƶ�ƽ����
-SRDM:IFELSE(ADMZ>ADMF,(ADMZ-ADMF)/ADMZ,IFELSE(ADMZ=ADMF,0,(ADMZ-ADMF)/ADMF));//���ADMZ>ADMF���򷵻�(ADMZ-ADMF)/ADMZ������ADMZ=ADMFʱ����0��С��ʱ����(ADMZ-ADMF)/ADMF;
-ASRDM:SMA(SRDM,N,1);//SRDMֵ��N����1ΪȨ�ص��ƶ�ƽ����
+//如果当根K线的高点加低点的价格大于等于昨天的高点加低点的价格，则返回0，否则返回 当根K线的高点与上根K线的高点的差值的绝对值与当根K线的低点与上根K线的低点的绝对值中较大者；
+ADMZ:=MA(DMZ,10);//DMZ值的10日简单移动平均；
+ADMF:=MA(DMF,10);//DMF值的10日简单移动平均；
+SRDM:IFELSE(ADMZ>ADMF,(ADMZ-ADMF)/ADMZ,IFELSE(ADMZ=ADMF,0,(ADMZ-ADMF)/ADMF));//如果ADMZ>ADMF，则返回(ADMZ-ADMF)/ADMZ，否则当ADMZ=ADMF时返回0，小于时返回(ADMZ-ADMF)/ADMF;
+ASRDM:SMA(SRDM,N,1);//SRDM值的N日以1为权重的移动平均；
 </code>
 
-## SRMI MI����ָ��
+## SRMI MI修正指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 A:IFELSE(CLOSE<REF(CLOSE,N),(CLOSE-REF(CLOSE,N))/REF(CLOSE,N),IFELSE(CLOSE=REF(CLOSE,N),0,(CLOSE-REF(CLOSE,N))/CLOSE));
-//�����ǰ�۸�С��N����ǰ�����̼ۣ��򷵻�(CLOSE-REF(CLOSE,N))/REF(CLOSE,N)��ֵ�������ǰ�۸���ڵ���N����ǰ�����̼ۣ��򵱵��ڵ�ʱ�򷵻�0�����ڵ�ʱ�򷵻�(CLOSE-REF(CLOSE,N))/CLOSE);
-MI:SMA(A,N,1);//A��N���ڵ���1ΪȨ�ص��ƶ�ƽ����
+//如果当前价格小于N周期前的收盘价，则返回(CLOSE-REF(CLOSE,N))/REF(CLOSE,N)的值，如果当前价格大于等于N周期前的收盘价，则当等于的时候返回0，大于的时候返回(CLOSE-REF(CLOSE,N))/CLOSE);
+MI:SMA(A,N,1);//A的N周期的以1为权重的移动平均；
 </code>
 
-## WR ����ָ��(William's %R)
+## WR 威廉指标(William's %R)
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-WR:-100*(HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N));//N��������߼������̼�֮����N��������߼ۺ���ͼ�֮��֮��ı�ֵ��ȡ����
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+WR:-100*(HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N));//N周期内最高价与收盘价之差与N周期内最高价和最低价之差之间的比值，取负。
 </code>
 
-## ZDZB ����ָ��
+## ZDZB 筑底指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-A:=COUNT(CLOSE>=REF(CLOSE,1),N1)/COUNT(CLOSE<REF(CLOSE,1),N1);//N1������CLOSE>=REF(CLOSE,1)�Ĵ�����N1������CLOSE<REF(CLOSE,1)�Ĵ����ı�ֵ��
-B:MA(A,N2);//N2�����ڵ�A�ļ��ƶ�ƽ����
-D:MA(A,N3);//N3�����ڵ�A�ļ��ƶ�ƽ����
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+A:=COUNT(CLOSE>=REF(CLOSE,1),N1)/COUNT(CLOSE<REF(CLOSE,1),N1);//N1周期内CLOSE>=REF(CLOSE,1)的次数与N1周期内CLOSE<REF(CLOSE,1)的次数的比值；
+B:MA(A,N2);//N2周期内的A的简单移动平均；
+D:MA(A,N3);//N3周期内的A的简单移动平均；
 </code>
 
-## DPO ��������
+## DPO 区间震荡线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-DPO:CLOSE-REF(MA(CLOSE,20),11);//���̼���11������ǰ��20���ھ�ֵ����
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+DPO:CLOSE-REF(MA(CLOSE,20),11);//收盘价与11个周期前的20周期均值做差
 </code>
 
-## LON���� ����ָ��
+## LON长线 长线指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TB:=IFELSE(HIGH>REF(CLOSE,1),HIGH-REF(CLOSE,1)+CLOSE-LOW,CLOSE-LOW);//����߼۴���ǰ���̼���ȡ����K����Ӱ���뵱��K�߷��ȵĺͣ�����ȡ����K����Ӱ�߳���
-TS:=IFELSE(REF(CLOSE,1)>LOW,REF(CLOSE,1)-LOW+HIGH-CLOSE,HIGH-CLOSE);//��ǰ���̼۴�����ͼ���ȡ����K����Ӱ���뵱��K�߷��ȵĺͣ�����ȡ����K����Ӱ�߳���
-VOL1:=(TB-TS)*VOL/(TB+TS)/10000;//TB��TS��ֵ�ͳɽ����������TB��TS�ĺ�����
-VOL10:=DMA(VOL1,0.1);//ȡ��VOL1��0.1��̬��ֵ
-VOL11:=DMA(VOL1,0.05);//ȡ��VOL1��0.05��̬��ֵ
-RES1:=VOL10-VOL11;//ȡVOL10��VOL11�Ĳ�
-LON:SUM(RES1,0),COLORSTICK;//ȡ����ʷ����K�ߵ�RES1�ĺ�
-MA1:MA(LON,10);//ȡLON��10���ھ�ֵ��
-
-</code>
-
-## SHORT���� ����ָ��
-
-<code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-TB:=IFELSE(HIGH>REF(CLOSE,1),HIGH-REF(CLOSE,1)+CLOSE-LOW,CLOSE-LOW);//����߼۴���ǰ���̼���ȡ����K����Ӱ���뵱��K�߷��ȵĺͣ�����ȡ����K����Ӱ�߳���
-TS:=IFELSE(REF(CLOSE,1)>LOW,REF(CLOSE,1)-LOW+HIGH-CLOSE,HIGH-CLOSE);//��ǰ���̼۴�����ͼ���ȡ����K����Ӱ���뵱��K�߷��ȵĺͣ�����ȡ����K����Ӱ�߳���
-VOL1:=(TB-TS)*VOL/(TB+TS)/10000;//TB��TS��ֵ�ͳɽ����������TB��TS�ĺ�����
-VOL10:=DMA(VOL1,0.1);//ȡ��VOL1��0.1��̬��ֵ
-VOL11:=DMA(VOL1,0.05);//ȡ��VOL1��0.05��̬��ֵ
-SHORT:VOL10-VOL11,COLORSTICK;//ȡVOL10��VOL11�Ĳ�ֵSHORT;	
-MA1:MA(SHORT,10);//ȡSHORT��10���ھ�ֵ
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TB:=IFELSE(HIGH>REF(CLOSE,1),HIGH-REF(CLOSE,1)+CLOSE-LOW,CLOSE-LOW);//若最高价大于前收盘价则取当根K线下影线与当根K线幅度的和，否则取当根K线下影线长度
+TS:=IFELSE(REF(CLOSE,1)>LOW,REF(CLOSE,1)-LOW+HIGH-CLOSE,HIGH-CLOSE);//若前收盘价大于最低价则取当根K线上影线与当根K线幅度的和，否则取当根K线上影线长度
+VOL1:=(TB-TS)*VOL/(TB+TS)/10000;//TB与TS差值和成交量求积在与TB和TS的和做商
+VOL10:=DMA(VOL1,0.1);//取得VOL1的0.1动态均值
+VOL11:=DMA(VOL1,0.05);//取的VOL1的0.05动态均值
+RES1:=VOL10-VOL11;//取VOL10与VOL11的差
+LON:SUM(RES1,0),COLORSTICK;//取得历史所有K线的RES1的和
+MA1:MA(LON,10);//取LON的10周期均值。
 
 </code>
 
-# ���ַ���
-
-## MV ������
+## SHORT短线 短线指标
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+TB:=IFELSE(HIGH>REF(CLOSE,1),HIGH-REF(CLOSE,1)+CLOSE-LOW,CLOSE-LOW);//若最高价大于前收盘价则取当根K线下影线与当根K线幅度的和，否则取当根K线下影线长度
+TS:=IFELSE(REF(CLOSE,1)>LOW,REF(CLOSE,1)-LOW+HIGH-CLOSE,HIGH-CLOSE);//若前收盘价大于最低价则取当根K线上影线与当根K线幅度的和，否则取当根K线上影线长度
+VOL1:=(TB-TS)*VOL/(TB+TS)/10000;//TB与TS差值和成交量求积在与TB和TS的和做商
+VOL10:=DMA(VOL1,0.1);//取得VOL1的0.1动态均值
+VOL11:=DMA(VOL1,0.05);//取得VOL1的0.05动态均值
+SHORT:VOL10-VOL11,COLORSTICK;//取VOL10与VOL11的差值SHORT;	
+MA1:MA(SHORT,10);//取SHORT的10周期均值
+
+</code>
+
+# 量仓分析
+
+## MV 均量线
+
+<code cpp>
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 VOL,VOLUMESTICK;
 MV1:SMA(VOL,N,1);
 MV2:SMA(VOL,M,1);
 </code>
 
-## WAD �������������
+## WAD 威廉多空力度线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
 A:ABS(SUM(IFELSE( CLOSE>REF(CLOSE,1),CLOSE-MIN(REF(CLOSE,1),LOW),IFELSE(CLOSE<REF(CLOSE,1),CLOSE-MAX(REF(CLOSE,1),HIGH),0)),0));
-//��CLOSE>REF(CLOSE,1)��ʱ�򣬷���CLOSE-MIN(REF(CLOSE,1),LOW)��ֵ������CLOSE<REF(CLOSE,1)ʱ������CLOSE-MAX(REF(CLOSE,1),HIGH)��ֵ����������Ļ�����0��ͬʱ�����ݿ�ʼ�ĵ�һ��K�߿�ʼ��ÿ��K�߷���ֵ���м��ܣ�
-B:SMA(A,N,1);//A��N���ڵ���1ΪȨ�ص��ƶ�ƽ����
-E:SMA(A,M,1);//A��M���ڵ���1ΪȨ�ص��ƶ�ƽ����
+//当CLOSE>REF(CLOSE,1)的时候，返回CLOSE-MIN(REF(CLOSE,1),LOW)的值，否则当CLOSE<REF(CLOSE,1)时，返回CLOSE-MAX(REF(CLOSE,1),HIGH)的值，都不满足的话返回0，同时从数据开始的第一根K线开始对每根K线返回值进行加总；
+B:SMA(A,N,1);//A的N周期的以1为权重的移动平均；
+E:SMA(A,M,1);//A的M周期的以1为权重的移动平均；
 </code>
 
 ## AD Accumulation/Distribution
@@ -655,20 +655,20 @@ E:SMA(A,M,1);//A��M���ڵ���1ΪȨ�ص��ƶ�ƽ����
 SUM(((CLOSE-LOW)-(HIGH-CLOSE))/(HIGH-LOW)*VOL,0);
 </code>
 
-## CCL �ֲ��춯
+## CCL 持仓异动
 
 <code cpp>
 CCL;
 </code>
 
-## CJL �ɽ���
+## CJL 成交量
 
 <code cpp>
 VOL,VOLUMESTICK;
 OPID:OPI;
 </code>
 
-## DUALVOL �������
+## DUALVOL 多空量比
 
 <code cpp>
 M:=DUALVOLUME('M');
@@ -676,19 +676,19 @@ N:=DUALVOLUME('N');
 DRAWCOLUMNCHART(N,SCALE>=0.5,M>=0);
 </code>
 
-## OBV ������
+## OBV 能量潮
 
 <code cpp>
 SUM(IFELSE(CLOSE>REF(CLOSE,1),VOL,IFELSE(CLOSE<REF(CLOSE,1),-VOL,0)),0);
 </code>
 
-## OPI �ֲ���
+## OPI 持仓量
 
 <code cpp>
 OPI,OPISTICK;
 </code>
 
-## PVT ��������ָ��
+## PVT 价量趋势指数
 
 <code cpp>
 SUM((CLOSE-REF(CLOSE,1))/REF(CLOSE,1)*VOL,0);
@@ -700,7 +700,7 @@ SUM((CLOSE-REF(CLOSE,1))/REF(CLOSE,1)*VOL,0);
 (MA(VOL,SHORT)-MA(VOL,LONG))/MA(VOL,SHORT)*100;
 </code>
 
-## VR VR��������
+## VR VR容量比率
 
 <code cpp>
 LC:=REF(CLOSE,1);
@@ -708,147 +708,147 @@ SUM(IFELSE(CLOSE>LC,VOL,0),N)/
 SUM(IFELSE(CLOSE<=LC,VOL,0),N)*100;
 </code>
 
-## VROC ���䶯����
+## VROC 量变动速率
 
 <code cpp>
 (VOL-REF(VOL,N))/REF(VOL,N)*100;
 </code>
 
-## VRSI �����ǿ��
+## VRSI 量相对强弱
 
 <code cpp>
 SMA(MAX(VOL-REF(VOL,1),0),N,1)/SMA(ABS(VOL-REF(VOL,1)),N,1)*100;
 </code>
 
-## WVAD ����������ɢ��
+## WVAD 威廉变异离散量
 
 <code cpp>
 (CLOSE-OPEN)/(HIGH-LOW)*VOL;
 </code>
 
-# ��̬ѡ��
+# 形态选股
 
-## ���߶�ͷ����
+## 均线多头排列
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A1:=MA(CLOSE,N);
 A2:=MA(CLOSE,N1);
 A3:=MA(CLOSE,N2);
 A4:=MA(CLOSE,N3);
-COUNT(A1>A2 AND A2>A3 AND A3>A4,3)=3 AND ISUP,SELECT;//ѡ������3��������߶�ͷ���еĹ�Ʊ��
+COUNT(A1>A2 AND A2>A3 AND A3>A4,3)=3 AND ISUP,SELECT;//选出连续3日满足均线多头排列的股票。
 </code>
 
-## ���߿�ͷ����
+## 均线空头排列
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A1:=MA(CLOSE,N);
 A2:=MA(CLOSE,N1);
 A3:=MA(CLOSE,N2);
 A4:=MA(CLOSE,N3);
-COUNT(A1<A2 AND A2<A3 AND A3<A4,3)=3 AND NOT(ISUP),SELECT;//ѡ������3��������߿�ͷ���еĹ�Ʊ��
+COUNT(A1<A2 AND A2<A3 AND A3<A4,3)=3 AND NOT(ISUP),SELECT;//选出连续3日满足均线空头排列的股票。
 </code>
 
-## �糿֮��
+## 早晨之星
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 REF(CLOSE,2)/REF(OPEN,2)<0.95 AND
 REF(OPEN,1)<REF(CLOSE,2) AND
 ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.03 AND
-CLOSE/OPEN>1.05 AND CLOSE>REF(CLOSE,2),SELECT;//ѡ�����㡰�糿֮�ǡ���̬�Ĺ�Ʊ��
+CLOSE/OPEN>1.05 AND CLOSE>REF(CLOSE,2),SELECT;//选出满足“早晨之星”形态的股票。
 </code>
 
-## �ƻ�֮��
+## 黄昏之星
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 REF(CLOSE,2)/REF(OPEN,2)>1.03 AND
 REF(OPEN,1)>REF(CLOSE,2) AND
 ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.02 AND
-CLOSE/OPEN<0.97 AND CLOSE<REF(CLOSE,2),SELECT;//ѡ�����㡰�ƻ�֮�ǡ���̬�Ĺ�Ʊ��
+CLOSE/OPEN<0.97 AND CLOSE<REF(CLOSE,2),SELECT;//选出满足“黄昏之星”形态的股票。
 </code>
 
-## ƽ̨����
+## 平台整理
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-BARPOS>N AND (HHV(CLOSE,N)-LLV(CLOSE,N))/LLV(CLOSE,N)<=(N1/100),SELECT;//ѡ���ڹ�ȥ��N����K�ߵ���߼ۺ���ͼ۵ı䶯��Χ��M%���ڵĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+BARPOS>N AND (HHV(CLOSE,N)-LLV(CLOSE,N))/LLV(CLOSE,N)<=(N1/100),SELECT;//选出在过去的N日中K线的最高价和最低价的变动范围在M%以内的股票。
 
-//N��N1�ǲ�����Ĭ��ֵ��30��11����ѡ���ڹ�ȥ��30����K�ߵ���߼ۺ���ͼ۵ı䶯��Χ��11%���ڵĹ�Ʊ����ֵ�����ڲ����б����޸ġ�
+//N、N1是参数，默认值是30、11，即选出在过去的30日中K线的最高价和最低价的变动范围在11%以内的股票。数值可以在参数列表中修改。
 </code>
 
-## ǿ������
+## 强势整理
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A1:=ABS(CLOSE-OPEN)/OPEN<0.015;
 A2:=COUNT(A1,M)=M;
 A3:=REF(O,M)<REF(CLOSE,M) AND REF(CLOSE,M)/REF(CLOSE,M+1)>1+N/100;
-A2 AND A3,SELECT;//ѡ��ǰ����������ǰ���յ����̼�����N%��������2�ղ���С��1.5%�Ĺ�Ʊ��
+A2 AND A3,SELECT;//选出前两日收阳，前三日的收盘价上涨N%，且连续2日波幅小于1.5%的股票。
 
-//M��N�ǲ�����Ĭ��ֵ��2��5����ѡ��ǰ����������ǰ���յ����̼�����5%��������2�ղ���С��1.5%�Ĺ�Ʊ����ֵ�����ڲ����б����޸ġ�
+//M和N是参数，默认值是2、5，即选出前两日收阳，前三日的收盘价上涨5%，且连续2日波幅小于1.5%的股票。数值可以在参数列表中修改。
 </code>
 
-## �߿�������
+## 高开大阴线
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-OPEN>CLOSE AND OPEN/REF(C,1)>=1+M/100 AND CLOSE/OPEN<=1-N/100,SELECT;//ѡ�����̼۱��������̼۸߳�M%���ҵ�ǰK��Ϊ����С��N%�����ߵĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+OPEN>CLOSE AND OPEN/REF(C,1)>=1+M/100 AND CLOSE/OPEN<=1-N/100,SELECT;//选出开盘价比昨日收盘价高出M%，且当前K线为跌幅小于N%的阴线的股票。
 
-//M��N�ǲ�����Ĭ��ֵΪ4��5����ѡ�����̼۱��������̼۸߳�4%���ҵ�ǰK��Ϊ����С��5%�����ߵĹ�Ʊ����ֵ�����ڲ����б����޸ġ�
+//M和N是参数，默认值为4、5，即选出开盘价比昨日收盘价高出4%，且当前K线为跌幅小于5%的阴线的股票。数值可以在参数列表中修改。
 </code>
 
-## �Ϳ�������
+## 低开大阳线
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-OPEN<CLOSE AND OPEN/REF(C,1)<=1-M/100 AND CLOSE/OPEN>=1+N/100,SELECT;//ѡ�����̼۱���һ���ڵ����̼�СM%���ҵ�ǰK��Ϊ�Ƿ�����N%�����ߵĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+OPEN<CLOSE AND OPEN/REF(C,1)<=1-M/100 AND CLOSE/OPEN>=1+N/100,SELECT;//选出开盘价比上一周期的收盘价小M%，且当前K线为涨幅大于N%的阳线的股票。
 
-//M��N�ǲ�����Ĭ��ֵΪ4��7����ѡ�����̼۱���һ���ڵ����̼�С4%���ҵ�ǰK��Ϊ�Ƿ�����7%�����ߵĹ�Ʊ����ֵ�����ڲ����б����޸ġ�
+//M和N是参数，默认值为4、7，即选出开盘价比上一周期的收盘价小4%，且当前K线为涨幅大于7%的阳线的股票。数值可以在参数列表中修改。
 </code>
 
-## ������
+## 四连阴
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-EVERY(CLOSE<OPEN,4),SELECT;//ѡ������4�������Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+EVERY(CLOSE<OPEN,4),SELECT;//选出连续4日收阴的股票。
 </code>
 
-## ������
+## 四连阳
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-EVERY(CLOSE>OPEN,4),SELECT;//ѡ���������������Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+EVERY(CLOSE>OPEN,4),SELECT;//选出连续四日收阳的股票。
 </code>
 
-## �͵�����
+## 低点搜索
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-W:=MA((LLV(LOW,45)-CLOSE)/(HHV(HIGH,45)-LLV(LOW,45))*100,N);//�������W����ʾ45���е���͵�;��ߵĲ�ֵ����45��������ֵ֮��ı�ֵ����5�����ڵľ�ֵ��
-CROSS(-5,W),SELECT;//ѡ��Wֵ�´�-5�Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+W:=MA((LLV(LOW,45)-CLOSE)/(HHV(HIGH,45)-LLV(LOW,45))*100,N);//定义变量W，表示45日中的最低点和均线的差值，与45日最高最低值之差的比值，在5个周期的均值。
+CROSS(-5,W),SELECT;//选出W值下穿-5的股票。
 
-//N�ǲ�������ʾ���ߵ����ڣ������ڲ����б����޸ġ�
+//N是参数，表示均线的周期，可以在参数列表中修改。
 </code>
 
-## ͻ��
+## 突破
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 M1:=MA(C,N1);
 M2:=MA(C,N2);
 M3:=MA(C,N3);
@@ -859,511 +859,511 @@ T1:=CROSS(M2,M3);
 T2:=D1>=D2 AND D2>=D3;
 T3:=COUNT(CROSS(M2,M1) OR CROSS(M3,M2) OR CROSS(M3,M1),D1)=0;
 T4:=REF(M1<M3 AND M2<M3,D1+1);
-T1 AND T2 AND T3 AND T4,SELECT;//ѡ���������������������ϴ�Խ�Ĺ�Ʊ��
+T1 AND T2 AND T3 AND T4,SELECT;//选出三条均线依次满足向上穿越的股票。
 
-//N1��N2��N3�ǲ�������ʾ���ߵ����ڣ���ֵ�����ڲ����б����޸ġ�
+//N1、N2、N3是参数，表示均线的周期，数值可以在参数列表中修改。
 </code>
 
-## ���ܷ���
+## 四周法则
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-HIGH>HV(HIGH,N),SELECT;//ѡ����߼۴�20�����¸ߵĹ�Ʊ��N�ǲ�������ʾ���ڣ�Nֵ�����ڲ����б��޸ġ�
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+HIGH>HV(HIGH,N),SELECT;//选出最高价创20周期新高的股票。N是参数，表示周期，N值可以在参数列表修改。
 </code>
 
-## ����ȱ��
+## 跳空缺口
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-HIGH<REF(LOW,1) OR LOW>REF(HIGH,1),SELECT;//ѡ�����ϻ����������յĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+HIGH<REF(LOW,1) OR LOW>REF(HIGH,1),SELECT;//选出向上或者向下跳空的股票。
 </code>
 
-## ���ո߿���Ϳ�
+## 跳空高开或低开
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A:=(O>REF(H,1) AND (O-REF(C,1))/REF(C,1)*100>N);
 B:=(O<REF(L,1) AND (O-REF(C,1))/REF(C,1)*100<N);
-IF(N>0,A,B),SELECT;//ѡ��K��ʵ�岿�����ϻ����������յĹ�Ʊ��
+IF(N>0,A,B),SELECT;//选出K线实体部分向上或者向下跳空的股票。
 </code>
 
-# ָ��ѡ��
+# 指标选股
 
-## BIAS��������������ѡ��
+## BIAS乖离率买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:= (CLOSE-HHV(HIGH,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 LWR1:=SMA(RSV,M1,1);
 LWR2:=SMA(LWR1,M2,1);
-CROSS(LWR1,HH),SELECT;//ѡ������ָ���ϴ�80�Ĺ�Ʊ��HHΪ������Ĭ��ֵΪ80�������ڲ����б��޸ġ�
+CROSS(LWR1,HH),SELECT;//选出威廉指标上穿80的股票；HH为参数，默认值为80，可以在参数列表修改。
 </code>
 
-## BIAS��������������ѡ��
+## BIAS乖离率卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-100*(C-MA(C,N))/MA(C,N)>M,SELECT;//ѡ�������ʴ���12�Ĺ�Ʊ��MΪ������Ĭ��ֵΪ12�������ڲ����б��޸ġ�
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+100*(C-MA(C,N))/MA(C,N)>M,SELECT;//选出乖离率大于12的股票；M为参数，默认值为12，可以在参数列表修改。
 </code>
 
-## BOLL���ִ���������ѡ��
+## BOLL布林带买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 MID:=MA(CLOSE,N);
 TMP2:=STD(CLOSE,M);
 TOP:=MID+P*TMP2;
 BOTTOM:=MID-P*TMP2;
-CROSS(CLOSE,BOTTOM),SELECT;//ѡ���۸��ϴ������¹�Ĺ�Ʊ
+CROSS(CLOSE,BOTTOM),SELECT;//选出价格上穿布林下轨的股票
 </code>
 
-## BOLL���ִ���������ѡ��
+## BOLL布林带卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 MID:=MA(CLOSE,N);
 TMP2:=STD(CLOSE,M);
 TOP:=MID+P*TMP2;
 BOTTOM:=MID-P*TMP2;
-CROSS(TOP,C),SELECT;//ѡ���۸��´������Ϲ�Ĺ�Ʊ
+CROSS(TOP,C),SELECT;//选出价格下穿布林上轨的股票
 </code>
 
-## KDJ���ָ����������ѡ��
+## KDJ随机指标买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 K:=SMA(RSV,M1,1);
 D:=SMA(K,M2,1);
 J:=3*K-2*D;
-CROSS(J,0),SELECT;//ѡ��Jֵ�ϴ�0��Ĺ�Ʊ
+CROSS(J,0),SELECT;//选出J值上穿0轴的股票
 </code>
 
-## KDJ���ָ����������ѡ��
+## KDJ随机指标卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 K:=SMA(RSV,M1,1);
 D:=SMA(K,M2,1);
 J:=3*K-2*D;
-CROSS(0,J),SELECT;//ѡ��Jֵ�´�0��Ĺ�Ʊ
+CROSS(0,J),SELECT;//选出J值下穿0轴的股票
 </code>
 
-## KD���������ѡ��
+## KD买入点条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:= (CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 K:=SMA(RSV,M1,1);
 D:=SMA(K,M2,1);
-CROSS(K,D) && D<N1,SELECT;//ѡ��K�ϴ�D����DֵС��20�Ĺ�Ʊ��N1Ϊ������Ĭ��ֵΪ20�������ڲ����б��޸ġ�
+CROSS(K,D) && D<N1,SELECT;//选出K上穿D，且D值小于20的股票；N1为参数，默认值为20，可以在参数列表修改。
 </code>
 
-## KD����������ѡ��
+## KD卖出点条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:= (CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 K:=SMA(RSV,N1,1);
 D:=SMA(K,N2,1);
-CROSS(D,K) && D>N3,SELECT;//ѡ��K�´�D����Dֵ����80�Ĺ�Ʊ��N3Ϊ������Ĭ��ֵΪ80�������ڲ����б��޸ġ�
+CROSS(D,K) && D>N3,SELECT;//选出K下穿D，且D值大于80的股票；N3为参数，默认值为80，可以在参数列表修改。
 </code>
 
-## MACD���������ѡ��
+## MACD买入点条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 DIFF:= EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);
 DEA:= EMA(DIFF,M);
-CROSS(DIFF,DEA),SELECT;//ѡ��DIFF�ϴ�DEA�Ĺ�Ʊ��
+CROSS(DIFF,DEA),SELECT;//选出DIFF上穿DEA的股票。
 </code>
 
-## MACD����������ѡ��
+## MACD卖出点条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 DIFF:= EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);
 DEA:= EMA(DIFF,M);
-CROSSDOWN(DIFF,DEA),SELECT;//ѡ��DIFF�´�DEA�Ĺ�Ʊ��
+CROSSDOWN(DIFF,DEA),SELECT;//选出DIFF下穿DEA的股票。
 </code>
 
-## MA������������ѡ��
+## MA均线买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG)),SELECT;//ѡ��5���ھ����ϴ�10���ھ��ߵĹ�Ʊ��SHORT��LONGΪ������Ĭ��ֵΪ5��10�������ڲ����б��޸ġ�
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG)),SELECT;//选出5周期均线上穿10周期均线的股票；SHORT和LONG为参数，默认值为5和10，可以在参数列表修改。
 </code>
 
-## MA������������ѡ��
+## MA均线卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-CROSS(MA(C,M),MA(C,N)),SELECT;//ѡ��10���ھ����´�30���ھ��ߵĹ�Ʊ��M��NΪ������Ĭ��ֵΪ10��30�������ڲ����б��޸ġ�
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+CROSS(MA(C,M),MA(C,N)),SELECT;//选出10周期均线下穿30周期均线的股票；M和N为参数，默认值为10和30，可以在参数列表修改。
 </code>
 
-## MTM��������ѡ��
+## MTM买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 MTM:=CLOSE-REF(CLOSE,N);
 MTMMA:=MA(MTM,N1);
-CROSS(MTMMA,0),SELECT;//ѡ��MTMMAָ���ϴ�0��Ĺ�Ʊ��
+CROSS(MTMMA,0),SELECT;//选出MTMMA指标上穿0轴的股票。
 </code>
 
-## MTM��������ѡ��
+## MTM卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 MTM:=CLOSE-REF(CLOSE,N);
 MTMMA:=MA(MTM,N1);
-CROSSDOWN(MTMMA,0),SELECT;//ѡ��MTMMAָ���´�0��Ĺ�Ʊ��
+CROSSDOWN(MTMMA,0),SELECT;//选出MTMMA指标下穿0轴的股票。
 
 </code>
 
-## RSI��������ѡ��
+## RSI买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 LC:= REF(CLOSE,1);
 RSI1:=SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;
 RSI2:=SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;
-CROSS(RSI1,LL),SELECT;//ѡ��RSI�ϴ�20�Ĺ�Ʊ��LLΪ������Ĭ��ֵΪ20�������ڲ����б��޸ġ�
+CROSS(RSI1,LL),SELECT;//选出RSI上穿20的股票；LL为参数，默认值为20，可以在参数列表修改。
 </code>
 
-## RSI��������ѡ��
+## RSI卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 LC:= REF(CLOSE,1);
 RSI1:=SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;
 RSI2:=SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;
-CROSS(RSI1,HH),SELECT;//ѡ��RSI�´�80�Ĺ�Ʊ��HHΪ������Ĭ��ֵΪ80�������ڲ����б��޸ġ�
+CROSS(RSI1,HH),SELECT;//选出RSI下穿80的股票；HH为参数，默认值为80，可以在参数列表修改。
 </code>
 
-## SAR��������ѡ��
+## SAR买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 STEP1:=STEP/100;
 MVALUE1:=MVALUE/10;
 SARLINE:=SAR(N,STEP1,MVALUE1);
-CROSS(SARLINE,0),SELECT;//ѡ��SARֵ�ɸ�ת���Ĺ�Ʊ��
+CROSS(SARLINE,0),SELECT;//选出SAR值由负转正的股票。
 </code>
 
-## SAR��������ѡ��
+## SAR卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 STEP1:=STEP/100;
 MVALUE1:=MVALUE/10;
 SARLINE:=SAR(N,STEP1,MVALUE1);
-CROSSDOWN(SARLINE,0),SELECT;//ѡ��SARֵ����ת���Ĺ�Ʊ��
+CROSSDOWN(SARLINE,0),SELECT;//选出SAR值由正转负的股票。
 </code>
 
-## W&R����ָ����������ѡ��
+## W&R威廉指标买入条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:= (CLOSE-HHV(HIGH,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 LWR1:=SMA(RSV,M1,1);
 LWR2:=SMA(LWR1,M2,1);
-CROSS(LWR1,HH),SELECT;//ѡ������ָ���ϴ�80�Ĺ�Ʊ��HHΪ������Ĭ��ֵΪ80�������ڲ����б��޸ġ�
+CROSS(LWR1,HH),SELECT;//选出威廉指标上穿80的股票；HH为参数，默认值为80，可以在参数列表修改。
 </code>
 
-## W&R����ָ����������ѡ��
+## W&R威廉指标卖出条件选股
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 RSV:= (CLOSE-HHV(HIGH,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 LWR1:=SMA(RSV,M1,1);
 LWR2:=SMA(LWR1,M2,1);
-CROSS(LWR1,LL),SELECT;//ѡ������ָ���´�20�Ĺ�Ʊ��LLΪ������Ĭ��ֵΪ20�������ڲ����б��޸ġ�
+CROSS(LWR1,LL),SELECT;//选出威廉指标下穿20的股票；LL为参数，默认值为20，可以在参数列表修改。
 
 </code>
 
-# ����ѡ��
+# 走势选股
 
-## N�մ��¸�
+## N日创新高
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//ѡ��ǰN�죬K�ߵ���߼���ͼ�������N1%��Χ�ڸ��������յļ۸�ͻ��N����߼۵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//选出前N天，K线的最高价最低价在上下N1%范围内浮动，当日的价格突破N日最高价的股票。
 
-//N��N1Ϊ������Ĭ��ֵΪ30��30����ѡ����ǰ30�գ�K�ߵ�������ֵ��30%�ķ�Χ�ڸ��������ռ۸�ͻ��30����߼۵Ĺ�Ʊ��N��N1����ֵ�����ڲ����б��޸ġ�
+//N、N1为参数，默认值为30、30，即选出在前30日，K线的最高最低值在30%的范围内浮动，当日价格突破30日最高价的股票。N、N1的数值可以在参数列表修改。
 </code>
 
-## N�մ��µ�
+## N日创新低
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//ѡ��ǰN�죬K�ߵ���߼���ͼ�������N1%��Χ�ڸ��������յļ۸�ͻ��N����߼۵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//选出前N天，K线的最高价最低价在上下N1%范围内浮动，当日的价格突破N日最高价的股票。
 
-//N��N1Ϊ������Ĭ��ֵΪ30��30����ѡ����ǰ30�գ�K�ߵ�������ֵ��30%�ķ�Χ�ڸ��������ռ۸�ͻ��30����߼۵Ĺ�Ʊ��N��N1����ֵ�����ڲ����б��޸ġ�
+//N、N1为参数，默认值为30、30，即选出在前30日，K线的最高最低值在30%的范围内浮动，当日价格突破30日最高价的股票。N、N1的数值可以在参数列表修改。
 </code>
 
-## M�����߶�������
+## M日阴线多于阳线
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(ISDOWN,M)>COUNT(ISUP,M),SELECT;//ѡ��M�������������������������Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(ISDOWN,M)>COUNT(ISUP,M),SELECT;//选出M日内阴线数量多于阳线数量的股票。
 
-//MΪ������Ĭ��ֵΪ30����ѡ��30�������������������������Ĺ�Ʊ��Mֵ�����ڲ����б����޸ġ�
-
-</code>
-
-## M�����߶�������
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(ISDOWN,M)<COUNT(ISUP,M),SELECT;//ѡ��M�������������������������Ĺ�Ʊ��
-
-//MΪ������Ĭ��ֵΪ30����ѡ��30�������������������������Ĺ�Ʊ��Mֵ�����ڲ����б����޸ġ�
-</code>
-
-## N�������Ƕ����µ�
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(C>REF(C,1),N)/N >= M/100,SELECT;//ѡ��N��������K�߶����µ�K�ߵĹ�Ʊ��
-
-//N��MΪ������Ĭ��ֵΪ120��60����ѡ��120��������K��ռ�ȴ���60%�Ĺ�Ʊ��N��M����ֵ�����ڲ����б����޸ġ�
-</code>
-
-## N�����µ���������
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(C<REF(C,1),N)/N >= M/100,SELECT;//ѡ��N�����µ�K�߶�������K�ߵĹ�Ʊ��
-
-//N��MΪ������Ĭ��ֵΪ120��60����ѡ��120�����µ�K��ռ�ȴ���60%�Ĺ�Ʊ��N��M����ֵ�����ڲ����б����޸ġ�
-</code>
-
-## ����N��������
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(ISUP,N)=N,SELECT;//ѡ��N�������������Ĺ�Ʊ��
-
-//NΪ������Ĭ��ֵΪ7����ѡ��7�������������Ĺ�Ʊ��Nֵ�����ڲ����б����޸ġ�
-</code>
-
-## ����N��������
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(ISDOWN,N)=N,SELECT;//ѡ��N�������������Ĺ�Ʊ��
-
-//NΪ������Ĭ��ֵΪ7����ѡ��7�������������Ĺ�Ʊ��Nֵ�����ڲ����б����޸ġ�
-</code>
-
-## ����N������
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(C>REF(C,1),N)=N,SELECT;//ѡ������N�����ǵĹ�Ʊ��
-
-//NΪ������Ĭ��ֵΪ5����ѡ��5�����������ǵĹ�Ʊ��Nֵ�����ڲ����б����޸ġ�
-</code>
-
-## ����N���µ�
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-COUNT(C<REF(C,1),N)=N,SELECT;//ѡ������N���µ��Ĺ�Ʊ��
-
-//NΪ������Ĭ��ֵΪ5����ѡ��5���������µ��Ĺ�Ʊ��Nֵ�����ڲ����б����޸ġ�
-</code>
-
-## �״δ��¸�
-
-<code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-BARSSINCE(C>HV(IF(BARSCOUNT(C)=1,HIGH,0),0))+1=1,SELECT;//ѡ���۸��״δ��¸ߵĹ�Ʊ��
+//M为参数，默认值为30，即选出30日内阴线数量多于阳线数量的股票。M值可以在参数列表中修改。
 
 </code>
 
-## �״δ��µ�
+## M日阳线多于阴线
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-BARSSINCE(C<LV(IF(BARSCOUNT(C)=1,LOW,0),0))+1=1,SELECT;//ѡ���۸��״δ��µ͵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(ISDOWN,M)<COUNT(ISUP,M),SELECT;//选出M日内阳线数量多于阴线数量的股票。
+
+//M为参数，默认值为30，即选出30日内阳线数量多于阴线数量的股票。M值可以在参数列表中修改。
 </code>
 
-## ����ʷ�¸�
+## N日内上涨多于下跌
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-HHV(CLOSE,0)=CLOSE,SELECT;//ѡ�����̼۴���ʷ�¸ߵĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(C>REF(C,1),N)/N >= M/100,SELECT;//选出N日内上涨K线多于下跌K线的股票。
+
+//N、M为参数，默认值为120、60，即选出120日内上涨K线占比大于60%的股票。N和M的数值可以在参数列表中修改。
 </code>
 
-## ����ʷ�µ�
+## N日内下跌多于上涨
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-LLV(CLOSE,0)=CLOSE,SELECT;//ѡ�����̼۴���ʷ�µ͵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(C<REF(C,1),N)/N >= M/100,SELECT;//选出N日内下跌K线多于上涨K线的股票。
+
+//N、M为参数，默认值为120、60，即选出120日内下跌K线占比大于60%的股票。N和M的数值可以在参数列表中修改。
 </code>
 
-## ��������
+## 连续N天收阳线
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(ISUP,N)=N,SELECT;//选出N日内连续收阳的股票。
+
+//N为参数，默认值为7，即选出7日内连续收阳的股票。N值可以在参数列表中修改。
+</code>
+
+## 连续N天收阴线
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(ISDOWN,N)=N,SELECT;//选出N日内连续收阴的股票。
+
+//N为参数，默认值为7，即选出7日内连续收阴的股票。N值可以在参数列表中修改。
+</code>
+
+## 连续N天上涨
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(C>REF(C,1),N)=N,SELECT;//选出连续N天上涨的股票。
+
+//N为参数，默认值为5，即选出5日内连续上涨的股票。N值可以在参数列表中修改。
+</code>
+
+## 连续N天下跌
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+COUNT(C<REF(C,1),N)=N,SELECT;//选出连续N天下跌的股票。
+
+//N为参数，默认值为5，即选出5日内连续下跌的股票。N值可以在参数列表中修改。
+</code>
+
+## 首次创新高
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+BARSSINCE(C>HV(IF(BARSCOUNT(C)=1,HIGH,0),0))+1=1,SELECT;//选出价格首次创新高的股票。
+
+</code>
+
+## 首次创新低
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+BARSSINCE(C<LV(IF(BARSCOUNT(C)=1,LOW,0),0))+1=1,SELECT;//选出价格首次创新低的股票。
+</code>
+
+## 创历史新高
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+HHV(CLOSE,0)=CLOSE,SELECT;//选出收盘价创历史新高的股票。
+</code>
+
+## 创历史新低
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+LLV(CLOSE,0)=CLOSE,SELECT;//选出收盘价创历史新低的股票。
+</code>
+
+## 持续放量
+
+<code cpp>
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 B:=VOL>REF(VOL,1);
-COUNT(B,M)=M,SELECT;//ѡ��M���ڳ��������Ĺ�Ʊ��
+COUNT(B,M)=M,SELECT;//选出M日内持续放量的股票。
 
-//MΪ������Ĭ��ֵΪ3����ѡ��3���ڳ��������Ĺ�Ʊ��Mֵ�����ڲ����б����޸ġ�
+//M为参数，默认值为3，即选出3日内持续放量的股票。M值可以在参数列表中修改。
 </code>
 
-## ��������
+## 持续缩量
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 B:=VOL<REF(VOL,1);
-COUNT(B,M)=M,SELECT;//ѡ��M���ڳ��������Ĺ�Ʊ��
+COUNT(B,M)=M,SELECT;//选出M日内持续缩量的股票。
 
-//MΪ������Ĭ��ֵΪ3����ѡ��3���ڳ��������Ĺ�Ʊ��Mֵ�����ڲ����б����޸ġ�
+//M为参数，默认值为3，即选出3日内持续缩量的股票。M值可以在参数列表中修改。
 </code>
 
-## �������
+## 间隔放量
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A:=MA(VOL,5);
-BARSCOUNT(C)>=N AND HHV(A,N)<N1*LLV(A,N) AND COUNT(VOL>N2*A,N)>N3,SELECT;//ѡ��N���ڵĳɽ�����ֵ�����ֵС��N1���ĳɽ�����ֵ��Сֵ����N���ڳɽ�������N2���ĳɽ�����ֵ��K�߸�������N3�Ĺ�Ʊ��
+BARSCOUNT(C)>=N AND HHV(A,N)<N1*LLV(A,N) AND COUNT(VOL>N2*A,N)>N3,SELECT;//选出N日内的成交量均值的最大值小于N1倍的成交量均值最小值，且N日内成交量大于N2倍的成交量均值的K线根数大于N3的股票。
 
-//N��N1��N2��N3Ϊ������Ĭ��ֵΪ30��4��2��2����ѡ��30���ڵĳɽ�����ֵ�����ֵС��4���ĳɽ�����ֵ��Сֵ����30���ڳɽ�������2���ĳɽ�����ֵ��K�߸�������2�Ĺ�Ʊ��N��N1��N2��N3����ֵ�����ڲ����б����޸ġ�
+//N、N1、N2、N3为参数，默认值为30、4、2、2，即选出30日内的成交量均值的最大值小于4倍的成交量均值最小值，且30日内成交量大于2倍的成交量均值的K线根数大于2的股票。N、N1、N2、N3的数值可以在参数列表中修改。
 
 </code>
 
-## ͻȻ����
+## 突然放量
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-VOL>REF(HHV(VOL,N),1)*M,SELECT;//ѡ�ɽ�������ǰN�յĳɽ������ֵ��M���Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+VOL>REF(HHV(VOL,N),1)*M,SELECT;//选成交量大于前N日的成交量最大值的M倍的股票。
 
-//N��MΪ������Ĭ��ֵΪ10��3����ѡ���ɽ�������ǰ10�������ɽ���3���Ĺ�Ʊ��N��M����ֵ�����ڲ����б����޸ġ�
+//N、M为参数，默认值为10、3，即选出成交量大于前10日中最大成交量3倍的股票。N、M的数值可以在参数列表中修改。
 </code>
 
-## ͻ�Ƴ�������
+## 突破长期盘整
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//ѡ��ǰN�죬K�ߵ���߼���ͼ�������N1%��Χ�ڸ��������յļ۸�ͻ��N����߼۵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSCOUNT(C)>N,SELECT;//选出前N天，K线的最高价最低价在上下N1%范围内浮动，当日的价格突破N日最高价的股票。
 
-//N��N1Ϊ������Ĭ��ֵΪ30��30����ѡ����ǰ30�գ�K�ߵ�������ֵ��30%�ķ�Χ�ڸ��������ռ۸�ͻ��30����߼۵Ĺ�Ʊ��N��N1����ֵ�����ڲ����б��޸ġ�
+//N、N1为参数，默认值为30、30，即选出在前30日，K线的最高最低值在30%的范围内浮动，当日价格突破30日最高价的股票。N、N1的数值可以在参数列表修改。
 </code>
 
-## �µ������ٷ�������
+## 下跌多日再放量上涨
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
 A1:=REF(CLOSE,5)>REF(CLOSE,4);
 A2:=REF(CLOSE,4)>REF(CLOSE,3);
 A3:=REF(CLOSE,3)>REF(CLOSE,2);
 A4:=REF(CLOSE,2)>REF(CLOSE,1);
 A5:=CLOSE>REF(HIGH,1) AND V>REF(V,1);
-A1 AND A2 AND A3 AND A4 AND A5,SELECT;//ѡ�����̼���ǰ5���������µ������ռ۸�ͻ����һ����߼ۣ��ҳɽ��������Ĺ�Ʊ��
+A1 AND A2 AND A3 AND A4 AND A5,SELECT;//选出收盘价在前5日内连续下跌，当日价格突破上一日最高价，且成交量放量的股票。
 
 </code>
 
-## ���յ���
+## 百日地量
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-VOL=LLV(VOL,100),SELECT;//ѡ���ɽ�����100���ڴ��µ͵Ĺ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+VOL=LLV(VOL,100),SELECT;//选出成交量在100日内创新低的股票。
 </code>
 
-## ��������
+## 百日天量
 
 <code cpp>
-//�ù�ʽ��������ʾ����α�дѡ�ɹ�ʽ
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-VOL=HHV(VOL,100),SELECT;//ѡ���ɽ�����100���ڴ��¸ߵĹ�Ʊ��
+//该公式仅仅用来示范如何编写选股公式
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+VOL=HHV(VOL,100),SELECT;//选出成交量在100日内创新高的股票。
 </code>
 
-# ����
+# 其他
 
-## OPEN ���̼���
+## OPEN 开盘价线
 
 <code cpp>
 OPEN;
 </code>
 
-## HIGH ��߼���
+## HIGH 最高价线
 
 <code cpp>
 HIGH;
 </code>
 
-## LOW ��ͼ���
+## LOW 最低价线
 
 <code cpp>
 LOW;
 </code>
 
-## MA ���ƶ�ƽ����
+## MA 简单移动平均线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-MA1:MA(CLOSE,N);//����10���ھ���
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+MA1:MA(CLOSE,N);//定义10周期均线
 </code>
 
-## EMA ָ����Ȩ�ƶ�ƽ����
+## EMA 指数加权移动平均线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-EMA10:=EMA(CLOSE,10);//����10�������̼۵�ָ��ƽ���ƶ�ƽ��ֵ��
-EMA20:=EMA(CLOSE,20);//����20�������̼۵�ָ��ƽ���ƶ�ƽ��ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+EMA10:=EMA(CLOSE,10);//定义10周期收盘价的指数平滑移动平均值。
+EMA20:=EMA(CLOSE,20);//定义20周期收盘价的指数平滑移动平均值。
 </code>
 
-## EXPMA ָ����Ȩ�ƶ�ƽ�������
+## EXPMA 指数加权移动平均线组合
 
 <code cpp>
 MA1:EMA(CLOSE,P1);
@@ -1372,35 +1372,35 @@ MA3:EMA(CLOSE,P3);
 MA4:EMA(CLOSE,P4);
 </code>
 
-## SMA ��չָ����Ȩ�ƶ�ƽ����
+## SMA 扩展指数加权移动平均线
 
 <code cpp>
 SMA(CLOSE,N,2);
 </code>
 
-## EMA2 ���Լ�Ȩ�ƶ�ƽ����
+## EMA2 线性加权移动平均线
 
 <code cpp>
-//��ģ�ͽ�������ʾ����θ���ָ���д�򵥵�ģ��
-//�û���Ҫ�����Լ����׾��飬�����޸ĺ���ʵ��Ӧ��!!!
-// //��Ϊ����˵������дģ��ʱ����д��
-EMA210:EMA2(CLOSE,10);//����10�������̼۵ļ�Ȩƽ��ֵ��
-EMA220:EMA2(CLOSE,20);//����20�������̼۵ļ�Ȩƽ��ֵ��
+//该模型仅仅用来示范如何根据指标编写简单的模型
+//用户需要根据自己交易经验，进行修改后再实际应用!!!
+// //后为文字说明，编写模型时不用写出
+EMA210:EMA2(CLOSE,10);//定义10周期收盘价的加权平均值。
+EMA220:EMA2(CLOSE,20);//定义20周期收盘价的加权平均值。
 </code>
 
-## TRMA �����ƶ�ƽ����
+## TRMA 三角移动平均线
 
 <code cpp>
 MA1:TRMA(C,N);
 </code>
 
-## TSMA ʱ�����������ƶ�ƽ����
+## TSMA 时间序列三角移动平均线
 
 <code cpp>
 MA1:TSMA(C,N);
 </code>
 
-## ����ͼ Webstock ������
+## 走势图 Webstock 收盘线
 
 <code cpp>
 CLOSE;
@@ -1410,55 +1410,55 @@ POLYPOINT(BIDBIGVOLPRICE> 0 , BIDBIGVOLPRICE , COLORRED);
 POLYPOINT(ASKBIGVOLPRICE> 0 , ASKBIGVOLPRICE , COLORGREEN);
 </code>
 
-# ����ģ�ͱ�дʾ��
+# 趋势模型编写示范
 
 ## WHBXSF
 
 <code cpp>
-//�ù�ʽΪ������ģ�ͱ�дʾ�����С������ڱ�дʾ��������ʹ�ã�����ɾ�������޸ģ����򽫵��¡������ڱ�дʾ�����޷�����ʹ��
-//�ù�ʽ����Ϊ4�����߶�ͷ�Ϳ�ͷ����
+//该公式为“趋势模型编写示范”中“跨周期编写示范”引用使用，请勿删除或者修改，否则将导致“跨周期编写示范”无法正常使用
+//该公式内容为4条均线多头和空头排列
 MA5:=MA(C,5);
 MA10:=MA(C,10);
 MA20:=MA(C,20);
-MA30:=MA(C,30); //������������
-A:=C>MA5&&MA5>MA10&&MA10>MA20&&MA20>MA30; //4�����߶�ͷ���У��Ҽ۸��ھ���֮��
-B:=C<MA5&&MA5<MA10&&MA10<MA20&&MA20<MA30; //4�����߿�ͷ���У��Ҽ۸��ھ���֮��
+MA30:=MA(C,30); //定义四条均线
+A:=C>MA5&&MA5>MA10&&MA10>MA20&&MA20>MA30; //4条均线多头排列，且价格在均线之上
+B:=C<MA5&&MA5<MA10&&MA10<MA20&&MA20<MA30; //4条均线空头排列，且价格在均线之下
 </code>
 
-## ��ָ���дʾ��
+## 跨指标编写示范
 
 <code cpp>
-//��ʾ���þ��ߺ�KDJ����ָ����ʹ�ã���ʾ����ָ��ģ�͡��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范用均线和KDJ两个指标结合使用，演示“跨指标模型”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 RSV:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
 K..SMA(RSV,3,1);
 D..SMA(K,3,1);
-J..3*K-2*D;//����ΪKDJ��ʽ
+J..3*K-2*D;//以上为KDJ公式
 MA5^^MA(CLOSE,5);
-MA10^^MA(CLOSE,10);//����Ϊ����5���ھ��ߺ�10���ھ���
-CROSSUP(MA5,MA10)&&REF(J,1)<70,BK;//5���ھ����ϴ�10���ھ��߲���ǰһ�����ڵ�Jֵ����70ʱ���뿪��
-CROSSDOWN(K,D)&&REF(J,1)>70,SP;//KD�������沢��ǰһ������Jֵ����70ʱ����ƽ��
-CROSSDOWN(MA5,MA10)&&REF(J,1)>30,SK;//5���ھ����´�10���ھ��߲���ǰһ�����ڵ�Jֵ����30ʱ��������
-CROSSUP(K,D)&&REF(J,1)<30,BP;// KD���ֽ�沢��ǰһ������JֵС��30ʱ����ƽ��
+MA10^^MA(CLOSE,10);//以上为定义5周期均线和10周期均线
+CROSSUP(MA5,MA10)&&REF(J,1)<70,BK;//5周期均线上穿10周期均线并且前一个周期的J值少于70时买入开仓
+CROSSDOWN(K,D)&&REF(J,1)>70,SP;//KD出现死叉并且前一个周期J值大于70时卖出平仓
+CROSSDOWN(MA5,MA10)&&REF(J,1)>30,SK;//5周期均线下穿10周期均线并且前一个周期的J值大于30时卖出开仓
+CROSSUP(K,D)&&REF(J,1)<30,BP;// KD出现金叉并且前一个周期J值小于30时买入平仓
 AUTOFILTER;
 </code>
 
-## ���Լ��дʾ��
+## 跨合约编写示范
 
 <code cpp>
-//��ʾ��Ϊ�����Ļ���Ʒָ��������г��������жϣ��ھ���Ʒ���Ͻ��ף���ʾ�����Լģ�͡��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范为引用文华商品指标对整体市场方向做判断，在具体品种上交易，演示“跨合约模型”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 #CALL[7186,WHBXSF]AS VAR
-WHMA5:=VAR.MA5;//�����Ļ���Ʒָ����5���ھ���
-WHMA10:=VAR.MA10;//�����Ļ���Ʒָ����10���ھ���
-WHMA20:=VAR.MA20;//�����Ļ���Ʒָ����20���ھ���
+WHMA5:=VAR.MA5;//引用文华商品指数的5周期均线
+WHMA10:=VAR.MA10;//引用文华商品指数的10周期均线
+WHMA20:=VAR.MA20;//引用文华商品指数的20周期均线
 N:=BARSLAST(DATE<>REF(DATE,1))+1;
 KP:=VALUEWHEN(DATE<>REF(DATE,1),O);
-N>5&&C>KP&&WHMA5>WHMA10&&WHMA10>WHMA20,BK;//����5�����ں�����۸���ڽ񿪣������Ļ���Ʒָ�����߶�ͷ���У����뿪��
-N>5&&C<KP&&WHMA5<WHMA10&&WHMA10<WHMA20,SK;//����5�����ں�����۸�С�ڽ񿪣������Ļ���Ʒָ�����߿�ͷ���У���������
+N>5&&C>KP&&WHMA5>WHMA10&&WHMA10>WHMA20,BK;//开盘5个周期后，如果价格大于今开，并且文华商品指数均线多头排列，买入开仓
+N>5&&C<KP&&WHMA5<WHMA10&&WHMA10<WHMA20,SK;//开盘5个周期后，如果价格小于今开，并且文华商品指数均线空头排列，卖出开仓
 CLOSEMINUTE<=1,CLOSEOUT;
 AUTOFILTER;
 
@@ -1466,20 +1466,20 @@ AUTOFILTER;
 
 </code>
 
-## �����ڱ�дʾ��
+## 跨周期编写示范
 
 <code cpp>
-//��ʾ��Ϊ�����Ļ���Ʒָ��������г��������жϣ��ھ���Ʒ���Ͻ��ף���ʾ�����Լģ�͡��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范为引用文华商品指标对整体市场方向做判断，在具体品种上交易，演示“跨合约模型”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 #CALL[7186,WHBXSF]AS VAR
-WHMA5:=VAR.MA5;//�����Ļ���Ʒָ����5���ھ���
-WHMA10:=VAR.MA10;//�����Ļ���Ʒָ����10���ھ���
-WHMA20:=VAR.MA20;//�����Ļ���Ʒָ����20���ھ���
+WHMA5:=VAR.MA5;//引用文华商品指数的5周期均线
+WHMA10:=VAR.MA10;//引用文华商品指数的10周期均线
+WHMA20:=VAR.MA20;//引用文华商品指数的20周期均线
 N:=BARSLAST(DATE<>REF(DATE,1))+1;
 KP:=VALUEWHEN(DATE<>REF(DATE,1),O);
-N>5&&C>KP&&WHMA5>WHMA10&&WHMA10>WHMA20,BK;//����5�����ں�����۸���ڽ񿪣������Ļ���Ʒָ�����߶�ͷ���У����뿪��
-N>5&&C<KP&&WHMA5<WHMA10&&WHMA10<WHMA20,SK;//����5�����ں�����۸�С�ڽ񿪣������Ļ���Ʒָ�����߿�ͷ���У���������
+N>5&&C>KP&&WHMA5>WHMA10&&WHMA10>WHMA20,BK;//开盘5个周期后，如果价格大于今开，并且文华商品指数均线多头排列，买入开仓
+N>5&&C<KP&&WHMA5<WHMA10&&WHMA10<WHMA20,SK;//开盘5个周期后，如果价格小于今开，并且文华商品指数均线空头排列，卖出开仓
 CLOSEMINUTE<=1,CLOSEOUT;
 AUTOFILTER;
 
@@ -1487,15 +1487,15 @@ AUTOFILTER;
 
 </code>
 
-## ����ָ���дʾ��
+## 分组指令编写示范
 
 <code cpp>
-//��ʾ����Ҫ�ò����жϲ�ͬ�����飬ʹ�ò�ͬ�Ĳ��ԣ���ʾ������ָ��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要用波幅判断不同的行情，使用不同的策略，演示“分组指令”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 TR:=MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));
-ATR..MA(TR,26);//����
+ATR..MA(TR,26);//波幅
 RSV:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
 K:=SMA(RSV,3,1);
 D:=SMA(K,3,1);
@@ -1503,98 +1503,98 @@ J:=3*K-2*D;
 HH:=HV(H,10);
 LL:=LV(L,10);
 ATR>HV(ATR,10)&&H>HH&&C>O,BK('A');
-ATR>HV(ATR,10)&&L<LL&&C<O,SK('A');//A�鿪��ָ��Ϊ���������¸ߵ�ʱ���ü۸�ͻ�Ʒ�������
+ATR>HV(ATR,10)&&L<LL&&C<O,SK('A');//A组开仓指令为当波幅创新高的时候，用价格突破方法开仓
 L<LV(L,4),SP('A');
-H>HV(H,4),BP('A');//ֻƽA�鿪��
+H>HV(H,4),BP('A');//只平A组开仓
 ATR<LV(ATR,10)&&CROSS(K,D)&&C>O,BK('B');
-ATR<LV(ATR,10)&&CROSS(D,K)&&C<O,SK('B');//B�鿪��ָ��Ϊ���������µ͵�ʱ����KDJ������濪��
+ATR<LV(ATR,10)&&CROSS(D,K)&&C<O,SK('B');//B组开仓指令为当波幅创新低的时候，用KDJ金叉死叉开仓
 C>BKPRICE+15*MINPRICE||C<BKPRICE-5*MINPRICE||C<REF(L,BARSBK),SP('B');
-C<SKPRICE-15*MINPRICE||C>SKPRICE+5*MINPRICE||C>REF(H,BARSSK),BP('B');//ֻƽB�鿪��
-//��ͬ�Ŀ����������֣��ò�ͬ��ƽ��������������Ե�ƽ�֡��ﵽ��ͬ�������ò�ͬ���Ե�Ŀ�ġ�
+C<SKPRICE-15*MINPRICE||C>SKPRICE+5*MINPRICE||C>REF(H,BARSSK),BP('B');//只平B组开仓
+//不同的开仓条件开仓，用不同的平仓条件，有针对性的平仓。达到不同行情试用不同策略的目的。
 AUTOFILTER;
 </code>
 
-## ������ֱ�дʾ��
+## 日内清仓编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ��������֡��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“日内清仓”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 N:=BARSLAST(DATE<>REF(DATE,1))+1;
-H>HV(H,2)&&C>HV(C,2)&&N>=3&&TIME<1445,BK;//���ֵ�ʱ��Ҫ���������֮ǰ��������ֺ��ֻῪ��
+H>HV(H,2)&&C>HV(C,2)&&N>=3&&TIME<1445,BK;//开仓的时间要控制在清仓之前，否则清仓后又会开仓
 L<LV(L,2)&&C<LV(C,2)&&N>=3&&TIME<1445,SK;
 C<REF(L,1),SP;
 C>REF(H,1),BP;
-CLOSEMINUTE1<=10,CLOSEOUT;//��������ǰ10�������۶�ն�ƽ�֣�ģ����֣�
-MULTSIG(0,0,1,10);//���ź������µ������ˣ�һ��K��ֻ��һ���ź�,ÿ��10�����һ���źš�
+CLOSEMINUTE1<=10,CLOSEOUT;//当日收盘前10分钟无论多空都平仓（模型清仓）
+MULTSIG(0,0,1,10);//出信号立即下单不复核，一根K线只出一个信号,每隔10秒计算一次信号。
 AUTOFILTER;
 </code>
 
-## �Ӳּ��ֱ�дʾ��
+## 加仓减仓编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ���Ӳּ��֡��ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“加仓减仓”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 MA5^^MA(C,5);
 MA10^^MA(C,10);
-A:=MA5>MA10&&C>=HV(H,5);  //��ͷ��������   
-A1:=C>BKPRICE+30*MINPRICE;//��ͷ�Ӳ�����
-B:=MA5<MA10&&C<=LV(L,5);//��ͷ��������  
-B1:=C<SKPRICE-30*MINPRICE;//��ͷ�Ӳ�����
-A2:=BARSBK>=10&&C<BKPRICE+5*MINPRICE;//��ͷ��������;     
-B2:=BARSSK>=10&&C>SKPRICE-5*MINPRICE;//��ͷ��������; 
-D:=C>=BKPRICE+100*MINPRICE||C<=BKPRICE-10*MINPRICE;//��ͷȫƽ������; 
-E:=C<=SKPRICE-100*MINPRICE||C>=SKPRICE+10*MINPRICE;//��ͷȫƽ������;
+A:=MA5>MA10&&C>=HV(H,5);  //多头开仓条件   
+A1:=C>BKPRICE+30*MINPRICE;//多头加仓条件
+B:=MA5<MA10&&C<=LV(L,5);//空头开仓条件  
+B1:=C<SKPRICE-30*MINPRICE;//空头加仓条件
+A2:=BARSBK>=10&&C<BKPRICE+5*MINPRICE;//多头减仓条件;     
+B2:=BARSSK>=10&&C>SKPRICE-5*MINPRICE;//空头减仓条件; 
+D:=C>=BKPRICE+100*MINPRICE||C<=BKPRICE-10*MINPRICE;//多头全平仓条件; 
+E:=C<=SKPRICE-100*MINPRICE||C>=SKPRICE+10*MINPRICE;//空头全平仓条件;
 A,BK(2);
 B,SK(2);
 A1&&BKVOL>=2&&ISLASTBK,BK(1);
-B1&&SKVOL>=2&&ISLASTSK,SK(1);//�жϳֲֺ�ǰһ���źţ�����������Ӳ�
+B1&&SKVOL>=2&&ISLASTSK,SK(1);//判断持仓和前一个信号，满足条件后加仓
 A2&&ISLASTBK&&BKVOL>=2,SP(1);
-B2&&ISLASTSK&&SKVOL>=2,BP(1);//�жϳֲֺ�ǰһ���źţ��������������
+B2&&ISLASTSK&&SKVOL>=2,BP(1);//判断持仓和前一个信号，满足条件后减仓
 D&&BKVOL>0&&(ISLASTBK||ISLASTSP),SP(BKVOL);
-E&&SKVOL>0&&(ISLASTSK||ISLASTBP),BP(SKVOL);//�жϳֲֺ�ǰһ���źţ�����������ȫƽ
-//�Ӳּ���ģ�͵ı�д�ص�Ϊ�Գֲֺ��źŵ��жϣ�Ȼ�����ȷ���Ƿ���мӲּ���
+E&&SKVOL>0&&(ISLASTSK||ISLASTBP),BP(SKVOL);//判断持仓和前一个信号，满足条件后全平
+//加仓减仓模型的编写重点为对持仓和信号的判断，然后才能确定是否进行加仓减仓
 TRADE_AGAIN(1);
 </code>
 
-## ���꽻�ױ�дʾ��
+## 海龟交易编写示范
 
 <code cpp>
-//��ʾ����Ҫ�ú��꽻�׷�����ʾ��ͷ����㣬����λ���Ƶ��ʽ�������ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要用海龟交易法则，演示“头寸计算，最大仓位控制等资金管理”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-TR:=MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));//��ʵ����
-ATR:=MA(TR,26); //��26����������ʵ�����ļ��ƶ�ƽ��
-TC..INTPART((MONEYTOT*0.01/(UNIT*ATR)));//����Ȩ���1%�����µ�����
-MTC..4*TC; //�ܵĳֲ�ͷ��
+TR:=MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));//真实波幅
+ATR:=MA(TR,26); //求26个周期内真实波幅的简单移动平均
+TC..INTPART((MONEYTOT*0.01/(UNIT*ATR)));//根据权益的1%计算下单手数
+MTC..4*TC; //总的持仓头寸
 HH:=HV(H,20);
 LL:=LV(L,20);
-CROSSUP(C,HH)&&ISLASTBK=0&&ISLASTSK=0&&BARPOS>=26,BK(TC);//���¼۳���20���ڵ����ֵ���״����뿪�֣�����ΪTC��
-CROSSDOWN(C,LL)&&ISLASTBK=0&&ISLASTSK=0,SK(TC); //���¼۵���20���ڵ����ֵ���״��������֣�����ΪTC��
-C>=BKPRICE+0.5*ATR&&BKVOL<MTC&&ISLASTBK,BK(TC);//�۸����ϴο��ֵĻ���������0.5��ATR��������������4��TC��ʱ������Ӳ�TC��
-C<=SKPRICE-0.5*ATR&&SKVOL<MTC&&ISLASTSK,SK(TC);//�۸����ϴο��ֵĻ������µ�0.5��ATR��������������4��TC��ʱ�������Ӳ�TC��
-C<=(BKPRICE-2*ATR)&&BKVOL>0,SP(BKVOL);//���¼�С�ڿ��ּۼ�ȥ2����ATR��ֹ��ƽ��
-C>=(SKPRICE+2*ATR)&&SKVOL>0,BP(SKVOL); //���¼۴��ڿ��ּۼ���2����ATR��ֹ��ƽ��
-CROSSUP(H,HV(H,10))&&SKVOL>0,BP(SKVOL);//��߼��ϴ�10������߼ۣ�ƽ��
-CROSSDOWN(L,LV(L,10))&&BKVOL>0,SP(BKVOL); //��ͼ��´�10���ڵ���ͼۣ�ƽ��
+CROSSUP(C,HH)&&ISLASTBK=0&&ISLASTSK=0&&BARPOS>=26,BK(TC);//最新价超过20周期的最高值，首次买入开仓，手数为TC手
+CROSSDOWN(C,LL)&&ISLASTBK=0&&ISLASTSK=0,SK(TC); //最新价跌破20周期的最低值，首次卖出开仓，手数为TC手
+C>=BKPRICE+0.5*ATR&&BKVOL<MTC&&ISLASTBK,BK(TC);//价格在上次开仓的基础上上涨0.5倍ATR，在手数不超过4倍TC的时候，买入加仓TC手
+C<=SKPRICE-0.5*ATR&&SKVOL<MTC&&ISLASTSK,SK(TC);//价格在上次开仓的基础上下跌0.5倍ATR，在手数不超过4倍TC的时候，卖出加仓TC手
+C<=(BKPRICE-2*ATR)&&BKVOL>0,SP(BKVOL);//最新价小于开仓价减去2倍的ATR，止损平仓
+C>=(SKPRICE+2*ATR)&&SKVOL>0,BP(SKVOL); //最新价大于开仓价加上2倍的ATR，止损平仓
+CROSSUP(H,HV(H,10))&&SKVOL>0,BP(SKVOL);//最高价上穿10周期最高价，平仓
+CROSSDOWN(L,LV(L,10))&&BKVOL>0,SP(BKVOL); //最低价下穿10周期的最低价，平仓
 TRADE_AGAIN(10);
 
 </code>
 
-## ֻ�㵱�����ݱ�дʾ��
+## 只算当天数据编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ��DAYTRADE��������ģ���ڷ���������ֻ�õ������ݽ������С� 
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա��
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示用DAYTRADE函数控制模型在分钟周期上只用当天数据进行运行。 
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-DAYTRADE;//�������ڣ�ֻ�õ������ݼ��� 
+DAYTRADE;//分钟周期，只用当日数据计算 
 HH^^HV(H,20);
-LL^^LV(L,20);//ǰ20�����ڵĸߵ͵㣬����δ��20�����ڣ���Ϊ��ֵ��
+LL^^LV(L,20);//前20个周期的高低点，当天未满20个周期，则为空值。
 CROSSUP(C,HH),BK;
 CROSSDOWN(C,LL),SK;
 C<BKPRICE-5*MINPRICE,SP;
@@ -1603,12 +1603,12 @@ CLOSEMINUTE<=1,CLOSEOUT;
 AUTOFILTER;
 </code>
 
-## �������ƽ��״���ʾ��
+## 日内限制交易次数示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ��COUNT�Ⱥ������������ڽ��״������ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示用COUNT等函数“控制日内交易次数”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 N:=BARSLAST(DATE<>REF(DATE,1))+1;
 ZO^^REF(VALUEWHEN(N=1,O),N);
@@ -1616,20 +1616,20 @@ ZG^^REF(HHV(H,N),N);
 ZD^^REF(LLV(L,N),N);
 TR:=MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));
 ATR..MA(TR,26);
-TIME<1455&&COUNT(BARSBK=1||BARSSK=1,N)=0&&C>ZG,BK;//�۸����������߼ۣ��򿪣�һ��ֻ��һ�Σ�
+TIME<1455&&COUNT(BARSBK=1||BARSSK=1,N)=0&&C>ZG,BK;//价格大于昨天最高价，买开，一天只做一次．
 C<BKPRICE-3*ATR||CLOSEMINUTE<=1,SP;
-TIME<1455&&COUNT(BARSBK=1||BARSSK=1,N)=0&&C<ZD,SK;//�۸�С����������ͼۣ�������һ��ֻ��һ�Σ�
+TIME<1455&&COUNT(BARSBK=1||BARSSK=1,N)=0&&C<ZD,SK;//价格小于于昨天最低价，卖开，一天只做一次．
 C>SKPRICE+3*ATR||CLOSEMINUTE<=1,BP;
 AUTOFILTER;
 
 </code>
 
-## �µ�ί�м۸��дʾ��
+## 下单委托价格编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ���µ�ί�м۸񡱵ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“下单委托价格”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 MID^^MA(CLOSE,26);
 TMP2:=STD(CLOSE,26);
@@ -1639,21 +1639,21 @@ CROSSUP(C,TOP),BK;
 CROSSDOWN(C,MID),SP;
 CROSSDOWN(C,BOTTOM),SK;
 CROSSUP(C,MID),BP;
-SETSIGPRICETYPE(BK,NEW_ORDER);//BK�ź����źŷ���ʱ�����¼۽���ί��
-SETSIGPRICETYPE(SK,NEW_ORDER);//SK�ź����źŷ���ʱ�����¼۽���ί��
-SETSIGPRICETYPE(BP,TRACING_ORDER);//BP�źŸ�������׷�۵����ý���ί��
-SETSIGPRICETYPE(SP,TRACING_ORDER);//SP�źŸ�������׷�۵����ý���ί��
-//�����µ��۸�ί�з�ʽ����ο�SETSIGPRICETYPE�ĺ���˵��
+SETSIGPRICETYPE(BK,NEW_ORDER);//BK信号以信号发出时的最新价进行委托
+SETSIGPRICETYPE(SK,NEW_ORDER);//SK信号以信号发出时的最新价进行委托
+SETSIGPRICETYPE(BP,TRACING_ORDER);//BP信号根据连续追价的设置进行委托
+SETSIGPRICETYPE(SP,TRACING_ORDER);//SP信号根据连续追价的设置进行委托
+//其他下单价格委托方式，请参考SETSIGPRICETYPE的函数说明
 AUTOFILTER;
 
 </code>
 
-## �ź�ִ�з�ʽ��дʾ��
+## 信号执行方式编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ���ź�ִ�з�ʽ���ı�д����
-//��дʾ���У�ֻ��ʾ���ص�������������ע�ͣ�������������з��룬������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“信号执行方式”的编写方法
+//编写示范中，只对示范重点内容语句进行了注释，其他语句请自行翻译，或者咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 MA5^^MA(C,5);
 MA10^^MA(C,10);
@@ -1664,415 +1664,377 @@ EVERY(MA5>MA10,3)&&CROSSUP(K,D),BK;
 EVERY(MA5<MA10,3)&&CROSSDOWN(K,D),SK;
 BARSBK>2&&C<=BKHIGH-20*MINPRICE,SP;
 BARSSK>2&&C>=SKLOW+20*MINPRICE,BP;
-CHECKSIG(BK,'B',5,'C',0,3);//����BK�źŵ��ź�ִ�з�ʽΪ��K������ǰ5*3=15���µ��������и��ˣ�ÿ��3�����һ���źš�
-CHECKSIG(SK,'B',5,'C',0,3);//����SK�źŵ��ź�ִ�з�ʽΪ��K������ǰ5*3=15���µ��������и��ˣ�ÿ��3�����һ���źš�
-CHECKSIG(SP,'A',0,'C',5,3);//����SP�źŵ��ź�ִ�з�ʽΪ�����ź������µ����µ���5*3=15����и��ˣ�ÿ��3�����һ���źš�
-CHECKSIG(BP,'A',0,'C',5,3);//����BP�źŵ��ź�ִ�з�ʽΪ�����ź������µ����µ���5*3=15����и��ˣ�ÿ��3�����һ���źš�
-//������ź�ִ�з�ʽ����ο�CHECKSIG��CHECKSIG_MIN��MULTSIG��MULTSIG_MIN�ĺ���˵��
+CHECKSIG(BK,'B',5,'C',0,3);//设置BK信号的信号执行方式为：K线走完前5*3=15秒下单，不进行复核，每隔3秒计算一次信号。
+CHECKSIG(SK,'B',5,'C',0,3);//设置SK信号的信号执行方式为：K线走完前5*3=15秒下单，不进行复核，每隔3秒计算一次信号。
+CHECKSIG(SP,'A',0,'C',5,3);//设置SP信号的信号执行方式为：出信号立即下单，下单后5*3=15秒进行复核，每隔3秒计算一次信号。
+CHECKSIG(BP,'A',0,'C',5,3);//设置BP信号的信号执行方式为：出信号立即下单，下单后5*3=15秒进行复核，每隔3秒计算一次信号。
+//更多的信号执行方式，请参考CHECKSIG、CHECKSIG_MIN、MULTSIG、MULTSIG_MIN的函数说明
 AUTOFILTER;
 
 
 </code>
 
-## ȫ��׷��ֹ���дʾ��
+## 全程追踪止损编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ��ȫ��׷��ֹ�𡱵ı�д����
-//�û���Ҫ�����Լ����׾��飬����������ƽ�������������޸ĺ���ʵ��Ӧ��!!!
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“全程追踪止损”的编写方法
+//用户需要根据自己交易经验，补充完整开平仓条件，进行修改后再实际应用!!!
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-//׷�ٵ��ΪSL,����ΪS
-A:=MINPRICE1;//ȡģ�齻�׺�Լ����С�䶯��λ
+//追踪点差为SL,步长为S
+A:=MINPRICE1;//取模组交易合约的最小变动价位
 HH:=HHV(H,BARSBK+1);
 LL:=LLV(L,BARSSK+1);
-//����ȡ�򿪲�������߼ۣ�������������ͼۣ�
+//以上取买开仓以来最高价；卖开仓以来最低价；
 AA:=BKPRICE-SL*A+S*A*INTPART((HH-BKPRICE)/(S*A));
 BB:=SKPRICE+SL*A-S*A*INTPART((SKPRICE-LL)/(S*A));
-//����ȡ���ֺ�ӯ����ֹ����Ӧ���Ƕ���
+//以上取开仓后盈利的止损点差应该是多少
 ((C<=BKPRICE-SL*A)||C<=AA)&&BKPRICE>0,SP;
 ((C>=SKPRICE+SL*A)||C>=BB)&&SKPRICE>0,BP;
-//���ֺ����ﵽ5����ƽ�֣�
-//���ֺ�ӯ��ֹ��۸�������ÿ3��������ϣ������£�����һ�Σ��ص�ʱ����ֹ���λ��ƽ�֣�
+//开仓后亏损达到5个点差，平仓；
+//开仓后盈利止损价跟随行情每3个点差向上（或向下）浮动一次，回调时触碰止损点位，平仓；
 AUTOFILTER;
 </code>
 
-## �޼�ֹ��+׷��ֹӮ��дʾ��
+## 限价止损+追踪止赢编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ��ȫ��׷��ֹ�𡱵ı�д����
-//�û���Ҫ�����Լ����׾��飬����������ƽ�������������޸ĺ���ʵ��Ӧ��!!!
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“全程追踪止损”的编写方法
+//用户需要根据自己交易经验，补充完整开平仓条件，进行修改后再实际应用!!!
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-//׷�ٵ��ΪSL,����ΪS
-A:=MINPRICE1;//ȡģ�齻�׺�Լ����С�䶯��λ
+//追踪点差为SL,步长为S
+A:=MINPRICE1;//取模组交易合约的最小变动价位
 HH:=HHV(H,BARSBK+1);
 LL:=LLV(L,BARSSK+1);
-//����ȡ�򿪲�������߼ۣ�������������ͼۣ�
+//以上取买开仓以来最高价；卖开仓以来最低价；
 AA:=BKPRICE-SL*A+S*A*INTPART((HH-BKPRICE)/(S*A));
 BB:=SKPRICE+SL*A-S*A*INTPART((SKPRICE-LL)/(S*A));
-//����ȡ���ֺ�ӯ����ֹ����Ӧ���Ƕ���
+//以上取开仓后盈利的止损点差应该是多少
 ((C<=BKPRICE-SL*A)||C<=AA)&&BKPRICE>0,SP;
 ((C>=SKPRICE+SL*A)||C>=BB)&&SKPRICE>0,BP;
-//���ֺ����ﵽ5����ƽ�֣�
-//���ֺ�ӯ��ֹ��۸�������ÿ3��������ϣ������£�����һ�Σ��ص�ʱ����ֹ���λ��ƽ�֣�
+//开仓后亏损达到5个点差，平仓；
+//开仓后盈利止损价跟随行情每3个点差向上（或向下）浮动一次，回调时触碰止损点位，平仓；
 AUTOFILTER;
 </code>
 
-## �޼�ֹ��+�޼�ֹӮ��дʾ��
+## 限价止损+限价止赢编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ���޼�ֹ��+�޼�ֹӮ���ı�д����
-//�û���Ҫ�����Լ����׾��飬����������ƽ�������������޸ĺ���ʵ��Ӧ��!!!
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“限价止损+限价止赢”的编写方法
+//用户需要根据自己交易经验，补充完整开平仓条件，进行修改后再实际应用!!!
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-//ֹ����ΪSL,ֹӮ���ΪTP
-A:=MINPRICE1;//ȡģ�齻�׺�Լ����С�䶯��λ
-(C<=BKPRICE-SL*A||C>=BKPRICE+TP*A)&&BKPRICE>0,SP;//�����򿪲ּ�10������ͷֹ�𣻸����򿪲ּ�20������ͷֹӮ
-(C>=SKPRICE+SL*A||C<=SKPRICE-TP*A)&&SKPRICE>0,BP;//���������ּ�10������ͷֹ�𣻵��������ּ�20������ͷֹӮ
+//止损点差为SL,止赢点差为TP
+A:=MINPRICE1;//取模组交易合约的最小变动价位
+(C<=BKPRICE-SL*A||C>=BKPRICE+TP*A)&&BKPRICE>0,SP;//低于买开仓价10个点差，多头止损；高于买开仓价20个点差，多头止赢
+(C>=SKPRICE+SL*A||C<=SKPRICE-TP*A)&&SKPRICE>0,BP;//高于卖开仓价10个点差，空头止损；低于卖开仓价20个点差，空头止赢
 AUTOFILTER;
 </code>
 
-## ��Ʊ����ģ�ͱ�дʾ��
+## 股票趋势模型编写示范
 
 <code cpp>
-//��ʾ����Ҫ��ʾ���޼�ֹ��+�޼�ֹӮ���ı�д����
-//�û���Ҫ�����Լ����׾��飬����������ƽ�������������޸ĺ���ʵ��Ӧ��!!!
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范主要演示“限价止损+限价止赢”的编写方法
+//用户需要根据自己交易经验，补充完整开平仓条件，进行修改后再实际应用!!!
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-//ֹ����ΪSL,ֹӮ���ΪTP
-A:=MINPRICE1;//ȡģ�齻�׺�Լ����С�䶯��λ
-(C<=BKPRICE-SL*A||C>=BKPRICE+TP*A)&&BKPRICE>0,SP;//�����򿪲ּ�10������ͷֹ�𣻸����򿪲ּ�20������ͷֹӮ
-(C>=SKPRICE+SL*A||C<=SKPRICE-TP*A)&&SKPRICE>0,BP;//���������ּ�10������ͷֹ�𣻵��������ּ�20������ͷֹӮ
+//止损点差为SL,止赢点差为TP
+A:=MINPRICE1;//取模组交易合约的最小变动价位
+(C<=BKPRICE-SL*A||C>=BKPRICE+TP*A)&&BKPRICE>0,SP;//低于买开仓价10个点差，多头止损；高于买开仓价20个点差，多头止赢
+(C>=SKPRICE+SL*A||C<=SKPRICE-TP*A)&&SKPRICE>0,BP;//高于卖开仓价10个点差，空头止损；低于卖开仓价20个点差，空头止赢
 AUTOFILTER;
 </code>
 
-## ��ƱT+0ģ�ͱ�дʾ��
+## 股票T+0模型编写示范
 
 <code cpp>
-//��ʾ��������ʾ����ƱT+0ģ�͡��ı�д����
-//��дʾ���У���ʾ����������������ע�ͣ�������������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该示范用于演示“股票T+0模型”的编写方法
+//编写示范中，对示范内容语句均进行了注释，如有疑问请咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-HH:=HV(H,20);//����ǰ20���ڸߵ�
-LL:=LV(L,10);//����ǰ10���ڵ͵�
-MA5:=MA(C,5);//����5���ھ���
-CROSSDOWN(C,LL),SK(500);//�۸��´�ǰ20���ڵ͵㣬����500��
-C>=L*1.02,SK(500);//�۸���ڵ�����ͼ�2%������500��
-C>=MA5&&L<=REF(C,1)*0.96,BP(SKVOL);//�۸���5���ھ����ϲ�����ͼ�С����������4%�����뿪�ֹ���
-CROSSUP(C,HH),BP(SKVOL);//�۸��ϴ�ǰ20���ڸߵ����뿪�ֹ���
-STOCKT0;//���ù�ƱT+0����
+HH:=HV(H,20);//定义前20周期高点
+LL:=LV(L,10);//定义前10周期低点
+MA5:=MA(C,5);//定义5周期均线
+CROSSDOWN(C,LL),SK(500);//价格下穿前20周期低点，卖出500股
+C>=L*1.02,SK(500);//价格大于当日最低价2%，卖出500股
+C>=MA5&&L<=REF(C,1)*0.96,BP(SKVOL);//价格在5周期均线上并且最低价小于昨天收盘4%，买入开仓股数
+CROSSUP(C,HH),BP(SKVOL);//价格上穿前20周期高点买入开仓股数
+STOCKT0;//设置股票T+0交易
 AUTOFINANCING;
-//��Ʊģ�ͽ������AUTOFINANCING����������ú�����ģ�ͻ���ݹ�Ʊ�۸��Զ������ʽ�ʵ��������׼ȷ���㡣
+//股票模型建议加入AUTOFINANCING函数。加入该函数的模型会根据股票价格自动计算资金，实现收益率准确计算。
 
 </code>
 
-## ��Ʊ�źſ��Ʒ�ʽ��дʾ��
+## 股票信号控制方式编写示范
 
 <code cpp>
-//��Ʊģ�͡��ź�ִ�з�ʽ��ʹ��PANZHONG_MIN�������ƣ��������ڷ��ࡰ�źſ��ƺ������в��ĸú���˵��
-//��дʾ���У���ʾ����������������ע�ͣ�������������ѯ�Ļ�������Ա
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//股票模型“信号执行方式”使用PANZHONG_MIN函数控制，具体请在分类“信号控制函数”中查阅该函数说明
+//编写示范中，对示范内容语句均进行了注释，如有疑问请咨询文华工作人员
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 MA60:=MA(C,60);
-DIFF:EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);//�������볤���ڵ����̼۵�ָ��ƽ���ƶ�ƽ��ֵ���
-DEA:EMA(DIFF,M);//DIFF��M������ָ��ƽ���ƶ�ƽ��
-DIFF<0&&CROSS(DIFF,DEA),BK;//MACD��0���²���DIFF�ϴ�DEA,���롣
-CROSS(DEA,DIFF),SP;//DIFF�´�DEA,������
-PANZHONG_MIN(0);//���������ָ����ź������µ���������
+DIFF:EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);//短周期与长周期的收盘价的指数平滑移动平均值做差。
+DEA:EMA(DIFF,M);//DIFF的M个周期指数平滑移动平均
+DIFF<0&&CROSS(DIFF,DEA),BK;//MACD在0轴下并且DIFF上穿DEA,买入。
+CROSS(DEA,DIFF),SP;//DIFF下穿DEA,卖出。
+PANZHONG_MIN(0);//买入和卖出指令，出信号立即下单，不复核
 AUTOFILTER;
 AUTOFINANCING;
-//��Ʊģ�ͽ������AUTOFINANCING����������ú�����ģ�ͻ���ݹ�Ʊ�۸��Զ������ʽ�ʵ��������׼ȷ���㡣
+//股票模型建议加入AUTOFINANCING函数。加入该函数的模型会根据股票价格自动计算资金，实现收益率准确计算。
 
 
 
 
 </code>
 
-# ��ʽ��������дʾ��
+# 公式条件单编写示范
 
-## ��ָ�꿪��ģ��
+## 跨指标开仓模型
 
 <code cpp>
-//��ʽ������ģ���п��Զ�����ָ�꣬ͬʱ���������󿪲֣�ƽ�֣���
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//公式条件单模型中可以定义多个指标，同时满足条件后开仓（平仓）。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-MID^^MA(CLOSE,26);//����ͨ���й�
+MID^^MA(CLOSE,26);//布林通道中轨
 TMP2:=STD(CLOSE,26);
-TOP^^MID+2*TMP2;//����ͨ���Ϲ�
-BOTTOM^^MID-2*TMP2;//����ͨ���¹�
+TOP^^MID+2*TMP2;//布林通道上轨
+BOTTOM^^MID-2*TMP2;//布林通道下轨
 RSV:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
-K:=SMA(RSV,3,1);//KDJ��Kֵ
-D:=SMA(K,3,1);//KDJ��Dֵ
-J:=3*K-2*D;//KDJ��Jֵ
-C>TOP&&EVERY(J>80,2)&&C>O,BK;//�����Ϲ�֮�ϣ��������������Jֵһֱ�ڳ������������������
-CONDITION_ORDER;//��ʽ�������ؼ���
+K:=SMA(RSV,3,1);//KDJ中K值
+D:=SMA(K,3,1);//KDJ中D值
+J:=3*K-2*D;//KDJ中J值
+C>TOP&&EVERY(J>80,2)&&C>O,BK;//布林上轨之上，如果两个周期内J值一直在超买区并收阳，开多仓
+CONDITION_ORDER;//公式条件单关键字
 
 </code>
 
-## ͨ��ͻ�ƿ���ģ��
+## 通道突破开仓模型
 
 <code cpp>
-//��ʽ������ģ���п�������������ƽ̨��ͨ����ͻ�ƺ󿪲֣�ƽ�֣���
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//公式条件单模型中可以量化出各种平台、通道，突破后开仓（平仓）。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-HH^^HV(H,20);//20���ڸߵ�
-CROSSUP(C,HH),BK;//ͻ��20���ڸߵ㣬�����
-CONDITION_ORDER;//��ʽ�������ؼ���
+HH^^HV(H,20);//20周期高点
+CROSSUP(C,HH),BK;//突破20周期高点，开多仓
+CONDITION_ORDER;//公式条件单关键字
 
 
 </code>
 
-## K����Ͽ���ģ��
+## K线组合开仓模型
 
 <code cpp>
-//��ʽ������ģ���п�������������K����̬������û�ߡ��ƻ�֮�ǵ���̬���֣�ƽ�֣���
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//公式条件单模型中可以量化出各种K线形态，如吞没线、黄昏之星等形态开仓（平仓）。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-REF(C>O,1)&&C<O&&C<REF(O,1)&&O>REF(C,1),SK;//��û�ߣ������������ղ�
-CONDITION_ORDER;//��ʽ�������ؼ���
+REF(C>O,1)&&C<O&&C<REF(O,1)&&O>REF(C,1),SK;//吞没线，阴包阳，开空仓
+CONDITION_ORDER;//公式条件单关键字
 </code>
 
-## ��ο���ģ��
+## 多次开仓模型
 
 <code cpp>
-//��ʽ������ģ��ͬһָ�����д���У�ÿ��ָ���ж�ִ��һ�κ󣬸ù�ʽ������ģ���Զ�ֹͣ
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//公式条件单模型同一指令可以写多行，每个指令行都执行一次后，该公式条件单模型自动停止
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-MA10^^MA(C,10);//����10���ھ���
-MA20^^MA(C,20);//����20���ھ���
-MA30^^MA(C,30);//����30���ھ���
-MA60^^MA(C,60);//����60���ھ���
-CROSS(MA10,MA20),BK(2);//10���ھ����ϴ�20���ھ��ߣ��򿪲�2��
-CROSS(MA20,MA30),BK(1);//20���ھ����ϴ�30���ھ��ߣ��򿪲�1��
-CROSS(MA30,MA60),BK(1);//30���ھ����ϴ�60���ھ��ߣ��򿪲�1��
-CONDITION_ORDER;//��ʽ�������ؼ���
+MA10^^MA(C,10);//定义10周期均线
+MA20^^MA(C,20);//定义20周期均线
+MA30^^MA(C,30);//定义30周期均线
+MA60^^MA(C,60);//定义60周期均线
+CROSS(MA10,MA20),BK(2);//10周期均线上穿20周期均线，买开仓2手
+CROSS(MA20,MA30),BK(1);//20周期均线上穿30周期均线，买开仓1手
+CROSS(MA30,MA60),BK(1);//30周期均线上穿60周期均线，买开仓1手
+CONDITION_ORDER;//公式条件单关键字
 </code>
 
-## �������ģ��
+## 日内清仓模型
 
 <code cpp>
-//�ù�ʽ������ģ�����ڶ����гֲֽ���������֣���ܸ�ҹ�ֲַ���
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该公式条件单模型用于对已有持仓进行日内清仓，规避隔夜持仓风险
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 
-CLOSEMINUTE<=1,CLOSEOUT;//����ǰ1���ӣ����
-SETSIGPRICETYPE(CLOSEOUT,LIMIT_ORDER);//���ָ�����м۽���ί�У�ȷ���ɽ�
-CONDITION_ORDER;//��ʽ�������ؼ���
+CLOSEMINUTE<=1,CLOSEOUT;//收盘前1分钟，清仓
+SETSIGPRICETYPE(CLOSEOUT,LIMIT_ORDER);//清仓指令用市价进行委托，确保成交
+CONDITION_ORDER;//公式条件单关键字
 </code>
 
-## ����ͻ��ֹ��ģ��
+## 反向突破止损模型
 
 <code cpp>
-//��������������ʱ��ͻȻ���ַ���ͻ�ƣ��������ʱֹ��
-//�̶���λֹ��ֹӮ�������µ�����������ֹ��ֹӮ����
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//行情在延续上涨时，突然出现反向突破，行情骤变时止损。
+//固定点位止损止赢可以在下单软件中设置止损止赢单。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 ST:=ABS(C-O);
-ST>MA(ST,10)*2.5&&REF(EXIST(C>HV(H,5),3),1)&&C<O,SP;//�۸�ͻȻ����ͻ����ƽ��
-CONDITION_ORDER;//��ʽ�������ؼ���
+ST>MA(ST,10)*2.5&&REF(EXIST(C>HV(H,5),3),1)&&C<O,SP;//价格突然反向突破卖平仓
+CONDITION_ORDER;//公式条件单关键字
 </code>
 
-## ͣ���ֹ��ģ��
+## 停损点止损模型
 
 <code cpp>
-//ָ��ֹ������ʵ�þ���SAR����ʽת��ָ�꣬���Ϊͣ���ת�����ϵͳ��
-//�̶���λֹ��ֹӮ�������µ�����������ֹ��ֹӮ����
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//指标止损中最实用就是SAR抛物式转向指标，亦称为停损点转向操作系统。
+//固定点位止损止赢可以在下单软件中设置止损止赢单。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 SARLINE:=ABS(SAR(4,0.02,0.2));
-CROSSDOWN(SARLINE,C),SP;//SAR���Ƽ۸���ƽ��
-CONDITION_ORDER;//��ʽ�������ؼ���
+CROSSDOWN(SARLINE,C),SP;//SAR跌破价格卖平仓
+CONDITION_ORDER;//公式条件单关键字
 
 
 </code>
 
-## ����ֹӮģ��
+## 吊灯止赢模型
 
 <code cpp>
-//������г�����ʵ�������Ӹߵ�س�һ���Ĳ�����ƽ�֡�
-//�̶���λֹ��ֹӮ�������µ�����������ֹ��ֹӮ����
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//计算出市场的真实波幅，从高点回撤一定的波幅即平仓。
+//固定点位止损止赢可以在下单软件中设置止损止赢单。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 
 TR:=MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));
-ATR:=MA(TR,26),COLORYELLOW;//����ʵ����
-CROSSDOWN(C,HV(H,10)-2*ATR),SP;//10�������ڣ��۸�ϸߵ��µ�2��ATRƽ��
-CONDITION_ORDER;//��ʽ�������ؼ���
+ATR:=MA(TR,26),COLORYELLOW;//求真实波幅
+CROSSDOWN(C,HV(H,10)-2*ATR),SP;//10个周期内，价格较高点下跌2倍ATR平仓
+CONDITION_ORDER;//公式条件单关键字
 
 </code>
 
-## ʱ��ֹӮģ��
+## 时间止赢模型
 
 <code cpp>
-//����һ��ʱ�����һ����ʱ���ڣ��۸�����δ�ﵽԤ�ڣ��ͳ�������
-//�̶���λֹ��ֹӮ�������µ�����������ֹ��ֹӮ����
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//上涨一段时间后，在一定的时间内，价格上涨未达到预期，就出场观望
+//固定点位止损止赢可以在下单软件中设置止损止赢单。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
 
-CROSS((C-LV(C,10))/LV(C,10)<0.015,0.5)&&C<MA(C,20),SP;//10�����ڼ۸�����δ�ﵽ1.5%��ƽ��
-CONDITION_ORDER;//��ʽ�������ؼ���
+CROSS((C-LV(C,10))/LV(C,10)<0.015,0.5)&&C<MA(C,20),SP;//10周期内价格上涨未达到1.5%卖平仓
+CONDITION_ORDER;//公式条件单关键字
 
 </code>
 
-## ����ģ��
+## 反手模型
 
 <code cpp>
-//�ù�ʽ������ģ����ʾ���ֲ����ı�д��������������Ϊ������ж����Ʒ�ת��������
-//��ʽ������������ο������桮�������˵�--��ʽ����������
-//�ɵ���������Ϸ�����ͼԤ������ť����ͼ�ϲ鿴�ź�λ�á�
-//��ģ�ͽ�������ʾ����ʾʹ�ã��������У������Ը���
+//该公式条件单模型演示反手操作的编写方法，反手条件为任意可判断趋势反转的条件。
+//公式条件单规则，请参考本界面‘帮助’菜单--公式条件单规则
+//可点击本界面上方‘主图预览’按钮在主图上查看信号位置。
+//该模型仅仅用来示范演示使用，依此入市，风险自负。
 
-MA5^^MA(C,5);//5���ھ���
-MA10^^MA(C,10);//10���ھ���
-MA20^^MA(C,20);//20���ھ���
-MA30^^MA(C,30);//30���ھ���
+MA5^^MA(C,5);//5周期均线
+MA10^^MA(C,10);//10周期均线
+MA20^^MA(C,20);//20周期均线
+MA30^^MA(C,30);//30周期均线
 CROSSDOWN(C,MA5)&&CROSSDOWN(L,MA10)&&REF(MA5>MA10&&MA10>MA20&&MA20>MA30,1),SPK;
-//�ϸ����ھ��߶�ͷ���У���ǰ����5���ھ��߽����´�10���ھ��ߺ�20���ھ��ߣ�ƽ����ͷ��������
-CONDITION_ORDER;//��ʽ�������ؼ���
+//上个周期均线多头排列，当前周期5周期均线接连下穿10周期均线和20周期均线，平掉多头反手做空
+CONDITION_ORDER;//公式条件单关键字
 
 </code>
 
-# ģ�Ϳ�������
+# 模型开发案例
 
-## ��̬ͻ��
+## 动态突破
 
 <code cpp>
-//�ò���Ϊ���Ƹ��ٽ��ײ��ԣ����ýϴ����ڣ������ߡ�
-//��ģ�ͽ�����ģ�Ϳ����������������У������Ը���
+//该策略为趋势跟踪交易策略，适用较大周期，如日线。
+//该模型仅用作模型开发案例，依此入市，风险自负。
 ////////////////////////////////////////////////////////
 VARIABLE:LOOKBACKDAYS:=0;
-TODAYVOLATILITY:=STD(CLOSE,30);//�����г�����
-YESTERDAYVOLATILITY:=REF(TODAYVOLATILITY,1);//�����г�����
-DELTAVOLATILITY:=(TODAYVOLATILITY-YESTERDAYVOLATILITY)/TODAYVOLATILITY;//�г������ı䶯��
-LOOKBACKDAYS:=IF(BARPOS<=30,20,REF(LOOKBACKDAYS,1)*(1+DELTAVOLATILITY));//��������Ӧ����
+TODAYVOLATILITY:=STD(CLOSE,30);//当日市场波动
+YESTERDAYVOLATILITY:=REF(TODAYVOLATILITY,1);//昨日市场波动
+DELTAVOLATILITY:=(TODAYVOLATILITY-YESTERDAYVOLATILITY)/TODAYVOLATILITY;//市场波动的变动率
+LOOKBACKDAYS:=IF(BARPOS<=30,20,REF(LOOKBACKDAYS,1)*(1+DELTAVOLATILITY));//计算自适应参数
 LOOKBACKDAYS:=ROUND(LOOKBACKDAYS,0);
 LOOKBACKDAYS:=MIN(LOOKBACKDAYS,CEILINGAMT);
 LOOKBACKDAYS:=MAX(LOOKBACKDAYS,FLOORAMT);
 MIDLINE:=MA(CLOSE,LOOKBACKDAYS);
-BAND:=STD(CLOSE,LOOKBACKDAYS); //����Ӧ����ͨ���й�
-UPBAND:=MIDLINE+BOLBANDTRIG*BAND;//����Ӧ����ͨ���Ϲ�
-DNBAND:=MIDLINE-BOLBANDTRIG*BAND;//����Ӧ����ͨ���¹�
-BUYPOINT:=HV(HIGH,LOOKBACKDAYS);//����Ӧ���氲ͨ���Ϲ�
-SELLPOINT:=LV(LOW,LOOKBACKDAYS);//����Ӧ���氲ͨ���¹�
-LIQPOINT:=MIDLINE;//����Ӧ��������
-C>UPBAND&&C>BUYPOINT,BK;//���ռ۸���ڲ���ͨ���Ϲ죬���ҵ��ռ۸�������氲ͨ���Ϲ죬���൥
-C<DNBAND&&C<SELLPOINT,SP;//���ж൥ʱ�����ռ۸�С�ڲ���ͨ���¹죬���ҵ��ռ۸�С�����氲ͨ���¹죬ƽ�൥
-EVERY(C<LIQPOINT,3),SP;//���ж൥ʱ���۸�С������Ӧ�������ߣ�ƽ�൥
-C>UPBAND&&C>BUYPOINT,BP;//���пյ�ʱ�����ռ۸���ڲ���ͨ���Ϲ죬���ҵ��ռ۸�������氲ͨ���Ϲ죬ƽ�յ�
-C<DNBAND&&C<SELLPOINT,SK;//���ռ۸�С�ڲ���ͨ���¹죬���ҵ��ռ۸�С�����氲ͨ���¹죬���յ�
-EVERY(C>LIQPOINT,3),BP;//���пյ�ʱ���۸��������Ӧ�������ߣ�ƽ�յ�
+BAND:=STD(CLOSE,LOOKBACKDAYS); //自适应布林通道中轨
+UPBAND:=MIDLINE+BOLBANDTRIG*BAND;//自适应布林通道上轨
+DNBAND:=MIDLINE-BOLBANDTRIG*BAND;//自适应布林通道下轨
+BUYPOINT:=HV(HIGH,LOOKBACKDAYS);//自适应唐奇安通道上轨
+SELLPOINT:=LV(LOW,LOOKBACKDAYS);//自适应唐奇安通道下轨
+LIQPOINT:=MIDLINE;//自适应出场均线
+C>UPBAND&&C>BUYPOINT,BK;//当日价格大于布林通道上轨，并且当日价格大于唐奇安通道上轨，开多单
+C<DNBAND&&C<SELLPOINT,SP;//持有多单时，当日价格小于布林通道下轨，并且当日价格小于唐奇安通道下轨，平多单
+EVERY(C<LIQPOINT,3),SP;//持有多单时，价格小于自适应出场均线，平多单
+C>UPBAND&&C>BUYPOINT,BP;//持有空单时，当日价格大于布林通道上轨，并且当日价格大于唐奇安通道上轨，平空单
+C<DNBAND&&C<SELLPOINT,SK;//当日价格小于布林通道下轨，并且当日价格小于唐奇安通道下轨，开空单
+EVERY(C>LIQPOINT,3),BP;//持有空单时，价格大于自适应出场均线，平空单
 AUTOFILTER;
 </code>
 
-## ����ƽ�Ʋ���ͨ����ϵͳ
+## 基于平移布林通道的系统
 
 <code cpp>
-//�ò���Ϊ���Ƹ��ٽ��ײ��ԣ����ýϴ����ڣ������ߡ�
-//��ģ�ͽ�����ģ�Ϳ����������������У������Ը���
+//该策略为趋势跟踪交易策略，适用较大周期，如日线。
+//该模型仅用作模型开发案例，依此入市，风险自负。
 ////////////////////////////////////////////////////////
-//ƽ��BOLLͨ������
-MID:=MA(C,N);//�����й�       
-TMP:=STD(C,M)*SDEV;//�����׼��
-DISPTOP:=REF(MID,P)+TMP;//ƽ��BOLLͨ���Ϲ�
-DISPBOTTOM:=REF(MID,P)-TMP;//ƽ��BOLLͨ���¹�
-//ϵͳ�볡
+//平移BOLL通道计算
+MID:=MA(C,N);//计算中轨       
+TMP:=STD(C,M)*SDEV;//计算标准差
+DISPTOP:=REF(MID,P)+TMP;//平移BOLL通道上轨
+DISPBOTTOM:=REF(MID,P)-TMP;//平移BOLL通道下轨
+//系统入场
 H>=DISPTOP,BPK;
 L<=DISPBOTTOM,SPK;
 AUTOFILTER;
 </code>
 
-## �ɽ�����Ȩ��������ϵͳ
+## 成交量加权动量交易系统
 
 <code cpp>
-//�ò���Ϊ���Ƹ��ٽ��ײ��ԣ����ýϴ����ڣ������ߡ�
-//��ģ�ͽ�����ģ�Ϳ����������������У������Ը���
+//该策略为趋势跟踪交易策略，适用较大周期，如日线。
+//该模型仅用作模型开发案例，依此入市，风险自负。
 ////////////////////////////////////////////////////////
-//ƽ��BOLLͨ������
-MID:=MA(C,N);//�����й�       
-TMP:=STD(C,M)*SDEV;//�����׼��
-DISPTOP:=REF(MID,P)+TMP;//ƽ��BOLLͨ���Ϲ�
-DISPBOTTOM:=REF(MID,P)-TMP;//ƽ��BOLLͨ���¹�
-//ϵͳ�볡
+//平移BOLL通道计算
+MID:=MA(C,N);//计算中轨       
+TMP:=STD(C,M)*SDEV;//计算标准差
+DISPTOP:=REF(MID,P)+TMP;//平移BOLL通道上轨
+DISPBOTTOM:=REF(MID,P)-TMP;//平移BOLL通道下轨
+//系统入场
 H>=DISPTOP,BPK;
 L<=DISPBOTTOM,SPK;
 AUTOFILTER;
 </code>
 
-## �������
+## 金肯特纳
 
 <code cpp>
-//�ò���Ϊ���Ƹ��ٽ��ײ��ԣ����ýϴ����ڣ������ߡ�
-//��ģ�ͽ�����ģ�Ϳ����������������У������Ը���
+//该策略为趋势跟踪交易策略，适用较大周期，如日线。
+//该模型仅用作模型开发案例，依此入市，风险自负。
 ////////////////////////////////////////////////////////
-MOVAVGVAL:MA((HIGH+LOW+CLOSE)/3,AVGLENGTH);//���۾���
+MOVAVGVAL:MA((HIGH+LOW+CLOSE)/3,AVGLENGTH);//三价均线
 TRUEHIGH1:=IF(HIGH>REF(C,1),HIGH,REF(C,1));
 TRUELOW1:=IF(LOW<=REF(C,1),LOW,REF(C,1));
 TRUERANGE1:=IF(ISLASTBAR,H-L,TRUEHIGH1-TRUELOW1);
 UPBAND:MOVAVGVAL+MA(TRUERANGE1,ATRLENGTH);
-DNBAND:MOVAVGVAL-MA(TRUERANGE1,ATRLENGTH);//ͨ�����¹�
-LIQUIDPOINT:=MOVAVGVAL;//��������
-MOVAVGVAL>REF(MOVAVGVAL,1)&&C>UPBAND,BK;//���۾������ϣ����Ҽ۸�����ͨ���Ϲ죬���൥
-C<LIQUIDPOINT,SP;//���ж൥ʱ���۸��������۾��ߣ�ƽ�൥
-MOVAVGVAL<REF(MOVAVGVAL,1)&&C<DNBAND,SK;//���۾������£����Ҽ۸�����ͨ���¹죬���յ�
-C>LIQUIDPOINT,BP;//���пյ�ʱ���۸��������۾��ߣ�ƽ�յ�
+DNBAND:MOVAVGVAL-MA(TRUERANGE1,ATRLENGTH);//通道上下轨
+LIQUIDPOINT:=MOVAVGVAL;//出场条件
+MOVAVGVAL>REF(MOVAVGVAL,1)&&C>UPBAND,BK;//三价均线向上，并且价格上破通道上轨，开多单
+C<LIQUIDPOINT,SP;//持有多单时，价格下破三价均线，平多单
+MOVAVGVAL<REF(MOVAVGVAL,1)&&C<DNBAND,SK;//三价均线向下，并且价格下破通道下轨，开空单
+C>LIQUIDPOINT,BP;//持有空单时，价格上破三价均线，平空单
 AUTOFILTER;
 </code>
 
-# �Ա�
 
-## TEST2
-
-<code cpp>
-MA25:EMA(C,25),COLORGREEN;
-MA27:EMA(C,27),COLORGREEN;
-MA29:EMA(C,29),COLORGREEN;
-MA31:EMA(C,31),COLORGREEN;
-MA33:EMA(C,33),COLORGREEN;
-MA35:EMA(C,35),COLORGREEN;
-MA37:EMA(C,37),COLORGREEN;
-MA39:EMA(C,39),COLORGREEN;
-MA41:EMA(C,41),COLORGREEN;
-MA44:EMA(C,44),COLORGREEN;
-MA47:EMA(C,47),COLORGREEN;
-MA50:EMA(C,50),COLORGREEN;
-
-MA53:EMA(C,53),COLOR00D7FF;
-MA56:EMA(C,56),COLOR00D7FF;
-MA59:EMA(C,59),COLOR00D7FF;
-MA62:EMA(C,62),COLOR00D7FF;
-MA65:EMA(C,65),COLOR00D7FF;
-MA68:EMA(C,68),COLOR00D7FF;
-MA71:EMA(C,71),COLOR00D7FF;
-MA74:EMA(C,74),COLOR00D7FF;
-
-MA78:EMA(C,78),COLORRED;
-MA82:EMA(C,82),COLORRED;
-MA86:EMA(C,86),COLORRED;
-MA90:EMA(C,90),COLORRED;
-MA94:EMA(C,94),COLORRED;
-MA98:EMA(C,98),COLORRED;
-MA102:EMA(C,102),COLORRED;
-MA106:EMA(C,106),COLORRED;
-MA110:EMA(C,110),COLORRED;
-MA114:EMA(C,114),COLORRED;
-
-</code>
 
