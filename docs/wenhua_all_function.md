@@ -1,5 +1,5 @@
-# K线数据引用
-## AVPRICE
+## K线数据引用
+### AVPRICE
 
 取得K线图的均价
 
@@ -20,7 +20,7 @@ MA5:MA(AVPRICE,5);//定义五个周期均价的平均值;
 C>MA(AVPRICE,5);//价格大于五个周期均价的平均值则返回1，否则返回0。
 ```
 
-## CLOSE
+### CLOSE
 
 取得K线图的收盘价
 
@@ -39,7 +39,7 @@ MA5:=MA(C,5);//定义收盘价的5周期均线（C为CLOSE简写）。
 A:=REF(C,1);//取得前一根k线的收盘价。
 ```
 
-## DUALVOLUME
+### DUALVOLUME
 
 多空量函数
 
@@ -71,7 +71,7 @@ DRAWCOLUMNCHART(N,SCALE>=0.5,M>=0);
 //当主动买大于主动卖的时候，向上画柱高为N的红柱。反之向下画柱高为N的绿柱
 ```
 
-## HIGH
+### HIGH
 
 取得K线图的最高价
 
@@ -89,7 +89,7 @@ HH:HHV(H,5);//取的5个周期内最高价的最大值。
 REF(H,1);//取的前一根K线的最高价
 ```
 
-## LOW
+### LOW
 
 取得K线图的最低价
 
@@ -107,7 +107,7 @@ LL:LLV(L,5);//取得5个周期内最低价的最小值。
 REF(L,1);//取得前一根K线的最低价
 ```
 
-## MINPRICE
+### MINPRICE
 
 数据合约的最小变动价位
 
@@ -117,7 +117,7 @@ REF(L,1);//取得前一根K线的最低价
 MINPRICE; 取加载数据合约的最小变动价位。
 ```
 
-## MINPRICE1
+### MINPRICE1
 
 交易合约的最小变动价位
 
@@ -127,7 +127,7 @@ MINPRICE; 取加载数据合约的最小变动价位。
 MINPRICE1; 取交易合约的最小变动价位。
 ```
 
-## MINPRICED
+### MINPRICED
 
 最小变动价位
 
@@ -143,7 +143,7 @@ N:=8603;
 MINPRICED(N);返回8603所对应IF1203合约的最小变动价位。
 ```
 
-## OPEN
+### OPEN
 
 取得K线图的开盘价
 
@@ -162,7 +162,7 @@ OO:REF(O,NN);//取的当日的开盘价
 MA5:MA(O,5);//定义开盘价的5周期均线（O为OPEN简写）。
 ```
 
-## OPI
+### OPI
 
 取得K线图的持仓量
 
@@ -178,7 +178,7 @@ NN:=BARSLAST(DATE<>REF(DATE,1))+1;
 OPID:REF(OPI,NN);//取的昨天收盘时的持仓量
 ```
 
-## RAWDATA
+### RAWDATA
 
 取原始数据的值
 
@@ -199,7 +199,7 @@ STOCKDIVD(1);//设置股票向后复权
 均可为简写
 ```
 
-## REF
+### REF
 
 向前引用
 
@@ -225,7 +225,7 @@ AA:IFELSE(BARSBK>=1,REF(C,BARSBK),C);//取最近一次买开仓信号K线的收�
 K线返回 1 K线的收盘价。
 ```
 
-## REFWH
+### REFWH
 
 向前引用
 
@@ -242,7 +242,7 @@ REFWH(X,N)引用X在N个周期前的值。
 算法跟REF一样，区别在于：在不足N根的时候，按照实际的根数计算；
 ```
 
-## SCALE
+### SCALE
 
 取得K线图主动买占总成交量的比例
 
@@ -256,7 +256,7 @@ AA:=SCALE*VOL;//主动买
 BB:=(1-SCALE)*VOL;//主动卖
 ```
 
-## SETTLE
+### SETTLE
 
 取得K线图的结算价或者取得当日成交均价
 
@@ -273,7 +273,7 @@ SS:SETTLE;//定义SS为结算价
 CROSS(C,SETTLE);//收盘价上穿结算价
 ```
 
-## UNIT
+### UNIT
 
 取数据合约的交易单位
 
@@ -283,7 +283,7 @@ CROSS(C,SETTLE);//收盘价上穿结算价
 UNIT 取加载数据合约的交易单位。
 ```
 
-## UNIT1
+### UNIT1
 
 取交易合约的交易单位
 
@@ -293,7 +293,7 @@ UNIT 取加载数据合约的交易单位。
 UNIT1 取模组交易合约的交易单位。
 ```
 
-## VOL
+### VOL
 
 取得K线图的成交量
 
@@ -312,7 +312,7 @@ REF(V,1);//表示前一个周期的成交量
 V>=REF(V,1);//成交量大于前一个周期的成交量，表示成交量增加(V为VOL的简写)。
 ```
 
-## YCLOSE
+### YCLOSE
 
 取得K线图的昨收盘价
 
@@ -327,7 +327,7 @@ YCLOSE求某根K线的昨收盘价。
 4、该函数不支持公式选股。
 ```
 
-## YSETTLE
+### YSETTLE
 
 取得K线图的昨结算价
 
@@ -341,7 +341,7 @@ YSETTLE求某根k线的昨结算价
 3、该函数不支持公式选股。
 ```
 
-## #CALL
+### #CALL
 
 跨合约引用指标
 
@@ -366,7 +366,7 @@ CC:REF(C,1);//定义一个周期前的收盘价
 CC:VAR.CC;//跨合约引用豆粕1501昨天的收盘价
 ```
 
-## #IMPORT
+### #IMPORT
 
 跨周期引用指标
 
@@ -415,7 +415,7 @@ CC1:=S.CC;//跨周期引用自定义6小时周期的一个周期前的收盘价
 CC2:=R.CC;//跨周期引用自定义1秒周期的一个周期前的收盘价
 ```
 
-## #CALL_PLUS
+### #CALL_PLUS
 
 跨合约跨周期引用指标
 
@@ -447,7 +447,7 @@ CC:REF(C,1);//定义一个周期前的收盘价
 CC:VAR.CC;//跨周期引用IF加权昨天的收盘价
 ```
 
-## #CALL_OTHER
+### #CALL_OTHER
 
 跨指标引用
 
@@ -471,8 +471,8 @@ CC:REF(C,1);//定义一个周期前的收盘价
 CC:VAR.CC;//跨指标引用当前合约的一个周期前的收盘价
 ```
 
-# 行情报价引用
-## GETDEALSSUM
+## 行情报价引用
+### GETDEALSSUM
 
 取得某一合约的盘口分笔数据
 
@@ -519,7 +519,7 @@ GETDEALSSUM('8606', '多方均价');//返回文华码为8606合约的多方均�
 '大单多平':大单多平
 ```
 
-## GETPRICE
+### GETPRICE
 
 取得某一合约的行情报价数据
 
@@ -580,7 +580,7 @@ GETPRICE(8606, 'AVPRICE');//返回文华码为8606合约的均价。
 '资金流向':资金流向【[(持仓量*收盘价)-(持仓量-日增仓*昨收)]*单位手数*保证金比例】
 ```
 
-## GETPRICE1
+### GETPRICE1
 
 取某一股票合约的抬头数据
 
@@ -625,7 +625,7 @@ GETPRICE1('量比');//返回当前股票合约上报价列表抬头中量比的�
 '主收%'【交易所公布】
 ```
 
-## GETPRICE2
+### GETPRICE2
 
 取某一股票合约的财务数据
 
@@ -692,7 +692,7 @@ GETPRICE2('每股收益');//返回当前股票合约财务数据中每股收益�
 '优先股或其他'
 ```
 
-## GETSTOCKPRICE
+### GETSTOCKPRICE
 
 取得某一股票合约的行情报价数据
 
@@ -754,8 +754,8 @@ GETSTOCKPRICE('600000', 'AVPRICE');//返回股票代码为600000合约的均价�
 '资金流向':资金流向
 ```
 
-# TICK数据函数
-## ASK1
+## TICK数据函数
+### ASK1
 
 取得TICK图该笔TICK的卖一价
 
@@ -771,7 +771,7 @@ ASK1 取得TICK图该笔TICK的卖一价。
 AA:ASK1;//加载到TICK图中，定义AA为该笔TICK的卖一价；
 ```
 
-## ASK2
+### ASK2
 
 取得TICK图该笔TICK的卖二价
 
@@ -787,7 +787,7 @@ ASK2 取得TICK图该笔TICK的卖二价。
 AA:ASK2;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖二价；
 ```
 
-## ASK3
+### ASK3
 
 取得TICK图该笔TICK的卖三价
 
@@ -803,7 +803,7 @@ ASK3 取得TICK图该笔TICK的卖三价。
 AA:ASK3;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖三价；
 ```
 
-## ASK4
+### ASK4
 
 取得TICK图该笔TICK的卖四价
 
@@ -819,7 +819,7 @@ ASK4 取得TICK图该笔TICK的卖四价。
 AA:ASK4;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖四价；
 ```
 
-## ASK5
+### ASK5
 
 取得TICK图该笔TICK的卖五价
 
@@ -835,7 +835,7 @@ ASK5 取得TICK图该笔TICK的卖五价。
 AA:ASK5;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖五价；
 ```
 
-## ASK1VOL
+### ASK1VOL
 
 取得TICK图该笔TICK的卖一量
 
@@ -851,7 +851,7 @@ ASK1VOL 取得TICK图该笔TICK的卖一量。
 VV:ASK1VOL;//加载到TICK图中，定义VV为该笔TICK的卖一量；
 ```
 
-## ASK2VOL
+### ASK2VOL
 
 取得TICK图该笔TICK的卖二量
 
@@ -867,7 +867,7 @@ ASK2VOL 取得TICK图该笔TICK的卖二量。
 VV:ASK2VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖二量；
 ```
 
-## ASK3VOL
+### ASK3VOL
 
 取得TICK图该笔TICK的卖三量
 
@@ -883,7 +883,7 @@ ASK3VOL 取得TICK图该笔TICK的卖三量。
 VV:ASK3VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖三量；
 ```
 
-## ASK4VOL
+### ASK4VOL
 
 取得TICK图该笔TICK的卖四量
 
@@ -899,7 +899,7 @@ ASK4VOL 取得TICK图该笔TICK的卖四量。
 VV:ASK4VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖四量；
 ```
 
-## ASK5VOL
+### ASK5VOL
 
 取得TICK图该笔TICK的卖五量
 
@@ -915,7 +915,7 @@ ASK5VOL 取得TICK图该笔TICK的卖五量。
 VV:ASK5VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖五量；
 ```
 
-## ASKBIGCOUNT
+### ASKBIGCOUNT
 
 取得TICK图所定义数据区主动卖大单次数的和
 
@@ -934,7 +934,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:ASKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动卖的大单次数的和
 ```
 
-## ASKBIGTOTVOL
+### ASKBIGTOTVOL
 
 取得TICK图所定义数据区主动卖大单成交量的和
 
@@ -953,7 +953,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:ASKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动卖大单成交量的和
 ```
 
-## ASKVOL
+### ASKVOL
 
 取得TICK图所定义数据区主动卖成交量的和
 
@@ -970,7 +970,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:ASKVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动卖成交量的和
 ```
 
-## BID1
+### BID1
 
 取得TICK图该笔TICK的买一价
 
@@ -986,7 +986,7 @@ BID1 取得TICK图该笔TICK的买一价。
 AA:BID1;//加载到TICK图中，定义AA为该笔TICK的买一价；
 ```
 
-## BID2
+### BID2
 
 取得TICK图该笔TICK的买二价
 
@@ -1002,7 +1002,7 @@ BID2 取得TICK图该笔TICK的买二价。
 AA:BID2;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买二价；
 ```
 
-## BID3
+### BID3
 
 取得TICK图该笔TICK的买三价
 
@@ -1018,7 +1018,7 @@ BID3 取得TICK图该笔TICK的买三价。
 AA:BID3;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买三价；
 ```
 
-## BID4
+### BID4
 
 取得TICK图该笔TICK的买四价
 
@@ -1034,7 +1034,7 @@ BID4 取得TICK图该笔TICK的买四价。
 AA:BID4;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买四价；
 ```
 
-## BID5
+### BID5
 
 取得TICK图该笔TICK的买五价
 
@@ -1050,7 +1050,7 @@ BID5 取得TICK图该笔TICK的买五价。
 AA:BID5;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买五价；
 ```
 
-## BID1VOL
+### BID1VOL
 
 取得TICK图该笔TICK的买一量
 
@@ -1066,7 +1066,7 @@ BID1VOL 取得TICK图该笔TICK的买一量。
 VV:BID1VOL;//加载到TICK图中，定义VV为该笔TICK的买一量；
 ```
 
-## BID2VOL
+### BID2VOL
 
 取得TICK图该笔TICK的买二量
 
@@ -1082,7 +1082,7 @@ BID2VOL 取得TICK图该笔TICK的买二量。
 VV:BID2VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买二量；
 ```
 
-## BID3VOL
+### BID3VOL
 
 取得TICK图该笔TICK的买三量
 
@@ -1098,7 +1098,7 @@ BID3VOL 取得TICK图该笔TICK的买三量。
 VV:BID3VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买三量；
 ```
 
-## BID4VOL
+### BID4VOL
 
 取得TICK图该笔TICK的买四量
 
@@ -1114,7 +1114,7 @@ BID4VOL 取得TICK图该笔TICK的买四量。
 VV:BID4VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买四量；
 ```
 
-## BID5VOL
+### BID5VOL
 
 取得TICK图该笔TICK的买五量
 
@@ -1130,7 +1130,7 @@ BID5VOL 取得TICK图该笔TICK的买五量。
 VV:BID5VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买五量；
 ```
 
-## BIDBIGCOUNT
+### BIDBIGCOUNT
 
 取得TICK图所定义数据区主动买大单次数的和
 
@@ -1149,7 +1149,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BIDBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动买的大单次数的和
 ```
 
-## BIDBIGTOTVOL
+### BIDBIGTOTVOL
 
 取得TICK图所定义数据区主动买大单成交量的和
 
@@ -1168,7 +1168,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BIDBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动买大单成交量的和
 ```
 
-## BIDVOL
+### BIDVOL
 
 取得TICK图所定义数据区主动买成交量的和
 
@@ -1185,7 +1185,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:BIDVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的主动买成交量的和
 ```
 
-## BKBIGCOUNT
+### BKBIGCOUNT
 
 取得TICK图所定义数据区买开大单成交次数的和
 
@@ -1205,7 +1205,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买开大单的成交次数的和
 ```
 
-## BKBIGTOTVOL
+### BKBIGTOTVOL
 
 取得TICK图所定义数据区买开大单成交量的和
 
@@ -1224,7 +1224,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买开大单的成交量的和
 ```
 
-## BKVOLUME
+### BKVOLUME
 
 取得TICK图所定义数据区多开成交量的和
 
@@ -1241,7 +1241,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:BKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的多开的成交量的和
 ```
 
-## BPBIGCOUNT
+### BPBIGCOUNT
 
 取得TICK图所定义数据区买平大单成交次数的和
 
@@ -1260,7 +1260,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BPBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买平大单的成交次数的和
 ```
 
-## BPBIGTOTVOL
+### BPBIGTOTVOL
 
 取得TICK图所定义数据区买平大单成交量的和
 
@@ -1279,7 +1279,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买平大单的成交量的和
 ```
 
-## BPVOLUME
+### BPVOLUME
 
 取得TICK图所定义数据区买平成交量的和
 
@@ -1296,7 +1296,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:BPVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买平的成交量的和
 ```
 
-## DEF_TICKDATA
+### DEF_TICKDATA
 
 定义五档TICK数据区
 
@@ -1318,7 +1318,7 @@ DEF_TICKDATA(1,10);//调用10笔TICK数据
 VV:L2_SPBIGTOTVOL;//加载到TICK图中，定义VV为10笔TICK内（包含当笔TICK）所有TICK的卖平大单的成交量的和
 ```
 
-## DKVOLUME
+### DKVOLUME
 
 取得TICK图所定义数据区双开成交量的和
 
@@ -1335,7 +1335,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:DKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的双开的成交量的和
 ```
 
-## MATCHPERCENT
+### MATCHPERCENT
 
 设置TICK周期买卖量按百分比撮合成交
 
@@ -1359,7 +1359,7 @@ MATCHPERCENT(10);//回测按盘口买一量、卖一量的百分比撮合成交
 AUTOFILTER;
 ```
 
-## NEW
+### NEW
 
 取得TICK图该笔TICK的最新价
 
@@ -1375,7 +1375,7 @@ NEW 取得TICK图的最新价。
 NN:NEW;//加载到TICK图中，定义NN为该笔TICK的最新价；
 ```
 
-## RISING
+### RISING
 
 判断价格趋势
 
@@ -1393,7 +1393,7 @@ RISING(N) 判断TICK图的价格趋势。
 RR:RISING(N);//加载到有五档授权的TICK图中，上涨趋势返回1，反之返回0。
 ```
 
-## SETBIGVOL
+### SETBIGVOL
 
 设置TICK图所定义数据区大单阈值
 
@@ -1411,7 +1411,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:BPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的买平大单的成交量的和
 ```
 
-## SKBIGCOUNT
+### SKBIGCOUNT
 
 取得TICK图所定义数据区卖开大单成交次数的和
 
@@ -1431,7 +1431,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:SKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖开大单的成交次数的和
 ```
 
-## SKBIGTOTVOL
+### SKBIGTOTVOL
 
 取得TICK图所定义数据区卖开大单成交量的和
 
@@ -1450,7 +1450,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:SKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖开大单的成交量的和
 ```
 
-## SKVOLUME
+### SKVOLUME
 
 取得TICK图所定义数据区卖开成交量的和
 
@@ -1467,7 +1467,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:SKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖开的成交量的和
 ```
 
-## SPBIGCOUNT
+### SPBIGCOUNT
 
 取得TICK图所定义数据区卖平大单成交次数的和
 
@@ -1486,7 +1486,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:SPBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖平大单的成交次数的和
 ```
 
-## SPBIGTOTVOL
+### SPBIGTOTVOL
 
 取得TICK图所定义数据区卖平大单成交量的和
 
@@ -1505,7 +1505,7 @@ SETBIGVOL(10);//设置大单阈值为10手
 VV:SPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖平大单的成交量的和
 ```
 
-## SPVOLUME
+### SPVOLUME
 
 取得TICK图所定义数据区卖平成交量的和
 
@@ -1522,7 +1522,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 VV:SPVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所有TICK的卖平的成交量的和
 ```
 
-## TICKDATANUM
+### TICKDATANUM
 
 统计定义的数据区内的笔数
 
@@ -1538,7 +1538,7 @@ DEF_TICKDATA(0,5);//调用五秒的TICK数据
 NUM:TICKDATANUM;//定义NUM为五秒内（包含当笔TICK）所有TICK的笔数
 ```
 
-## TICK_OPI
+### TICK_OPI
 
 取得TICK图该笔TICK的持仓量
 
@@ -1554,7 +1554,7 @@ TICK_OPI 取得TICK图的持仓量。
 OO:TICK_OPI;//加载到TICK图中，定义OO为该笔TICK的持仓量；
 ```
 
-## TICK_SCALE
+### TICK_SCALE
 
 取得TICK图该笔TICK是否为主动买
 
@@ -1571,7 +1571,7 @@ TICK_SCALE 取得TICK图该笔TICK是否为主动买。
 SS:TICK_SCALE;//加载到TICK图中，SS返回1，代表当笔TICK为主动买；SS返回0，代表当笔TICK为主动卖。
 ```
 
-## TICK_VOL
+### TICK_VOL
 
 取得TICK图该笔TICK的成交量
 
@@ -1591,8 +1591,8 @@ TICK_VOL 取得TICK图的成交量。
 VV:TICK_VOL;//加载到TICK图中，定义VV为该笔TICK的成交量；
 ```
 
-# 金融统计函数
-## ADMA
+## 金融统计函数
+### ADMA
 
 考夫曼均值
 
@@ -1627,7 +1627,7 @@ CONSTANT:=SQUARE(SMOOTH);
 AMACLOSE:REF(EMA(C,9),1)+CONSTANT*(C-REF(EMA(C,9),1));
 ```
 
-## BARSCOUNT
+### BARSCOUNT
 
 第一个有效周期到当前的周期数
 
@@ -1642,7 +1642,7 @@ BARSCOUNT(COND) 第一个有效周期到当前的周期数。
 BARSCOUNT(MA(C,4));//计算MA(C,4)第一次有返回值到当前的周期数。
 ```
 
-## BARSLAST
+### BARSLAST
 
 上一次条件成立位置
 
@@ -1659,7 +1659,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，当日k线数。
 //由于条件成立的当根k线上BARSLAST(COND)的返回值为0，所以“+1”才是当日k线根数。
 ```
 
-## BARSLASTCOUNT
+### BARSLASTCOUNT
 
 从当前周期向前计算，统计连续满足条件的周期数
 
@@ -1675,7 +1675,7 @@ BARSLASTCOUNT(CLOSE>OPEN);
 //计算当根K线在内连续为阳线的周期数
 ```
 
-## BARSSINCE
+### BARSSINCE
 
 第一个条件成立到当前的周期数
 
@@ -1691,7 +1691,7 @@ BARSSINCE(CLOSE>OPEN);
 //统计第一次满足阳线这个条件的K线到现在的周期数
 ```
 
-## BARSSINCEN
+### BARSSINCEN
 
 统计N周期内第一次条件成立到当前的周期数
 
@@ -1709,7 +1709,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，当日K线数。
 BARSSINCEN(ISUP,N);//统计N周期内第一次满足阳线到当前的周期数
 ```
 
-## CONDBARS
+### CONDBARS
 
 取得最近满足A,B条件的K线间周期数
 
@@ -1726,7 +1726,7 @@ MA10:=MA(C,10);//10周期均线
 CONDBARS(CROSSUP(MA5,MA10),CROSSDOWN(MA5,MA10));//最近一次满足5周期均线上穿10周期均线与5周期均线下穿10周期均线之间的周期数
 ```
 
-## COST
+### COST
 
 成本分布情况
 
@@ -1744,7 +1744,7 @@ COST(X) 成本分布情况。
  根据获利盘和套牢盘的比例求得价格。
 ```
 
-## COUNT
+### COUNT
 
 统计总数
 
@@ -1767,7 +1767,7 @@ MA10:=MA(C,10);//定义10周期均线
 M:COUNT(CROSSUP(MA5,MA10),0);//统计从申请到的行情数据以来到当前这段时间内，5周期均线上穿10周期均线的次数。
 ```
 
-## DAYBARPOS
+### DAYBARPOS
 
 当根k线为当天第几根k线
 
@@ -1781,7 +1781,7 @@ DAYBARPOS：返回当根k线是当天的第几根k线
 VALUEWHEN(DAYBARPOS=1,C);//取当天第一根K线的收盘价
 ```
 
-## DMA
+### DMA
 
 动态移动平均
 
@@ -1797,7 +1797,7 @@ DMA(X,A)：求X的动态移动平均，其中A必须小于1大于0。
 DMA3:=DMA(C,0.3);//计算结果为REF(DMA3,1)*(1-0.3)+C*0.3
 ```
 
-## EMA
+### EMA
 
 指数加权移动平均
 
@@ -1817,7 +1817,7 @@ EMA(X,N)=2*X/(N+1)+(N-1)*REF(EMA(X,N),1)/(N+1)
 EMA10:=EMA(C,10);//求收盘价10周期指数加权移动平均值
 ```
 
-## EMA2
+### EMA2
 
 线性加权移动平均
 
@@ -1836,7 +1836,7 @@ EMA2(X,N)=[N*X0+(N-1)*X1+(N-2)*X2+...+1*X(N-1)]/[N+(N-1)+(N-2)+...+1],X0表示�
 EMA2(H,5);//求最高价在5个周期的线性加权移动平均值。
 ```
 
-## EMAWH
+### EMAWH
 
 指数加权移动平均
 
@@ -1854,7 +1854,7 @@ EMAWH(C,N)=2*C/(N+1)+(N-1)*REF(EMAWH(C,N),1)/(N+1)
 EMAWH用法同EMA(C,N)
 ```
 
-## HARMEAN
+### HARMEAN
 
 调和平均值
 
@@ -1875,7 +1875,7 @@ HARMEAN(X,N) 求X在N个周期内的调和平均值。
 HM5:=HARMEAN(C,5);//求5周期收盘价的调和平均值。
 ```
 
-## HHV
+### HHV
 
 最高值
 
@@ -1896,7 +1896,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，日内k线根数
 HH1:=HHV(H,N);//在分钟周期上，日内高点
 ```
 
-## HV
+### HV
 
 除当前K线外最高值
 
@@ -1919,7 +1919,7 @@ ZH:VALUEWHEN(DATE<>REF(DATE,1),HV(H,NN));//在分钟周期上，求昨天最高�
 HV(H,5) 和 REF(HHV(H,5),1) 的结果是一样的，用HV编写更加方便。
 ```
 
-## HHVBARS
+### HHVBARS
 
 前一最高点位置
 
@@ -1939,7 +1939,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，日内k线根数
 ZHBARS:REF(HHVBARS(H,N),N)+N;//在分钟周期上，求昨天最高价所在的k线到当前k线之间的周期数。
 ```
 
-## LLV
+### LLV
 
 最低值
 
@@ -1960,7 +1960,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，日内k线根数
 LL1:=LLV(L,N);//在分钟周期上，求当天第一根k线到当前周期内所有k线最低价的最小值。
 ```
 
-## LV
+### LV
 
 除当前K线外最低值
 
@@ -1983,7 +1983,7 @@ ZL:VALUEWHEN(DATE<>REF(DATE,1),LV(L,NN));//在分钟周期上，求昨天最低�
 LV(L,5) 和 REF(LLV(L,5),1) 的结果是一样的，用LV编写更加方便。
 ```
 
-## LLVBARS
+### LLVBARS
 
 前一个最低点位置
 
@@ -2003,7 +2003,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，日内k线根数
 ZLBARS:REF(LLVBARS(L,N),N)+N;//在分钟周期上，求昨天最低价所在的k线到当前k线之间的周期数。
 ```
 
-## MA
+### MA
 
 算数移动平均
 
@@ -2026,7 +2026,7 @@ M:=IFELSE(N>10,10,N);//k线超过10根，M取10，否则M取实际根数
 MA10:MA(C,M);//在分钟周期上，当天k线不足10根，按照实际根数计算MA10，超过10根按照10周期计算MA10。
 ```
 
-## MV
+### MV
 
 取均值
 
@@ -2042,7 +2042,7 @@ MV(CLOSE,OPEN);
 //取收盘价和开盘价的平均值
 ```
 
-## NEWHBARS
+### NEWHBARS
 
 创新高跨度
 
@@ -2060,7 +2060,7 @@ C<=BKPRICE-5,SP;
 AUTOFILTER;
 ```
 
-## NEWLBARS
+### NEWLBARS
 
 创新低跨度
 
@@ -2078,7 +2078,7 @@ C>=SKPRICE+5,BP;
 AUTOFILTER;
 ```
 
-## NUMPOW
+### NUMPOW
 
 自然数幂方和
 
@@ -2094,7 +2094,7 @@ NUMPOW(x,n,m)=n^m*x+(n-1)^m*ref(x,1)+(n-2)^m*ref(x,2)+...+2^m*ref(x,n-2)+1^m*ref
 JZ:=NUMPOW(C,5,2);
 ```
 
-## PERCENTILE
+### PERCENTILE
 
 百分位函数
 
@@ -2116,7 +2116,7 @@ HH:PERCENTILE(HIGH,50,95);//取最近50根k线最高价处于95%位置的数值
 LL:PERCENTILE(LOW,50,5);//取最近50根k线最低价处于5%位置的数值
 ```
 
-## SAR
+### SAR
 
 抛物转向
 
@@ -2137,7 +2137,7 @@ EP：一个涨跌内的极值，在上涨行情中为上根K线的最高价；�
 SAR(17,0.03,0.3);//表示计算17个周期抛物转向，步长为3%，极限值为30%
 ```
 
-## SAR1
+### SAR1
 
 抛物转向
 
@@ -2162,7 +2162,7 @@ EP：一个涨跌内的极值，在上涨行情中为前N根K线的最高价；�
 SAR1(17,0.03,0.3);//表示计算17个周期抛物转向，步长为3%，极限值为30%
 ```
 
-## SEEK
+### SEEK
 
 标签统计函数
 
@@ -2183,7 +2183,7 @@ Cond为需要满足的条件
 SEEK(C>O);
 ```
 
-## SMA
+### SMA
 
 扩展指数加权移动平均
 
@@ -2199,7 +2199,7 @@ SMA(X,N,M) 求X的N个周期内的扩展指数加权移动平均。M为权重。
 SMA10:=SMA(C,10,3);//求的10周期收盘价的扩展指数加权移动平均。权重为3。
 ```
 
-## SMMA
+### SMMA
 
 通畅移动平均
 
@@ -2212,7 +2212,7 @@ MMA=SUM1/N
 SMMA(C,5);//收盘价的5周期通畅移动平均线
 ```
 
-## SORT
+### SORT
 
 取排序在相应位置的值
 
@@ -2228,7 +2228,7 @@ SORT(Type,POS,N1,N2,...,N16); 按升(降)序排列，取第POS个参数对应的
 SORT(0,3,2,1,5,3);//2、1、5、3按升序排列，取排列第三的数字3
 ```
 
-## SORTPOS
+### SORTPOS
 
 取排序后数值的位置
 
@@ -2246,7 +2246,7 @@ SORTPOS(Type,POS,N1,N2,...,N16); 按升(降)序排列，取第POS个数据的原
 SORTPOS(0,3,2,1,5,3);//2、1、5、3按升序排列，排列第三的数字3，所对应的原始位置。函数返回值为4
 ```
 
-## SUM
+### SUM
 
 求和
 
@@ -2267,7 +2267,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，日内k线根数
 SUM(VOL,N);//分钟周期上，取当天成交量总和。
 ```
 
-## SUMBARS
+### SUMBARS
 
 累加到指定值的周期数
 
@@ -2281,7 +2281,7 @@ SUMBARS(X,A)：求累加到指定值的周期数
 SUMBARS(VOL,20000); 将成交量向前累加直到大于等于20000，返回这个区间的周期数。
 ```
 
-## TRMA
+### TRMA
 
 三角移动平均
 
@@ -2307,7 +2307,7 @@ TRMA10:TRMA(CLOSE,10);// 计算10个周期内收盘价的三角移动平均。(N
 TRMA(CLOSE,10)=MA(MA(CLOSE,10/2),(10/2)+1));
 ```
 
-## TSMA
+### TSMA
 
 时间序列移动平均
 
@@ -2331,7 +2331,7 @@ tsma[i] = forcast[i]+k  //线性回归+斜率
 TSMA5:TSMA(CLOSE,5);//计算5个周期内收盘价的序列三角移动平均
 ```
 
-## WINNER
+### WINNER
 
 获利盘比例
 
@@ -2347,8 +2347,8 @@ WINNER 获利盘比例
  统计小于等于当前收盘价的K线成交量之和与所有K线成交量之和的比值；
 ```
 
-# 数理统计函数
-## AVEDEV
+## 数理统计函数
+### AVEDEV
 
 平均绝对偏差
 
@@ -2372,7 +2372,7 @@ AVEDEV(C,5);//返回收盘价在5周期内的平均绝对偏差。
 //表示5个周期内每个周期的收盘价与5周期收盘价的平均值的差的绝对值的平均值，判断收盘价与其均值的偏离程度
 ```
 
-## COEFFICIENTR
+### COEFFICIENTR
 
 皮尔森相关系数
 
@@ -2400,7 +2400,7 @@ COEFFICIENTR(C1,C,10);//求文华商品和豆粕在10个周期内的皮尔森相
 //皮尔森相关系数是衡量两个随机变量之间的相关程度的指标
 ```
 
-## CORRELATION
+### CORRELATION
 
 相关系数
 
@@ -2428,7 +2428,7 @@ CORRELATION(C1,C,10);//求文华商品和豆粕在10个周期内的相关系数�
 //相关系数是衡量两个随机变量之间的相关程度的指标
 ```
 
-## COVAR
+### COVAR
 
 协方差
 
@@ -2456,7 +2456,7 @@ COVAR(C1,C,10);//求文华商品和豆粕在10个周期内的协方差。
 //两个不同变量之间的方差就是协方差，如果两个变量的变化趋势一致，那么两个变量之间的协方差就是正值；如果两个变量的变化趋势相反，那么两个变量之间的协方差就是负值。
 ```
 
-## DEVSQ
+### DEVSQ
 
 取得数据偏差平方和
 
@@ -2480,7 +2480,7 @@ DEVSQ(C,5);计算数据收盘价5个周期的数据偏差平方和。
 //表示收盘价与收盘价均值偏差分别平方之后求和，DEVSQ(C,5)表示5个周期的收盘价与收盘价均值偏差分别平方之后求和。
 ```
 
-## FORCAST
+### FORCAST
 
 线性回归值
 
@@ -2517,7 +2517,7 @@ YY:AA+BB*3;
 FORCAST(CLOSE,5);//表示求5周期线性回归预测值
 ```
 
-## KURTOSIS
+### KURTOSIS
 
 峰度系数
 
@@ -2541,7 +2541,7 @@ KURTOSIS(C,10);
 //表示收盘价的10周期峰值。峰值反映与正态分布相比某一分布的尖锐度或平坦度。正峰值表示相对尖锐的分布。负峰值表示相对平坦的分布。
 ```
 
-## NORMPDF
+### NORMPDF
 
 正态分布概率密度
 
@@ -2563,7 +2563,7 @@ ATR:=MA(TR,26);//求26个周期内的TR的简单移动平均
 ZZ..NORMPDF(ATR,0,1);//定义变量ZZ，返回ATR服从标准正态分布的概率密度。
 ```
 
-## SKEWNESS
+### SKEWNESS
 
 偏度系数
 
@@ -2587,7 +2587,7 @@ SKEWNESS(C,10);
 //表示收盘价的10周期偏度。偏度反映分布的不对称度。不对称度反映以平均值为中心的分布的不对称程度。正不对称度表示不对称部分的分布更趋向正值。负不对称度表示不对称部分的分布更趋向负值。
 ```
 
-## SLOPE
+### SLOPE
 
 线性回归的斜率
 
@@ -2621,7 +2621,7 @@ slope={[5*close(1))+...+1*close(5)]-[close(1)+...+close(5)]*(1+2+3+4+5)/5}/[(1*1
 SLOPE(CLOSE,5);表示求收盘价5个周期线性回归线的斜率
 ```
 
-## STD
+### STD
 
 样本标准差
 
@@ -2645,7 +2645,7 @@ STD(C,10)求收盘价在10个周期内的样本标准差。
 //标准差表示总体各单位标准值与其平均数离差平方的算术平均数的平方根，它反映一个数据集的离散程度。STD(C,10)表示收盘价与收盘价的10周期均线之差的平方和的平均数的算术平方根。样本标准差是样本方差的平方根。
 ```
 
-## STDP
+### STDP
 
 总体标准差
 
@@ -2670,7 +2670,7 @@ STDP(C,10)为收盘价的10周期总体标准差。
 //总体标准差是反映研究总体内个体之间差异程度的一种统计指标，总体方差是一组资料中各数值与其算术平均数离差平方和的平均数，总体标准差则是总体方差的平方根。
 ```
 
-## VAR
+### VAR
 
 样本方差
 
@@ -2694,7 +2694,7 @@ VAR(C,5)求收盘价在5周期内的样本方差。
 //表示总体方差的N/(N-1)倍，VAR(C,5)表示收盘价的5周期总体样本方差的5/4倍。
 ```
 
-## VARP
+### VARP
 
 总体方差
 
@@ -2717,8 +2717,8 @@ VARP(C,5)为收盘价的5周期总体方差
 //表示数据偏差平方和除以总周期数N，VARP(C,5)表示收盘价5个周期的数据偏差平方和除以5.
 ```
 
-# 数学函数
-## ABS
+## 数学函数
+### ABS
 
 绝对值
 
@@ -2738,7 +2738,7 @@ ABS(CLOSE-10);//返回收盘价和的10价差的绝对值。
 ABS(C-O);//当前K线实体长度
 ```
 
-## ACOS
+### ACOS
 
 反余弦值
 
@@ -2755,7 +2755,7 @@ ACOS(-1);//求-1的反余弦值；
 ACOS(1);//求1的反余弦值；
 ```
 
-## ASIN
+### ASIN
 
 反正弦值
 
@@ -2772,7 +2772,7 @@ ASIN(-1);//求-1的反正弦值；
 ASIN(1);//求1的反正弦值；
 ```
 
-## ATAN
+### ATAN
 
 反正切值
 
@@ -2787,7 +2787,7 @@ ATAN(-1.75);//求-1.75的反正切值；
 ATAN(1.75);//求1.75的反正切值；
 ```
 
-## CEILING
+### CEILING
 
 向上舍入
 
@@ -2814,7 +2814,7 @@ CEILING(-7,2);//求得-6。
 CEILING(8,-2);//返回无效值。
 ```
 
-## COS
+### COS
 
 余弦
 
@@ -2831,7 +2831,7 @@ COS(-1.57);//返回-1.57的余弦值
 COS(1.57);//返回1.57的余弦值
 ```
 
-## CUBE
+### CUBE
 
 立方函数
 
@@ -2842,7 +2842,7 @@ CUBE(X)：返回X的三次方。
 CUBE(4);//求4的立方。
 ```
 
-## EXP
+### EXP
 
 指数
 
@@ -2853,7 +2853,7 @@ EXP(X)：求e的X次幂。
 C*EXP(0.01);//求收盘价乘以e的0.01次幂
 ```
 
-## FLOOR
+### FLOOR
 
 向下舍入
 
@@ -2873,7 +2873,7 @@ FLOOR(5);//返回值为5；
 IFELSE(C-INTPART(C)>=0.5,CEILING(C),FLOOR(C));//对收盘价四舍五入后取整数部分。
 ```
 
-## INTPART
+### INTPART
 
 取整
 
@@ -2890,7 +2890,7 @@ INTPART(10);//返回值为10；
 INTPART(C);//求收盘价的整数部分。
 ```
 
-## LN
+### LN
 
 自然对数
 
@@ -2904,7 +2904,7 @@ LN(X)：求X的自然对数。
 LN(OPEN);//求开盘价的对数。
 ```
 
-## LOG
+### LOG
 
 常用对数
 
@@ -2921,7 +2921,7 @@ LOG(100) 返回2.
 LOG(0) 返回空值。
 ```
 
-## MAX
+### MAX
 
 最大值
 
@@ -2939,7 +2939,7 @@ MAX(CLOSE-OPEN,0);//表示若收盘价大于开盘价返回它们的差值，否
 MAX(A,MAX(B,MAX(C,D)));//求 A B C D四者中的最大值
 ```
 
-## MAX1
+### MAX1
 
 取最大值
 
@@ -2957,7 +2957,7 @@ MAX1(CLOSE,OPEN);//表示取开盘价和收盘价中较大者。
 MAX1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16中的最大值。
 ```
 
-## MEDIAN
+### MEDIAN
 
 求中位数
 
@@ -2974,7 +2974,7 @@ MEDIAN(X,N) 求X在N个周期内居于中间的数值。
 豆粕1509最近4日的开盘价为2752、2743、2730、2728，那么当前MEDIAN(O,4)的返回值是2736.5
 ```
 
-## MEDIAN1
+### MEDIAN1
 
 求中位数
 
@@ -2992,7 +2992,7 @@ AA:MEDIAN1(O,C,H);//开盘价、收盘价、最高价按数值排序，取居中
 BB:MEDIAN1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16的中位数,BB返回8.5
 ```
 
-## MIN
+### MIN
 
 最小值
 
@@ -3008,7 +3008,7 @@ MIN(OPEN,CLOSE);//表示取开盘价和收盘价中的较小者。
 MIN(C,MIN(O,REF(C,1)));//求当前周期的开盘价，收盘价，以及上周期的收盘价间最小的数值
 ```
 
-## MIN1
+### MIN1
 
 取最小值
 
@@ -3026,7 +3026,7 @@ MIN1(CLOSE,OPEN);//表示取开盘价和收盘价中较小者。
 MIN1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16中的最小值。
 ```
 
-## MOD
+### MOD
 
 取模
 
@@ -3042,7 +3042,7 @@ DRAWICON(MOD(BARPOS,3)=0,H,'ICO1');//从数据开始第一根k线开始 分别�
 MOD(A,2)=0;//判断A为偶数。
 ```
 
-## MODE
+### MODE
 
 求众数
 
@@ -3054,7 +3054,7 @@ MODE(X,N) 求X在N个周期内最常出现的值。
 2、N可以为变量。
 ```
 
-## POW
+### POW
 
 幂
 
@@ -3075,7 +3075,7 @@ POW(1/2,-2);//返回值为4
 POW(100,O-C);//返回100的O-C次方
 ```
 
-## RAND
+### RAND
 
 产生随机数的随机函数
 
@@ -3094,7 +3094,7 @@ RAND(1,60);//返回1到60之间的随机数值
 RAND(C,O);//返回收盘价到开盘价之间的随机数值
 ```
 
-## RANGE
+### RANGE
 
 范围
 
@@ -3113,7 +3113,7 @@ RANGE(MA10,MA20,MA5),BK;//10周期均线在5周期均线与20周期均线之间�
 //RANGE(MA10,MA20,MA5)=1,BK; 与 RANGE(MA10,MA20,MA5),BK; 表达同等意义
 ```
 
-## REVERSE
+### REVERSE
 
 取相反值
 
@@ -3128,7 +3128,7 @@ REVERSE(-55);//返回值为55
 REVERSE(0);//返回值为0
 ```
 
-## ROUND
+### ROUND
 
 指定位数四舍五入
 
@@ -3149,7 +3149,7 @@ ROUND(125.345,0);//返回125。
 ROUND(125.345,-1);//返回130
 ```
 
-## SGN
+### SGN
 
 取符号
 
@@ -3164,7 +3164,7 @@ SGN(-5);//返回值为-1
 SGN(0);//返回值为0
 ```
 
-## SIN
+### SIN
 
 求正弦
 
@@ -3181,7 +3181,7 @@ SIN(-1.57);//返回-1.57的正弦值
 SIN(1.57);//返回1.57的正弦值
 ```
 
-## SQRT
+### SQRT
 
 平方根
 
@@ -3195,7 +3195,7 @@ X的取值为正数，X为负数时返回空值。
 SQRT(CLOSE);//收盘价的平方根。
 ```
 
-## SQUARE
+### SQUARE
 
 平方
 
@@ -3208,7 +3208,7 @@ SQUARE(C);//收盘价的平方。
 SQUARE(2);//2的平方。
 ```
 
-## TAN
+### TAN
 
 正切
 
@@ -3220,8 +3220,8 @@ TAN(0);//返回0的正切值；
 TAN(-3.14);//返回-3.14的正切值。
 ```
 
-# 逻辑判断函数
-## BARSTATUS
+## 逻辑判断函数
+### BARSTATUS
 
 返回当前周期的位置状态
 
@@ -3235,7 +3235,7 @@ BARSTATUS 返回当前周期的位置状态。
 A:=IFELSE(BARSTATUS=1,H,0);//如果当前K线是第一个周期，变量A返回K线最高值，否则取0。
 ```
 
-## BETWEEN
+### BETWEEN
 
 介于
 
@@ -3249,7 +3249,7 @@ BETWEEN(X,Y,Z) 表示X是否处于Y和Z之间，成立返回1(Yes)，否则返�
 BETWEEN(CLOSE,MA5,MA10); //表示收盘价介于5日均线与10日均线之间。
 ```
 
-## CODELIKE
+### CODELIKE
 
 模糊股票代码函数
 
@@ -3267,7 +3267,7 @@ CODELIKE('600') 判断股票代码是否以600开头。是返回1（YES）,不�
 C>O&&CODELIKE('300')=0,SELECT;//筛选出最后一根K线为阳线并且代码以300开头的股票（创业版）。
 ```
 
-## CROSS
+### CROSS
 
 交叉函数
 
@@ -3281,7 +3281,7 @@ CROSS(A,B) 表示A从下方向上穿过B，成立返回1(Yes)，否则返回0(No
 CROSS(CLOSE,MA(CLOSE,5));//表示收盘线从下方向上穿过5周期均线
 ```
 
-## CROSS2
+### CROSS2
 
 二次交叉函数
 
@@ -3298,7 +3298,7 @@ MA5:=MA(C,5);
 CROSS2(C,MA5,10) 返回值为1(Yes)，表示当前周期是10个周期内(包含当前周期)收盘价从下方向上穿过5周期均线的第偶数次；返回值为0(No)，表示当前周期不是10个周期内(包含当前周期)收盘价从下方向上穿过5周期均线的第偶数次
 ```
 
-## CROSSDOWN
+### CROSSDOWN
 
 向下穿越
 
@@ -3315,7 +3315,7 @@ CROSSDOWN(MA5,MA10),SK;//MA5下穿MA10卖开仓
 //CROSSDOWN(MA5,MA10),SK;  与  CROSSDOWN(MA5,MA10)=1,SK;表达同等意义
 ```
 
-## CROSSUP
+### CROSSUP
 
 向上穿越
 
@@ -3332,7 +3332,7 @@ CROSSUP(MA5,MA10),BK;//MA5上穿MA10，买开仓。
 //CROSSUP(MA5,MA10),BK; 与  CROSSUP(MA5,MA10)=1,BK;表达同等意义
 ```
 
-## DIVERGENCE
+### DIVERGENCE
 
 变量X1与X2在指定周期内是否发生背离
 
@@ -3354,7 +3354,7 @@ DIVERGENCE(C,MA10,2,20,1);//在20个周期内，收盘价与10周期均线存在
 即在当根K线前面的20个周期（不包含当根K线）内，收盘价存在两个这样的峰值，且峰值创了新高，但是在两个峰值对应K线取到的10周期均线的值未创新高
 ```
 
-## EVERY
+### EVERY
 
 判断是否持续满足
 
@@ -3375,7 +3375,7 @@ EVERY(MA5>MA10,4),BK;//4个周期内MA5都大于MA10，则买开仓。
 //EVERY(MA5>MA10,4),BK;   与   EVERY(MA5>MA10,4)=1,BK;    表达同等意义
 ```
 
-## EXIST
+### EXIST
 
 判断是否存在满足
 
@@ -3394,7 +3394,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;
 EXIST(C>MA(C,5),N);// 表示当天是否有满足收盘价大于5周期均线的k线，存在返回1，不存在返回0
 ```
 
-## FILTER
+### FILTER
 
 过滤
 
@@ -3409,7 +3409,7 @@ FILTER(COND,N) 当COND条件成立，将其后N周期内的数据设置为0.
 FILTER(CLOSE>OPEN,3);// 查找阳线，3天内再次出现的阳线不被记录在内
 ```
 
-## HASTRADEDATA
+### HASTRADEDATA
 
 判断数据合约当根K线交易合约是否有数据
 
@@ -3422,7 +3422,7 @@ HASTRADEDATA;
 2、若数据合约和交易合约一致返回1
 ```
 
-## IF
+### IF
 
 条件函数
 
@@ -3440,7 +3440,7 @@ A=1,BPK;//当MA5>MA10，以DIFF上穿DEA作为开多仓条件
 A=2,SPK;//当MA5不大于MA10，以K、D死叉作为开空仓条件
 ```
 
-## IFELSE
+### IFELSE
 
 条件函数
 
@@ -3458,7 +3458,7 @@ A=1,BPK;//当MA5>MA10，以DIFF上穿DEA作为开多仓条件
 A=2,SPK;//当MA5不大于MA10，以K、D死叉作为开空仓条件
 ```
 
-## ISCONTRACT
+### ISCONTRACT
 
 当前是否为指定的合约
 
@@ -3477,7 +3477,7 @@ ISCONTRACT('CLZ5');//加载到美原油12上返回值为1，加载到非美原�
 ISCONTRACT('沪铜');//加载到沪铜合约上返回值为1，加载到非沪铜合约上返回值为0。
 ```
 
-## ISDOWN
+### ISDOWN
 
 阴线
 
@@ -3492,7 +3492,7 @@ ISDOWN=1&&C<REF(C,1),SK;//当根k线收阴并且收盘价小于前一周期收�
 //ISDOWN=1&&C<REF(C,1),SK; 与 ISDOWN&&C<REF(C,1),SK; 表达同等意义
 ```
 
-## ISEQUAL
+### ISEQUAL
 
 平盘
 
@@ -3506,7 +3506,7 @@ ISEQUAL 判断该周期是否平盘
 EVERY(ISEQUAL=1,2),CLOSEOUT;//持续2根k线都是平盘，则全平。
 ```
 
-## ISDELIVERYDAY
+### ISDELIVERYDAY
 
 判断该周期是不是交割日
 
@@ -3522,7 +3522,7 @@ ISDELIVERYDAY 判断该周期是否是交割日。当前k线是交割日则返�
 ISDELIVERYDAY=1&&TIME>=1000,CLOSEOUT;//当根k线是交割日并且时间是10:00,全平。
 ```
 
-## ISLASTKLINE
+### ISLASTKLINE
 
 判断该周期是否收盘前最后一根K线
 
@@ -3537,7 +3537,7 @@ ISLASTKLINE 判断该周期是否为每日收盘前最后一根k线，返回是1
 ISLASTKLINE=1,CLOSEOUT;//若该周期是当日收盘前最后一根k线，则全平。
 ```
 
-## ISLASTBAR
+### ISLASTBAR
 
 判断该周期是否为最后一根K线
 
@@ -3548,7 +3548,7 @@ ISLASTBAR 判断该周期是否为最后一根k线
 VALUEWHEN(ISLASTBAR=1,REF(H,1));//当前k线是最后一根k线，则取前一周期的最高价。
 ```
 
-## ISMAINCONTRACT
+### ISMAINCONTRACT
 
 当前是否为主力合约
 
@@ -3566,7 +3566,7 @@ ISMAINCONTRACT;取当前交易合约判断是否是主力合约，是返回1，�
 ISMAINCONTRACT;//当前的交易合约为主力合约，返回1，否则返回0
 ```
 
-## ISMONTHEND
+### ISMONTHEND
 
 是否为本月最后一个交易日
 
@@ -3581,7 +3581,7 @@ ISMONTHEND 是否为本月最后一个交易日
 CLOSE<MA(CLOSE,5) || ISMONTHEND,SP;//如果满足平仓条件或者当前为本月最后一个交易日，平仓
 ```
 
-## ISNEARHOLIDAY
+### ISNEARHOLIDAY
 
 判断下一交易日是否是交易合约的节假日
 
@@ -3596,7 +3596,7 @@ ISNEARHOLIDAY 判断下一交易日是否是交易合约的节假日。交易合
 ISNEARHOLIDAY=1&&TIME>=1000,CLOSEOUT;//下一个交易日是节假日并且时间是10:00,全平。
 ```
 
-## ISNULL
+### ISNULL
 
 判断空值
 
@@ -3608,7 +3608,7 @@ ISNULL 判断空值
 例：MA5:IFELSE(ISNULL(MA(C,5))=1,C,MA(C,5));//定义五周期均线，K线数量不足五根时，返回当根K线的收盘价
 ```
 
-## ISTIMETOKLINEEND
+### ISTIMETOKLINEEND
 
 判断当前K线时间是否满足K线走完前N秒
 
@@ -3630,7 +3630,7 @@ AUTOFILTER;
 MULTSIG(0,0,3,0);
 ```
 
-## ISUP
+### ISUP
 
 阳线
 
@@ -3645,7 +3645,7 @@ ISUP=1&&C>REF(C,1),BK;//若当根k线收阳并且收盘价大于前一周期收�
 //ISUP=1&&C>REF(C,1),BK; 与 ISUP&&C>REF(C,1),BK;//表达同等意义
 ```
 
-## ISWEEKEND
+### ISWEEKEND
 
 是否为本周最后一个交易日
 
@@ -3660,7 +3660,7 @@ ISWEEKEND 判断是否为本周最后一个交易日
 C<MA(C,5) || ISWEEKEND,SP;//如果满足平仓条件或者当前为本周最后一个交易日，平仓
 ```
 
-## KLINESTART
+### KLINESTART
 
 判断K线当前状态是否是K线开始
 
@@ -3678,7 +3678,7 @@ MULTSIG(0,0,1,0);
 AUTOFILTER;
 ```
 
-## K_STATE
+### K_STATE
 
 判断k线形态
 
@@ -3724,7 +3724,7 @@ K_STATE('红三兵');//判断当前k线形态是否为红三兵
 '孕线'
 ```
 
-## K_STATE1
+### K_STATE1
 
 判断k线形态
 
@@ -3756,7 +3756,7 @@ K_STATE1(3,'上升三法');//上升三法为股价持续上涨中，某日出现
 '吊颈线'：参数N1表示(H-MIN(O,C))的倍数
 ```
 
-## K_STATE2
+### K_STATE2
 
 判断k线形态
 
@@ -3777,7 +3777,7 @@ K_STATE2(3,5,'早晨之星');//早晨之星为启示后市见底回升的阴阳�
 '大阴线':参数N1为K线实体比例，参数N2为高低价比值与收开价比值的差值上线。N1=5即收盘价相当于开盘价上涨或下跌5%，N2=18即高低价比值与收开价比值的差值上线18/1000
 ```
 
-## K_STATE3
+### K_STATE3
 
 判断k线形态
 
@@ -3799,7 +3799,7 @@ K_STATE3(5,10,20,'出水芙蓉');//一根大阳线上穿三条均线，均线为
 '死蜘蛛'：参数N1、N2、N3为三条均线周期
 ```
 
-## K_STATE4
+### K_STATE4
 
 判断k线形态
 
@@ -3813,7 +3813,7 @@ K_STATE4(N1,N2,,N3,,N4,'STATE');N1,N2,N3,N4为k线形态源码中的参数；STA
 K_STATE4(5,5,10,20,'九阴白骨爪')：参数N1为连续N根K线满足阴线，参数N2、N3、N4为三条均线的周期
 ```
 
-## LAST
+### LAST
 
 判断函数
 
@@ -3832,7 +3832,7 @@ MA5:=MA(C,5);
 LAST(C>MA5,4,3);//判断距离当前k线3个周期的那根k线上是否满足C大于MA5.
 ```
 
-## LONGCROSS
+### LONGCROSS
 
 维持交叉函数
 
@@ -3847,7 +3847,7 @@ LONGCROSS(A,B,N) 表示A在N个周期内都小于B，本周期A从下向上穿�
 LONGCROSS(CLOSE,MA(CLOSE,10),20);//表示收盘线在10日均线之下持续20周期后从下向上穿过10日均线
 ```
 
-## NAMELIKE
+### NAMELIKE
 
 模糊股票名称函数
 
@@ -3865,7 +3865,7 @@ NAMELIKE('ST') 判断股票名称是否以ST开头。是返回1（YES）,不是�
 C>O&&NAMELIKE('ST')=0,SELECT;//筛选出最后一根K线为阳线并且名称不是以ST开头的股票。
 ```
 
-## NOT
+### NOT
 
 非
 
@@ -3878,7 +3878,7 @@ NOT(BARSBK>=1)=1;//BK信号发出的当根K线上满足条件。
 //NOT(BARSBK>=1)=1 与 NOT(BARSBK>=1) 表达同等意义。
 ```
 
-## NULL
+### NULL
 
 返回空值
 
@@ -3890,7 +3890,7 @@ MA10:=MA(C,10);
 A:IFELSE(MA5>MA10,MA5,NULL),COLORRED;//当MA5>MA10时，画五日均线MA5，不满足MA5>MA10时，返回空值，不画线。
 ```
 
-## STKTYPE
+### STKTYPE
 
 取市场类型
 
@@ -3905,7 +3905,7 @@ STKTYPE 取市场类型。
 A:STKTYPE;//加载到期货合约上，A返回值为7。
 ```
 
-## TREND
+### TREND
 
 获取K线趋势
 
@@ -3916,7 +3916,7 @@ TREND 获取K线趋势。
 TREND  K线的形成过程中最高价先出现，则返回值为3；最低价先出现，则返回值为2；若最高和最低一起出现，则返回值为1；默认为0。
 ```
 
-## VALUEWHEN
+### VALUEWHEN
 
 取值
 
@@ -3934,8 +3934,8 @@ VALUEWHEN(DATE<>REF(DATE,1),O);表示取当天第一根k线的开盘价（即当
 VALUEWHEN(DATE<>REF(DATE,1),L>REF(H,1));//表示在当天第一根k线上判断当前最低价是否大于昨天最后一根K线的最高价。返回1，说明当天跳空高开。返回0，说明当天不满足跳空高开条件。
 ```
 
-# 循环执行函数
-## LOOP1
+## 循环执行函数
+### LOOP1
 
 循环统计函数
 
@@ -3997,7 +3997,7 @@ LOOP1(X,N, ADD)=SUM(X,N)
 LOOP1(X,N, AVERAGE)=MA(X,N)
 ```
 
-## LOOP2
+### LOOP2
 
 循环条件函数
 
@@ -4021,8 +4021,8 @@ C>SS,BP;
 AUTOFILTER;
 ```
 
-# 时间函数
-## BARPOS
+## 时间函数
+### BARPOS
 
 取K线的位置
 
@@ -4038,7 +4038,7 @@ BARPOS，返回从第一根K线开始到当前的周期数。
 例2：IFELSE(BARPOS=1,H,0);//当前K线是本机已有的第一根K线取最高值，否则取0。
 ```
 
-## CLOSEMINUTE
+### CLOSEMINUTE
 
 距收盘前时间
 
@@ -4063,7 +4063,7 @@ CLOSEKLINE(1,10);//收盘前最后一根K线提前10秒判断K线走完
 AUTOFILTER;
 ```
 
-## CLOSEMINUTE1
+### CLOSEMINUTE1
 
 距收盘前时间
 
@@ -4091,7 +4091,7 @@ CLOSEMINUTE1<=1,CLOSEOUT;//收盘前1分钟，清仓
 AUTOFILTER;
 ```
 
-## CLOSEMINUTEEVERY
+### CLOSEMINUTEEVERY
 
 距小节结束时间
 
@@ -4116,7 +4116,7 @@ CLOSEMINUTEEVERY(1)<=10,SP;//当前K线开始时间距离第一个小节结束�
 AUTOFILTER;
 ```
 
-## CLOSEMINUTEEVERY1
+### CLOSEMINUTEEVERY1
 
 距小节结束时间
 
@@ -4145,7 +4145,7 @@ CLOSEMINUTEEVERY1(2)<=1,SP;//第二小节结束前平仓
 AUTOFILTER;
 ```
 
-## CLOSESEC
+### CLOSESEC
 
 距收盘前时间（秒数）
 
@@ -4170,7 +4170,7 @@ CLOSEKLINE(1,5);//收盘前最后一根K线提前5秒判断K线走完
 AUTOFILTER;
 ```
 
-## CLOSESEC1
+### CLOSESEC1
 
 距收盘前时间（秒数）
 
@@ -4197,7 +4197,7 @@ CLOSESEC1<=5,CLOSEOUT;//收盘前五秒钟，清仓。
 AUTOFILTER;
 ```
 
-## CLOSESECEVERY
+### CLOSESECEVERY
 
 距小节结束时间（秒）
 
@@ -4223,7 +4223,7 @@ CLOSEKLINE(1,5);//以收盘时间为结束时间的K线提前5秒判断K线走�
 AUTOFILTER;
 ```
 
-## CLOSESECEVERY1
+### CLOSESECEVERY1
 
 距小节结束时间（秒）
 
@@ -4251,7 +4251,7 @@ CLOSESECEVERY1(1)<=5,CLOSEOUT;//第一小节结束前五秒钟，清仓。
 AUTOFILTER;
 ```
 
-## DATE
+### DATE
 
 取得某周期的日期数
 
@@ -4270,7 +4270,7 @@ AA:DATE=130507&&TIME=1037;
 HH:VALUEWHEN(AA=1,H);// 取201305071037分钟位置，同时取201305071037分钟k线位置最高价
 ```
 
-## DAY
+### DAY
 
 取得某周期的日数
 
@@ -4287,7 +4287,7 @@ N:BARSLAST(DATE<>REF(DATE,1))+1;
 CC:IFELSE(DAY=1,VALUEWHEN(N=1,O),0);//当日期为1时，取开盘价，否则取值为0.
 ```
 
-## DAYSTOEXPIRED
+### DAYSTOEXPIRED
 
 期货合约距最后交易日的天数
 
@@ -4311,7 +4311,7 @@ A:DAYSTOEXPIRED('');//A返回当前加载合约的到期剩余天数。
 A:=DAYSTOEXPIRED('')=1&&CLOSEMINUTE=5;//定义变量A为最后交易日收盘前五分钟。
 ```
 
-## HOUR
+### HOUR
 
 小时
 
@@ -4329,7 +4329,7 @@ DRAWLINE3(CROSSDOWN(HOUR=14,0.5),REF(H,NX),NX,CROSSDOWN(HOUR=14,0.5),REF(H,1),1,
 HOUR=10;//在10:00的K线上返回值为1，其余K线上返回值为0。
 ```
 
-## MINUTE
+### MINUTE
 
 分钟
 
@@ -4345,7 +4345,7 @@ MINUTE=0；//在整点时刻的分钟K线上返回值为1，其余K线返回值�
 TIME>1400&&MINUTE=50,SP;//在14:50的时候卖平仓。
 ```
 
-## MONTH
+### MONTH
 
 取月份
 
@@ -4361,7 +4361,7 @@ VALUEWHEN(MONTH=3&&DAY=1,C);//在K线日期为三月一日时取其收盘价。
 C>=VALUEWHEN(MONTH<REF(MONTH,1),O),SP;
 ```
 
-## NEXTDELIVERYDAY
+### NEXTDELIVERYDAY
 
 最近交割日期函数
 
@@ -4379,7 +4379,7 @@ NEXTDELIVERYDAY,返回当前品种往后最近的交割日期。
 DATE=NEXTDELIVERYDAY&&CLOSEMINUTE=5,CLOSEOUT；//距交割日收盘前五分钟时清仓。
 ```
 
-## OPENMINUTE
+### OPENMINUTE
 
 开盘后经过的分钟数
 
@@ -4400,7 +4400,7 @@ CROSS(MA(C,5),C)&&OPENMINUTE>5,SPK;
 AUTOFILTER;
 ```
 
-## OPENMINUTE1
+### OPENMINUTE1
 
 开盘后经过的分钟数
 
@@ -4424,7 +4424,7 @@ MULTSIG(0,0,1,0);//出信号立即下单，不复核
 AUTOFILTER;
 ```
 
-## PERIOD
+### PERIOD
 
 自动读取当前技术分析图表周期
 
@@ -4441,7 +4441,7 @@ OO:VALUEWHEN(N=1,O);
 IFELSE(PERIOD=1,OO,NULL);//取当天一分钟周期的开盘价。
 ```
 
-## QUARTER
+### QUARTER
 
 取得某周期的季度数
 
@@ -4458,7 +4458,7 @@ TRADE_OTHER('AUTO');//交易合约为主力合约
 AUTOFILTER;
 ```
 
-## TIME
+### TIME
 
 取K线的时间
 
@@ -4485,7 +4485,7 @@ AUTOFILTER;
 ISLASTSK=0&&C>O&&TIME>=0915,SK;
 ```
 
-## VOLTIME
+### VOLTIME
 
 取K线形成的时间（秒）
 
@@ -4495,7 +4495,7 @@ ISLASTSK=0&&C>O&&TIME>=0915,SK;
 VOLTIME 量能周期时，返回当前K线形成的时间。
 ```
 
-## VOLTICK
+### VOLTICK
 
 返回K线是由多少笔TICK生成
 
@@ -4505,7 +4505,7 @@ VOLTIME 量能周期时，返回当前K线形成的时间。
 VOLTICK 量能周期时，返回当前K线形成的TICK笔数。
 ```
 
-## WEEKDAY
+### WEEKDAY
 
 取得星期数
 
@@ -4526,7 +4526,7 @@ C>VALUEWHEN(WEEKDAY<REF(WEEKDAY,1),O)+10,BK;
 AUTOFILTER;
 ```
 
-## YEAR
+### YEAR
 
 年份
 
@@ -4546,8 +4546,8 @@ CC:=REF(C,N);//取上一年的最高价，最低价，开盘价，收盘价。
 NN:=IFELSE(YEAR>=2000 AND MONTH>=1,0,1);
 ```
 
-# 绘图函数
-## ALIGN
+## 绘图函数
+### ALIGN
 
 设置文字对齐方式（左中右）
 
@@ -4562,7 +4562,7 @@ COND条件满足时，在PRICE的位置，标注TEXT，文字按照ALIGNX写入�
 DRAWTEXT(C>O,H,'涨'),ALIGN1,VALIGN1,FONTSIZE20,COLORGREEN;//在阳线的最高价标注文字“涨”，文字居中对齐，字体大小为20，颜色为绿色。
 ```
 
-## BACKGROUNDSTYLE
+### BACKGROUNDSTYLE
 
 背景的样式
 
@@ -4592,7 +4592,7 @@ DEA  : EMA(DIFF,9);
 BACKGROUNDSTYLE(2)
 ```
 
-## CIRCLEDOT
+### CIRCLEDOT
 
 小圆点线
 
@@ -4608,7 +4608,7 @@ CIRCLEDOT 画小圆点线。
 例：MA5:MA(C,5),CIRCLEDOT,COLORCYAN;//用小圆点线画5周期均线，圆点线显示为青色。
 ```
 
-## COLORSTICK
+### COLORSTICK
 
 画柱线
 
@@ -4623,7 +4623,7 @@ COLORSTICK 画柱线。
 C-O,COLORSTICK;//画柱线，阳线时画红色向上柱线，阴线时画青色的向下柱线。
 ```
 
-## CROSSDOT
+### CROSSDOT
 
 小圆圈线
 
@@ -4639,7 +4639,7 @@ CROSSDOT 画小圆圈线。
 例：MA5:MA(C,5),CROSSDOT,COLORCYAN;//用小圆圈线画5周期均线，圆圈线显示为青色。
 ```
 
-## DASH
+### DASH
 
 画虚线
 
@@ -4655,7 +4655,7 @@ DASH 画虚线。
 例：MA5:MA(C,5),DASH,COLORCYAN;//用虚线画5周期均线，显示为青色。
 ```
 
-## DASHDOT
+### DASHDOT
 
 画点虚线
 
@@ -4671,7 +4671,7 @@ DASHDOT 画点虚线。
 例：MA5:MA(C,5),DASHDOT,COLORCYAN;//用点虚线画5周期均线，显示为青色。
 ```
 
-## DASHDOTDOT
+### DASHDOTDOT
 
 画双点虚线
 
@@ -4687,7 +4687,7 @@ DASHDOTDOT 画双点虚线。
 例：MA5:MA(C,5),DASHDOTDOT,COLORCYAN;//用双点虚线画5周期均线，显示为青色。
 ```
 
-## DOT
+### DOT
 
 画点线
 
@@ -4700,7 +4700,7 @@ DOT 画点线。
 例：MA5:MA(C,5),DOT;用点线画5日均线。
 ```
 
-## DRAWBARLINE
+### DRAWBARLINE
 
 绘制BAR线（美国线）
 
@@ -4716,7 +4716,7 @@ A:DRAWBARLINE(H1,O1,L1,C1);
 DRAWBARLINE(H,O,L,C); //在最高价和最低价之间绘制BAR线，在开盘价位置绘制左侧横线，在收盘价位置绘制右侧横线。
 ```
 
-## DRAWBKBMP
+### DRAWBKBMP
 
 设置背景图片
 
@@ -4737,7 +4737,7 @@ A:DRAWBKBMP(COND,IMAGE);
 DRAWBKBMP(CLOSE>OPEN,'壁纸20140410112435');//当最后一根K线为阳线时，将Formula\Image目录下的壁纸20140410112435图片设置为背景。
 ```
 
-## DRAWBMP
+### DRAWBMP
 
 输出图片
 
@@ -4760,7 +4760,7 @@ A:DRAWBMP(COND,DATA,IMAGE);
 DRAWBMP(CLOSE>OPEN,H,'壁纸20140410112435.BMP');//当K线为阳线时，在K线最高价位置显示Formula\Image目录下的壁纸20140410112435图片。
 ```
 
-## DRAWCOLORLINE
+### DRAWCOLORLINE
 
 根据条件画相应颜色的线
 
@@ -4778,7 +4778,7 @@ MA1:=MA(C,5);
 DRAWCOLORLINE(MA1>REF(MA1,1),MA1,COLORRED,COLORGREEN); //如果当根5日均线的值大于前一根5日均线的值，MA1画红线，否则画绿线
 ```
 
-## DRAWCOLORKLINE
+### DRAWCOLORKLINE
 
 绘制K线
 
@@ -4797,7 +4797,7 @@ A:DRAWCOLORKLINE(Cond,Color,Empty);
 DRAWCOLORKLINE(C>O,COLORBLUE,0);//收盘价大于开盘价，用蓝色绘制实心K线
 ```
 
-## DRAWCOLUMNCHART
+### DRAWCOLUMNCHART
 
 画双向柱形图
 
@@ -4817,7 +4817,7 @@ A:DRAWCOLUMNCHART(X,C1,C2);
 DRAWCOLUMNCHART(10,C>O,C>O);//满足收阳条件从0轴向上10个高度画红色柱，不满足条件从0轴向下10个高度画青色柱。
 ```
 
-## DRAWGBK
+### DRAWGBK
 
 设置渐变背景色
 
@@ -4841,7 +4841,7 @@ A:DRAWGBK(COND,C1,C2,D);
 DRAWGBK(CLOSE>OPEN,COLORRED,COLORGREEN,1);//当最后一根K线为阳线时，将背景设置为从上到下，红色到绿色的渐变。
 ```
 
-## DRAWGBK1
+### DRAWGBK1
 
 设置满足条件K线的背景颜色
 
@@ -4863,7 +4863,7 @@ MA5:=MA(C,5);
 DRAWGBK1(C>MA5,COLORRED);//表示在收盘价大于5周期均线的k线对应背景颜色设置为红色。
 ```
 
-## DRAWICON
+### DRAWICON
 
 画图标
 
@@ -4891,7 +4891,7 @@ DRAWICON(C>MA5,MA5,2),ALIGN0,VALIGN0;//表示在收盘价大于5周期均线的k
 写完“DRAWICON(C>MA5,MA5,” 以后，点击插入图标按钮，再单击选中的图标插入到函数中，图标用ICO1~ICO105（或1~105）表示。
 ```
 
-## DRAWKLINE
+### DRAWKLINE
 
 画K线
 
@@ -4912,7 +4912,7 @@ DRAWKLINE(0.75,COLORRED,1,COLORCYAN,0);//绘制K线宽度比例为0.75,阳线为
 DRAWKLINE(0.5,COLORYELLOW,0,COLORBLUE,1);//绘制K线宽度比例为0.5,阳线为黄色实心，阴线为蓝色空心。
 ```
 
-## DRAWKLINE1
+### DRAWKLINE1
 
 绘制K线
 
@@ -4932,7 +4932,7 @@ DRAWKLINE1(H,O,L,C);
 //按照高开低收为H,O,L,C绘制K线。
 ```
 
-## DRAWKLINE2
+### DRAWKLINE2
 
 绘制K线
 
@@ -4953,7 +4953,7 @@ A:DRAWKLINE2(WidthRatio,COLOR1,EMPTY1,COLOR2,EMPTY2);
 DRAWKLINE2(0.75,COLORRED,1,COLORCYAN,0);//绘制K线宽度比例为0.75,阳线为红色空心，阴线为绿色实心。盘整时K线显示为黄色。
 ```
 
-## DRAWLINE
+### DRAWLINE
 
 画线
 
@@ -4980,7 +4980,7 @@ DRAWLINE(MA10<CLOSE,OPEN,MA5>CLOSE,CLOSE,COLORCYAN);//表示当收盘价大于10
 DRAWLINE(ISUP,C,ISUP,H,COLORRED),LINETHICK7;//表示当前k线收阳时，从收盘价价画红色直线到最高价，线型粗细为7。
 ```
 
-## DRAWLINE1
+### DRAWLINE1
 
 画线
 
@@ -5004,7 +5004,7 @@ A:DRAWLINE1(C1,P1,C2,P2,EXP);
 DRAWLINE1(ISUP,H,ISDOWN,L,0),COLORBLUE,LINETHICK7;//表示在阳线的最高价处到距离该阳线最近的一根阴线的最低价处画线，画线不延伸，画线颜色为蓝色，线型粗细为7。
 ```
 
-## DRAWLINE2
+### DRAWLINE2
 
 画线
 
@@ -5028,7 +5028,7 @@ A:DRAWLINE2(C1,P1,C2,P2,EXP);
 DRAWLINE2(ISUP,H,ISDOWN,L,0),COLORBLUE,LINETHICK7;//表示在阳线的最高价处到距离该阳线之后连续出现阴线中最远的一根阴线的最低价处画线，画线不延伸，画线颜色为蓝色，线型粗细为7。
 ```
 
-## DRAWLINE3
+### DRAWLINE3
 
 偏移周期画线
 
@@ -5059,7 +5059,7 @@ DRAWLINE3(COD1,REF(H,2),2,COD2,REF(L,2),2,0),COLORGREEN;//满足COD1时向左偏
 DRAWLINE3(COD2,REF(L,2),2,COD1,REF(H,2),2,0),COLORRED;//满足COD2时向左偏移2个周期的最低价到满足COD1时向左偏移个2周期的最高价画红色的线，画线不延伸
 ```
 
-## DRAWNUMBER
+### DRAWNUMBER
 
 写数字
 
@@ -5080,7 +5080,7 @@ DRAWNUMBER(CLOSE/OPEN>1.08,HIGH,(CLOSE-OPEN)/OPEN*100,2,COLORRED);//表示当日
 DRAWNUMBER(DATE<>REF(DATE,1),L,REF(C,1),2,COLORRED),ALIGN0,VALIGN0;//表示在当天第一根k线的最低价处以红色显示昨收盘价数值(精确2位小数)，标注文字居左，居上对齐。
 ```
 
-## DRAWNUMBER1
+### DRAWNUMBER1
 
 写数字
 
@@ -5102,7 +5102,7 @@ DRAWNUMBER1(CLOSE/OPEN>1.08,HIGH,(CLOSE-OPEN)/OPEN*100,2),COLORRED;//表示当�
 DRAWNUMBER1(DATE<>REF(DATE,1),L,REF(C,1),2),COLORRED,ALIGN0,VALIGN0;//表示在当天第一根k线的最低价处以红色显示昨收盘价数值(精确2位小数)，标注文字居左，居上对齐。
 ```
 
-## DRAWSL
+### DRAWSL
 
 画线（段）
 
@@ -5129,7 +5129,7 @@ DRAWSL(C>O,H,0,2,0,COLORYELLOW);//表示当前k线为阳线时，从最高价开
 DRAWSL(LOW=LLV(LOW,50),LOW,5,3,2,COLORRED),LINETHICK5;//表示当前最低价等于50周期内的最小值时，从当前最低价开始以每隔5个点的斜率画长度为3个周期向右延伸的斜线，颜色为红色，线型粗细为5。
 ```
 
-## DRAWSL1
+### DRAWSL1
 
 画线（段）
 
@@ -5157,7 +5157,7 @@ DRAWSL1(C>O,H,0,2,0),COLORYELLOW;//表示当前k线为阳线时，从最高价�
 DRAWSL1(LOW=LLV(LOW,50),LOW,5,3,1),COLORRED,LINETHICK5;//表示当前最低价等于50周期内的最小值时，从当前最低价开始以每隔5个点的斜率画长度为3个周期向左延伸的斜线，颜色为红色，线型粗细为5。
 ```
 
-## DRAWTEXT
+### DRAWTEXT
 
 显示文字
 
@@ -5183,7 +5183,7 @@ DRAWTEXT(CLOSE<OPEN&&REF(CLOSE,1)<REF(OPEN,1)&&REF(VOL,1)*1.1<VOL,LOW,'注');//
 DRAWTEXT(L<=LLV(L,10),LOW,'新低'),ALIGN0,FONTSIZE16,COLORRED;//表示当根k线创10周期新低时，在最低价写"新低"字，文字左对齐，字体大小为16，文字颜色为红色。
 ```
 
-## FILLRGN
+### FILLRGN
 
 填充函数
 
@@ -5206,7 +5206,7 @@ MA10:MA(C,10);
 FILLRGN(MA5>MA10,MA5,MA10,COLORRED);//表示MA5>MA10时以红色填充MA5和MA10之间的区域。
 ```
 
-## FILLRGN1
+### FILLRGN1
 
 填充函数
 
@@ -5232,7 +5232,7 @@ MA10:MA(C,10);
 FILLRGN1(MA5>MA10,MA5,MA10),COLORRED;//表示MA5>MA10时以红色填充MA5和MA10之间的区域。
 ```
 
-## FONTSIZE
+### FONTSIZE
 
 设置字体大小
 
@@ -5249,7 +5249,7 @@ DRAWTEXT(C>O,H,'阳线'),FONTSIZE10;//收盘价大于开盘价，则在K线最�
 DRAWTEXT(C<O,L,'阴线'),ALIGN0,VALIGN2,FONTSIZE30;//收盘价小于开盘价，则在K线最低价处以30的字体大小，居左居上标注阴线。
 ```
 
-## ICON
+### ICON
 
 显示图标
 
@@ -5271,7 +5271,7 @@ CLOSE>OPEN,ICON(1,'ICO1');//表示K线收盘大于开盘时，在最高价上显
 写完“ICON(1,” 以后，点击插入图标按钮，再单击选中的图标插入到函数中，图标用'ICO1'~'ICO105'表示
 ```
 
-## KTEXT
+### KTEXT
 
 在K线附近标注文字
 
@@ -5295,7 +5295,7 @@ MA5:=MA(C,5);
 KTEXT(CROSS(C,MA5),-3,MA5,2,COLORRED,'买入');//在收盘价金叉5周期均线的前三根K线处，在MA5位置右侧上写"买入"字。
 ```
 
-## LINETHICK
+### LINETHICK
 
 线型粗细控制
 
@@ -5309,7 +5309,7 @@ LINETHICK1  LINETHICK2————LINETHICK7 线型由细至粗。
 例：MA5:MA(C,5),COLORRED,LINETHICK4; 给5日均线中度加粗,颜色为红色。
 ```
 
-## NODRAW
+### NODRAW
 
 不画线
 
@@ -5322,7 +5322,7 @@ NODRAW 只显示返回数值，不画线。
  MA5:MA(C,5), NODRAW;显示5周期均线的返回值，K线图上不显示均线。
 ```
 
-## NOTEXT
+### NOTEXT
 
 不显示数值
 
@@ -5336,7 +5336,7 @@ NOTEXT 只显示画线，不显示数值。
  MA5:MA(C,5), NOTEXT;K线图上显示5周期均线，不显示均线的数值。
 ```
 
-## PARTLINE
+### PARTLINE
 
 画线段
 
@@ -5360,7 +5360,7 @@ PARTLINE(HIGH>REF(HIGH,1),HIGH,COLORRED);//表示当期最高价大于前期最�
 PARTLINE(LOW<REF(LOW,1),LOW,COLORBLUE),LINETHICK5;//表示当期最低价小于前期最低价时用蓝色绘制最低价线段，线型粗细为5。
 ```
 
-## PARTLINE1
+### PARTLINE1
 
 画线段
 
@@ -5383,7 +5383,7 @@ A:PARTLINE1(COND,DATA);
 PARTLINE1(HIGH>REF(HIGH,1),HIGH),COLORRED,LINETHICK5;//表示当期最高价大于前期最高价时用红色绘制最高价线段，线型粗细为5。
 ```
 
-## PLAYSOUND
+### PLAYSOUND
 
 声音函数
 
@@ -5405,7 +5405,7 @@ A:PLAYSOUND(COND, 'N');
 PLAYSOUND(CLOSE>OPEN,'A');表示CLOSE>OPEN时播放自定义声音'A'。
 ```
 
-## POINTDOT
+### POINTDOT
 
 画点线
 
@@ -5418,7 +5418,7 @@ POINTDOT 画点线。
 例：MA5:MA(C,5),POINTDOT;用点线画5日均线。
 ```
 
-## POLYLINE
+### POLYLINE
 
 画折线
 
@@ -5442,7 +5442,7 @@ POLYLINE(CLOSE>=HHV(CLOSE,10),CLOSE,COLORRED);//表示在收盘价创10天新高
 POLYLINE(CLOSE<=LLV(CLOSE,10),CLOSE,COLORBLUE),LINETHICK7;//表示在收盘价创10天新低点之间画折线。折线显示为蓝色,线型粗细为7。
 ```
 
-## POLYLINE1
+### POLYLINE1
 
 画折线
 
@@ -5469,7 +5469,7 @@ POLYLINE1(CLOSE>=HHV(CLOSE,10),CLOSE),COLORRED;//表示在收盘价创10天新�
 POLYLINE1(CLOSE<=LLV(CLOSE,10),CLOSE),COLORBLUE,LINETHICK7;//表示在收盘价创10天新低点之间画折线。折线显示为蓝色,线型粗细为7。
 ```
 
-## PRECIS
+### PRECIS
 
 指定数值的输出精度（小数位数）
 
@@ -5484,7 +5484,7 @@ PRECISX，X为0至6，表示小数位数从0到6。
 MA(C,5),PRECIS4;//计算五周期均线，数值精度为4位小数。
 ```
 
-## PRECISION
+### PRECISION
 
 设置小数位数
 
@@ -5501,7 +5501,7 @@ C,PRECISION(3); //设置小数点位数为3位，即返回收盘价显示三位�
 C,PRECISION(PRICEPRECISION); //返回收盘价，设置小数点位数为当前合约的小数位数
 ```
 
-## PRICEPRECISION
+### PRICEPRECISION
 
 取当前合约小数点位数
 
@@ -5515,7 +5515,7 @@ PRICEPRECISION 取当前合约小数点位数
 C,PRECISION(PRICEPRECISION); //返回收盘价，设置小数点位数为当前合约的小数位数
 ```
 
-## PRICEPRECISION1
+### PRICEPRECISION1
 
 取指定合约设置的小数点位数
 
@@ -5530,7 +5530,7 @@ PRICEPRECISION1('8608');//返回文华码8608合约设置的小数点位数
 C,PRECISION(PRICEPRECISION1('8608')); //返回收盘价，设置小数点位数为指定文华码8608的合约的小数位数
 ```
 
-## REFLINE
+### REFLINE
 
 设定指标参考线
 
@@ -5552,7 +5552,7 @@ REFLINE:A,B,C...;
 REFLINE:-100,0,100;//在-100,0,100的位置画出指标参考线。
 ```
 
-## REFLINE1
+### REFLINE1
 
 设定指标参考线
 
@@ -5574,7 +5574,7 @@ REFLINE1:A,B,C...;
 REFLINE1:-100,0,100;//在-100,0,100的位置画出指标参考线。
 ```
 
-## SETSTYLECOLOR
+### SETSTYLECOLOR
 
 线型的粗细和颜色控制
 
@@ -5595,7 +5595,7 @@ SETSTYLECOLOR(STYLE,COLOR);
  A:C,SETSTYLECOLOR(LINETHICK5,COLORGREEN);//以绿色LINETHICK5的粗细大小画收盘价连线。
 ```
 
-## SOLID
+### SOLID
 
 实心显示
 
@@ -5612,7 +5612,7 @@ SOLID 实心显示。
 VOL,VOLUMESTICK,SOLID;//画成交量柱状线，柱线实心显示。
 ```
 
-## SOUND
+### SOUND
 
 播放声音
 
@@ -5632,7 +5632,7 @@ SOUND 播放声音。
 CLOSE>OPEN,SOUND('A');表示K线收盘大于开盘时，播放声音"A"
 ```
 
-## STICK
+### STICK
 
 画指定粗细的柱线
 
@@ -5647,7 +5647,7 @@ STICK(COND,P1,P2,N,COLOR,Empty);画不同粗细的柱线
 STICK(OPEN-CLOSE>0,OPEN,CLOSE,3,COLORCYAN,0);//表示当开盘价大于收盘价时，从开盘价到收盘价画宽度为3的青色的实心柱，即K线阴线的实体部分。
 ```
 
-## STICKLINE
+### STICKLINE
 
 画柱线
 
@@ -5666,7 +5666,7 @@ A:STICKLINE(COND,P1,P2,Color,Empty);
 STICKLINE(OPEN-CLOSE>0,OPEN,CLOSE,COLORCYAN,0);//表示当开盘价大于收盘价时，从开盘价到收盘价画青色的实心柱，即K线阴线的实体部分。
 ```
 
-## STICKLINE1
+### STICKLINE1
 
 画柱线
 
@@ -5687,7 +5687,7 @@ A:STICKLINE1(COND,P1,P2,Width,Empty);
 STICKLINE1(OPEN-CLOSE>0,OPEN,CLOSE,4,0),COLORCYAN;//表示当开盘价大于收盘价时，从开盘价到收盘价画青色的实心柱，宽度为4，即K线阴线的实体部分。
 ```
 
-## VALIGN
+### VALIGN
 
 设置文字对齐方式（上中下）
 
@@ -5702,7 +5702,7 @@ COND条件满足时，在PRICE的位置，标注TEXT，文字按照VALIGNX写入
 DRAWTEXT(C>O,H,'涨'),ALIGN1,VALIGN1,FONTSIZE20,COLORGREEN;//在阳线的最高价标注文字“涨”，文字居中对齐，字体大小为20，颜色为绿色。
 ```
 
-## VERTLINE
+### VERTLINE
 
 画垂直线
 
@@ -5726,7 +5726,7 @@ VERTLINE(HIGH>=HHV(HIGH,30),COLORRED);//表示在价格创30天新高时画红�
 VERTLINE(LOW<=LLV(LOW,30),COLORBLUE),LINETHICK3;//表示在价格创30天新低时画蓝色垂直线，线型粗细为3。
 ```
 
-## VERTLINE1
+### VERTLINE1
 
 画垂直线
 
@@ -5750,7 +5750,7 @@ VERTLINE1(HIGH>=HHV(HIGH,30)),COLORRED;//表示在价格创30天新高时画红�
 VERTLINE1(LOW<=LLV(LOW,30)),COLORBLUE,LINETHICK3;//表示在价格创30天新低时画蓝色垂直线,线型粗细为3。
 ```
 
-## VOLSTICK
+### VOLSTICK
 
 画柱线
 
@@ -5769,7 +5769,7 @@ VOL,VOLSTICK;//画成交量柱状线，柱高表示成交量大小，阳线对�
 VOL,VOLSTICK,SOLID;//画成交量柱状线，柱线实心显示。
 ```
 
-## VOLUMESTICK
+### VOLUMESTICK
 
 画柱线
 
@@ -5788,7 +5788,7 @@ VOL,VOLUMESTICK;//画成交量柱状线，柱高表示成交量大小，阳线�
 VOL,VOLUMESTICK,SOLID;//画成交量柱状线，柱线实心显示。
 ```
 
-## WORD
+### WORD
 
 显示文字
 
@@ -5806,8 +5806,8 @@ WORD,显示文字。
 CLOSE>OPEN,WORD(1,'阳'),ALIGN0,VALIGN0,FONTSIZE54,COLORRED;//表示K线收盘大于开盘时，在最高价上写"阳"字，文字左上对齐，字体大小为54，颜色为红色。
 ```
 
-# 未来函数
-## BACKSET
+## 未来函数
+### BACKSET
 
 向前赋值
 
@@ -5829,7 +5829,7 @@ BACKSET(X,N),若X非0,则将包含当前位置在内的一共N周期的数值设
 该函数参数支持变量计算如BACKSET(CLOSE>OPEN,VAR1);//VAR1是变量
 ```
 
-## PEAK
+### PEAK
 
 取之字转向的前M个波峰的值
 
@@ -5846,7 +5846,7 @@ PEAK(X,P,M,C) X满足条件P形成之字转向的前M个波峰的值。C是标�
 例1：PEAK(HIGH,10,1,1);表示最高价的10%的之字转向的上一个波峰的数值；PEAK(MA(HIGH,34),100,1,0);表示34个周期内最高价均线的100个价位的之字转向的上一个波峰的数值。
 ```
 
-## PEAKBARS
+### PEAKBARS
 
 取之字转向的前M个波峰的位置
 
@@ -5881,7 +5881,7 @@ DRAWTRENDLINE(N1=0,P1,N1=0,P1,COLORRED);
 DRAWTRENDLINE(M1=0,T1,M1=0,T1,COLORGREEN);
 ```
 
-## REFX
+### REFX
 
 向后引用
 
@@ -5901,7 +5901,7 @@ REFX(X,N)引用X在N个周期后的值。
 例：REFX(CLOSE,5);表示引用自当前周期后第5个周期的收盘价
 ```
 
-## REFX1
+### REFX1
 
 向后引用
 
@@ -5921,7 +5921,7 @@ REFX1(X,N)引用X在N个周期后的值，不足N周期取最后一根的值
 例：REFX1(CLOSE,5);表示引用自当前周期后第5个周期的收盘价，如此时未来只有二根k线，返回最后一根的收盘价
 ```
 
-## TROUGH
+### TROUGH
 
 取之字转向的前M个波谷的值
 
@@ -5942,7 +5942,7 @@ TROUGH (MA(LOW,34),100,1,0);表示34个周期内最低价均线的100个价位�
 波谷的数值
 ```
 
-## TROUGHBARS
+### TROUGHBARS
 
 取之字转向的前M个波谷的位置
 
@@ -5963,7 +5963,7 @@ TROUGHBARS (MA(LOW,34),100,1,0);表示34个周期内最低价均线的100个价�
 上一个波谷到当前的周期数
 ```
 
-## WAVEPEAK
+### WAVEPEAK
 
 判断K线图波峰
 
@@ -5996,7 +5996,7 @@ HH:=VALUEWHEN(WAVEPEAK(5),H);//取满足最高价大于前后5根k线最高价k�
 价格
 ```
 
-## WAVEPEAK1
+### WAVEPEAK1
 
 判断变量的波峰
 
@@ -6028,7 +6028,7 @@ HH:=VALUEWHEN(WAVEPEAK1(H,5),H);//取满足最高价大于前后5根k线最高�
 价格
 ```
 
-## WAVEVALLEY
+### WAVEVALLEY
 
 判断K线图波谷
 
@@ -6062,7 +6062,7 @@ DRAWTEXT(TMP1,L,'底背离');
 价格
 ```
 
-## WAVEVALLEY1
+### WAVEVALLEY1
 
 判断变量的波谷
 
@@ -6095,7 +6095,7 @@ LL:=VALUEWHEN(WAVEVALLEY1(L,5),L);//取满足最低价小于前后5根k线最低
 价格
 ```
 
-## ZIGZAG
+### ZIGZAG
 
 之字转向
 
@@ -6126,8 +6126,8 @@ ZIGZAG(HIGH,10,1);//表示最高价的10%的之字转向
 ZIGZAG(MA(HIGH,34),100,0);//表示34个周期内最高价均线的100个价位的之字转向
 ```
 
-# 计算控制函数
-## AUTOFILTER
+## 计算控制函数
+### AUTOFILTER
 
 启用一开一平信号过滤机制
 
@@ -6152,7 +6152,7 @@ CLOSE<OPEN,SP;
 AUTOFILTER; //启用一开一平信号过滤机制
 ```
 
-## AUTOFINANCING
+### AUTOFINANCING
 
 启用按需自动入金方式
 
@@ -6180,7 +6180,7 @@ AUTOFINANCING;//启用自动入金方式
 //该模型加载在股票合约上
 ```
 
-## CONDITION_ORDER
+### CONDITION_ORDER
 
 公式条件单模型关键字
 
@@ -6200,7 +6200,7 @@ CROSSUP(MA5,MA10),BK;//5周期上穿10周期均线，做多
 CONDITION_ORDER;//公式条件单关键字
 ```
 
-## CONDITION_ORDER1
+### CONDITION_ORDER1
 
 公式条件单模型关键字
 
@@ -6222,7 +6222,7 @@ CROSSUP(MA5,MA10),BK;//5周期上穿10周期均线，做多
 CONDITION_ORDER1;//公式条件单关键字
 ```
 
-## DAYTRADE
+### DAYTRADE
 
 日内交易函数
 
@@ -6251,7 +6251,7 @@ AUTOFILTER;//一开一平信号过滤模型
 DAYTRADE;//只用日内数据进行计算
 ```
 
-## DAYTRADE1
+### DAYTRADE1
 
 日内交易函数
 
@@ -6283,7 +6283,7 @@ AUTOFILTER;//一开一平信号过滤模型
 DAYTRADE1;//只用日内数据进行计算
 ```
 
-## MONTHTRADE
+### MONTHTRADE
 
 月内交易函数
 
@@ -6312,7 +6312,7 @@ AUTOFILTER;//一开一平信号过滤模型
 MONTHTRADE;//使用每月数据计算
 ```
 
-## MONTHTRADE1
+### MONTHTRADE1
 
 月内交易函数
 
@@ -6341,7 +6341,7 @@ AUTOFILTER;//一开一平信号过滤模型
 MONTHTRADE1;//使用每月数据计算
 ```
 
-## QUARTERTRADE
+### QUARTERTRADE
 
 季内交易函数
 
@@ -6370,7 +6370,7 @@ AUTOFILTER;//一开一平信号过滤模型
 QUARTERTRADE;//使用每季度数据计算
 ```
 
-## QUARTERTRADE1
+### QUARTERTRADE1
 
 季内交易函数
 
@@ -6399,7 +6399,7 @@ AUTOFILTER;//一开一平信号过滤模型
 QUARTERTRADE1;//使用每季度数据计算
 ```
 
-## TRADE_AGAIN
+### TRADE_AGAIN
 
 限制信号函数
 
@@ -6421,7 +6421,7 @@ C<O,SP(BKVOL);//K线为阴线，卖平多头持仓
 TRADE_AGAIN(3);//同一指令行可以连续执行3次（如果连续三根阳线，则连续三次买开仓）
 ```
 
-## WEEKTRADE
+### WEEKTRADE
 
 周内交易函数
 
@@ -6450,7 +6450,7 @@ AUTOFILTER;//一开一平信号过滤模型
 WEEKTRADE;//使用每周数据计算
 ```
 
-## WEEKTRADE1
+### WEEKTRADE1
 
 周内交易函数
 
@@ -6482,7 +6482,7 @@ AUTOFILTER;//一开一平信号过滤模型
 WEEKTRADE1;//只用周内数据进行计算
 ```
 
-## YEARTRADE
+### YEARTRADE
 
 年内交易函数
 
@@ -6511,7 +6511,7 @@ AUTOFILTER;//一开一平信号过滤模型
 YEARTRADE;//使用每年数据计算
 ```
 
-## YEARTRADE1
+### YEARTRADE1
 
 年内交易函数
 
@@ -6540,8 +6540,8 @@ AUTOFILTER;//一开一平信号过滤模型
 YEARTRADE1;//使用每年数据计算
 ```
 
-# 信号记录函数
-## AVAILABLE_OPI
+## 信号记录函数
+### AVAILABLE_OPI
 
 可用手数
 
@@ -6562,7 +6562,7 @@ CROSSUP(MA5,MA10),BK(100);
 AVAILABLE_OPI>0&&CROSSDOWN(MA5,MA10),SP(AVAILABLE_OPI);//当前可用手数大于0，并且5日均线下穿10日均线，卖出全部可用手数
 ```
 
-## BARSBK
+### BARSBK
 
 上一次买开信号位置
 
@@ -6598,7 +6598,7 @@ AA:IFELSE(BARSBK>=1,HHV(H,BARSBK+1),H);
 （3）例：1、2、3三根k线，1 K线为开仓信号的当根k线，则返回当根k线的收盘价，2、3 K线AA返回值为 1 K线的收盘价。
 ```
 
-## BARSBP
+### BARSBP
 
 上一次买平信号位置
 
@@ -6633,7 +6633,7 @@ AA:IFELSE(BARSBP>=1,HHV(H,BARSBP+1),H);
 （3）例：1、2、3三根k线，1 K线为平仓信号的当根k线，则返回当根k线的收盘价，2、3 K线AA返回值为 1 K线的收盘价。
 ```
 
-## BARSSK
+### BARSSK
 
 上一次卖开信号位置
 
@@ -6669,7 +6669,7 @@ AA:IFELSE(BARSSK>=1,LLV(L,BARSSK+1),L);
 （3）例：1、2、3三根k线，1K线为开仓信号的当根k线，则返回当根k线的收盘价，2、3K线AA返回值为1K线的收盘价。
 ```
 
-## BARSSP
+### BARSSP
 
 上一次卖平信号位置
 
@@ -6704,7 +6704,7 @@ AA:IFELSE(BARSSP>=1,HHV(H,BARSSP+1),H);
 （3）1、2、3三根k线，1 K线为平仓信号的当根k线，则返回当根k线的收盘价，2、3 K线AA返回值为 1 K线的收盘价
 ```
 
-## BKHIGH
+### BKHIGH
 
 返回数据合约买开仓以来的最高价
 
@@ -6730,7 +6730,7 @@ C>BKPRICE&&C<BKHIGH-5,SP;
 AUTOFILTER;//最新价低于买开仓以来的数据合约最高价5个点，止盈平仓。
 ```
 
-## BKLOW
+### BKLOW
 
 返回数据合约买开仓以来的最低价
 
@@ -6756,7 +6756,7 @@ C>BKLOW+5,SP;
 AUTOFILTER;//最新价高于买开仓以来数据合约的最低价5个点，平仓。
 ```
 
-## BKPRICE
+### BKPRICE
 
 返回数据合约最近一次买开信号价位
 
@@ -6787,7 +6787,7 @@ b.模组运行：复核前，返回上一次BK信号当根K线数据合约的行
 BKPRICE-CLOSE>60 && BKPRICE>0 && BKVOL>0, SP;//如果买开价位比当前价位高出60,且多头持仓存在，卖平仓。
 ```
 
-## BKPRICE1
+### BKPRICE1
 
 返回交易合约最近一次买开信号价位
 
@@ -6813,7 +6813,7 @@ b.模组运行：复核前，返回上一次BK信号当根K线交易合约的行
 4、加载在指数/主连合约上，使用了换月移仓函数，主力换月后BKPRCIE1取值为新的主力合约的第一根K线的开盘价
 ```
 
-## BKPRICEAV
+### BKPRICEAV
 
 返回数据合约多头开仓均价
 
@@ -6840,7 +6840,7 @@ BKPRICEAV 返回数据合约多头开仓均价。
 CLOSE-BKPRICEAV>60,SP(BKVOL);//当前价位比多头开仓均价高出60,平掉所有多头持仓
 ```
 
-## BKPRICEAV1
+### BKPRICEAV1
 
 返回交易合约多头开仓均价
 
@@ -6867,7 +6867,7 @@ BKPRICEAV1 返回交易合约多头开仓均价
 CLOSE-BKPRICEAV1>60,SP(BKVOL);//当前价位比交易合约多头开仓均价高出60,平掉所有多头持仓
 ```
 
-## BKVOL
+### BKVOL
 
 买开信号手数
 
@@ -6889,7 +6889,7 @@ BKVOL>=1&&H>HV(H,5),BK(2); //多头持仓大于等于1，并且当根K线的最�
 BKVOL>0&&L<REF(L,5),SP(BKVOL); //多头持仓大于0，并且当根K线的最低价小于5个周期前K线的最低价时，卖平所有多头持仓
 ```
 
-## BKVOL2
+### BKVOL2
 
 买开信号手数
 
@@ -6911,7 +6911,7 @@ BKVOL2>=1&&H>HV(H,5),BK(2); //多头持仓大于等于1，并且当根K线的最
 BKVOL2>0&&L<REF(L,5),SP(BKVOL2); //多头持仓大于0，并且当根K线的最低价小于5个周期前K线的最低价时，卖平所有多头持仓
 ```
 
-## COUNTSIG
+### COUNTSIG
 
 统计N周期内，X信号的数量
 
@@ -6940,7 +6940,7 @@ MA5:=MA(C,5);
 BKN=0&&C>MA5,BK;//当日内日未出现过BK信号并且最新价大于5周期均线，则买开仓
 ```
 
-## ENTRYSIG_PLACE
+### ENTRYSIG_PLACE
 
 取指定开仓信号的K线位置
 
@@ -6961,7 +6961,7 @@ ENTRYSIG_PLACE(N) 取一次完整交易中第N个开仓信号所在K线的位置
 ENTRYSIG_PLACE(3)=5&&BKVOL>0,SP;//如果第3个开仓信号所在K线距离当前K线有5根K线，并且多头持仓大于0，卖平仓
 ```
 
-## ENTRYSIG_PRICE
+### ENTRYSIG_PRICE
 
 取指定开仓信号的价格
 
@@ -6984,7 +6984,7 @@ ENTRYSIG_PRICE(N) 取一次完整交易中第N个开仓信号的价格。
 ENTRYSIG_PRICE(3)=3000&&BKVOL>0,SP;//如果第3个固定的开仓信号的开仓价位为3000，并且多头持仓大于0，卖平仓
 ```
 
-## ENTRYSIG_VOL
+### ENTRYSIG_VOL
 
 取指定开仓信号的信号手数
 
@@ -7006,7 +7006,7 @@ ENTRYSIG_VOL(N) 取一次完整交易中第N个开仓信号的信号手数。
 ENTRYSIG_PRICE(3)=3000&&ENTRYSIG_VOL(3)>2,SP;//如果第3个固定的开仓信号的开仓价位为3000，并且第3个固定的开仓信号的信号手数大于2，卖平仓
 ```
 
-## EXITSIG_PLACE
+### EXITSIG_PLACE
 
 取指定平仓信号的K线位置
 
@@ -7027,7 +7027,7 @@ EXITSIG_PLACE(N) 取一次完整交易中第N个平仓信号所在K线的位置�
 EXITSIG_PLACE(3)=5&&BKVOL<=0,BK;//如果第3个平仓信号所在K线距离当前K线有5根K线，并且没有多头持仓，买开仓
 ```
 
-## EXITSIG_PRICE
+### EXITSIG_PRICE
 
 取指定平仓信号的价格
 
@@ -7050,7 +7050,7 @@ EXITSIG_PRICE(N) 取一次完整交易中第N个平仓信号的价格。
 EXITSIG_PRICE(3)=3000&&BKVOL>0,SP;//如果第3个固定的平仓信号的平仓价位为3000，并且多头持仓大于0，卖平仓
 ```
 
-## EXITSIG_VOL
+### EXITSIG_VOL
 
 取指定平仓信号的信号手数
 
@@ -7072,7 +7072,7 @@ EXITSIG_VOL(N) 取一次完整交易中第N个平仓信号的信号手数。
 EXITSIG_PRICE(3)=3000&&EXITSIG_VOL(3)>2,BK;//如果第3个固定的平仓信号的平仓价位为3000，并且第3个固定的平仓信号的信号手数大于2，买开仓
 ```
 
-## GROUP
+### GROUP
 
 判断分组的组别
 
@@ -7090,7 +7090,7 @@ CROSS(C,MA(C,10)),BK('B',2);//最新价上穿十周期均线，B组做多两手
 LASTSIG=200&&LASTSIGGROUP=GROUP('B'),SP('B',BKVOL);//上一个信号是B组的BK信号，则B组平仓
 ```
 
-## GROUPBKVOL
+### GROUPBKVOL
 
 指令分组模型买开信号手数
 
@@ -7115,7 +7115,7 @@ C<MA1,SP('A',GROUPBKVOL('A'));//最新价小于5日均线，卖平所有的A组�
 C<O,SP('B',GROUPBKVOL('B'));//K线收阴线，卖平所有的B组多头持仓
 ```
 
-## GROUPSKVOL
+### GROUPSKVOL
 
 指令分组模型卖开信号手数
 
@@ -7140,7 +7140,7 @@ C>MA1,BP('A',GROUPSKVOL('A')); //最新价大于5日均线，买平所有的A组
 C>O,BP('B',GROUPSKVOL('B')); //K线收阳线，买平所有的B组空头持仓
 ```
 
-## GROUPBKPRICE
+### GROUPBKPRICE
 
 指令分组模型相应组别的最近一次买开信号价位
 
@@ -7155,7 +7155,7 @@ C>O,BK('A');
 BB:GROUPBKPRICE('A');//给BB赋值为A组指令中最近一次买开信号价位。
 ```
 
-## GROUPSKPRICE
+### GROUPSKPRICE
 
 指令分组模型相应组别的最近一次卖开信号价位
 
@@ -7170,7 +7170,7 @@ C<O,SK('B');
 SS:GROUPSKPRICE('B');//给SS赋值为B组指令中最近一次卖开信号价位。
 ```
 
-## ISLASTBK
+### ISLASTBK
 
 判断上一个信号是否是BK
 
@@ -7192,7 +7192,7 @@ ISLASTBK&&C>BKPRICE,SP;
 AUTOFILTER;//上一个信号是BK信号，且最新价大于开仓价格，卖平仓
 ```
 
-## ISLASTSK
+### ISLASTSK
 
 判断上一个信号是否是SK
 
@@ -7214,7 +7214,7 @@ ISLASTSK&&C<SKPRICE,BP;
 AUTOFILTER;//上一个信号是SK信号，且最新价小于开仓价格，买平仓
 ```
 
-## ISLASTSTOP
+### ISLASTSTOP
 
 判断上一个信号是否是STOP
 
@@ -7232,7 +7232,7 @@ STOP(0,5);
 ISLASTSTOP&&CROSS(C,MA(C,10)),BK(1);//上一个信号是STOP信号，且价格上穿10周期均线，开仓一手
 ```
 
-## ISLASTBP
+### ISLASTBP
 
 判断上一个信号是否是BP
 
@@ -7252,7 +7252,7 @@ C>O,BP(1);
 ISLASTBP,BP(1);//上一个信号是买平仓信号，则减仓一手
 ```
 
-## ISLASTSP
+### ISLASTSP
 
 判断上一个信号是否是SP
 
@@ -7272,7 +7272,7 @@ C<O,SP(1);
 ISLASTSP,SP(1);//上一个信号是卖平仓信号，则减仓一手
 ```
 
-## ISLASTBPK
+### ISLASTBPK
 
 判断上一个信号是否是BPK
 
@@ -7294,7 +7294,7 @@ ISLASTBPK&&C<O,SPK;
 AUTOFILTER;//上一个信号是BPK信号，则反手SPK
 ```
 
-## ISLASTSPK
+### ISLASTSPK
 
 判断上一个信号是否是SPK
 
@@ -7316,7 +7316,7 @@ ISLASTSPK&&C>O,BPK;
 AUTOFILTER;//上一个信号是SPK信号，则反手BPK
 ```
 
-## ISLASTCLOSEOUT
+### ISLASTCLOSEOUT
 
 判断上一个信号是否是CLOSEOUT
 
@@ -7334,7 +7334,7 @@ b.信号执行方式选择不进行信号复核（例如：在模型中写入MUL
 ISLASTCLOSEOUT&&C>O,BK(1);//上一个信号是清仓信号，并且当根K线是阳线，则买开一手
 ```
 
-## KLINESIG
+### KLINESIG
 
 判断当根K线上最后一个固定的信号
 
@@ -7360,7 +7360,7 @@ STOP:207;
 KLINESIG=200&&BKVOL>0,SP;//如果最后一个固定的信号是BK信号，并且多头持仓大于0，卖平仓
 ```
 
-## LASTSIG
+### LASTSIG
 
 判断最近一个信号
 
@@ -7381,7 +7381,7 @@ CLOSEOUT:206;
 STOP:207;
 ```
 
-## LASTSIGGROUP
+### LASTSIGGROUP
 
 判断最近一个信号所在的分组
 
@@ -7400,7 +7400,7 @@ CROSS(C,MA(C,10)),BK('B',2);//最新价上穿十周期均线，B组做多两手
 LASTSIG=200&&LASTSIGGROUP=2,SP('B',BKVOL);//上一个信号是B组的BK信号，则B组平仓
 ```
 
-## MAXBKVOL
+### MAXBKVOL
 
 多头最大持仓手数
 
@@ -7422,7 +7422,7 @@ CROSS(C,MA(C,10)),BK(2);//价格上穿十周期均线，加仓两手
 MAXBKVOL=3,SP(BKVOL);//多头最大持仓手数为3时，卖平多头持仓
 ```
 
-## MAXSKVOL
+### MAXSKVOL
 
 空头最大持仓手数
 
@@ -7444,7 +7444,7 @@ CROSS(MA(C,10),C),SK(2);//价格下穿十周期均线，加仓两手
 MAXSKVOL=3,BP(SKVOL);//空头最大持仓手数为3时，买平空头持仓
 ```
 
-## REFSIG_PLACE
+### REFSIG_PLACE
 
 判断指定信号的K线位置
 
@@ -7464,7 +7464,7 @@ REFSIG_PLACE(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号所�
 REFSIG_PLACE(BK,3)=5&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固定的BK信号所在的距离当前K线有5根K线，并且多头持仓大于0，卖平仓
 ```
 
-## REFSIG_PRICE
+### REFSIG_PRICE
 
 判断指定信号的信号价位
 
@@ -7483,7 +7483,7 @@ REFSIG_PRICE(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的�
 REFSIG_PRICE(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固定的BK信号的开仓价位为3000，并且多头持仓大于0，卖平仓
 ```
 
-## REFSIG_PRICE1
+### REFSIG_PRICE1
 
 判断指定信号的委托价格
 
@@ -7508,7 +7508,7 @@ REFSIG_PRICE1(Sig,N)返回从当根K线开始倒数第N个固定的Sig信号的�
 REFSIG_PRICE1(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固定的BK信号的委托价格为3000，并且多头持仓大于0，卖平仓
 ```
 
-## REFSIG_PRICE2
+### REFSIG_PRICE2
 
 判断指定信号的成交价格
 
@@ -7534,7 +7534,7 @@ REFSIG_PRICE2(Sig,N)返回从当根K线开始倒数第N个固定的Sig信号的�
 REFSIG_PRICE2(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固定的BK信号的成交价位为3000，并且多头持仓大于0，卖平仓
 ```
 
-## REFSIG_VOL
+### REFSIG_VOL
 
 判断指定信号的手数
 
@@ -7553,7 +7553,7 @@ REFSIG_VOL(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的信
 REFSIG_PLACE(BK,3)=5&&REFSIG_VOL(BK,3)>2,SP(BKVOL);//如果从当根K线开始倒数第3个固定的BK信号所在的距离当前K线有5根K线，并且信号手数大于2，平掉所有持仓
 ```
 
-## SIGNUM
+### SIGNUM
 
 定位一次交易过程中的信号位置
 
@@ -7571,7 +7571,7 @@ SIGNUM<=3&&C<O,SP(BKVOL/2);//如果本次交易前面已经出现小于等于3�
 TRADE_AGAIN(4);
 ```
 
-## SIGVOL
+### SIGVOL
 
 一次交易中指定信号的下单手数
 
@@ -7596,7 +7596,7 @@ CROSSDOWN(C,LL),SP(BKVOL);
 TRADE_AGAIN(10);
 ```
 
-## SKHIGH
+### SKHIGH
 
 返回数据合约卖开仓以来的最高价
 
@@ -7622,7 +7622,7 @@ C<SKHIGH-5,BP;
 AUTOFILTER;//最新价低于卖开仓以来数据合约的最高价5个点，平仓。
 ```
 
-## SKLOW
+### SKLOW
 
 返回数据合约卖开仓以来的最低价
 
@@ -7647,7 +7647,7 @@ C<SKPRICE&&C>SKLOW+5,BP;
 AUTOFILTER;//最新价高于卖开仓以来数据合约的最低价5个点，止盈平仓。
 ```
 
-## SKPRICE
+### SKPRICE
 
 返回数据合约最近一次卖开信号价位
 
@@ -7678,7 +7678,7 @@ SKPRICE 返回数据合约最近一次卖开信号发出时的行情的最新价
 CLOSE-SKPRICE>60 && SKPRICE>0 && SKVOL>0, BP;//如果卖开价位比当前价位低出60,且空头持仓存在，买平仓。
 ```
 
-## SKPRICE1
+### SKPRICE1
 
 返回交易合约最近一次卖开信号价位
 
@@ -7704,7 +7704,7 @@ SKPRICE1：返回交易合约最近一次卖开信号发出时的行情的最新
 4、加载在指数/主连合约上，使用了换月移仓函数，主力换月后SKPRCIE1取值为新的主力合约的第一根K线的开盘价
 ```
 
-## SKPRICEAV
+### SKPRICEAV
 
 返回数据合约空头开仓均价
 
@@ -7731,7 +7731,7 @@ SKPRICEAV 返回返回数据合约空头开仓均价。
 SKPRICEAV-CLOSE>60,BP(SKVOL);//当前价位比空头开仓均价低出60,平掉所有空头持仓
 ```
 
-## SKPRICEAV1
+### SKPRICEAV1
 
 返回交易合约空头开仓均价
 
@@ -7758,7 +7758,7 @@ SKPRICEAV1 返回返回交易合约空头开仓均价。
 SKPRICEAV1-CLOSE>60,BP(SKVOL);//当前价位比交易合约空头开仓均价低出60,平掉所有空头持仓
 ```
 
-## SKVOL
+### SKVOL
 
 卖开信号手数
 
@@ -7780,7 +7780,7 @@ SKVOL>=1&&L<LV(L,5),SK(2); //空头持仓大于等于1，并且当根K线的最�
 SKVOL>0&&H>REF(H,5),BP(SKVOL); //空头持仓大于0，并且当根K线的最高价大于5个周期前K线的最高价时，买平所有空头持仓
 ```
 
-## SKVOL2
+### SKVOL2
 
 卖开信号手数
 
@@ -7802,8 +7802,8 @@ SKVOL2>=1&&L>LV(L,5),SK(2); //空头持仓大于等于1，并且当根K线的最
 SKVOL2>0&&H<REF(H,5),BP(SKVOL2); //空头持仓大于0，并且当根K线的最高价大于5个周期前K线的最高价时，买平所有空头持仓
 ```
 
-# 信号执行函数
-## CLOSEKLINE
+## 信号执行函数
+### CLOSEKLINE
 
 设置K线提前N秒走完
 
@@ -7834,7 +7834,7 @@ CLOSEKLINE(1,10);//设置以收盘时间为结束时间的K线提前10秒走完�
 AUTOFILTER;
 ```
 
-## CLOSEKLINE_MIN
+### CLOSEKLINE_MIN
 
 设置K线提前N分钟走完
 
@@ -7865,7 +7865,7 @@ CLOSEKLINE_MIN(1,2);//设置以收盘时间为结束时间的K线提前2分钟�
 AUTOFILTER;
 ```
 
-## SETALLLOSTSIGPRICETYPE
+### SETALLLOSTSIGPRICETYPE
 
 设置模型中所有信号消失用相同委托方式进行处理
 
@@ -7905,7 +7905,7 @@ SETALLLOSTSIGPRICETYPE(LIMIT_ORDER);//所有信号消失用市价发委托进行
 AUTOFILTER;
 ```
 
-## SETALLSIGPRICETYPE
+### SETALLSIGPRICETYPE
 
 设置模型中所有信号用相同委托方式
 
@@ -7951,7 +7951,7 @@ SETALLSIGPRICETYPE(ACTIVE_ORDER,CANCEL_ORDER);//该模型中所有信号以对�
 AUTOFILTER;
 ```
 
-## SETLOSTSIGPRICETYPE
+### SETLOSTSIGPRICETYPE
 
 不同的信号消失设置不同的委托方式
 
@@ -7991,7 +7991,7 @@ SETLOSTSIGPRICETYPE(SP,NEW_ORDER);//卖平信号消失用最新价发委托进�
 AUTOFILTER;
 ```
 
-## SETMODRUNTYPE
+### SETMODRUNTYPE
 
 设置模组运行类型
 
@@ -8017,7 +8017,7 @@ SETMODRUNTYPE(0);//模组按照出信号立即下单，不复核的信号执行�
 AUTOFILTER;
 ```
 
-## SETMOVEOPIPRICE
+### SETMOVEOPIPRICE
 
 设置模组换月移仓的委托方式
 
@@ -8047,7 +8047,7 @@ SETMOVEOPIPRICE(ACTIVE_ORDER);//主力合约切换时，以对价方式进行移
 AUTOFILTER;
 ```
 
-## SETSIGPRICETYPE
+### SETSIGPRICETYPE
 
 不同的信号设置不同的委托方式
 
@@ -8096,7 +8096,7 @@ SETSIGPRICETYPE(SP,TRACING_ORDER);//卖平的委托以自动连续追价委托
 AUTOFILTER;
 ```
 
-## T_PLUS
+### T_PLUS
 
 设置开仓手数为默认手数的N倍
 
@@ -8119,8 +8119,8 @@ CROSS(MA(C,5),MA(C,10)),T_PLUS(2);//开仓条件满足时，五周期均线上�
 AUTOFILTER;
 ```
 
-# 模组头寸函数
-## FEE
+## 模组头寸函数
+### FEE
 
 手续费
 
@@ -8139,7 +8139,7 @@ FEE手续费
 K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## INITMONEY
+### INITMONEY
 
 模组初次加载时的起始资金
 
@@ -8159,7 +8159,7 @@ INITMONEY 模组初次加载时的起始资金
 K:=INITMONEY*0.2/(C*MARGIN*UNIT+FEE); //模组子账户初始资金的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## LASTOFFSETPROFIT
+### LASTOFFSETPROFIT
 
 最近一次交易的平仓盈亏
 
@@ -8182,7 +8182,7 @@ LASTOFFSETPROFIT 最近一次交易的平仓盈亏
 LASTOFFSETPROFIT<=-40 && C<BKPRICE-60,CLOSEOUT;//最近一次交易的亏损额大于40并且当前亏损大于60，清仓
 ```
 
-## MARGIN
+### MARGIN
 
 保证金
 
@@ -8200,7 +8200,7 @@ MARGIN 保证金
 K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## MONEY
+### MONEY
 
 模组子账户可用资金
 
@@ -8232,7 +8232,7 @@ MONEY 模组子账户可用资金
 K:=MONEY*0.2/(C*MARGIN*UNIT+FEE); //模组子账户可用资金的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## MONEYRATIO
+### MONEYRATIO
 
 模组子账户资金使用率
 
@@ -8256,7 +8256,7 @@ MONEYRATIO 模组子账户资金使用率
 A&&MONEYRATIO<0.3,BK;//A条件满足并资金使用率不超过30%时，买开仓
 ```
 
-## MONEYREAL
+### MONEYREAL
 
 模组子账户实际权益
 
@@ -8278,7 +8278,7 @@ MONEYREAL 模组子账户实际权益
 K:=MONEYREAL*0.2/(C*MARGIN*UNIT+FEE); //模组子账户实际权益的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## MONEYTOT
+### MONEYTOT
 
 模组子账户权益
 
@@ -8305,7 +8305,7 @@ MONEYTOT 模组子账户权益
 K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
 ```
 
-## MYVOL
+### MYVOL
 
 取下单手数
 
@@ -8329,7 +8329,7 @@ C>O,BK(2*MYVOL);
 C<O,SP(BKVOL);
 ```
 
-## OFFSETPROFIT
+### OFFSETPROFIT
 
 模组子账户的平仓盈亏
 
@@ -8352,7 +8352,7 @@ OFFSETPROFIT 模组子账户的平仓盈亏
 OFFSETPROFIT<-5000&&C>O,BK;//平仓盈亏大于-5000，并且当前K线为阳线时，买开
 ```
 
-## OFFSETPROFIT1
+### OFFSETPROFIT1
 
 累计平仓盈亏
 
@@ -8375,7 +8375,7 @@ OFFSETPROFIT1 累计平仓盈亏
 OFFSETPROFIT1<=-100,CLOSEOUT;//累计亏损大于100，清仓
 ```
 
-## PROFIT
+### PROFIT
 
 模组子账户逐笔浮盈
 
@@ -8404,7 +8404,7 @@ PROFIT 模组子账户逐笔浮盈
 PROFIT<-2000,SP;//亏损2000元止损
 ```
 
-## SETDEALPERCENT
+### SETDEALPERCENT
 
 按模组子账户的理论资金比例下单
 
@@ -8428,7 +8428,7 @@ SETDEALPERCENT 按模组子账户的理论资金比例下单
 SETDEALPERCENT(20); //每次按理论资金比例的20%下单
 ```
 
-## TAVWINLOSS
+### TAVWINLOSS
 
 判断平均盈亏额
 
@@ -8452,7 +8452,7 @@ IDLE(TAVWINLOSS<100);//平均盈亏额小于100限制开仓
 AUTOFILTER;
 ```
 
-## TAVWIN
+### TAVWIN
 
 判断平均盈利额
 
@@ -8476,7 +8476,7 @@ IDLE(TAVWIN<700);//平均盈利额小于700限制开仓
 AUTOFILTER;
 ```
 
-## TAVLOSS
+### TAVLOSS
 
 判断平均亏损额
 
@@ -8500,7 +8500,7 @@ IDLE(TAVLOSS>550);//平均亏损额大于550限制开仓
 AUTOFILTER;
 ```
 
-## TMAXWIN
+### TMAXWIN
 
 判断单次盈利最大额
 
@@ -8524,7 +8524,7 @@ IDLE(TMAXWIN<1000);//单次最大盈利额小于1000限制开仓
 AUTOFILTER;
 ```
 
-## TMAXLOSS
+### TMAXLOSS
 
 判断单次亏损最大额
 
@@ -8548,7 +8548,7 @@ IDLE(TMAXLOSS>1000);//单次最大亏损额大于1000限制开仓
 AUTOFILTER;
 ```
 
-## TMAXSEQLOSS
+### TMAXSEQLOSS
 
 判断连续亏损交易的最大次数
 
@@ -8569,7 +8569,7 @@ CROSS(MA(C,5),C),SP(1);//最新价下穿五周期均线，卖平1手
 TSEQLOSS>60||TMAXSEQLOSS>3,SP(BKVOL);//最大连续亏损额大于60时或最大连续亏损次数大于3次时，平掉全部多头持仓
 ```
 
-## TMAXSEQWIN
+### TMAXSEQWIN
 
 判断连续赢利交易的最大次数
 
@@ -8590,7 +8590,7 @@ CROSS(MA(C,5),C),SP(1);//最新价下穿五周期均线，卖平1手
 TSEQWIN>20||TMAXSEQWIN>3,BK(2);//最大连续赢利额大于20时或最大连续赢利次数大于3次时，加仓2手
 ```
 
-## TNUMSEQLOSS
+### TNUMSEQLOSS
 
 判断持续亏损的次数
 
@@ -8611,7 +8611,7 @@ CROSS(MA(C,5),C),SP(1);//最新价下穿五周期均线，卖平1手
 TNUMSEQLOSS>2,SP(BKVOL);//连续亏损的次数大于2时，平掉全部多头持仓
 ```
 
-## TNUMSEQWIN
+### TNUMSEQWIN
 
 判断持续赢利的次数
 
@@ -8632,7 +8632,7 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 TNUMSEQWIN>=2,BK(1);//连续赢利的次数大于等于2次时，加仓一手
 ```
 
-## TODAYDEUCETIMES
+### TODAYDEUCETIMES
 
 判断当日平出次数
 
@@ -8653,7 +8653,7 @@ TODAYDEUCETIMES<3&&CROSS(C,MA(C,5)),BK(1);//当日平出次数小于三次且最
 CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 ```
 
-## TODAYLOSSTIMES
+### TODAYLOSSTIMES
 
 判断当日亏损次数
 
@@ -8674,7 +8674,7 @@ TODAYLOSSTIMES<3&&CROSS(C,MA(C,5)),BK(1);//当日亏损次数小于三次且最�
 CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 ```
 
-## TODAYWINTIMES
+### TODAYWINTIMES
 
 判断当日赢利次数
 
@@ -8696,7 +8696,7 @@ TODAYWINTIMES=3,BK(2);//当日赢利3次时，加仓2手
 CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 ```
 
-## TPROFIT_REF
+### TPROFIT_REF
 
 取得前第N次交易的盈亏额
 
@@ -8718,7 +8718,7 @@ TPROFIT_REF(1)>0&&TPROFIT_REF(2)>0&&TPROFIT_REF(1)>TPROFIT_REF(2),BK(2);//最近
 CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 ```
 
-## TRADE_REF
+### TRADE_REF
 
 判断前N次交易是否赢利
 
@@ -8740,7 +8740,7 @@ TRADE_REF(1)=1&&TRADE_REF(2)=1&&TRADE_REF(3)=1,BK(2);//最近连续三笔交易�
 CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 ```
 
-## TSEQLOSS
+### TSEQLOSS
 
 判断最大连续亏损额
 
@@ -8761,7 +8761,7 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平全部持仓
 TSEQLOSS<-5000,SK(2);//最大连续亏损额达到5000时，反向开仓2手
 ```
 
-## TSEQWIN
+### TSEQWIN
 
 判断最大连续赢利额
 
@@ -8782,7 +8782,7 @@ CROSS(MA(C,5),C),SP(1);//最新价下穿五周期均线，卖平1手
 TSEQWIN>20,BK(2);//最大连续赢利额大于20时，加仓2手
 ```
 
-## UNITLIMIT
+### UNITLIMIT
 
 取交易合约的限制拥有持仓数
 
@@ -8798,7 +8798,7 @@ UNITLIMIT 取交易合约的限制拥有持仓数
 (BKVOL+1)<=UNITLIMIT&&C>O,BK(1);//多头持仓再增加一手仍然小于交易合约的限制拥有的持仓数，并且满足收盘价大于开盘价的开仓条件时，买开一手。
 ```
 
-## VOLMARGIN
+### VOLMARGIN
 
 模组子账户持仓保证金
 
@@ -8819,8 +8819,8 @@ VOLMARGIN 模组子账户持仓保证金
 4、平仓信号当根k线和无持仓k线，VOLMARGIN返回值为0。
 ```
 
-# 账户头寸函数
-## ACCOUNTMONEY
+## 账户头寸函数
+### ACCOUNTMONEY
 
 返回交易账户中的可用资金
 
@@ -8834,7 +8834,7 @@ ACCOUNTMONEY 在盒子中返回交易账户中的可用资金。
 3、返回值为整数。
 ```
 
-## ACCOUNTMONEYTOT
+### ACCOUNTMONEYTOT
 
 返回交易账户中的权益
 
@@ -8848,7 +8848,7 @@ ACCOUNTMONEYTOT 在盒子中返回交易账户中的权益。
 3、返回值为整数。
 ```
 
-## BUYPOSITION
+### BUYPOSITION
 
 取交易账户中的多头持仓
 
@@ -8862,7 +8862,7 @@ BUYPOSITION 在盒子中取交易账户中的多头持仓。
 3、返回值为整数。
 ```
 
-## BUYREMAINPOSITION
+### BUYREMAINPOSITION
 
 取交易账户中的多头可用持仓
 
@@ -8876,7 +8876,7 @@ BUYREMAINPOSITION 在盒子中取交易账户中的多头可用持仓。
 3、返回值为整数。
 ```
 
-## SELLPOSITION
+### SELLPOSITION
 
 取交易账户中的空头持仓
 
@@ -8890,7 +8890,7 @@ SELLPOSITION 在盒子中取交易账户中的空头持仓。
 3、返回值为整数。
 ```
 
-## SELLREMAINPOSITION
+### SELLREMAINPOSITION
 
 取交易账户中的空头可用持仓
 
@@ -8904,8 +8904,8 @@ SELLREMAINPOSITION 在盒子中取交易账户中的空头可用持仓。
 3、返回值为整数。
 ```
 
-# 策略优化函数
-## CHECKSIG
+## 策略优化函数
+### CHECKSIG
 
 设置信号确认与复核的指令价方式（TICK逐笔回测，可设置回测精度）
 
@@ -8973,7 +8973,7 @@ CHECKSIG(SP,'A',0,'C',10,3);//设置SP信号，根据数据时间间隔计算出
 AUTOFILTER;
 ```
 
-## CHECKSIG_MIN
+### CHECKSIG_MIN
 
 设置信号确认与复核的指令价方式（逐分钟回测）
 
@@ -9026,7 +9026,7 @@ CHECKSIG_MIN(SP,'A',0,'C',10);//设置SP信号，出信号立即下单，下单�
 AUTOFILTER;
 ```
 
-## IDLE
+### IDLE
 
 限制开仓信号发出委托
 
@@ -9062,7 +9062,7 @@ IDLE(MONEYTOT<GG*0.95&&MONEYTOT>GG*0.92||MONEYTOT<GG*0.85);//权益回撤一定�
 AUTOFILTER;
 ```
 
-## MULTSIG
+### MULTSIG
 
 设置一根k线多信号的指令价方式（TICK逐笔回测，可设置回测精度）
 
@@ -9102,7 +9102,7 @@ MULTSIG(2,0,4,10);//设置信号复核确认方式为开仓信号，出信号后
 AUTOFILTER;
 ```
 
-## MULTSIG_MIN
+### MULTSIG_MIN
 
 设置一根k线多信号的指令价方式（逐分钟回测）
 
@@ -9133,7 +9133,7 @@ MULTSIG_MIN(3,0,3);//设置信号复核确认方式为开仓信号，出信号�
 AUTOFILTER;
 ```
 
-## PANZHENG
+### PANZHENG
 
 判断是否为盘整
 
@@ -9154,7 +9154,7 @@ CROSS(MA2,MA1),SP;
 AUTOFILTER;
 ```
 
-## PANZHONG_MIN
+### PANZHONG_MIN
 
 设置信号确认与复核的指令价方式（股票合约逐分钟回测）
 
@@ -9180,7 +9180,7 @@ AUTOFILTER;
 PANZHONG_MIN(0);
 ```
 
-## TRADE_OTHER
+### TRADE_OTHER
 
 指定交易合约
 
@@ -9228,7 +9228,7 @@ TRADE_OTHER('IF1411');//指定交易合约为股指1411
 AUTOFILTER;
 ```
 
-## TRADE_SMOOTHING
+### TRADE_SMOOTHING
 
 消除隔日跳空函数
 
@@ -9259,8 +9259,8 @@ TRADE_SMOOTHING;//消除跳空后的K线的均线满足上穿、下穿条件后�
 AUTOFILTER;
 ```
 
-# 加密输出函数
-## SETEXPIREDATE
+## 加密输出函数
+### SETEXPIREDATE
 
 设置加密模型的使用有效期的到期时间
 
@@ -9282,7 +9282,7 @@ SETEXPIREDATE('20141001');//该加密模型的使用有效期的到期时间为2
 AUTOFILTER;
 ```
 
-## SETQUOTACCOUNT
+### SETQUOTACCOUNT
 
 设置模型加密输出使用者的文华行情账号
 
@@ -9305,7 +9305,7 @@ SETQUOTACCOUNT('ACCOUNT1');//将该模型加密输出给文华行情账号为ACC
 AUTOFILTER;
 ```
 
-## SETTRADEACCOUNT
+### SETTRADEACCOUNT
 
 设置模型加密输出使用者的文华资金账号
 
@@ -9328,8 +9328,8 @@ SETTRADEACCOUNT('ACCOUNT1');//将该模型加密输出给文华资金账号为AC
 AUTOFILTER;
 ```
 
-# 基本面函数
-## DRAWVALID
+## 基本面函数
+### DRAWVALID
 
 连接基本数据的有效值画折线
 
@@ -9345,7 +9345,7 @@ DRAWVALID(DATA);连接DATA中的有效值画折线
 例2：DRAWVALID(IFELSE(C>O,H,NULL));//连接K线图中所有阳线的最高价
 ```
 
-## GETBASEINFO
+### GETBASEINFO
 
 返回基本面数据的具体数值
 
@@ -9362,7 +9362,7 @@ GETBASEINFO(CLASS); 取基本面数据中具体某一个分类CLASS的数值。�
 GETBASEINFO(1);//返回中国大豆产量的具体数值
 ```
 
-## GETEVENT
+### GETEVENT
 
 判断是否发生突发事件并显示图标
 
@@ -9379,8 +9379,8 @@ GETEVENT(CLASS, SHOW);判断是否发生了CLASS的突发事件，并显示图�
 例1：GETEVENT(381,1),NODRAW;//在铜产区地震的位置画图标，不显示画线
 ```
 
-# 股票除权函数
-## DIVIDEND
+## 股票除权函数
+### DIVIDEND
 
 返回之前第N次派息的每股派息数量
 
@@ -9400,7 +9400,7 @@ DIVIDEND(N) 返回之前第N次派息的每股派息数量。
 5、该函数只支持加载在日线及日线以下周期使用
 ```
 
-## DIVIDENDBARS
+### DIVIDENDBARS
 
 返回从之前第N个派息日到当前的周期数
 
@@ -9418,7 +9418,7 @@ DIVIDENDBARS(N) 返回从之前第N个派息日到当前的周期数。
 5、该函数只支持加载在日线及日线以下周期使用
 ```
 
-## ISRECORDDAY
+### ISRECORDDAY
 
 判断当根K线是否为股权登记日
 
@@ -9434,7 +9434,7 @@ ISRECORDDAY  判断当根K线是否为股权登记日
 4、跨合约/跨周期被引用指标中返回值为0
 ```
 
-## STOCKDIVD
+### STOCKDIVD
 
 设置股票复权
 
@@ -9459,7 +9459,7 @@ STOCKDIVD(0);//设置股票向前复权
 AUTOFILTER;
 ```
 
-## SPLIT
+### SPLIT
 
 返回之前第N次除权(送股或配股)的除权比例
 
@@ -9486,7 +9486,7 @@ SPLIT(N) 返回之前第N次除权(送股或配股)的除权比例，表示除�
 5、该函数只支持加载在日线及日线以下周期使用
 ```
 
-## SPLITBARS
+### SPLITBARS
 
 返回从之前第N个除权日到当前的周期数
 
@@ -9506,8 +9506,8 @@ SPLITBARS(N) 返回从之前第N个除权日到当前的周期数。
 5、该函数只支持加载在日线及日线以下周期使用
 ```
 
-# 公式选股
-## SELECT
+## 公式选股
+### SELECT
 
 公式选股
 
@@ -9527,7 +9527,7 @@ COND2,SELECT;
 C>HV(C,10),SELECT;//选出收盘价高于前10个周期收盘价的最高值的股票
 ```
 
-## SORTINDEX
+### SORTINDEX
 
 股票市场排序函数
 
@@ -9599,8 +9599,8 @@ NUM1:SORTINDEX('年市盈率',1,0);//返回按年市盈率在A股市场从小到
 CLOSE>OPEN && SORTINDEX('年市盈率',1,1)<20,SELECT;//
 ```
 
-# 股票T+0函数
-## LIMITVOL
+## 股票T+0函数
+### LIMITVOL
 
 取股票T+0底仓额度
 
@@ -9618,7 +9618,7 @@ LIMITVOL  返回股票T+0底仓额度
 4、主图回测：返回主图回测参数设置中股票T+0底仓额度
 ```
 
-## STOCKT0
+### STOCKT0
 
 设置股票T+0交易
 

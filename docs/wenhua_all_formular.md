@@ -1,38 +1,38 @@
-# K线形态
+## K线形态
 
-## K线 K线
+### K线 K线
 
 ``` cpp
 DRAWKLINE(0.75,COLORRED,1,COLORCYAN,0);
 ```
 
-## BAR 竹线
+### BAR 竹线
 
 ``` cpp
 OPEN,BAMBOOLINE;
 ```
 
-## TOWER 宝塔线
+### TOWER 宝塔线
 
 ``` cpp
 TOWER;
 ```
 
-## CLOSE 收盘价线
+### CLOSE 收盘价线
 
 ``` cpp
 CLOSE;
 ```
 
-## WK 文华k线图
+### WK 文华k线图
 
 ``` cpp
 DRAWKLINE2(0.75,COLORRED,1,COLORCYAN,0);
 ```
 
-# 趋势分析
+## 趋势分析
 
-## MA组合 移动平均线组合
+### MA组合 移动平均线组合
 
 ``` cpp
 1	N1	0	200	5
@@ -56,7 +56,7 @@ MA5:MA(CLOSE,N5);
 MA6:MA(CLOSE,N6);//定义6条均线
 ```
 
-## BOLL 布林通道线
+### BOLL 布林通道线
 
 ``` cpp
 1	N	5	300	26
@@ -78,7 +78,7 @@ TOP:MID+P*TMP2;//布林通道上轨
 BOTTOM:MID-P*TMP2;//布林通道下轨
 ```
 
-## CDP 逆势操作
+### CDP 逆势操作
 
 ``` cpp
 1	N	1	100	3
@@ -102,7 +102,7 @@ NH  :MA(2*CDP-LOW,N);//2倍的CDP与最低价的差在N个周期内的简单移�
 NL  :MA(2*CDP-HIGH,N);//2倍的CDP与最高价的差在N个周期内的简单移动平均
 ```
 
-## ENV Envalops
+### ENV Envalops
 
 ``` cpp
 1	N1	2	100	14
@@ -123,7 +123,7 @@ LOWER : MA(CLOSE,N1)*(1-N2/100);//N1个周期收盘价均值与(1-N2/100)之积�
 
 ```
 
-## HCL 均线通道
+### HCL 均线通道
 
 ``` cpp
 1	N	1	1000	10
@@ -144,7 +144,7 @@ MAL:MA(LOW,N);//最低价的N周期平均
 MAC:MA(CLOSE,N);//收盘价的N周期平均
 ```
 
-## MIKE 麦克指标
+### MIKE 麦克指标
 
 ``` cpp
 1	N	1	200	12
@@ -171,7 +171,7 @@ MS:TYP-(HH-LL);
 SS:2*LL-HH;
 ```
 
-## PUBU 瀑布线
+### PUBU 瀑布线
 
 ``` cpp
 1	M1	0	10	4
@@ -195,7 +195,7 @@ PB5:(EMA(CLOSE,M5)+MA(CLOSE,M5*2)+MA(CLOSE,M5*4))/3;
 PB6:(EMA(CLOSE,M6)+MA(CLOSE,M6*2)+MA(CLOSE,M6*4))/3; //定义6条瀑布线
 ```
 
-## SAR 止损点
+### SAR 止损点
 
 ``` cpp
 1	N	1	100	4
@@ -217,7 +217,7 @@ SARLINE:SAR(N,STEP1,MVALUE1),CIRCLEDOT;//N个周期的抛物转向，步长为ST
 //参数优化不支持对小数进行优化。如果需要进行参数优化，可以对模型源码进行修改，将模型源码中的小数参数乘以0.1或者0.01等，然后将参数列表中的小数参数数值乘以10或者100变为整数即可
 ```
 
-## SP 日内均价线
+### SP 日内均价线
 
 ``` cpp
 SETTLE;
@@ -225,7 +225,7 @@ SETTLE;
 
 ```
 
-## BBI 多空指数
+### BBI 多空指数
 
 ``` cpp
 1	N1	1	100	3
@@ -244,7 +244,7 @@ SETTLE;
 BBI1:(MA(CLOSE,N1)+MA(CLOSE,N2)+MA(CLOSE,N3)+MA(CLOSE,N4))/4;//求N1周期，N2周期，N3周期，N4周期收盘价均线的简单平均
 ```
 
-## DKX 多空线
+### DKX 多空线
 
 ``` cpp
 1	M	1	100	10
@@ -266,7 +266,7 @@ B:(20*A+19*REF(A,1)+18*REF(A,2)+17*REF(A,3)+16*REF(A,4)+15*REF(A,5)+14*REF(A,6)+
 D:MA(B,M);//对B值做10周期平均计算。
 ```
 
-## SAR1 止损点
+### SAR1 止损点
 
 ``` cpp
 1	N	1	100	4
@@ -288,7 +288,7 @@ SARLINE:SAR1(N,STEP1,MVALUE1),CIRCLEDOT;//N个周期的抛物转向，步长为S
 //参数优化不支持对小数进行优化。如果需要进行参数优化，可以对模型源码进行修改，将模型源码中的小数参数乘以0.1或者0.01等，然后将参数列表中的小数参数数值乘以10或者100变为整数即可
 ```
 
-## WTD 文华通道线
+### WTD 文华通道线
 
 ``` cpp
 1	M	1	100	30
@@ -308,7 +308,7 @@ DRAWCOLORLINE(RISING(N),MA(A,M),COLORRED,COLORGREEN);
 DRAWCOLORLINE(RISING(N),MA(B,M),COLORRED,COLORGREEN);
 ```
 
-## BBIBOLL 多空布林线
+### BBIBOLL 多空布林线
 
 ``` cpp
 1	N	1	100	10
@@ -326,9 +326,9 @@ UPR:BBIBOLL+M*STD(BBIBOLL,N);
 DWN:BBIBOLL-M*STD(BBIBOLL,N);
 ```
 
-# 摆动分析
+## 摆动分析
 
-## ADTM 动态买卖气指标
+### ADTM 动态买卖气指标
 
 ``` cpp
 1	N	1	100	23
@@ -352,7 +352,7 @@ ADTM:IFELSE(STM>SBM,(STM-SBM)/STM,IFELSE(STM=SBM,0,(STM-SBM)/SBM));//如果STM�
 ADTMMA:MA(ADTM,M);//求M个周期内的ADTM的简单移动平均
 ```
 
-## ARBR 人气意愿指标
+### ARBR 人气意愿指标
 
 ``` cpp
 1	N	2	300	26
@@ -372,7 +372,7 @@ AR : SUM(HIGH-OPEN,N)/SUM(OPEN-LOW,N)*100;//N个周期内的最高价减去开�
 BR : SUM(MAX(0,HIGH-REF(CLOSE,1)),N)/SUM(MAX(0,REF(CLOSE,1)-LOW),N)*100;//取最高价减去一个周期前的收盘价的与0中的最大值，求和，取一个周期前的收盘价减去最低价与0中的最大值，求和，两个和的百分比
 ```
 
-## ASI 振动升降指标
+### ASI 振动升降指标
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -389,7 +389,7 @@ SI:=16*X/R*MAX(AA,BB);
 ASI:SUM(SI,0);//从本地数据第一个数据开始求SI的总和
 ```
 
-## ATR 真实波幅
+### ATR 真实波幅
 
 ``` cpp
 1	N	1	300	26
@@ -409,7 +409,7 @@ TR : MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));//求最�
 ATR : MA(TR,N),COLORYELLOW;//求N个周期内的TR的简单移动平均
 ```
 
-## B3612 三减六日乖离
+### B3612 三减六日乖离
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -419,7 +419,7 @@ B36 : MA(CLOSE,3)-MA(CLOSE,6);//3周期收盘价均线减去6周期收盘价均�
 B612 : MA(CLOSE,6)-MA(CLOSE,12);//6周期收盘价均线减去12周期收盘价均线
 ```
 
-## BIAS 乖离率
+### BIAS 乖离率
 
 ``` cpp
 1	L1	1	100	6
@@ -440,7 +440,7 @@ BIAS2:(CLOSE-MA(CLOSE,L2))/MA(CLOSE,L2)*100;//同上
 BIAS3:(CLOSE-MA(CLOSE,L3))/MA(CLOSE,L3)*100;//同上
 ```
 
-## CCI 顺势指标
+### CCI 顺势指标
 
 ``` cpp
 1	N	1	100	14
@@ -460,7 +460,7 @@ TYP:=(CLOSE+HIGH+LOW)/3;//求最新价，最高价和最低价三者的简单平
 CCI:(TYP-MA(TYP,N))/(0.015*AVEDEV(TYP,N));//TYP与TYP的N周期平均值做差，该差值与TYP在N个周期内的0.015倍的平均绝对偏差值做比值
 ```
 
-## CR CR能量指标
+### CR CR能量指标
 
 ``` cpp
 1	N	5	300	26
@@ -484,7 +484,7 @@ CRMA3:REF(MA(CR,M3),M3/2.5+1);//取(M3/2.5+1)个周期前的M3周期CR简单平�
 CRMA4:REF(MA(CR,M4),M4/2.5+1);//取(M4/2.5+1)个周期前的M4周期CR简单平均值
 ```
 
-## DBCD 异同离差乖离率
+### DBCD 异同离差乖离率
 
 ``` cpp
 1	N	1	100	5
@@ -506,7 +506,7 @@ DBCD:SMA(DIF,T,1);//DIF在T个周期内的移动平均
 MM:MA(DBCD,5);//DBCD在5个周期内的简单移动平均
 ```
 
-## DDI 方向标准离差指数
+### DDI 方向标准离差指数
 
 ``` cpp
 1	N	1	100	13
@@ -533,7 +533,7 @@ ADDI:SMA(DDI,N1,M);//DDI在N1个周期内权重为M的加权平均
 AD:MA(ADDI,M1);//ADDI在M1个周期内的简单移动平均
 ```
 
-## DMA 平均线差
+### DMA 平均线差
 
 ``` cpp
 1	SHORT	2	300	10
@@ -553,7 +553,7 @@ DDD : MA(CLOSE,SHORT)-MA(CLOSE,LONG);//短周期收盘价均值与长周期收�
 AMA : MA(DDD,M);//M个周期的DDD均值
 ```
 
-## DMI 趋向指标
+### DMI 趋向指标
 
 ``` cpp
 1	N	1	100	14
@@ -581,7 +581,7 @@ ADXR:(ADX+REF(ADX,M))/2;
 BACKGROUNDSTYLE(1);
 ```
 
-## KD 随机指标
+### KD 随机指标
 
 ``` cpp
 1	N	1	100	9
@@ -602,7 +602,7 @@ K:SMA(RSV,M1,1);//RSV的移动平均
 D:SMA(K,M2,1);//K值的移动平均
 ```
 
-## KDJ 随机指标
+### KDJ 随机指标
 
 ``` cpp
 1	N	1	100	9
@@ -625,7 +625,7 @@ J:3*K-2*D;
 BACKGROUNDSTYLE(1);
 ```
 
-## LWR 威廉指标
+### LWR 威廉指标
 
 ``` cpp
 1	N	1	100	9
@@ -646,7 +646,7 @@ LWR1:SMA(RSV,M1,1);//RSV的移动平均
 LWR2:SMA(LWR1,M2,1);//LWR1的移动平均
 ```
 
-## MACD 平滑移动平均线
+### MACD 平滑移动平均线
 
 ``` cpp
 1	SHORT	1	40	12
@@ -669,7 +669,7 @@ DEA  : EMA(DIFF,M);//DIFF的M个周期指数平滑移动平均
 
 ```
 
-## MASS Mass Index
+### MASS Mass Index
 
 ``` cpp
 1	N1	2	100	9
@@ -688,7 +688,7 @@ DEA  : EMA(DIFF,M);//DIFF的M个周期指数平滑移动平均
 MASS:SUM(EMA((HIGH-LOW),N1)/EMA(EMA((HIGH-LOW),N1),N1),N2);//N1个周期最高值与最低值之差做指数平滑移动平均，该平均值与N1个周期该均值的指数平滑移动平均值做比，计算该比值的N2个周期的累加求和。
 ```
 
-## MFI 资金流量指标
+### MFI 资金流量指标
 
 ``` cpp
 1	N	2	300	14
@@ -709,7 +709,7 @@ MR:=SUM(IFELSE(TYP>REF(TYP,1),TYP*VOL,0),N)/SUM(IFELSE(TYP<REF(TYP,1),TYP*VOL,0)
 MFI:100-(100/(1+MR));
 ```
 
-## MI 动量指标
+### MI 动量指标
 
 ``` cpp
 1	N	1	300	12
@@ -729,7 +729,7 @@ A:CLOSE-REF(CLOSE,N);//收盘价与N周期前收盘价做差
 MI:SMA(A,N,1);//A的移动平均
 ```
 
-## MICD 异同离差动力指数
+### MICD 异同离差动力指数
 
 ``` cpp
 1	N	1	100	3
@@ -751,7 +751,7 @@ DIF:MA(REF(AMI,1),N1)-MA(REF(AMI,1),N2);//前一周期AMI的N1周期均值与前
 MICD:SMA(DIF,10,1);//DIF的移动平均值
 ```
 
-## MTM MTM动力指标
+### MTM MTM动力指标
 
 ``` cpp
 1	N	1	100	6
@@ -771,7 +771,7 @@ MTM : CLOSE-REF(CLOSE,N);//收盘价与N周期前收盘价做差
 MTMMA : MA(MTM,N1);//MTM的N1周期简单均值。
 ```
 
-## PRICEOSC Price Oscillator
+### PRICEOSC Price Oscillator
 
 ``` cpp
 1	LONG	5	100	26
@@ -790,7 +790,7 @@ MTMMA : MA(MTM,N1);//MTM的N1周期简单均值。
 PRICEOSC:(MA(CLOSE,SHORT)-MA(CLOSE,LONG))/MA(CLOSE,SHORT)*100;//短周期与长周期均值做差，该差与短周期均值之间做比值。
 ```
 
-## PSY 心理线
+### PSY 心理线
 
 ``` cpp
 1	N	2	100	12
@@ -810,7 +810,7 @@ PSY:COUNT(CLOSE>REF(CLOSE,1),N)/N*100;//N个周期内满足收盘价大于一个
 PSYMA:MA(PSY,M);//PSY在M个周期内的简单移动平均；
 ```
 
-## QHLSR 阻力指标
+### QHLSR 阻力指标
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -827,7 +827,7 @@ QHL5:IFELSE(SUM(IFELSE(QHL>0,1,0),5)=5,1,IFELSE(SUM(IFELSE(QHL<0,1,0),5)=5,0,D))
 QHL10:G;
 ```
 
-## RC 变化率指数
+### RC 变化率指数
 
 ``` cpp
 1	N	1	100	50
@@ -847,7 +847,7 @@ RC:=CLOSE/REF(CLOSE,N);//收盘价与N周期前的收盘价做比。
 ARC:SMA(REF(RC,1),N,1);//前一周期的RC值做移动平均
 ```
 
-## RCCD 异同离差变化率指数
+### RCCD 异同离差变化率指数
 
 ``` cpp
 1	N	1	100	59
@@ -869,7 +869,7 @@ DIF:MA(REF(ARC,1),N1)-MA(REF(ARC,1),N2);//N1个周期的一周期前的ARC的简
 RCCD:SMA(DIF,N,1);//DIF的N周期的以1为权重的移动平均；
 ```
 
-## ROC 变动速率
+### ROC 变动速率
 
 ``` cpp
 1	N	1	100	24
@@ -890,7 +890,7 @@ ROCMA:MA(ROC,M);
 BACKGROUNDSTYLE(2);
 ```
 
-## RSI 相对强弱指标(Relative Strenth Index)
+### RSI 相对强弱指标(Relative Strenth Index)
 
 ``` cpp
 1	N1	2	100	7
@@ -912,7 +912,7 @@ RSI2:SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;//当根K线收盘价
 BACKGROUNDSTYLE(0);
 ```
 
-## SLOWKD 慢速KD
+### SLOWKD 慢速KD
 
 ``` cpp
 1	N	1	100	9
@@ -934,7 +934,7 @@ D:SMA(K,M3,1);//K的移动平均值
 
 ```
 
-## SRDM 动向速度比率
+### SRDM 动向速度比率
 
 ``` cpp
 1	N	1	100	30
@@ -960,7 +960,7 @@ SRDM:IFELSE(ADMZ>ADMF,(ADMZ-ADMF)/ADMZ,IFELSE(ADMZ=ADMF,0,(ADMZ-ADMF)/ADMF));//�
 ASRDM:SMA(SRDM,N,1);//SRDM值的N日以1为权重的移动平均；
 ```
 
-## SRMI MI修正指标
+### SRMI MI修正指标
 
 ``` cpp
 1	N	1	100	9
@@ -981,7 +981,7 @@ A:IFELSE(CLOSE<REF(CLOSE,N),(CLOSE-REF(CLOSE,N))/REF(CLOSE,N),IFELSE(CLOSE=REF(C
 MI:SMA(A,N,1);//A的N周期的以1为权重的移动平均；
 ```
 
-## WR 威廉指标(William's %R)
+### WR 威廉指标(William's %R)
 
 ``` cpp
 1	N	2	100	14
@@ -1000,7 +1000,7 @@ MI:SMA(A,N,1);//A的N周期的以1为权重的移动平均；
 WR:-100*(HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N));//N周期内最高价与收盘价之差与N周期内最高价和最低价之差之间的比值，取负。
 ```
 
-## ZDZB 筑底指标
+### ZDZB 筑底指标
 
 ``` cpp
 1	N1	5	250	125
@@ -1021,7 +1021,7 @@ B:MA(A,N2);//N2周期内的A的简单移动平均；
 D:MA(A,N3);//N3周期内的A的简单移动平均；
 ```
 
-## DPO 区间震荡线
+### DPO 区间震荡线
 
 ``` cpp
 1	N	1	100	10
@@ -1040,7 +1040,7 @@ D:MA(A,N3);//N3周期内的A的简单移动平均；
 DPO:CLOSE-REF(MA(CLOSE,20),11);//收盘价与11个周期前的20周期均值做差
 ```
 
-## LON长线 长线指标
+### LON长线 长线指标
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -1057,7 +1057,7 @@ MA1:MA(LON,10);//取LON的10周期均值。
 
 ```
 
-## SHORT短线 短线指标
+### SHORT短线 短线指标
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -1073,9 +1073,9 @@ MA1:MA(SHORT,10);//取SHORT的10周期均值
 
 ```
 
-# 量仓分析
+## 量仓分析
 
-## MV 均量线
+### MV 均量线
 
 ``` cpp
 1	N	1	100	10
@@ -1095,7 +1095,7 @@ MV1:SMA(VOL,N,1);
 MV2:SMA(VOL,M,1);
 ```
 
-## WAD 威廉多空力度线
+### WAD 威廉多空力度线
 
 ``` cpp
 1	N	0	100	10
@@ -1117,26 +1117,26 @@ B:SMA(A,N,1);//A的N周期的以1为权重的移动平均；
 E:SMA(A,M,1);//A的M周期的以1为权重的移动平均；
 ```
 
-## AD Accumulation/Distribution
+### AD Accumulation/Distribution
 
 ``` cpp
 SUM(((CLOSE-LOW)-(HIGH-CLOSE))/(HIGH-LOW)*VOL,0);
 ```
 
-## CCL 持仓异动
+### CCL 持仓异动
 
 ``` cpp
 CCL;
 ```
 
-## CJL 成交量
+### CJL 成交量
 
 ``` cpp
 VOL,VOLUMESTICK;
 OPID:OPI;
 ```
 
-## DUALVOL 多空量比
+### DUALVOL 多空量比
 
 ``` cpp
 1	P	1	100	10
@@ -1154,25 +1154,25 @@ N:=DUALVOLUME('N');
 DRAWCOLUMNCHART(N,SCALE>=0.5,M>=0);
 ```
 
-## OBV 能量潮
+### OBV 能量潮
 
 ``` cpp
 SUM(IFELSE(CLOSE>REF(CLOSE,1),VOL,IFELSE(CLOSE<REF(CLOSE,1),-VOL,0)),0);
 ```
 
-## OPI 持仓量
+### OPI 持仓量
 
 ``` cpp
 OPI,OPISTICK;
 ```
 
-## PVT 价量趋势指数
+### PVT 价量趋势指数
 
 ``` cpp
 SUM((CLOSE-REF(CLOSE,1))/REF(CLOSE,1)*VOL,0);
 ```
 
-## VOSC Volume Oscillator
+### VOSC Volume Oscillator
 
 ``` cpp
 1	SHORT	2	50	12
@@ -1188,7 +1188,7 @@ SUM((CLOSE-REF(CLOSE,1))/REF(CLOSE,1)*VOL,0);
 (MA(VOL,SHORT)-MA(VOL,LONG))/MA(VOL,SHORT)*100;
 ```
 
-## VR VR容量比率
+### VR VR容量比率
 
 ``` cpp
 1	N	5	300	26
@@ -1206,7 +1206,7 @@ SUM(IFELSE(CLOSE>LC,VOL,0),N)/
 SUM(IFELSE(CLOSE<=LC,VOL,0),N)*100;
 ```
 
-## VROC 量变动速率
+### VROC 量变动速率
 
 ``` cpp
 1	N	2	300	12
@@ -1222,7 +1222,7 @@ SUM(IFELSE(CLOSE<=LC,VOL,0),N)*100;
 (VOL-REF(VOL,N))/REF(VOL,N)*100;
 ```
 
-## VRSI 量相对强弱
+### VRSI 量相对强弱
 
 ``` cpp
 1	N	1	100	6
@@ -1238,15 +1238,15 @@ SUM(IFELSE(CLOSE<=LC,VOL,0),N)*100;
 SMA(MAX(VOL-REF(VOL,1),0),N,1)/SMA(ABS(VOL-REF(VOL,1)),N,1)*100;
 ```
 
-## WVAD 威廉变异离散量
+### WVAD 威廉变异离散量
 
 ``` cpp
 (CLOSE-OPEN)/(HIGH-LOW)*VOL;
 ```
 
-# 形态选股
+## 形态选股
 
-## 均线多头排列
+### 均线多头排列
 
 ``` cpp
 1	N	1	100	5
@@ -1268,7 +1268,7 @@ A4:=MA(CLOSE,N3);
 COUNT(A1>A2 AND A2>A3 AND A3>A4,3)=3 AND ISUP,SELECT;//选出连续3日满足均线多头排列的股票。
 ```
 
-## 均线空头排列
+### 均线空头排列
 
 ``` cpp
 1	N	1	100	5
@@ -1290,7 +1290,7 @@ A4:=MA(CLOSE,N3);
 COUNT(A1<A2 AND A2<A3 AND A3<A4,3)=3 AND NOT(ISUP),SELECT;//选出连续3日满足均线空头排列的股票。
 ```
 
-## 早晨之星
+### 早晨之星
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -1301,7 +1301,7 @@ ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.03 AND
 CLOSE/OPEN>1.05 AND CLOSE>REF(CLOSE,2),SELECT;//选出满足“早晨之星”形态的股票。
 ```
 
-## 黄昏之星
+### 黄昏之星
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -1312,7 +1312,7 @@ ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.02 AND
 CLOSE/OPEN<0.97 AND CLOSE<REF(CLOSE,2),SELECT;//选出满足“黄昏之星”形态的股票。
 ```
 
-## 平台整理
+### 平台整理
 
 ``` cpp
 1	N	1	100	30
@@ -1332,7 +1332,7 @@ BARPOS>N AND (HHV(CLOSE,N)-LLV(CLOSE,N))/LLV(CLOSE,N)<=(N1/100),SELECT;//选出�
 //N、N1是参数，默认值是30、11，即选出在过去的30日中K线的最高价和最低价的变动范围在11%以内的股票。数值可以在参数列表中修改。
 ```
 
-## 强势整理
+### 强势整理
 
 ``` cpp
 1	M	1	20	2
@@ -1355,7 +1355,7 @@ A2 AND A3,SELECT;//选出前两日收阳，前三日的收盘价上涨N%，且�
 //M和N是参数，默认值是2、5，即选出前两日收阳，前三日的收盘价上涨5%，且连续2日波幅小于1.5%的股票。数值可以在参数列表中修改。
 ```
 
-## 高开大阴线
+### 高开大阴线
 
 ``` cpp
 1	M	1	10	4
@@ -1375,7 +1375,7 @@ OPEN>CLOSE AND OPEN/REF(C,1)>=1+M/100 AND CLOSE/OPEN<=1-N/100,SELECT;//选出开
 //M和N是参数，默认值为4、5，即选出开盘价比昨日收盘价高出4%，且当前K线为跌幅小于5%的阴线的股票。数值可以在参数列表中修改。
 ```
 
-## 低开大阳线
+### 低开大阳线
 
 ``` cpp
 1	M	1	10	4
@@ -1395,7 +1395,7 @@ OPEN<CLOSE AND OPEN/REF(C,1)<=1-M/100 AND CLOSE/OPEN>=1+N/100,SELECT;//选出开
 //M和N是参数，默认值为4、7，即选出开盘价比上一周期的收盘价小4%，且当前K线为涨幅大于7%的阳线的股票。数值可以在参数列表中修改。
 ```
 
-## 四连阴
+### 四连阴
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -1403,7 +1403,7 @@ OPEN<CLOSE AND OPEN/REF(C,1)<=1-M/100 AND CLOSE/OPEN>=1+N/100,SELECT;//选出开
 EVERY(CLOSE<OPEN,4),SELECT;//选出连续4日收阴的股票。
 ```
 
-## 四连阳
+### 四连阳
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -1411,7 +1411,7 @@ EVERY(CLOSE<OPEN,4),SELECT;//选出连续4日收阴的股票。
 EVERY(CLOSE>OPEN,4),SELECT;//选出连续四日收阳的股票。
 ```
 
-## 低点搜索
+### 低点搜索
 
 ``` cpp
 1	N	1	20	5
@@ -1432,7 +1432,7 @@ CROSS(-5,W),SELECT;//选出W值下穿-5的股票。
 //N是参数，表示均线的周期，可以在参数列表中修改。
 ```
 
-## 突破
+### 突破
 
 ``` cpp
 1	N1	1	100	5
@@ -1462,7 +1462,7 @@ T1 AND T2 AND T3 AND T4,SELECT;//选出三条均线依次满足向上穿越的�
 //N1、N2、N3是参数，表示均线的周期，数值可以在参数列表中修改。
 ```
 
-## 四周法则
+### 四周法则
 
 ``` cpp
 1	N	1	100	20
@@ -1480,7 +1480,7 @@ T1 AND T2 AND T3 AND T4,SELECT;//选出三条均线依次满足向上穿越的�
 HIGH>HV(HIGH,N),SELECT;//选出最高价创20周期新高的股票。N是参数，表示周期，N值可以在参数列表修改。
 ```
 
-## 跳空缺口
+### 跳空缺口
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -1488,7 +1488,7 @@ HIGH>HV(HIGH,N),SELECT;//选出最高价创20周期新高的股票。N是参数�
 HIGH<REF(LOW,1) OR LOW>REF(HIGH,1),SELECT;//选出向上或者向下跳空的股票。
 ```
 
-## 跳空高开或低开
+### 跳空高开或低开
 
 ``` cpp
 1	N	-100	100	3
@@ -1508,9 +1508,9 @@ B:=(O<REF(L,1) AND (O-REF(C,1))/REF(C,1)*100<N);
 IF(N>0,A,B),SELECT;//选出K线实体部分向上或者向下跳空的股票。
 ```
 
-# 指标选股
+## 指标选股
 
-## BIAS乖离率买入条件选股
+### BIAS乖离率买入条件选股
 
 ``` cpp
 1	N	1	100	12
@@ -1528,7 +1528,7 @@ IF(N>0,A,B),SELECT;//选出K线实体部分向上或者向下跳空的股票。
 (CLOSE-MA(CLOSE,N))/MA(CLOSE,N)*100<LL,SELECT;//选出乖离率小于-6的股票；LL为参数，默认值为-6，可以在参数列表修改。
 ```
 
-## BIAS乖离率卖出条件选股
+### BIAS乖离率卖出条件选股
 
 ``` cpp
 1	N	1	100	12
@@ -1546,7 +1546,7 @@ IF(N>0,A,B),SELECT;//选出K线实体部分向上或者向下跳空的股票。
 100*(C-MA(C,N))/MA(C,N)>M,SELECT;//选出乖离率大于12的股票；M为参数，默认值为12，可以在参数列表修改。
 ```
 
-## BOLL布林带买入条件选股
+### BOLL布林带买入条件选股
 
 ``` cpp
 1	N	5	300	26
@@ -1568,7 +1568,7 @@ BOTTOM:=MID-P*TMP2;
 CROSS(CLOSE,BOTTOM),SELECT;//选出价格上穿布林下轨的股票
 ```
 
-## BOLL布林带卖出条件选股
+### BOLL布林带卖出条件选股
 
 ``` cpp
 1	N	5	300	26
@@ -1590,7 +1590,7 @@ BOTTOM:=MID-P*TMP2;
 CROSS(TOP,C),SELECT;//选出价格下穿布林上轨的股票
 ```
 
-## KDJ随机指标买入条件选股
+### KDJ随机指标买入条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1612,7 +1612,7 @@ J:=3*K-2*D;
 CROSS(J,0),SELECT;//选出J值上穿0轴的股票
 ```
 
-## KDJ随机指标卖出条件选股
+### KDJ随机指标卖出条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1634,7 +1634,7 @@ J:=3*K-2*D;
 CROSS(0,J),SELECT;//选出J值下穿0轴的股票
 ```
 
-## KD买入点条件选股
+### KD买入点条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1655,7 +1655,7 @@ D:=SMA(K,M2,1);
 CROSS(K,D) && D<N1,SELECT;//选出K上穿D，且D值小于20的股票；N1为参数，默认值为20，可以在参数列表修改。
 ```
 
-## KD卖出点条件选股
+### KD卖出点条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1676,7 +1676,7 @@ D:=SMA(K,N2,1);
 CROSS(D,K) && D>N3,SELECT;//选出K下穿D，且D值大于80的股票；N3为参数，默认值为80，可以在参数列表修改。
 ```
 
-## MACD买入点条件选股
+### MACD买入点条件选股
 
 ``` cpp
 1	SHORT	1	40	12
@@ -1696,7 +1696,7 @@ DEA:= EMA(DIFF,M);
 CROSS(DIFF,DEA),SELECT;//选出DIFF上穿DEA的股票。
 ```
 
-## MACD卖出点条件选股
+### MACD卖出点条件选股
 
 ``` cpp
 1	SHORT	1	40	12
@@ -1716,7 +1716,7 @@ DEA:= EMA(DIFF,M);
 CROSSDOWN(DIFF,DEA),SELECT;//选出DIFF下穿DEA的股票。
 ```
 
-## MA均线买入条件选股
+### MA均线买入条件选股
 
 ``` cpp
 1	SHORT	1	300	5
@@ -1734,7 +1734,7 @@ CROSSDOWN(DIFF,DEA),SELECT;//选出DIFF下穿DEA的股票。
 CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG)),SELECT;//选出5周期均线上穿10周期均线的股票；SHORT和LONG为参数，默认值为5和10，可以在参数列表修改。
 ```
 
-## MA均线卖出条件选股
+### MA均线卖出条件选股
 
 ``` cpp
 1	N	1	100	10
@@ -1752,7 +1752,7 @@ CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG)),SELECT;//选出5周期均线上穿10周期
 CROSS(MA(C,M),MA(C,N)),SELECT;//选出10周期均线下穿30周期均线的股票；M和N为参数，默认值为10和30，可以在参数列表修改。
 ```
 
-## MTM买入条件选股
+### MTM买入条件选股
 
 ``` cpp
 1	N	1	100	6
@@ -1772,7 +1772,7 @@ MTMMA:=MA(MTM,N1);
 CROSS(MTMMA,0),SELECT;//选出MTMMA指标上穿0轴的股票。
 ```
 
-## MTM卖出条件选股
+### MTM卖出条件选股
 
 ``` cpp
 1	N	1	100	6
@@ -1793,7 +1793,7 @@ CROSSDOWN(MTMMA,0),SELECT;//选出MTMMA指标下穿0轴的股票。
 
 ```
 
-## RSI买入条件选股
+### RSI买入条件选股
 
 ``` cpp
 1	N1	2	100	7
@@ -1814,7 +1814,7 @@ RSI2:=SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;
 CROSS(RSI1,LL),SELECT;//选出RSI上穿20的股票；LL为参数，默认值为20，可以在参数列表修改。
 ```
 
-## RSI卖出条件选股
+### RSI卖出条件选股
 
 ``` cpp
 1	N1	2	100	7
@@ -1835,7 +1835,7 @@ RSI2:=SMA(MAX(CLOSE-LC,0),N2,1)/SMA(ABS(CLOSE-LC),N2,1)*100;
 CROSS(RSI1,HH),SELECT;//选出RSI下穿80的股票；HH为参数，默认值为80，可以在参数列表修改。
 ```
 
-## SAR买入条件选股
+### SAR买入条件选股
 
 ``` cpp
 1	N	1	100	4
@@ -1856,7 +1856,7 @@ SARLINE:=SAR(N,STEP1,MVALUE1);
 CROSS(SARLINE,0),SELECT;//选出SAR值由负转正的股票。
 ```
 
-## SAR卖出条件选股
+### SAR卖出条件选股
 
 ``` cpp
 1	N	1	100	4
@@ -1877,7 +1877,7 @@ SARLINE:=SAR(N,STEP1,MVALUE1);
 CROSSDOWN(SARLINE,0),SELECT;//选出SAR值由正转负的股票。
 ```
 
-## W&R威廉指标买入条件选股
+### W&R威廉指标买入条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1898,7 +1898,7 @@ LWR2:=SMA(LWR1,M2,1);
 CROSS(LWR1,HH),SELECT;//选出威廉指标上穿80的股票；HH为参数，默认值为80，可以在参数列表修改。
 ```
 
-## W&R威廉指标卖出条件选股
+### W&R威廉指标卖出条件选股
 
 ``` cpp
 1	N	1	100	9
@@ -1920,9 +1920,9 @@ CROSS(LWR1,LL),SELECT;//选出威廉指标下穿20的股票；LL为参数，默�
 
 ```
 
-# 走势选股
+## 走势选股
 
-## N日创新高
+### N日创新高
 
 ``` cpp
 1	N	2	1000	3
@@ -1943,7 +1943,7 @@ HHV(HIGH,N)=HHV(HIGH,0) AND BARSCOUNT(C)>=N,SELECT;//选出最高价创N日新�
 
 ```
 
-## N日创新低
+### N日创新低
 
 ``` cpp
 1	N	2	1000	3
@@ -1964,7 +1964,7 @@ LLV(L,N)=LLV(L,0) AND BARSCOUNT(C)>=N,SELECT;//选出最低价创N日新低的�
 
 ```
 
-## M日阴线多于阳线
+### M日阴线多于阳线
 
 ``` cpp
 1	M	3	1000	30
@@ -1985,7 +1985,7 @@ COUNT(ISDOWN,M)>COUNT(ISUP,M),SELECT;//选出M日内阴线数量多于阳线数�
 
 ```
 
-## M日阳线多于阴线
+### M日阳线多于阴线
 
 ``` cpp
 1	M	3	1000	30
@@ -2005,7 +2005,7 @@ COUNT(ISDOWN,M)<COUNT(ISUP,M),SELECT;//选出M日内阳线数量多于阴线数�
 //M为参数，默认值为30，即选出30日内阳线数量多于阴线数量的股票。M值可以在参数列表中修改。
 ```
 
-## N日内上涨多于下跌
+### N日内上涨多于下跌
 
 ``` cpp
 1	N	1	1000	120
@@ -2025,7 +2025,7 @@ COUNT(C>REF(C,1),N)/N >= M/100,SELECT;//选出N日内上涨K线多于下跌K线�
 //N、M为参数，默认值为120、60，即选出120日内上涨K线占比大于60%的股票。N和M的数值可以在参数列表中修改。
 ```
 
-## N日内下跌多于上涨
+### N日内下跌多于上涨
 
 ``` cpp
 1	N	1	1000	120
@@ -2045,7 +2045,7 @@ COUNT(C<REF(C,1),N)/N >= M/100,SELECT;//选出N日内下跌K线多于上涨K线�
 //N、M为参数，默认值为120、60，即选出120日内下跌K线占比大于60%的股票。N和M的数值可以在参数列表中修改。
 ```
 
-## 连续N天收阳线
+### 连续N天收阳线
 
 ``` cpp
 1	N	3	1000	7
@@ -2065,7 +2065,7 @@ COUNT(ISUP,N)=N,SELECT;//选出N日内连续收阳的股票。
 //N为参数，默认值为7，即选出7日内连续收阳的股票。N值可以在参数列表中修改。
 ```
 
-## 连续N天收阴线
+### 连续N天收阴线
 
 ``` cpp
 1	N	3	1000	7
@@ -2085,7 +2085,7 @@ COUNT(ISDOWN,N)=N,SELECT;//选出N日内连续收阴的股票。
 //N为参数，默认值为7，即选出7日内连续收阴的股票。N值可以在参数列表中修改。
 ```
 
-## 连续N天上涨
+### 连续N天上涨
 
 ``` cpp
 1	N	3	1000	5
@@ -2105,7 +2105,7 @@ COUNT(C>REF(C,1),N)=N,SELECT;//选出连续N天上涨的股票。
 //N为参数，默认值为5，即选出5日内连续上涨的股票。N值可以在参数列表中修改。
 ```
 
-## 连续N天下跌
+### 连续N天下跌
 
 ``` cpp
 1	N	3	1000	5
@@ -2125,7 +2125,7 @@ COUNT(C<REF(C,1),N)=N,SELECT;//选出连续N天下跌的股票。
 //N为参数，默认值为5，即选出5日内连续下跌的股票。N值可以在参数列表中修改。
 ```
 
-## 首次创新高
+### 首次创新高
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2134,7 +2134,7 @@ BARSSINCE(C>HV(IF(BARSCOUNT(C)=1,HIGH,0),0))+1=1,SELECT;//选出价格首次创�
 
 ```
 
-## 首次创新低
+### 首次创新低
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2142,7 +2142,7 @@ BARSSINCE(C>HV(IF(BARSCOUNT(C)=1,HIGH,0),0))+1=1,SELECT;//选出价格首次创�
 BARSSINCE(C<LV(IF(BARSCOUNT(C)=1,LOW,0),0))+1=1,SELECT;//选出价格首次创新低的股票。
 ```
 
-## 创历史新高
+### 创历史新高
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2150,7 +2150,7 @@ BARSSINCE(C<LV(IF(BARSCOUNT(C)=1,LOW,0),0))+1=1,SELECT;//选出价格首次创�
 HHV(CLOSE,0)=CLOSE,SELECT;//选出收盘价创历史新高的股票。
 ```
 
-## 创历史新低
+### 创历史新低
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2158,7 +2158,7 @@ HHV(CLOSE,0)=CLOSE,SELECT;//选出收盘价创历史新高的股票。
 LLV(CLOSE,0)=CLOSE,SELECT;//选出收盘价创历史新低的股票。
 ```
 
-## 持续放量
+### 持续放量
 
 ``` cpp
 1	M	1	100	3
@@ -2179,7 +2179,7 @@ COUNT(B,M)=M,SELECT;//选出M日内持续放量的股票。
 //M为参数，默认值为3，即选出3日内持续放量的股票。M值可以在参数列表中修改。
 ```
 
-## 持续缩量
+### 持续缩量
 
 ``` cpp
 1	M	1	100	3
@@ -2200,7 +2200,7 @@ COUNT(B,M)=M,SELECT;//选出M日内持续缩量的股票。
 //M为参数，默认值为3，即选出3日内持续缩量的股票。M值可以在参数列表中修改。
 ```
 
-## 间隔放量
+### 间隔放量
 
 ``` cpp
 1	N	20	60	30
@@ -2222,7 +2222,7 @@ BARSCOUNT(C)>=N AND HHV(A,N)<N1*LLV(A,N) AND COUNT(VOL>N2*A,N)>N3,SELECT;//选�
 
 ```
 
-## 突然放量
+### 突然放量
 
 ``` cpp
 1	N	1	300	10
@@ -2242,7 +2242,7 @@ VOL>REF(HHV(VOL,N),1)*M,SELECT;//选成交量大于前N日的成交量最大值�
 //N、M为参数，默认值为10、3，即选出成交量大于前10日中最大成交量3倍的股票。N、M的数值可以在参数列表中修改。
 ```
 
-## 突破长期盘整
+### 突破长期盘整
 
 ``` cpp
 1	N	10	60	30
@@ -2262,7 +2262,7 @@ REF(((HHV(H,N)-LLV(L,N))/LLV(L,N)),1)<=(N1/100) AND C>=REF(HHV(H,N),1) AND BARSC
 //N、N1为参数，默认值为30、30，即选出在前30日，K线的最高最低值在30%的范围内浮动，当日价格突破30日最高价的股票。N、N1的数值可以在参数列表修改。
 ```
 
-## 下跌多日再放量上涨
+### 下跌多日再放量上涨
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2276,7 +2276,7 @@ A1 AND A2 AND A3 AND A4 AND A5,SELECT;//选出收盘价在前5日内连续下跌
 
 ```
 
-## 百日地量
+### 百日地量
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2284,7 +2284,7 @@ A1 AND A2 AND A3 AND A4 AND A5,SELECT;//选出收盘价在前5日内连续下跌
 VOL=LLV(VOL,100),SELECT;//选出成交量在100日内创新低的股票。
 ```
 
-## 百日天量
+### 百日天量
 
 ``` cpp
 //该公式仅仅用来示范如何编写选股公式
@@ -2292,27 +2292,27 @@ VOL=LLV(VOL,100),SELECT;//选出成交量在100日内创新低的股票。
 VOL=HHV(VOL,100),SELECT;//选出成交量在100日内创新高的股票。
 ```
 
-# 其他
+## 其他
 
-## OPEN 开盘价线
+### OPEN 开盘价线
 
 ``` cpp
 OPEN;
 ```
 
-## HIGH 最高价线
+### HIGH 最高价线
 
 ``` cpp
 HIGH;
 ```
 
-## LOW 最低价线
+### LOW 最低价线
 
 ``` cpp
 LOW;
 ```
 
-## MA 简单移动平均线
+### MA 简单移动平均线
 
 ``` cpp
 1	N	0	1000	10
@@ -2331,7 +2331,7 @@ LOW;
 MA1:MA(CLOSE,N);//定义10周期均线
 ```
 
-## EMA 指数加权移动平均线
+### EMA 指数加权移动平均线
 
 ``` cpp
 //该模型仅仅用来示范如何根据指标编写简单的模型
@@ -2340,7 +2340,7 @@ EMA10:=EMA(CLOSE,10);//定义10周期收盘价的指数平滑移动平均值。
 EMA20:=EMA(CLOSE,20);//定义20周期收盘价的指数平滑移动平均值。
 ```
 
-## EXPMA 指数加权移动平均线组合
+### EXPMA 指数加权移动平均线组合
 
 ``` cpp
 1	P1	1	300	5
@@ -2359,7 +2359,7 @@ MA3:EMA(CLOSE,P3);
 MA4:EMA(CLOSE,P4);
 ```
 
-## SMA 扩展指数加权移动平均线
+### SMA 扩展指数加权移动平均线
 
 ``` cpp
 1	N	1	100	5
@@ -2375,7 +2375,7 @@ MA4:EMA(CLOSE,P4);
 SMA(CLOSE,N,2);
 ```
 
-## EMA2 线性加权移动平均线
+### EMA2 线性加权移动平均线
 
 ``` cpp
 1	N	1	1000	10
@@ -2395,7 +2395,7 @@ EMA210:EMA2(CLOSE,10);//定义10周期收盘价的加权平均值。
 EMA220:EMA2(CLOSE,20);//定义20周期收盘价的加权平均值。
 ```
 
-## TRMA 三角移动平均线
+### TRMA 三角移动平均线
 
 ``` cpp
 1	N	1	1000	10
@@ -2411,7 +2411,7 @@ EMA220:EMA2(CLOSE,20);//定义20周期收盘价的加权平均值。
 MA1:TRMA(C,N);
 ```
 
-## TSMA 时间序列三角移动平均线
+### TSMA 时间序列三角移动平均线
 
 ``` cpp
 1	N	1	1000	10
@@ -2427,7 +2427,7 @@ MA1:TRMA(C,N);
 MA1:TSMA(C,N);
 ```
 
-## 走势图 Webstock 收盘线
+### 走势图 Webstock 收盘线
 
 ``` cpp
 CLOSE;
@@ -2437,9 +2437,9 @@ POLYPOINT(BIDBIGVOLPRICE> 0 , BIDBIGVOLPRICE , COLORRED);
 POLYPOINT(ASKBIGVOLPRICE> 0 , ASKBIGVOLPRICE , COLORGREEN);
 ```
 
-# 趋势模型编写示范
+## 趋势模型编写示范
 
-## WHBXSF
+### WHBXSF
 
 ``` cpp
 //该公式为“趋势模型编写示范”中“跨周期编写示范”引用使用，请勿删除或者修改，否则将导致“跨周期编写示范”无法正常使用
@@ -2452,7 +2452,7 @@ A:=C>MA5&&MA5>MA10&&MA10>MA20&&MA20>MA30; //4条均线多头排列，且价格�
 B:=C<MA5&&MA5<MA10&&MA10<MA20&&MA20<MA30; //4条均线空头排列，且价格在均线之下
 ```
 
-## 跨指标编写示范
+### 跨指标编写示范
 
 ``` cpp
 //该示范用均线和KDJ两个指标结合使用，演示“跨指标模型”的编写方法
@@ -2472,7 +2472,7 @@ CROSSUP(K,D)&&REF(J,1)<30,BP;// KD出现金叉并且前一个周期J值小于30�
 AUTOFILTER;
 ```
 
-## 跨合约编写示范
+### 跨合约编写示范
 
 ``` cpp
 //该示范为引用文华商品指标对整体市场方向做判断，在具体品种上交易，演示“跨合约模型”的编写方法
@@ -2493,7 +2493,7 @@ AUTOFILTER;
 
 ```
 
-## 跨周期编写示范
+### 跨周期编写示范
 
 ``` cpp
 //该示范主要用均线多周期共振演示“跨周期模型”的编写方法
@@ -2522,7 +2522,7 @@ AUTOFILTER;
 
 ```
 
-## 分组指令编写示范
+### 分组指令编写示范
 
 ``` cpp
 //该示范主要用波幅判断不同的行情，使用不同的策略，演示“分组指令”的编写方法
@@ -2549,7 +2549,7 @@ C<SKPRICE-15*MINPRICE||C>SKPRICE+5*MINPRICE||C>REF(H,BARSSK),BP('B');//只平B�
 AUTOFILTER;
 ```
 
-## 日内清仓编写示范
+### 日内清仓编写示范
 
 ``` cpp
 //该示范主要演示“日内清仓”的编写方法
@@ -2566,7 +2566,7 @@ MULTSIG(0,0,1,10);//出信号立即下单不复核，一根K线只出一个信�
 AUTOFILTER;
 ```
 
-## 加仓减仓编写示范
+### 加仓减仓编写示范
 
 ``` cpp
 //该示范主要演示“加仓减仓”的编写方法
@@ -2595,7 +2595,7 @@ E&&SKVOL>0&&(ISLASTSK||ISLASTBP),BP(SKVOL);//判断持仓和前一个信号，�
 TRADE_AGAIN(1);
 ```
 
-## 海龟交易编写示范
+### 海龟交易编写示范
 
 ``` cpp
 //该示范主要用海龟交易法则，演示“头寸计算，最大仓位控制等资金管理”的编写方法
@@ -2620,7 +2620,7 @@ TRADE_AGAIN(10);
 
 ```
 
-## 只算当天数据编写示范
+### 只算当天数据编写示范
 
 ``` cpp
 //该示范主要演示用DAYTRADE函数控制模型在分钟周期上只用当天数据进行运行。 
@@ -2638,7 +2638,7 @@ CLOSEMINUTE<=1,CLOSEOUT;
 AUTOFILTER;
 ```
 
-## 日内限制交易次数示范
+### 日内限制交易次数示范
 
 ``` cpp
 //该示范主要演示用COUNT等函数“控制日内交易次数”的编写方法
@@ -2659,7 +2659,7 @@ AUTOFILTER;
 
 ```
 
-## 下单委托价格编写示范
+### 下单委托价格编写示范
 
 ``` cpp
 //该示范主要演示“下单委托价格”的编写方法
@@ -2683,7 +2683,7 @@ AUTOFILTER;
 
 ```
 
-## 信号执行方式编写示范
+### 信号执行方式编写示范
 
 ``` cpp
 //该示范主要演示“信号执行方式”的编写方法
@@ -2709,7 +2709,7 @@ AUTOFILTER;
 
 ```
 
-## 全程追踪止损编写示范
+### 全程追踪止损编写示范
 
 ``` cpp
 1	SL	0	100	5
@@ -2741,7 +2741,7 @@ BB:=SKPRICE+SL*A-S*A*INTPART((SKPRICE-LL)/(S*A));
 AUTOFILTER;
 ```
 
-## 限价止损+追踪止赢编写示范
+### 限价止损+追踪止赢编写示范
 
 ``` cpp
 1	SL	0	100	5
@@ -2779,7 +2779,7 @@ B4:=LL+DTP*A;//以上为根据止赢点差计算空单追踪止赢位置
 AUTOFILTER;
 ```
 
-## 限价止损+限价止赢编写示范
+### 限价止损+限价止赢编写示范
 
 ``` cpp
 1	SL	0	100	10
@@ -2803,7 +2803,7 @@ A:=MINPRICE1;//取模组交易合约的最小变动价位
 AUTOFILTER;
 ```
 
-## 股票趋势模型编写示范
+### 股票趋势模型编写示范
 
 ``` cpp
 //该示范用均线组合演示“股票趋势模型”的编写方法
@@ -2824,7 +2824,7 @@ AUTOFINANCING;
 
 ```
 
-## 股票T+0模型编写示范
+### 股票T+0模型编写示范
 
 ``` cpp
 //该示范用于演示“股票T+0模型”的编写方法
@@ -2844,7 +2844,7 @@ AUTOFINANCING;
 
 ```
 
-## 股票信号控制方式编写示范
+### 股票信号控制方式编写示范
 
 ``` cpp
 1	SHORT	1	40	12
@@ -2876,9 +2876,9 @@ AUTOFINANCING;
 
 ```
 
-# 公式条件单编写示范
+## 公式条件单编写示范
 
-## 跨指标开仓模型
+### 跨指标开仓模型
 
 ``` cpp
 //公式条件单模型中可以定义多个指标，同时满足条件后开仓（平仓）。
@@ -2899,7 +2899,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-## 通道突破开仓模型
+### 通道突破开仓模型
 
 ``` cpp
 //公式条件单模型中可以量化出各种平台、通道，突破后开仓（平仓）。
@@ -2914,7 +2914,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-## K线组合开仓模型
+### K线组合开仓模型
 
 ``` cpp
 //公式条件单模型中可以量化出各种K线形态，如吞没线、黄昏之星等形态开仓（平仓）。
@@ -2926,7 +2926,7 @@ REF(C>O,1)&&C<O&&C<REF(O,1)&&O>REF(C,1),SK;//吞没线，阴包阳，开空仓
 CONDITION_ORDER;//公式条件单关键字
 ```
 
-## 多次开仓模型
+### 多次开仓模型
 
 ``` cpp
 //公式条件单模型同一指令可以写多行，每个指令行都执行一次后，该公式条件单模型自动停止
@@ -2944,7 +2944,7 @@ CROSS(MA30,MA60),BK(1);//30周期均线上穿60周期均线，买开仓1手
 CONDITION_ORDER;//公式条件单关键字
 ```
 
-## 日内清仓模型
+### 日内清仓模型
 
 ``` cpp
 //该公式条件单模型用于对已有持仓进行日内清仓，规避隔夜持仓风险
@@ -2958,7 +2958,7 @@ SETSIGPRICETYPE(CLOSEOUT,LIMIT_ORDER);//清仓指令用市价进行委托，确�
 CONDITION_ORDER;//公式条件单关键字
 ```
 
-## 反向突破止损模型
+### 反向突破止损模型
 
 ``` cpp
 //行情在延续上涨时，突然出现反向突破，行情骤变时止损。
@@ -2972,7 +2972,7 @@ ST>MA(ST,10)*2.5&&REF(EXIST(C>HV(H,5),3),1)&&C<O,SP;//价格突然反向突破�
 CONDITION_ORDER;//公式条件单关键字
 ```
 
-## 停损点止损模型
+### 停损点止损模型
 
 ``` cpp
 //指标止损中最实用就是SAR抛物式转向指标，亦称为停损点转向操作系统。
@@ -2988,7 +2988,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-## 吊灯止赢模型
+### 吊灯止赢模型
 
 ``` cpp
 //计算出市场的真实波幅，从高点回撤一定的波幅即平仓。
@@ -3005,7 +3005,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-## 时间止赢模型
+### 时间止赢模型
 
 ``` cpp
 //上涨一段时间后，在一定的时间内，价格上涨未达到预期，就出场观望
@@ -3020,7 +3020,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-## 反手模型
+### 反手模型
 
 ``` cpp
 //该公式条件单模型演示反手操作的编写方法，反手条件为任意可判断趋势反转的条件。
@@ -3038,9 +3038,9 @@ CONDITION_ORDER;//公式条件单关键字
 
 ```
 
-# 模型开发案例
+## 模型开发案例
 
-## 动态突破
+### 动态突破
 
 ``` cpp
 1	BOLBANDTRIG	1	10	2
@@ -3080,7 +3080,7 @@ EVERY(C>LIQPOINT,3),BP;//持有空单时，价格大于自适应出场均线，�
 AUTOFILTER;
 ```
 
-## 基于平移布林通道的系统
+### 基于平移布林通道的系统
 
 ``` cpp
 1	M	1	20	12
@@ -3107,7 +3107,7 @@ L<=DISPBOTTOM,SPK;
 AUTOFILTER;
 ```
 
-## 成交量加权动量交易系统
+### 成交量加权动量交易系统
 
 ``` cpp
 1	MOMLEN	1	100	5
@@ -3149,7 +3149,7 @@ AUTOFILTER;
 	
 ```
 
-## 金肯特纳
+### 金肯特纳
 
 ``` cpp
 1	AVGLENGTH	1	100	20
