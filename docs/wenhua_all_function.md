@@ -1,10 +1,10 @@
-## K线数据引用
+## K 线数据引用
 
 ### AVPRICE
 
-取得K线图的均价
+取得 K 线图的均价
 
-``` cpp 
+```pascal
 AVPRICE 取得K线图的均价。
 
 注：
@@ -23,9 +23,9 @@ C>MA(AVPRICE,5);//价格大于五个周期均价的平均值则返回1，否则�
 
 ### CLOSE
 
-取得K线图的收盘价
+取得 K 线图的收盘价
 
-``` cpp 
+```pascal
 CLOSE 取得K线图的收盘价。
 
 注：
@@ -44,7 +44,7 @@ A:=REF(C,1);//取得前一根k线的收盘价。
 
 多空量函数
 
-``` cpp 
+```pascal
 DUALVOLUME 多空量函数
 
 该函数有两种用法：
@@ -74,9 +74,9 @@ DRAWCOLUMNCHART(N,SCALE>=0.5,M>=0);
 
 ### HIGH
 
-取得K线图的最高价
+取得 K 线图的最高价
 
-``` cpp 
+```pascal
 HIGH 取得K线图的最高价。
 
 注：
@@ -92,9 +92,9 @@ REF(H,1);//取的前一根K线的最高价
 
 ### LOW
 
-取得K线图的最低价
+取得 K 线图的最低价
 
-``` cpp 
+```pascal
 LOW 取得K线图的最低价。
 
 注：
@@ -112,7 +112,7 @@ REF(L,1);//取得前一根K线的最低价
 
 数据合约的最小变动价位
 
-``` cpp 
+```pascal
 取数据合约的最小变动价位。
 用法：
 MINPRICE; 取加载数据合约的最小变动价位。
@@ -122,7 +122,7 @@ MINPRICE; 取加载数据合约的最小变动价位。
 
 交易合约的最小变动价位
 
-``` cpp 
+```pascal
 取交易合约的最小变动价位。
 用法：
 MINPRICE1; 取交易合约的最小变动价位。
@@ -132,7 +132,7 @@ MINPRICE1; 取交易合约的最小变动价位。
 
 最小变动价位
 
-``` cpp 
+```pascal
 返回某品种的最小变动价位。
 用法：
 MINPRICED(N); 返回N所对应合约的最小变动价位。
@@ -146,9 +146,9 @@ MINPRICED(N);返回8603所对应IF1203合约的最小变动价位。
 
 ### OPEN
 
-取得K线图的开盘价
+取得 K 线图的开盘价
 
-``` cpp 
+```pascal
 OPEN 取得K线图的开盘价。
 
 注：
@@ -165,9 +165,9 @@ MA5:MA(O,5);//定义开盘价的5周期均线（O为OPEN简写）。
 
 ### OPI
 
-取得K线图的持仓量
+取得 K 线图的持仓量
 
-``` cpp 
+```pascal
 OPI 取得K线图的持仓量。
 
 例1：
@@ -183,7 +183,7 @@ OPID:REF(OPI,NN);//取的昨天收盘时的持仓量
 
 取原始数据的值
 
-``` cpp 
+```pascal
 RAWDATA 取原始数据的高开低收
 注：
 1、该函数与STOCKDIVD或TRADE_SMOOTHING连用
@@ -204,7 +204,7 @@ STOCKDIVD(1);//设置股票向后复权
 
 向前引用
 
-``` cpp 
+```pascal
 引用X在N个周期前的值。
 
 注：
@@ -220,9 +220,9 @@ AA:IFELSE(BARSBK>=1,REF(C,BARSBK),C);//取最近一次买开仓信号K线的收�
 //1）发出BK信号的当根k线BARSBK返回空值,则发出BK信号的当根k线REF(C,BARSBK)返回
 空值；
 //2）发出BK信号的当根k线BARSBK返回空值,不满足BARSBK>=1,则当根k线的收盘价。
-//3）发出BK信号之后的k线BARSBK返回买开仓的K线距离当前K线的周期数，REF(C,BARSBK) 
+//3）发出BK信号之后的k线BARSBK返回买开仓的K线距离当前K线的周期数，REF(C,BARSBK)
 返回开仓k线的收盘价。
-//4）例：1、2、3 三根k线，1 K线为开仓信号的当根k线，则返回当根k线的收盘价，2、3 
+//4）例：1、2、3 三根k线，1 K线为开仓信号的当根k线，则返回当根k线的收盘价，2、3
 K线返回 1 K线的收盘价。
 ```
 
@@ -230,7 +230,7 @@ K线返回 1 K线的收盘价。
 
 向前引用
 
-``` cpp 
+```pascal
 引用N周期前的数据。
 
 用法：
@@ -245,9 +245,9 @@ REFWH(X,N)引用X在N个周期前的值。
 
 ### SCALE
 
-取得K线图主动买占总成交量的比例
+取得 K 线图主动买占总成交量的比例
 
-``` cpp 
+```pascal
 SCALE 取得K线图主动买占总成交量的比例。
 
 注：
@@ -259,9 +259,9 @@ BB:=(1-SCALE)*VOL;//主动卖
 
 ### SETTLE
 
-取得K线图的结算价或者取得当日成交均价
+取得 K 线图的结算价或者取得当日成交均价
 
-``` cpp 
+```pascal
 SETTLE 取得K线图的结算价或者取得当日成交均价
 
 注：
@@ -278,7 +278,7 @@ CROSS(C,SETTLE);//收盘价上穿结算价
 
 取数据合约的交易单位
 
-``` cpp 
+```pascal
 取数据合约的交易单位。
 用法：
 UNIT 取加载数据合约的交易单位。
@@ -288,7 +288,7 @@ UNIT 取加载数据合约的交易单位。
 
 取交易合约的交易单位
 
-``` cpp 
+```pascal
 取模组交易合约的交易单位。
 用法：
 UNIT1 取模组交易合约的交易单位。
@@ -296,9 +296,9 @@ UNIT1 取模组交易合约的交易单位。
 
 ### VOL
 
-取得K线图的成交量
+取得 K 线图的成交量
 
-``` cpp 
+```pascal
 VOL 取得K线图的成交量。
 
 注：
@@ -315,9 +315,9 @@ V>=REF(V,1);//成交量大于前一个周期的成交量，表示成交量增加
 
 ### YCLOSE
 
-取得K线图的昨收盘价
+取得 K 线图的昨收盘价
 
-``` cpp 
+```pascal
 取得K线图的昨收盘价。
 用法：
 YCLOSE求某根K线的昨收盘价。
@@ -330,9 +330,9 @@ YCLOSE求某根K线的昨收盘价。
 
 ### YSETTLE
 
-取得K线图的昨结算价
+取得 K 线图的昨结算价
 
-``` cpp 
+```pascal
 取得K线图的昨结算价。
 用法：
 YSETTLE求某根k线的昨结算价
@@ -346,7 +346,7 @@ YSETTLE求某根k线的昨结算价
 
 跨合约引用指标
 
-``` cpp 
+```pascal
 #CALL [CODE, FORMULA] AS VAR 引用CODE合约的指标FORMULA的数据。
 
 注：
@@ -371,7 +371,7 @@ CC:VAR.CC;//跨合约引用豆粕1501昨天的收盘价
 
 跨周期引用指标
 
-``` cpp 
+```pascal
 #IMPORT [PERIOD,N,FORMULA] AS VAR 引用当前合约，PERIOD参数为N的周期，指标FORMULA的数据。
 
 注：
@@ -420,7 +420,7 @@ CC2:=R.CC;//跨周期引用自定义1秒周期的一个周期前的收盘价
 
 跨合约跨周期引用指标
 
-``` cpp 
+```pascal
 #CALL_PLUS[CODE,PERIOD,N,FORMULA] AS VAR 引用CODE合约，PERIOD参数为N的周期，指标FORMULA的数据。
 
 注：
@@ -452,7 +452,7 @@ CC:VAR.CC;//跨周期引用IF加权昨天的收盘价
 
 跨指标引用
 
-``` cpp 
+```pascal
 #CALL_OTHER [FORMULA] AS VAR 引用当前合约，当前周期的，指标FORMULA的数据
 
 注：
@@ -473,11 +473,12 @@ CC:VAR.CC;//跨指标引用当前合约的一个周期前的收盘价
 ```
 
 ## 行情报价引用
+
 ### GETDEALSSUM
 
 取得某一合约的盘口分笔数据
 
-``` cpp 
+```pascal
 GETDEALSSUM 根据文华码（字符类型）取某一个合约的盘口分笔数据。
 
 用法：
@@ -524,7 +525,7 @@ GETDEALSSUM('8606', '多方均价');//返回文华码为8606合约的多方均�
 
 取得某一合约的行情报价数据
 
-``` cpp 
+```pascal
 GETPRICE 根据文华码取报价列表窗口某一个合约的行情报价数据。
 
 注：
@@ -585,7 +586,7 @@ GETPRICE(8606, 'AVPRICE');//返回文华码为8606合约的均价。
 
 取某一股票合约的抬头数据
 
-``` cpp 
+```pascal
 GETPRICE1 取某一股票合约的抬头数据。
 
 用法：
@@ -630,7 +631,7 @@ GETPRICE1('量比');//返回当前股票合约上报价列表抬头中量比的�
 
 取某一股票合约的财务数据
 
-``` cpp 
+```pascal
 GETPRICE2('') 取某一股票合约的财务数据。
 
 用法：
@@ -697,7 +698,7 @@ GETPRICE2('每股收益');//返回当前股票合约财务数据中每股收益�
 
 取得某一股票合约的行情报价数据
 
-``` cpp 
+```pascal
 GETSTOCKPRICE 根据股票代码（字符类型）取报价列表窗口某一个股票合约的行情报价数据。
 
 用法：
@@ -755,12 +756,13 @@ GETSTOCKPRICE('600000', 'AVPRICE');//返回股票代码为600000合约的均价�
 '资金流向':资金流向
 ```
 
-## TICK数据函数
+## TICK 数据函数
+
 ### ASK1
 
-取得TICK图该笔TICK的卖一价
+取得 TICK 图该笔 TICK 的卖一价
 
-``` cpp 
+```pascal
 ASK1 取得TICK图该笔TICK的卖一价。
 该函数不支持与指令连用。
 
@@ -774,9 +776,9 @@ AA:ASK1;//加载到TICK图中，定义AA为该笔TICK的卖一价；
 
 ### ASK2
 
-取得TICK图该笔TICK的卖二价
+取得 TICK 图该笔 TICK 的卖二价
 
-``` cpp 
+```pascal
 ASK2 取得TICK图该笔TICK的卖二价。
 该函数不支持与指令连用。
 
@@ -790,9 +792,9 @@ AA:ASK2;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖二
 
 ### ASK3
 
-取得TICK图该笔TICK的卖三价
+取得 TICK 图该笔 TICK 的卖三价
 
-``` cpp 
+```pascal
 ASK3 取得TICK图该笔TICK的卖三价。
 该函数不支持与指令连用。
 
@@ -806,9 +808,9 @@ AA:ASK3;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖三
 
 ### ASK4
 
-取得TICK图该笔TICK的卖四价
+取得 TICK 图该笔 TICK 的卖四价
 
-``` cpp 
+```pascal
 ASK4 取得TICK图该笔TICK的卖四价。
 该函数不支持与指令连用。
 
@@ -822,9 +824,9 @@ AA:ASK4;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖四
 
 ### ASK5
 
-取得TICK图该笔TICK的卖五价
+取得 TICK 图该笔 TICK 的卖五价
 
-``` cpp 
+```pascal
 ASK5 取得TICK图该笔TICK的卖五价。
 该函数不支持与指令连用。
 
@@ -838,9 +840,9 @@ AA:ASK5;//加载到有五档授权的TICK图中，定义AA为该笔TICK的卖五
 
 ### ASK1VOL
 
-取得TICK图该笔TICK的卖一量
+取得 TICK 图该笔 TICK 的卖一量
 
-``` cpp 
+```pascal
 ASK1VOL 取得TICK图该笔TICK的卖一量。
 该函数不支持与指令连用。
 
@@ -854,9 +856,9 @@ VV:ASK1VOL;//加载到TICK图中，定义VV为该笔TICK的卖一量；
 
 ### ASK2VOL
 
-取得TICK图该笔TICK的卖二量
+取得 TICK 图该笔 TICK 的卖二量
 
-``` cpp 
+```pascal
 ASK2VOL 取得TICK图该笔TICK的卖二量。
 该函数不支持与指令连用。
 
@@ -870,9 +872,9 @@ VV:ASK2VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖
 
 ### ASK3VOL
 
-取得TICK图该笔TICK的卖三量
+取得 TICK 图该笔 TICK 的卖三量
 
-``` cpp 
+```pascal
 ASK3VOL 取得TICK图该笔TICK的卖三量。
 该函数不支持与指令连用。
 
@@ -886,9 +888,9 @@ VV:ASK3VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖
 
 ### ASK4VOL
 
-取得TICK图该笔TICK的卖四量
+取得 TICK 图该笔 TICK 的卖四量
 
-``` cpp 
+```pascal
 ASK4VOL 取得TICK图该笔TICK的卖四量。
 该函数不支持与指令连用。
 
@@ -902,9 +904,9 @@ VV:ASK4VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖
 
 ### ASK5VOL
 
-取得TICK图该笔TICK的卖五量
+取得 TICK 图该笔 TICK 的卖五量
 
-``` cpp 
+```pascal
 ASK5VOL 取得TICK图该笔TICK的卖五量。
 该函数不支持与指令连用。
 
@@ -918,9 +920,9 @@ VV:ASK5VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的卖
 
 ### ASKBIGCOUNT
 
-取得TICK图所定义数据区主动卖大单次数的和
+取得 TICK 图所定义数据区主动卖大单次数的和
 
-``` cpp 
+```pascal
 ASKBIGCOUNT 取得TICK图所定义数据区主动卖大单次数的和。
 该函数不支持与指令连用。
 
@@ -937,9 +939,9 @@ VV:ASKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### ASKBIGTOTVOL
 
-取得TICK图所定义数据区主动卖大单成交量的和
+取得 TICK 图所定义数据区主动卖大单成交量的和
 
-``` cpp 
+```pascal
 ASKBIGTOTVOL 取得TICK图所定义数据区主动卖大单成交量的和。
 该函数不支持与指令连用。
 
@@ -956,9 +958,9 @@ VV:ASKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### ASKVOL
 
-取得TICK图所定义数据区主动卖成交量的和
+取得 TICK 图所定义数据区主动卖成交量的和
 
-``` cpp 
+```pascal
 ASKVOL 取得TICK图所定义数据区主动卖成交量的和。
 该函数不支持与指令连用。
 
@@ -973,9 +975,9 @@ VV:ASKVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所�
 
 ### BID1
 
-取得TICK图该笔TICK的买一价
+取得 TICK 图该笔 TICK 的买一价
 
-``` cpp 
+```pascal
 BID1 取得TICK图该笔TICK的买一价。
 该函数不支持与指令连用。
 
@@ -989,9 +991,9 @@ AA:BID1;//加载到TICK图中，定义AA为该笔TICK的买一价；
 
 ### BID2
 
-取得TICK图该笔TICK的买二价
+取得 TICK 图该笔 TICK 的买二价
 
-``` cpp 
+```pascal
 BID2 取得TICK图该笔TICK的买二价。
 该函数不支持与指令连用。
 
@@ -1005,9 +1007,9 @@ AA:BID2;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买二
 
 ### BID3
 
-取得TICK图该笔TICK的买三价
+取得 TICK 图该笔 TICK 的买三价
 
-``` cpp 
+```pascal
 BID3 取得TICK图该笔TICK的买三价。
 该函数不支持与指令连用。
 
@@ -1021,9 +1023,9 @@ AA:BID3;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买三
 
 ### BID4
 
-取得TICK图该笔TICK的买四价
+取得 TICK 图该笔 TICK 的买四价
 
-``` cpp 
+```pascal
 BID4 取得TICK图该笔TICK的买四价。
 该函数不支持与指令连用。
 
@@ -1037,9 +1039,9 @@ AA:BID4;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买四
 
 ### BID5
 
-取得TICK图该笔TICK的买五价
+取得 TICK 图该笔 TICK 的买五价
 
-``` cpp 
+```pascal
 BID5 取得TICK图该笔TICK的买五价。
 该函数不支持与指令连用。
 
@@ -1053,9 +1055,9 @@ AA:BID5;//加载到有五档授权的TICK图中，定义AA为该笔TICK的买五
 
 ### BID1VOL
 
-取得TICK图该笔TICK的买一量
+取得 TICK 图该笔 TICK 的买一量
 
-``` cpp 
+```pascal
 BID1VOL 取得TICK图该笔TICK的买一量。
 该函数不支持与指令连用。
 
@@ -1069,9 +1071,9 @@ VV:BID1VOL;//加载到TICK图中，定义VV为该笔TICK的买一量；
 
 ### BID2VOL
 
-取得TICK图该笔TICK的买二量
+取得 TICK 图该笔 TICK 的买二量
 
-``` cpp 
+```pascal
 BID2VOL 取得TICK图该笔TICK的买二量。
 该函数不支持与指令连用。
 
@@ -1085,9 +1087,9 @@ VV:BID2VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买
 
 ### BID3VOL
 
-取得TICK图该笔TICK的买三量
+取得 TICK 图该笔 TICK 的买三量
 
-``` cpp 
+```pascal
 BID3VOL 取得TICK图该笔TICK的买三量。
 该函数不支持与指令连用。
 
@@ -1101,9 +1103,9 @@ VV:BID3VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买
 
 ### BID4VOL
 
-取得TICK图该笔TICK的买四量
+取得 TICK 图该笔 TICK 的买四量
 
-``` cpp 
+```pascal
 BID4VOL 取得TICK图该笔TICK的买四量。
 该函数不支持与指令连用。
 
@@ -1117,9 +1119,9 @@ VV:BID4VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买
 
 ### BID5VOL
 
-取得TICK图该笔TICK的买五量
+取得 TICK 图该笔 TICK 的买五量
 
-``` cpp 
+```pascal
 BID5VOL 取得TICK图该笔TICK的买五量。
 该函数不支持与指令连用。
 
@@ -1133,9 +1135,9 @@ VV:BID5VOL;//加载到有五档授权的TICK图中，定义VV为该笔TICK的买
 
 ### BIDBIGCOUNT
 
-取得TICK图所定义数据区主动买大单次数的和
+取得 TICK 图所定义数据区主动买大单次数的和
 
-``` cpp 
+```pascal
 BIDBIGCOUNT 取得TICK图所定义数据区主动买大单次数的和。
 该函数不支持与指令连用。
 
@@ -1152,9 +1154,9 @@ VV:BIDBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### BIDBIGTOTVOL
 
-取得TICK图所定义数据区主动买大单成交量的和
+取得 TICK 图所定义数据区主动买大单成交量的和
 
-``` cpp 
+```pascal
 BIDBIGTOTVOL 取得TICK图所定义数据区主动买大单成交量的和。
 该函数不支持与指令连用。
 
@@ -1171,9 +1173,9 @@ VV:BIDBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### BIDVOL
 
-取得TICK图所定义数据区主动买成交量的和
+取得 TICK 图所定义数据区主动买成交量的和
 
-``` cpp 
+```pascal
 BIDVOL 取得TICK图所定义数据区主动买成交量的和。
 该函数不支持与指令连用。
 
@@ -1188,9 +1190,9 @@ VV:BIDVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）所�
 
 ### BKBIGCOUNT
 
-取得TICK图所定义数据区买开大单成交次数的和
+取得 TICK 图所定义数据区买开大单成交次数的和
 
-``` cpp 
+```pascal
 BKBIGCOUNT 取得TICK图所定义数据区买开大单成交次数的和。
 该函数不支持与指令连用。
 
@@ -1208,9 +1210,9 @@ VV:BKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）
 
 ### BKBIGTOTVOL
 
-取得TICK图所定义数据区买开大单成交量的和
+取得 TICK 图所定义数据区买开大单成交量的和
 
-``` cpp 
+```pascal
 BKBIGTOTVOL 取得TICK图所定义数据区买开大单成交量的和。
 该函数不支持与指令连用。
 
@@ -1227,9 +1229,9 @@ VV:BKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### BKVOLUME
 
-取得TICK图所定义数据区多开成交量的和
+取得 TICK 图所定义数据区多开成交量的和
 
-``` cpp 
+```pascal
 BKVOLUME 取得TICK图所定义数据区多开成交量的和。
 该函数不支持与指令连用。
 
@@ -1244,9 +1246,9 @@ VV:BKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）�
 
 ### BPBIGCOUNT
 
-取得TICK图所定义数据区买平大单成交次数的和
+取得 TICK 图所定义数据区买平大单成交次数的和
 
-``` cpp 
+```pascal
 BPBIGCOUNT 取得TICK图所定义数据区买平大单成交次数的和。
 该函数不支持与指令连用。
 
@@ -1263,9 +1265,9 @@ VV:BPBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）
 
 ### BPBIGTOTVOL
 
-取得TICK图所定义数据区买平大单成交量的和
+取得 TICK 图所定义数据区买平大单成交量的和
 
-``` cpp 
+```pascal
 BPBIGTOTVOL 取得TICK图所定义数据区买平大单成交量的和。
 该函数不支持与指令连用。
 
@@ -1282,9 +1284,9 @@ VV:BPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### BPVOLUME
 
-取得TICK图所定义数据区买平成交量的和
+取得 TICK 图所定义数据区买平成交量的和
 
-``` cpp 
+```pascal
 BPVOLUME 取得TICK图所定义数据区买平成交量的和。
 该函数不支持与指令连用。
 
@@ -1299,9 +1301,9 @@ VV:BPVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）�
 
 ### DEF_TICKDATA
 
-定义五档TICK数据区
+定义五档 TICK 数据区
 
-``` cpp 
+```pascal
 DEF_TICKDATA(Type,N) 定义五档TICK数据区。
 该函数不支持与指令连用。
 
@@ -1321,9 +1323,9 @@ VV:L2_SPBIGTOTVOL;//加载到TICK图中，定义VV为10笔TICK内（包含当笔
 
 ### DKVOLUME
 
-取得TICK图所定义数据区双开成交量的和
+取得 TICK 图所定义数据区双开成交量的和
 
-``` cpp 
+```pascal
 DKVOLUME 取得TICK图所定义数据区双开成交量的和。
 该函数不支持与指令连用。
 
@@ -1338,9 +1340,9 @@ VV:DKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）�
 
 ### MATCHPERCENT
 
-设置TICK周期买卖量按百分比撮合成交
+设置 TICK 周期买卖量按百分比撮合成交
 
-``` cpp 
+```pascal
 MATCHPERCENT(N) 设置TICK周期买卖量按百分比撮合成交
 该函数不支持与指令连用。
 
@@ -1362,9 +1364,9 @@ AUTOFILTER;
 
 ### NEW
 
-取得TICK图该笔TICK的最新价
+取得 TICK 图该笔 TICK 的最新价
 
-``` cpp 
+```pascal
 NEW 取得TICK图的最新价。
 该函数不支持与指令连用。
 
@@ -1380,7 +1382,7 @@ NN:NEW;//加载到TICK图中，定义NN为该笔TICK的最新价；
 
 判断价格趋势
 
-``` cpp 
+```pascal
 RISING(N) 判断TICK图的价格趋势。
 该函数不支持与指令连用。
 
@@ -1396,9 +1398,9 @@ RR:RISING(N);//加载到有五档授权的TICK图中，上涨趋势返回1，反
 
 ### SETBIGVOL
 
-设置TICK图所定义数据区大单阈值
+设置 TICK 图所定义数据区大单阈值
 
-``` cpp 
+```pascal
 SETBIGVOL 设置TICK图所定义数据区大单阈值。
 该函数不支持与指令连用。
 
@@ -1414,9 +1416,9 @@ VV:BPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### SKBIGCOUNT
 
-取得TICK图所定义数据区卖开大单成交次数的和
+取得 TICK 图所定义数据区卖开大单成交次数的和
 
-``` cpp 
+```pascal
 SKBIGCOUNT 取得TICK图所定义数据区卖开大单成交次数的和。
 该函数不支持与指令连用。
 
@@ -1434,9 +1436,9 @@ VV:SKBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）
 
 ### SKBIGTOTVOL
 
-取得TICK图所定义数据区卖开大单成交量的和
+取得 TICK 图所定义数据区卖开大单成交量的和
 
-``` cpp 
+```pascal
 SKBIGTOTVOL 取得TICK图所定义数据区卖开大单成交量的和。
 该函数不支持与指令连用。
 
@@ -1453,9 +1455,9 @@ VV:SKBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### SKVOLUME
 
-取得TICK图所定义数据区卖开成交量的和
+取得 TICK 图所定义数据区卖开成交量的和
 
-``` cpp 
+```pascal
 SKVOLUME 取得TICK图所定义数据区卖开成交量的和。
 该函数不支持与指令连用。
 
@@ -1470,9 +1472,9 @@ VV:SKVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）�
 
 ### SPBIGCOUNT
 
-取得TICK图所定义数据区卖平大单成交次数的和
+取得 TICK 图所定义数据区卖平大单成交次数的和
 
-``` cpp 
+```pascal
 SPBIGCOUNT 取得TICK图所定义数据区卖平大单成交次数的和。
 该函数不支持与指令连用。
 
@@ -1489,9 +1491,9 @@ VV:SPBIGCOUNT;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）
 
 ### SPBIGTOTVOL
 
-取得TICK图所定义数据区卖平大单成交量的和
+取得 TICK 图所定义数据区卖平大单成交量的和
 
-``` cpp 
+```pascal
 SPBIGTOTVOL 取得TICK图所定义数据区卖平大单成交量的和。
 该函数不支持与指令连用。
 
@@ -1508,9 +1510,9 @@ VV:SPBIGTOTVOL;//加载到TICK图中，定义VV为五秒内（包含当笔TICK�
 
 ### SPVOLUME
 
-取得TICK图所定义数据区卖平成交量的和
+取得 TICK 图所定义数据区卖平成交量的和
 
-``` cpp 
+```pascal
 SPVOLUME 取得TICK图所定义数据区卖平成交量的和。
 该函数不支持与指令连用。
 
@@ -1527,7 +1529,7 @@ VV:SPVOLUME;//加载到TICK图中，定义VV为五秒内（包含当笔TICK）�
 
 统计定义的数据区内的笔数
 
-``` cpp 
+```pascal
 TICKDATANUM 统计定义的数据区内的笔数。
 该函数不支持与指令连用。
 
@@ -1541,9 +1543,9 @@ NUM:TICKDATANUM;//定义NUM为五秒内（包含当笔TICK）所有TICK的笔数
 
 ### TICK_OPI
 
-取得TICK图该笔TICK的持仓量
+取得 TICK 图该笔 TICK 的持仓量
 
-``` cpp 
+```pascal
 TICK_OPI 取得TICK图的持仓量。
 该函数不支持与指令连用。
 
@@ -1557,9 +1559,9 @@ OO:TICK_OPI;//加载到TICK图中，定义OO为该笔TICK的持仓量；
 
 ### TICK_SCALE
 
-取得TICK图该笔TICK是否为主动买
+取得 TICK 图该笔 TICK 是否为主动买
 
-``` cpp 
+```pascal
 TICK_SCALE 取得TICK图该笔TICK是否为主动买。
 该函数不支持与指令连用。
 
@@ -1574,9 +1576,9 @@ SS:TICK_SCALE;//加载到TICK图中，SS返回1，代表当笔TICK为主动买�
 
 ### TICK_VOL
 
-取得TICK图该笔TICK的成交量
+取得 TICK 图该笔 TICK 的成交量
 
-``` cpp 
+```pascal
 TICK_VOL 取得TICK图的成交量。
 该函数不支持与指令连用。
 
@@ -1593,11 +1595,12 @@ VV:TICK_VOL;//加载到TICK图中，定义VV为该笔TICK的成交量；
 ```
 
 ## 金融统计函数
+
 ### ADMA
 
 考夫曼均值
 
-``` cpp 
+```pascal
 ADMA(X,N,P,Q) 考夫曼均值
 
 用法：ADMA(X,N,P,Q);求X在N个周期中的，快线频率参数为P，慢线频率参数为Q的考夫曼自适应均值。
@@ -1632,7 +1635,7 @@ AMACLOSE:REF(EMA(C,9),1)+CONSTANT*(C-REF(EMA(C,9),1));
 
 第一个有效周期到当前的周期数
 
-``` cpp 
+```pascal
 BARSCOUNT(COND) 第一个有效周期到当前的周期数。
 
 注：
@@ -1647,7 +1650,7 @@ BARSCOUNT(MA(C,4));//计算MA(C,4)第一次有返回值到当前的周期数。
 
 上一次条件成立位置
 
-``` cpp 
+```pascal
 BARSLAST(COND)：上一次条件COND成立到当前的周期数
 
 注：
@@ -1664,7 +1667,7 @@ N:=BARSLAST(DATE<>REF(DATE,1))+1;//分钟周期，当日k线数。
 
 从当前周期向前计算，统计连续满足条件的周期数
 
-``` cpp 
+```pascal
 BARSLASTCOUNT(COND) 从当前周期向前计算，统计连续满足条件的周期数。
 
 注：
@@ -1680,7 +1683,7 @@ BARSLASTCOUNT(CLOSE>OPEN);
 
 第一个条件成立到当前的周期数
 
-``` cpp 
+```pascal
 BARSSINCE(COND) 第一个条件成立到当前的周期数。
 
 注：
@@ -1694,14 +1697,14 @@ BARSSINCE(CLOSE>OPEN);
 
 ### BARSSINCEN
 
-统计N周期内第一次条件成立到当前的周期数
+统计 N 周期内第一次条件成立到当前的周期数
 
-``` cpp 
+```pascal
 BARSSINCEN(COND,N) 统计N周期内第一次条件成立到当前的周期数
 
 注：
 1、N包含当前k线。
-2、当N为有效值，但当前的k线数不足N根，按照实际的根数计算； 
+2、当N为有效值，但当前的k线数不足N根，按照实际的根数计算；
 3、若N为0返回无效值；
 4、N可以为变量
 
@@ -1712,9 +1715,9 @@ BARSSINCEN(ISUP,N);//统计N周期内第一次满足阳线到当前的周期数
 
 ### CONDBARS
 
-取得最近满足A,B条件的K线间周期数
+取得最近满足 A,B 条件的 K 线间周期数
 
-``` cpp 
+```pascal
 CONDBARS(A,B);取得最近的满足A、B条件的k线间周期数
 注意：
 1、该函数返回周期数不包含最后满足条件的K线
@@ -1731,10 +1734,10 @@ CONDBARS(CROSSUP(MA5,MA10),CROSSDOWN(MA5,MA10));//最近一次满足5周期均�
 
 成本分布情况
 
-``` cpp 
+```pascal
 COST(X) 成本分布情况。
 用法:
- COST(X) 表示X%获利盘的价格,即有X%的持仓成本在该价格下，其余(100-X)%的持仓成本在该价格以上，是套牢盘。 
+ COST(X) 表示X%获利盘的价格,即有X%的持仓成本在该价格下，其余(100-X)%的持仓成本在该价格以上，是套牢盘。
 例如COST(1);返回10.5表示1%获利盘的价格是10.5。
 
 注：
@@ -1749,7 +1752,7 @@ COST(X) 成本分布情况。
 
 统计总数
 
-``` cpp 
+```pascal
 COUNT(COND,N)：统计N周期中满足COND条件的周期数。
 
 注：
@@ -1770,9 +1773,9 @@ M:COUNT(CROSSUP(MA5,MA10),0);//统计从申请到的行情数据以来到当前�
 
 ### DAYBARPOS
 
-当根k线为当天第几根k线
+当根 k 线为当天第几根 k 线
 
-``` cpp 
+```pascal
 DAYBARPOS：返回当根k线是当天的第几根k线
 
 注：
@@ -1786,7 +1789,7 @@ VALUEWHEN(DAYBARPOS=1,C);//取当天第一根K线的收盘价
 
 动态移动平均
 
-``` cpp 
+```pascal
 DMA(X,A)：求X的动态移动平均，其中A必须小于1大于0。
 注：
 1、A可以为变量
@@ -1802,7 +1805,7 @@ DMA3:=DMA(C,0.3);//计算结果为REF(DMA3,1)*(1-0.3)+C*0.3
 
 指数加权移动平均
 
-``` cpp 
+```pascal
 EMA(X,N)：求N周期X值的指数加权移动平均（平滑移动平均）。
 
 注：
@@ -1822,10 +1825,10 @@ EMA10:=EMA(C,10);//求收盘价10周期指数加权移动平均值
 
 线性加权移动平均
 
-``` cpp 
+```pascal
 EMA2(X,N);//求N周期X值的线性加权移动平均(也称WMA)
 
-EMA2(X,N)=[N*X0+(N-1)*X1+(N-2)*X2+...+1*X(N-1)]/[N+(N-1)+(N-2)+...+1],X0表示本周期值，X1表示上一周期值 
+EMA2(X,N)=[N*X0+(N-1)*X1+(N-2)*X2+...+1*X(N-1)]/[N+(N-1)+(N-2)+...+1],X0表示本周期值，X1表示上一周期值
 
 注：
 1、N包含当前k线。
@@ -1841,7 +1844,7 @@ EMA2(H,5);//求最高价在5个周期的线性加权移动平均值。
 
 指数加权移动平均
 
-``` cpp 
+```pascal
 EMAWH(C,N)，指数加权移动平均，也叫平滑移动平均，采用指数加权方法，对距离当前较近的K线赋予了较大的权重。
 注：
 1、当N为有效值，当前的k线数不足N根时，或者前面周期的取值仍作用于当前周期时，EMAWH返回值为空值
@@ -1859,7 +1862,7 @@ EMAWH用法同EMA(C,N)
 
 调和平均值
 
-``` cpp 
+```pascal
 HARMEAN(X,N) 求X在N个周期内的调和平均值。
 
 算法举例：HARMEAN(X,5)=1/[(1/X1+1/X2+1/X3+1/X4+1/X5)/5]
@@ -1880,7 +1883,7 @@ HM5:=HARMEAN(C,5);//求5周期收盘价的调和平均值。
 
 最高值
 
-``` cpp 
+```pascal
 HHV(X,N)：求X在N个周期内的最高值。
 
 注：
@@ -1899,9 +1902,9 @@ HH1:=HHV(H,N);//在分钟周期上，日内高点
 
 ### HV
 
-除当前K线外最高值
+除当前 K 线外最高值
 
-``` cpp 
+```pascal
 HV(X,N)： 求X在N个周期内（不包含当前k线）的最高值。
 
 注：
@@ -1924,7 +1927,7 @@ HV(H,5) 和 REF(HHV(H,5),1) 的结果是一样的，用HV编写更加方便。
 
 前一最高点位置
 
-``` cpp 
+```pascal
 HHVBARS(X,N)： 求N周期内X最高值到当前周期数
 
 注：
@@ -1944,7 +1947,7 @@ ZHBARS:REF(HHVBARS(H,N),N)+N;//在分钟周期上，求昨天最高价所在的k
 
 最低值
 
-``` cpp 
+```pascal
 LLV(X,N)： 求X在N个周期内的最小值。
 
 注：
@@ -1963,9 +1966,9 @@ LL1:=LLV(L,N);//在分钟周期上，求当天第一根k线到当前周期内所
 
 ### LV
 
-除当前K线外最低值
+除当前 K 线外最低值
 
-``` cpp 
+```pascal
 LV(X,N) 求X在N个周期内的最小值（不包含当前k线）
 
 注：
@@ -1988,7 +1991,7 @@ LV(L,5) 和 REF(LLV(L,5),1) 的结果是一样的，用LV编写更加方便。
 
 前一个最低点位置
 
-``` cpp 
+```pascal
 LLVBARS(X,N)： 求N周期内X最低值到当前周期数
 
 注：
@@ -2008,7 +2011,7 @@ ZLBARS:REF(LLVBARS(L,N),N)+N;//在分钟周期上，求昨天最低价所在的k
 
 算数移动平均
 
-``` cpp 
+```pascal
 MA(X,N) 求X在N个周期内的简单移动平均
 
 算法：MA(X,5)=(X1+X2+X3+X4+X5)/5
@@ -2031,7 +2034,7 @@ MA10:MA(C,M);//在分钟周期上，当天k线不足10根，按照实际根数�
 
 取均值
 
-``` cpp 
+```pascal
 MV(A,...P) 取A到P的均值。
 
 注：
@@ -2047,7 +2050,7 @@ MV(CLOSE,OPEN);
 
 创新高跨度
 
-``` cpp 
+```pascal
 NEWHBARS(X,N) 计算高于当前X的第N个X到现在K线的距离。
 
 注：
@@ -2065,7 +2068,7 @@ AUTOFILTER;
 
 创新低跨度
 
-``` cpp 
+```pascal
 NEWLBARS(X,N) 计算低于当前X的第N个X到现在K线的距离。
 
 注：
@@ -2083,7 +2086,7 @@ AUTOFILTER;
 
 自然数幂方和
 
-``` cpp 
+```pascal
 NUMPOW(X,N,M);自然数幂方和
 算法：
 NUMPOW(x,n,m)=n^m*x+(n-1)^m*ref(x,1)+(n-2)^m*ref(x,2)+...+2^m*ref(x,n-2)+1^m*ref(x,n-1)
@@ -2099,7 +2102,7 @@ JZ:=NUMPOW(C,5,2);
 
 百分位函数
 
-``` cpp 
+```pascal
 PERCENTILE 百分位函数。
 
 用法：
@@ -2121,15 +2124,15 @@ LL:PERCENTILE(LOW,50,5);//取最近50根k线最低价处于5%位置的数值
 
 抛物转向
 
-``` cpp 
+```pascal
 SAR(N,STEP,MAX) 返回抛物转向值。
 
-根据公式SAR(n)=SAR(n-1)+AF*(EP(n-1)-SAR(n-1))计算 
+根据公式SAR(n)=SAR(n-1)+AF*(EP(n-1)-SAR(n-1))计算
 
-其中： 
-SAR(n-1)：上根K线SAR的绝对值 
-AF：加速因子，当AF小于MAX时，逐根的通过AF+STEP累加，涨跌发生转换时，AF重新计算 
-EP：一个涨跌内的极值，在上涨行情中为上根K线的最高价；下跌行情中为上根K线的最低价 
+其中：
+SAR(n-1)：上根K线SAR的绝对值
+AF：加速因子，当AF小于MAX时，逐根的通过AF+STEP累加，涨跌发生转换时，AF重新计算
+EP：一个涨跌内的极值，在上涨行情中为上根K线的最高价；下跌行情中为上根K线的最低价
 
 注：
 1、参数N,Step,Max均不支持变量
@@ -2142,19 +2145,19 @@ SAR(17,0.03,0.3);//表示计算17个周期抛物转向，步长为3%，极限值
 
 抛物转向
 
-``` cpp 
+```pascal
 SAR1(N,STEP,MAX) 返回抛物转向值。
 
-根据公式SAR1(n)=SAR1(n-1)+AF*(EP(n-1)-SAR1(n-1))计算 
+根据公式SAR1(n)=SAR1(n-1)+AF*(EP(n-1)-SAR1(n-1))计算
 
-其中： 
-SAR1(n-1)：上根K线SAR1的绝对值 
+其中：
+SAR1(n-1)：上根K线SAR1的绝对值
 
 AF：加速因子，当AF小于MAX时，
 上涨行情，H>HV(H,N)   AF = AF+STEP; H<=HV(H,N) AF = AF;
 下跌行情，L<lV(L,N)   AF = AF+STEP; L>=LV(L,N) AF = AF;
-涨跌发生转换时，AF重新计算 
-EP：一个涨跌内的极值，在上涨行情中为前N根K线的最高价；下跌行情中为前N根K线的最低价 
+涨跌发生转换时，AF重新计算
+EP：一个涨跌内的极值，在上涨行情中为前N根K线的最高价；下跌行情中为前N根K线的最低价
 
 注：
 1、参数N,Step,Max均不支持变量
@@ -2167,7 +2170,7 @@ SAR1(17,0.03,0.3);//表示计算17个周期抛物转向，步长为3%，极限�
 
 标签统计函数
 
-``` cpp 
+```pascal
 SEEK 标签统计函数
 此函数为系统封装函数。
 
@@ -2188,7 +2191,7 @@ SEEK(C>O);
 
 扩展指数加权移动平均
 
-``` cpp 
+```pascal
 SMA(X,N,M) 求X的N个周期内的扩展指数加权移动平均。M为权重。
 
 计算公式：SMA(X,N,M)=REF(SMA(X,N,M),1)*(N-M)/N+X(N)*M/N
@@ -2204,10 +2207,10 @@ SMA10:=SMA(C,10,3);//求的10周期收盘价的扩展指数加权移动平均。
 
 通畅移动平均
 
-``` cpp 
+```pascal
 SMMA(X,N)，X为变量,N为周期，SMMA(X,N)表示当前K线上X在N个周期的通畅移动平均线
 算法：SMMA(X,N)=(SUM1-MMA+X)/N
-其中SUM1=X1+X2+.....+XN 
+其中SUM1=X1+X2+.....+XN
 MMA=SUM1/N
 例1：
 SMMA(C,5);//收盘价的5周期通畅移动平均线
@@ -2217,7 +2220,7 @@ SMMA(C,5);//收盘价的5周期通畅移动平均线
 
 取排序在相应位置的值
 
-``` cpp 
+```pascal
 SORT(Type,POS,N1,N2,...,N16); 按升(降)序排列，取第POS个参数对应的值
 
 注：
@@ -2233,7 +2236,7 @@ SORT(0,3,2,1,5,3);//2、1、5、3按升序排列，取排列第三的数字3
 
 取排序后数值的位置
 
-``` cpp 
+```pascal
 SORTPOS(Type,POS,N1,N2,...,N16); 按升(降)序排列，取第POS个数据的原始位置
 
 注：
@@ -2251,7 +2254,7 @@ SORTPOS(0,3,2,1,5,3);//2、1、5、3按升序排列，排列第三的数字3，�
 
 求和
 
-``` cpp 
+```pascal
 SUM(X,N) 求X在N个周期内的总和。
 
 注：
@@ -2272,7 +2275,7 @@ SUM(VOL,N);//分钟周期上，取当天成交量总和。
 
 累加到指定值的周期数
 
-``` cpp 
+```pascal
 SUMBARS(X,A)：求累加到指定值的周期数
 
 注：
@@ -2286,7 +2289,7 @@ SUMBARS(VOL,20000); 将成交量向前累加直到大于等于20000，返回这�
 
 三角移动平均
 
-``` cpp 
+```pascal
 TRMA(X,N)： 求X在N个周期的三角移动平均值。
 
 算法：三角移动平均线公式，是采用算数移动平均，并且对第一个移动平均线再一次应用算数移动平均。
@@ -2312,7 +2315,7 @@ TRMA(CLOSE,10)=MA(MA(CLOSE,10/2),(10/2)+1));
 
 时间序列移动平均
 
-``` cpp 
+```pascal
 TSMA(X,N)：求X在N个周期内的时间序列三角移动平均
 TSMA(a,n) 算法如下：
 ysum=a[i]+a[i-1]+...+a[i-n+1]
@@ -2336,7 +2339,7 @@ TSMA5:TSMA(CLOSE,5);//计算5个周期内收盘价的序列三角移动平均
 
 获利盘比例
 
-``` cpp 
+```pascal
 WINNER 获利盘比例
 用法:
  WINNER(CLOSE),表示以当前收市价卖出的获利盘比例,例如返回0.1表示10%获利盘;WINNER(10.5)表示10.5元价格的获利盘比例
@@ -2349,11 +2352,12 @@ WINNER 获利盘比例
 ```
 
 ## 数理统计函数
+
 ### AVEDEV
 
 平均绝对偏差
 
-``` cpp 
+```pascal
 AVEDEV(X,N)：返回X在N周期内的平均绝对偏差。
 
 注：
@@ -2377,7 +2381,7 @@ AVEDEV(C,5);//返回收盘价在5周期内的平均绝对偏差。
 
 皮尔森相关系数
 
-``` cpp 
+```pascal
 COEFFICIENTR(X,Y,N) 求X、Y在N个周期内的皮尔森相关系数。
 
 注：
@@ -2405,7 +2409,7 @@ COEFFICIENTR(C1,C,10);//求文华商品和豆粕在10个周期内的皮尔森相
 
 相关系数
 
-``` cpp 
+```pascal
 CORRELATION(X,Y,N) 求X、Y在N个周期内的相关系数。
 
 注：
@@ -2433,7 +2437,7 @@ CORRELATION(C1,C,10);//求文华商品和豆粕在10个周期内的相关系数�
 
 协方差
 
-``` cpp 
+```pascal
 COVAR(X,Y,N) 求X、Y在N个周期内的协方差。
 
 注：
@@ -2461,7 +2465,7 @@ COVAR(C1,C,10);//求文华商品和豆粕在10个周期内的协方差。
 
 取得数据偏差平方和
 
-``` cpp 
+```pascal
 DEVSQ(X,N)： 计算数据X的N个周期的数据偏差平方和。
 
 注：
@@ -2485,7 +2489,7 @@ DEVSQ(C,5);计算数据收盘价5个周期的数据偏差平方和。
 
 线性回归值
 
-``` cpp 
+```pascal
 FORCAST(X,N)：为X的N周期线性回归预测值。
 
 注：
@@ -2522,7 +2526,7 @@ FORCAST(CLOSE,5);//表示求5周期线性回归预测值
 
 峰度系数
 
-``` cpp 
+```pascal
 KURTOSIS(X,N) 求X在N个周期内的峰度系数。
 
 注：
@@ -2546,7 +2550,7 @@ KURTOSIS(C,10);
 
 正态分布概率密度
 
-``` cpp 
+```pascal
 NORMPDF(X,MU,SIGMA)：返回参数为MU和SIGMA的正态分布密度函数在X处的值
 
 注：
@@ -2568,7 +2572,7 @@ ZZ..NORMPDF(ATR,0,1);//定义变量ZZ，返回ATR服从标准正态分布的概�
 
 偏度系数
 
-``` cpp 
+```pascal
 SKEWNESS(X,N) 求X在N个周期内的偏度系数。
 
 注：
@@ -2592,7 +2596,7 @@ SKEWNESS(C,10);
 
 线性回归的斜率
 
-``` cpp 
+```pascal
 SLOPE(X,N)：得到X的N周期的线型回归的斜率。
 
 注：
@@ -2626,7 +2630,7 @@ SLOPE(CLOSE,5);表示求收盘价5个周期线性回归线的斜率
 
 样本标准差
 
-``` cpp 
+```pascal
 STD(X,N)：求X在N个周期内的样本标准差。
 
 注：
@@ -2650,7 +2654,7 @@ STD(C,10)求收盘价在10个周期内的样本标准差。
 
 总体标准差
 
-``` cpp 
+```pascal
 STDP(X,N)：为X的N周期总体标准差。
 
 注：
@@ -2667,7 +2671,7 @@ SQRT((SQUARE(C-MA(C,3))+SQUARE(REF(C,1)-MA(C,3))+SQUARE(REF(C,2)-MA(C,3)))/3);
 
 例：
 STDP(C,10)为收盘价的10周期总体标准差。
- 
+
 //总体标准差是反映研究总体内个体之间差异程度的一种统计指标，总体方差是一组资料中各数值与其算术平均数离差平方和的平均数，总体标准差则是总体方差的平方根。
 ```
 
@@ -2675,7 +2679,7 @@ STDP(C,10)为收盘价的10周期总体标准差。
 
 样本方差
 
-``` cpp 
+```pascal
 VAR(X,N)求X在N周期内的样本方差。
 
 注：
@@ -2699,7 +2703,7 @@ VAR(C,5)求收盘价在5周期内的样本方差。
 
 总体方差
 
-``` cpp 
+```pascal
 VARP(X,N)：为X的N周期总体方差
 
 注：
@@ -2719,11 +2723,12 @@ VARP(C,5)为收盘价的5周期总体方差
 ```
 
 ## 数学函数
+
 ### ABS
 
 绝对值
 
-``` cpp 
+```pascal
 ABS(X)：取的X的绝对值。
 
 注：
@@ -2743,7 +2748,7 @@ ABS(C-O);//当前K线实体长度
 
 反余弦值
 
-``` cpp 
+```pascal
 ACOS(X)：返回X的反余弦值。
 
 注：
@@ -2760,7 +2765,7 @@ ACOS(1);//求1的反余弦值；
 
 反正弦值
 
-``` cpp 
+```pascal
 ASIN(X)：返回X的反正弦值。
 
 注：
@@ -2777,7 +2782,7 @@ ASIN(1);//求1的反正弦值；
 
 反正切值
 
-``` cpp 
+```pascal
 ATAN(X)：返回X的反正切值。
 
 注：X的取值为R（实数集）
@@ -2792,7 +2797,7 @@ ATAN(1.75);//求1.75的反正切值；
 
 向上舍入
 
-``` cpp 
+```pascal
 CEILING(X,Y) 返回指定实数(X)在沿绝对值增大的方向上第一个能整除基数(Y)的值。
 
 注：
@@ -2819,7 +2824,7 @@ CEILING(8,-2);//返回无效值。
 
 余弦
 
-``` cpp 
+```pascal
 COS(X)：返回X的余弦值。
 
 注：
@@ -2836,7 +2841,7 @@ COS(1.57);//返回1.57的余弦值
 
 立方函数
 
-``` cpp 
+```pascal
 CUBE(X)：返回X的三次方。
 
 例1：
@@ -2847,7 +2852,7 @@ CUBE(4);//求4的立方。
 
 指数
 
-``` cpp 
+```pascal
 EXP(X)：求e的X次幂。
 
 例1：
@@ -2858,7 +2863,7 @@ C*EXP(0.01);//求收盘价乘以e的0.01次幂
 
 向下舍入
 
-``` cpp 
+```pascal
 FLOOR(A)：向数值减小方向舍入。
 
 注：
@@ -2878,7 +2883,7 @@ IFELSE(C-INTPART(C)>=0.5,CEILING(C),FLOOR(C));//对收盘价四舍五入后取�
 
 取整
 
-``` cpp 
+```pascal
 INTPART(X)：取X的整数部分。
 
 例1：
@@ -2895,7 +2900,7 @@ INTPART(C);//求收盘价的整数部分。
 
 自然对数
 
-``` cpp 
+```pascal
 LN(X)：求X的自然对数。
 注：
 1、X取值范围为非0自然数，即1、2、3、4、5……
@@ -2909,7 +2914,7 @@ LN(OPEN);//求开盘价的对数。
 
 常用对数
 
-``` cpp 
+```pascal
 LOG(X) 求X的常用对数值。
 
 注：
@@ -2926,7 +2931,7 @@ LOG(0) 返回空值。
 
 最大值
 
-``` cpp 
+```pascal
 MAX(A,B)：取最大值。取A，B中较大者。
 
 注：
@@ -2944,7 +2949,7 @@ MAX(A,MAX(B,MAX(C,D)));//求 A B C D四者中的最大值
 
 取最大值
 
-``` cpp 
+```pascal
 MAX1(A...P) 在A到P中取最大值。
 
 注：
@@ -2962,7 +2967,7 @@ MAX1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16中的最大�
 
 求中位数
 
-``` cpp 
+```pascal
 MEDIAN(X,N) 求X在N个周期内居于中间的数值。
 
 注：
@@ -2979,7 +2984,7 @@ MEDIAN(X,N) 求X在N个周期内居于中间的数值。
 
 求中位数
 
-``` cpp 
+```pascal
 MEDIAN1(A,...,P) 求A到P内居于中间的数值。
 
 注：
@@ -2997,7 +3002,7 @@ BB:MEDIAN1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16的中�
 
 最小值
 
-``` cpp 
+```pascal
 MIN(A,B)：取最小值。取A，B中较小者
 
 注：
@@ -3013,7 +3018,7 @@ MIN(C,MIN(O,REF(C,1)));//求当前周期的开盘价，收盘价，以及上周�
 
 取最小值
 
-``` cpp 
+```pascal
 MIN1(A...P) 在A到P中取最小值。
 
 注：
@@ -3031,7 +3036,7 @@ MIN1(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);//表示取数字1-16中的最小�
 
 取模
 
-``` cpp 
+```pascal
 MOD(A,B)：取模。返回A对B求模。
 
 例1：
@@ -3047,7 +3052,7 @@ MOD(A,2)=0;//判断A为偶数。
 
 求众数
 
-``` cpp 
+```pascal
 MODE(X,N) 求X在N个周期内最常出现的值。
 
 注：
@@ -3059,7 +3064,7 @@ MODE(X,N) 求X在N个周期内最常出现的值。
 
 幂
 
-``` cpp 
+```pascal
 POW(X,Y)：求X的Y次幂。
 
 注：
@@ -3080,7 +3085,7 @@ POW(100,O-C);//返回100的O-C次方
 
 产生随机数的随机函数
 
-``` cpp 
+```pascal
 RAND(X,Y) 产生随机数的随机函数,返回范围在X到Y之间的随机数。
 
 注：
@@ -3099,7 +3104,7 @@ RAND(C,O);//返回收盘价到开盘价之间的随机数值
 
 范围
 
-``` cpp 
+```pascal
 RANGE(X,Y,Z)：介于某个范围之内。表示X大于Y同时小于Z时返回1，否则返回0
 例1：
 RANGE(5,4,6);//返回值为1；
@@ -3118,7 +3123,7 @@ RANGE(MA10,MA20,MA5),BK;//10周期均线在5周期均线与20周期均线之间�
 
 取相反值
 
-``` cpp 
+```pascal
 REVERSE(X)：取相反值，返回－X。
 
 例1：
@@ -3133,7 +3138,7 @@ REVERSE(0);//返回值为0
 
 指定位数四舍五入
 
-``` cpp 
+```pascal
 ROUND(N,M) 对数字N进行位数为M的四舍五入。
 
 注：
@@ -3154,7 +3159,7 @@ ROUND(125.345,-1);//返回130
 
 取符号
 
-``` cpp 
+```pascal
 SGN(X)：取符号。若X>0返回1,若X<0返回-1,否则返回0。
 
 例1：
@@ -3169,7 +3174,7 @@ SGN(0);//返回值为0
 
 求正弦
 
-``` cpp 
+```pascal
 SIN(X)：求X的正弦值。
 
 注：
@@ -3186,7 +3191,7 @@ SIN(1.57);//返回1.57的正弦值
 
 平方根
 
-``` cpp 
+```pascal
 SQRT(X)：求X的平方根。
 
 注：
@@ -3200,7 +3205,7 @@ SQRT(CLOSE);//收盘价的平方根。
 
 平方
 
-``` cpp 
+```pascal
 SQUARE(X)求X的平方。
 
 例1：
@@ -3213,7 +3218,7 @@ SQUARE(2);//2的平方。
 
 正切
 
-``` cpp 
+```pascal
 TAN(X)：返回X的正切值。
 例1：
 TAN(0);//返回0的正切值；
@@ -3222,11 +3227,12 @@ TAN(-3.14);//返回-3.14的正切值。
 ```
 
 ## 逻辑判断函数
+
 ### BARSTATUS
 
 返回当前周期的位置状态
 
-``` cpp 
+```pascal
 BARSTATUS 返回当前周期的位置状态。
 
 注：
@@ -3240,7 +3246,7 @@ A:=IFELSE(BARSTATUS=1,H,0);//如果当前K线是第一个周期，变量A返回K
 
 介于
 
-``` cpp 
+```pascal
 BETWEEN(X,Y,Z) 表示X是否处于Y和Z之间，成立返回1(Yes)，否则返回0(No)。
 
 注：
@@ -3254,7 +3260,7 @@ BETWEEN(CLOSE,MA5,MA10); //表示收盘价介于5日均线与10日均线之间�
 
 模糊股票代码函数
 
-``` cpp 
+```pascal
 CODELIKE('') 模糊股票代码函数。
 
 用法：
@@ -3272,7 +3278,7 @@ C>O&&CODELIKE('300')=0,SELECT;//筛选出最后一根K线为阳线并且代码�
 
 交叉函数
 
-``` cpp 
+```pascal
 CROSS(A,B) 表示A从下方向上穿过B，成立返回1(Yes)，否则返回0(No)
 
 注：
@@ -3286,7 +3292,7 @@ CROSS(CLOSE,MA(CLOSE,5));//表示收盘线从下方向上穿过5周期均线
 
 二次交叉函数
 
-``` cpp 
+```pascal
 CROSS2(A,B,N) 表示N个周期内当A从下方向上穿B偶数次。
 
 注：
@@ -3303,7 +3309,7 @@ CROSS2(C,MA5,10) 返回值为1(Yes)，表示当前周期是10个周期内(包含
 
 向下穿越
 
-``` cpp 
+```pascal
 CROSSDOWN(A,B)：表示当A从上方向下穿B，成立返回1(Yes)，否则返回0(No)
 
 注：
@@ -3320,7 +3326,7 @@ CROSSDOWN(MA5,MA10),SK;//MA5下穿MA10卖开仓
 
 向上穿越
 
-``` cpp 
+```pascal
 CROSSUP(A,B) 表当A从下方向上穿过B，成立返回1(Yes)，否则返回0(No)
 
 注：
@@ -3335,16 +3341,16 @@ CROSSUP(MA5,MA10),BK;//MA5上穿MA10，买开仓。
 
 ### DIVERGENCE
 
-变量X1与X2在指定周期内是否发生背离
+变量 X1 与 X2 在指定周期内是否发生背离
 
-``` cpp 
+```pascal
 DIVERGENCE(X1,X2,S,L,HL);变量X1与X2在指定周期内是否发生背离
 用法：
-S: 设置转折点两边需要的周期数，取值应小于L的四分之一;S不可以为变量； 
+S: 设置转折点两边需要的周期数，取值应小于L的四分之一;S不可以为变量；
 L: 计算的总的范围的周期数；L不可以为变量。
 HL: 可以取值为1和-1
 1表示根据X1的峰值判断背离情况；
-X1在L周期内波峰取值创了新高，但X2在X1峰值对应的取值没有创新高，熊背离，或称顶背离 
+X1在L周期内波峰取值创了新高，但X2在X1峰值对应的取值没有创新高，熊背离，或称顶背离
 -1表示计算波谷点，
 X1在L周期内波谷取值创了新低，但X2在X1波谷对应的取值没有创新低，牛背离，或称底背离；
 
@@ -3359,7 +3365,7 @@ DIVERGENCE(C,MA10,2,20,1);//在20个周期内，收盘价与10周期均线存在
 
 判断是否持续满足
 
-``` cpp 
+```pascal
 EVERY(COND,N)，判断N周期内，是否一直满足COND条件。若满足函数返回值为1，不满足函数返回值为0；
 
 注：
@@ -3380,7 +3386,7 @@ EVERY(MA5>MA10,4),BK;//4个周期内MA5都大于MA10，则买开仓。
 
 判断是否存在满足
 
-``` cpp 
+```pascal
 EXIST(COND,N) 判断N个周期内是否有满足COND的条件
 
 注:
@@ -3399,7 +3405,7 @@ EXIST(C>MA(C,5),N);// 表示当天是否有满足收盘价大于5周期均线的
 
 过滤
 
-``` cpp 
+```pascal
 FILTER(COND,N) 当COND条件成立，将其后N周期内的数据设置为0.
 
 注：
@@ -3412,13 +3418,13 @@ FILTER(CLOSE>OPEN,3);// 查找阳线，3天内再次出现的阳线不被记录�
 
 ### HASTRADEDATA
 
-判断数据合约当根K线交易合约是否有数据
+判断数据合约当根 K 线交易合约是否有数据
 
-``` cpp 
+```pascal
 HASTRADEDATA  判断数据合约当根K线交易合约是否有数据
 
 用法：
-HASTRADEDATA;  
+HASTRADEDATA;
 1、判断数据合约当根K线交易合约是否有数据，有数据返回1，无数据返回0。
 2、若数据合约和交易合约一致返回1
 ```
@@ -3427,7 +3433,7 @@ HASTRADEDATA;
 
 条件函数
 
-``` cpp 
+```pascal
 IF(COND,A,B) 若COND条件成立，则返回A，否则返回B
 
 注：
@@ -3445,7 +3451,7 @@ A=2,SPK;//当MA5不大于MA10，以K、D死叉作为开空仓条件
 
 条件函数
 
-``` cpp 
+```pascal
 IFELSE(COND,A,B) 若COND条件成立，则返回A，否则返回B
 
 注：
@@ -3463,7 +3469,7 @@ A=2,SPK;//当MA5不大于MA10，以K、D死叉作为开空仓条件
 
 当前是否为指定的合约
 
-``` cpp 
+```pascal
 ISCONTRACT() 当前是否为指定的合约。
 
 用法：ISCONTRACT('CODE');是当前合约返回1，不是当前合约返回0。
@@ -3482,7 +3488,7 @@ ISCONTRACT('沪铜');//加载到沪铜合约上返回值为1，加载到非沪�
 
 阴线
 
-``` cpp 
+```pascal
 ISDOWN 判断该周期是否收阴
 
 注：
@@ -3497,7 +3503,7 @@ ISDOWN=1&&C<REF(C,1),SK;//当根k线收阴并且收盘价小于前一周期收�
 
 平盘
 
-``` cpp 
+```pascal
 ISEQUAL 判断该周期是否平盘
 
 注：
@@ -3511,7 +3517,7 @@ EVERY(ISEQUAL=1,2),CLOSEOUT;//持续2根k线都是平盘，则全平。
 
 判断该周期是不是交割日
 
-``` cpp 
+```pascal
 ISDELIVERYDAY 判断该周期是否是交割日。当前k线是交割日则返回1(Yes)，否则返回0(No)
 
 注：
@@ -3525,9 +3531,9 @@ ISDELIVERYDAY=1&&TIME>=1000,CLOSEOUT;//当根k线是交割日并且时间是10:0
 
 ### ISLASTKLINE
 
-判断该周期是否收盘前最后一根K线
+判断该周期是否收盘前最后一根 K 线
 
-``` cpp 
+```pascal
 ISLASTKLINE 判断该周期是否为每日收盘前最后一根k线，返回是1（Yes），否则返回0（No）。
 
 注：
@@ -3540,11 +3546,11 @@ ISLASTKLINE=1,CLOSEOUT;//若该周期是当日收盘前最后一根k线，则全
 
 ### ISLASTBAR
 
-判断该周期是否为最后一根K线
+判断该周期是否为最后一根 K 线
 
-``` cpp 
+```pascal
 ISLASTBAR 判断该周期是否为最后一根k线
- 
+
 例1：
 VALUEWHEN(ISLASTBAR=1,REF(H,1));//当前k线是最后一根k线，则取前一周期的最高价。
 ```
@@ -3553,7 +3559,7 @@ VALUEWHEN(ISLASTBAR=1,REF(H,1));//当前k线是最后一根k线，则取前一�
 
 当前是否为主力合约
 
-``` cpp 
+```pascal
 ISMAINCONTRACT 当前是否为主力合约。
 
 用法：
@@ -3571,7 +3577,7 @@ ISMAINCONTRACT;//当前的交易合约为主力合约，返回1，否则返回0
 
 是否为本月最后一个交易日
 
-``` cpp 
+```pascal
 ISMONTHEND 是否为本月最后一个交易日
 此函数为系统封装函数。
 
@@ -3586,7 +3592,7 @@ CLOSE<MA(CLOSE,5) || ISMONTHEND,SP;//如果满足平仓条件或者当前为本�
 
 判断下一交易日是否是交易合约的节假日
 
-``` cpp 
+```pascal
 ISNEARHOLIDAY 判断下一交易日是否是交易合约的节假日。交易合约下一交易日是节假日，当前k线返回1（Yes）,否则返回0（N0）
 
 注：
@@ -3601,7 +3607,7 @@ ISNEARHOLIDAY=1&&TIME>=1000,CLOSEOUT;//下一个交易日是节假日并且时�
 
 判断空值
 
-``` cpp 
+```pascal
 ISNULL 判断空值
 
 用法：ISNULL(N);如果N为空值，函数返回1；如果N为非空值，函数返回0。
@@ -3611,9 +3617,9 @@ ISNULL 判断空值
 
 ### ISTIMETOKLINEEND
 
-判断当前K线时间是否满足K线走完前N秒
+判断当前 K 线时间是否满足 K 线走完前 N 秒
 
-``` cpp 
+```pascal
 ISTIMETOKLINEEND(N) 判断当前K线时间是否满足K线走完前N秒。
 
 用法：
@@ -3635,7 +3641,7 @@ MULTSIG(0,0,3,0);
 
 阳线
 
-``` cpp 
+```pascal
 ISUP 判断该周期是否收阳
 
 注：
@@ -3650,7 +3656,7 @@ ISUP=1&&C>REF(C,1),BK;//若当根k线收阳并且收盘价大于前一周期收�
 
 是否为本周最后一个交易日
 
-``` cpp 
+```pascal
 ISWEEKEND 判断是否为本周最后一个交易日
 此函数为系统封装函数。
 
@@ -3663,9 +3669,9 @@ C<MA(C,5) || ISWEEKEND,SP;//如果满足平仓条件或者当前为本周最后�
 
 ### KLINESTART
 
-判断K线当前状态是否是K线开始
+判断 K 线当前状态是否是 K 线开始
 
-``` cpp 
+```pascal
 KLINESTART 判断K线当前状态是否是K线开始。
 
 用法：
@@ -3681,9 +3687,9 @@ AUTOFILTER;
 
 ### K_STATE
 
-判断k线形态
+判断 k 线形态
 
-``` cpp 
+```pascal
 K_STATE 判断k线形态
 
 用法：
@@ -3727,9 +3733,9 @@ K_STATE('红三兵');//判断当前k线形态是否为红三兵
 
 ### K_STATE1
 
-判断k线形态
+判断 k 线形态
 
-``` cpp 
+```pascal
 K_STATE1 判断k线形态
 
 用法：
@@ -3759,9 +3765,9 @@ K_STATE1(3,'上升三法');//上升三法为股价持续上涨中，某日出现
 
 ### K_STATE2
 
-判断k线形态
+判断 k 线形态
 
-``` cpp 
+```pascal
 K_STATE2 判断k线形态
 
 用法：
@@ -3780,9 +3786,9 @@ K_STATE2(3,5,'早晨之星');//早晨之星为启示后市见底回升的阴阳�
 
 ### K_STATE3
 
-判断k线形态
+判断 k 线形态
 
-``` cpp 
+```pascal
 K_STATE3 判断k线形态
 
 用法：
@@ -3802,9 +3808,9 @@ K_STATE3(5,10,20,'出水芙蓉');//一根大阳线上穿三条均线，均线为
 
 ### K_STATE4
 
-判断k线形态
+判断 k 线形态
 
-``` cpp 
+```pascal
 K_STATE4 判断k线形态
 
 用法：
@@ -3818,7 +3824,7 @@ K_STATE4(5,5,10,20,'九阴白骨爪')：参数N1为连续N根K线满足阴线，
 
 判断函数
 
-``` cpp 
+```pascal
 LAST(COND,N1,N2) 判断过去N1到N2周期内，是否一直满足COND条件。
 
 注：
@@ -3837,7 +3843,7 @@ LAST(C>MA5,4,3);//判断距离当前k线3个周期的那根k线上是否满足C�
 
 维持交叉函数
 
-``` cpp 
+```pascal
 LONGCROSS(A,B,N) 表示A在N个周期内都小于B，本周期A从下向上穿越B
 
 注：
@@ -3852,7 +3858,7 @@ LONGCROSS(CLOSE,MA(CLOSE,10),20);//表示收盘线在10日均线之下持续20�
 
 模糊股票名称函数
 
-``` cpp 
+```pascal
 NAMELIKE('') 模糊股票名称函数。
 
 用法：
@@ -3870,7 +3876,7 @@ C>O&&NAMELIKE('ST')=0,SELECT;//筛选出最后一根K线为阳线并且名称不
 
 非
 
-``` cpp 
+```pascal
 NOT(X)：取非。当X＝0时返回1，否则返回0。
 例1：
  NOT(ISLASTBK);如果上一个信号不是BK信号，则NOT(ISLASTBK)返回值为1；上一个信号是BK信号，则NOT(ISLASTBK)返回值为0。
@@ -3883,7 +3889,7 @@ NOT(BARSBK>=1)=1;//BK信号发出的当根K线上满足条件。
 
 返回空值
 
-``` cpp 
+```pascal
 返回空值
 用法：
 MA5:=MA(C,5);
@@ -3895,7 +3901,7 @@ A:IFELSE(MA5>MA10,MA5,NULL),COLORRED;//当MA5>MA10时，画五日均线MA5，不
 
 取市场类型
 
-``` cpp 
+```pascal
 STKTYPE 取市场类型。
 
 注：
@@ -3908,9 +3914,9 @@ A:STKTYPE;//加载到期货合约上，A返回值为7。
 
 ### TREND
 
-获取K线趋势
+获取 K 线趋势
 
-``` cpp 
+```pascal
 TREND 获取K线趋势。
 
 用法：
@@ -3921,7 +3927,7 @@ TREND  K线的形成过程中最高价先出现，则返回值为3；最低价�
 
 取值
 
-``` cpp 
+```pascal
 VALUEWHEN(COND,X) 当COND条件成立时，取X的当前值。如COND条件不成立，则取上一次COND条件成立时X的值。
 
 注：
@@ -3936,11 +3942,12 @@ VALUEWHEN(DATE<>REF(DATE,1),L>REF(H,1));//表示在当天第一根k线上判断�
 ```
 
 ## 循环执行函数
+
 ### LOOP1
 
 循环统计函数
 
-``` cpp 
+```pascal
 LOOP1(X,N,TYPE);循环统计函数 对X在N个周期进行TYPE相应的操作
 
 注：
@@ -3955,7 +3962,7 @@ MAX1_POS 最大值位置(不包括自身周期)；
 MIN1_POS 最小值位置（不包括自身周期）；
 SECONDMAX_VALUE 次大值；
 SECONDMIN_VALUE 次小值；
-SECONDMAX_POS 次大值位置； 
+SECONDMAX_POS 次大值位置；
 SECONDMIN_POS 次小值位置；
 SECONDMAX1_VALUE 次大值（不包括自身周期）；
 SECONDMIN1_VALUE 次小值（不包括自身周期）；
@@ -4002,7 +4009,7 @@ LOOP1(X,N, AVERAGE)=MA(X,N)
 
 循环条件函数
 
-``` cpp 
+```pascal
 LOOP2(COND,A,B);循环条件函数 若COND条件成立，则返回A，否则返回B
 
 注：
@@ -4023,11 +4030,12 @@ AUTOFILTER;
 ```
 
 ## 时间函数
+
 ### BARPOS
 
-取K线的位置
+取 K 线的位置
 
-``` cpp 
+```pascal
 BARPOS，返回从第一根K线开始到当前的周期数。
 
 注：
@@ -4043,7 +4051,7 @@ BARPOS，返回从第一根K线开始到当前的周期数。
 
 距收盘前时间
 
-``` cpp 
+```pascal
 CLOSEMINUTE，返回K线开始时间距离收盘前的分钟数。
 
 注：
@@ -4068,7 +4076,7 @@ AUTOFILTER;
 
 距收盘前时间
 
-``` cpp 
+```pascal
 CLOSEMINUTE1，返回距离收盘前的分钟数。
 
 注：
@@ -4096,7 +4104,7 @@ AUTOFILTER;
 
 距小节结束时间
 
-``` cpp 
+```pascal
 CLOSEMINUTEEVERY(N)，返回K线开始时间距离小节结束的分钟数。
 
 用法：
@@ -4121,7 +4129,7 @@ AUTOFILTER;
 
 距小节结束时间
 
-``` cpp 
+```pascal
 CLOSEMINUTEEVERY1(N),返回距离小节结束的分钟数
 
 用法：
@@ -4150,7 +4158,7 @@ AUTOFILTER;
 
 距收盘前时间（秒数）
 
-``` cpp 
+```pascal
 CLOSESEC，返回K线开始时间距离收盘前的秒数。
 
 注：
@@ -4175,7 +4183,7 @@ AUTOFILTER;
 
 距收盘前时间（秒数）
 
-``` cpp 
+```pascal
 CLOSESEC1，返回距离收盘前的秒数。
 
 注：
@@ -4202,7 +4210,7 @@ AUTOFILTER;
 
 距小节结束时间（秒）
 
-``` cpp 
+```pascal
 CLOSESECEVERY(N) 返回K线开始时间距离小节结束的秒数
 
 用法：
@@ -4228,7 +4236,7 @@ AUTOFILTER;
 
 距小节结束时间（秒）
 
-``` cpp 
+```pascal
 CLOSESECEVERY1(N) 返回距离小节结束前的秒数
 
 用法：
@@ -4256,9 +4264,9 @@ AUTOFILTER;
 
 取得某周期的日期数
 
-``` cpp 
+```pascal
 DATE,返回某周期的日期数。
- 
+
 注：
 1：DATE的取值范围为700101-331231(即1970年1月1日—2033年12月31日)。
 2：DATE返回六位数字，YYMMDD，
@@ -4275,7 +4283,7 @@ HH:VALUEWHEN(AA=1,H);// 取201305071037分钟位置，同时取201305071037分�
 
 取得某周期的日数
 
-``` cpp 
+```pascal
 DAY,返回某一周期的日数。
 
 注：
@@ -4292,7 +4300,7 @@ CC:IFELSE(DAY=1,VALUEWHEN(N=1,O),0);//当日期为1时，取开盘价，否则�
 
 期货合约距最后交易日的天数
 
-``` cpp 
+```pascal
 DAYSTOEXPIRED(CODE) 期货合约距最后交易日的天数。
 
 用法：DAYSTOEXPIRED(CODE);取得合约的到期剩余天数。CODE为文华码。
@@ -4316,7 +4324,7 @@ A:=DAYSTOEXPIRED('')=1&&CLOSEMINUTE=5;//定义变量A为最后交易日收盘前
 
 小时
 
-``` cpp 
+```pascal
 HOUR，返回某周期的小时数。
 
 注：
@@ -4334,9 +4342,9 @@ HOUR=10;//在10:00的K线上返回值为1，其余K线上返回值为0。
 
 分钟
 
-``` cpp 
+```pascal
 MINUTE,返回某个周期的分钟数。
- 
+
 注：
 1：MINUTE的取值范围为0—59
 2：该函数只能加载在分钟周期上，返回当根K线开始的分钟数。
@@ -4350,12 +4358,12 @@ TIME>1400&&MINUTE=50,SP;//在14:50的时候卖平仓。
 
 取月份
 
-``` cpp 
+```pascal
 MONTH，返回某个周期的月份。
- 
+
 注：
 MONTH的取值范围为1—12.
- 
+
 例1：
 VALUEWHEN(MONTH=3&&DAY=1,C);//在K线日期为三月一日时取其收盘价。
 例2：
@@ -4366,7 +4374,7 @@ C>=VALUEWHEN(MONTH<REF(MONTH,1),O),SP;
 
 最近交割日期函数
 
-``` cpp 
+```pascal
 NEXTDELIVERYDAY,返回当前品种往后最近的交割日期。
 
 注：
@@ -4384,7 +4392,7 @@ DATE=NEXTDELIVERYDAY&&CLOSEMINUTE=5,CLOSEOUT；//距交割日收盘前五分钟�
 
 开盘后经过的分钟数
 
-``` cpp 
+```pascal
 OPENMINUTE，返回开盘后经过的分钟数。
 
 注：
@@ -4405,7 +4413,7 @@ AUTOFILTER;
 
 开盘后经过的分钟数
 
-``` cpp 
+```pascal
 OPENMINUTE1，返回开盘后经过的分钟数。
 
 注：
@@ -4429,7 +4437,7 @@ AUTOFILTER;
 
 自动读取当前技术分析图表周期
 
-``` cpp 
+```pascal
 PERIOD，返回当前技术分析图表的周期。
 
 注：
@@ -4446,7 +4454,7 @@ IFELSE(PERIOD=1,OO,NULL);//取当天一分钟周期的开盘价。
 
 取得某周期的季度数
 
-``` cpp 
+```pascal
 QUARTER,返回某周期的季度数。
 
 注：
@@ -4461,9 +4469,9 @@ AUTOFILTER;
 
 ### TIME
 
-取K线的时间
+取 K 线的时间
 
-``` cpp 
+```pascal
 TIME，取K线时间。
 
 注：
@@ -4488,9 +4496,9 @@ ISLASTSK=0&&C>O&&TIME>=0915,SK;
 
 ### VOLTIME
 
-取K线形成的时间（秒）
+取 K 线形成的时间（秒）
 
-``` cpp 
+```pascal
 量能周期返回这根K线形成的时间，单位：秒。
 用法：
 VOLTIME 量能周期时，返回当前K线形成的时间。
@@ -4498,9 +4506,9 @@ VOLTIME 量能周期时，返回当前K线形成的时间。
 
 ### VOLTICK
 
-返回K线是由多少笔TICK生成
+返回 K 线是由多少笔 TICK 生成
 
-``` cpp 
+```pascal
 量能周期返回这根K线形成的TICK笔数，单位：笔。
 用法：
 VOLTICK 量能周期时，返回当前K线形成的TICK笔数。
@@ -4510,20 +4518,20 @@ VOLTICK 量能周期时，返回当前K线形成的TICK笔数。
 
 取得星期数
 
-``` cpp 
+```pascal
 WEEKDAY,取得星期数。
- 
+
 注：
 1：WEEKDAY的取值范围是0—6。
 2：该函数在周周期上显示的值始终为5，在月周期上返回K线结束当天的星期数。
- 
+
 例1：
 N:=BARSLAST(MONTH<>REF(MONTH,1))+1;
 COUNT(WEEKDAY=5,N)=3&&TIME>=1450,BP;
 COUNT(WEEKDAY=5,N)=3&&TIME>=1450,SP;
 AUTOFILTER;//每个月交割日尾盘自动平仓。
 例2：
-C>VALUEWHEN(WEEKDAY<REF(WEEKDAY,1),O)+10,BK; 
+C>VALUEWHEN(WEEKDAY<REF(WEEKDAY,1),O)+10,BK;
 AUTOFILTER;
 ```
 
@@ -4531,16 +4539,16 @@ AUTOFILTER;
 
 年份
 
-``` cpp 
+```pascal
 YEAR，取得年份。
- 
+
 注：
 YEAR的取值范围为1970—2033。
- 
+
 例1：
-N:=BARSLAST(YEAR<>REF(YEAR,1))+1; 
+N:=BARSLAST(YEAR<>REF(YEAR,1))+1;
 HH:=REF(HHV(H,N),N);
-LL:=REF(LLV(L,N),N); 
+LL:=REF(LLV(L,N),N);
 OO:=REF(VALUEWHEN(N=1,O),N);
 CC:=REF(C,N);//取上一年的最高价，最低价，开盘价，收盘价。
 例2：
@@ -4548,11 +4556,12 @@ NN:=IFELSE(YEAR>=2000 AND MONTH>=1,0,1);
 ```
 
 ## 绘图函数
+
 ### ALIGN
 
 设置文字对齐方式（左中右）
 
-``` cpp 
+```pascal
 设置文字对齐方式（左中右）。
 
 用法：DRAWTEXT(COND,PRICE,TEXT),ALIGNX;
@@ -4567,7 +4576,7 @@ DRAWTEXT(C>O,H,'涨'),ALIGN1,VALIGN1,FONTSIZE20,COLORGREEN;//在阳线的最高�
 
 背景的样式
 
-``` cpp 
+```pascal
 BACKGROUNDSTYLE函数    设置背景的样式。
 
 用法：
@@ -4597,7 +4606,7 @@ BACKGROUNDSTYLE(2)
 
 小圆点线
 
-``` cpp 
+```pascal
 画小圆点线。
 用法：
 CIRCLEDOT 画小圆点线。
@@ -4613,7 +4622,7 @@ CIRCLEDOT 画小圆点线。
 
 画柱线
 
-``` cpp 
+```pascal
 COLORSTICK 画柱线。
 
 用法：X,COLORSTICK;画柱线，柱高为X的值，X大于0为红色柱线，X小于0为青色柱线。
@@ -4628,7 +4637,7 @@ C-O,COLORSTICK;//画柱线，阳线时画红色向上柱线，阴线时画青色
 
 小圆圈线
 
-``` cpp 
+```pascal
 小圆圈线。
 用法：
 CROSSDOT 画小圆圈线。
@@ -4644,7 +4653,7 @@ CROSSDOT 画小圆圈线。
 
 画虚线
 
-``` cpp 
+```pascal
 画虚线。
 用法：
 DASH 画虚线。
@@ -4660,7 +4669,7 @@ DASH 画虚线。
 
 画点虚线
 
-``` cpp 
+```pascal
 画点虚线。
 用法：
 DASHDOT 画点虚线。
@@ -4676,7 +4685,7 @@ DASHDOT 画点虚线。
 
 画双点虚线
 
-``` cpp 
+```pascal
 画双点虚线。
 用法：
 DASHDOTDOT 画双点虚线。
@@ -4692,7 +4701,7 @@ DASHDOTDOT 画双点虚线。
 
 画点线
 
-``` cpp 
+```pascal
 画点线。
 用法：
 DOT 画点线。
@@ -4703,9 +4712,9 @@ DOT 画点线。
 
 ### DRAWBARLINE
 
-绘制BAR线（美国线）
+绘制 BAR 线（美国线）
 
-``` cpp 
+```pascal
 DRAWBARLINE(H1,O1,L1,C1);绘制BAR线（美国线）
 用法：
 在L1到H1之间绘制柱线，在O1位置绘制左侧横线，在C1位置绘制右侧横线。
@@ -4713,7 +4722,7 @@ DRAWBARLINE(H1,O1,L1,C1);绘制BAR线（美国线）
 不支持将该函数直接定义为变量，即不支持下面的写法：
 A:DRAWBARLINE(H1,O1,L1,C1);
 
-例： 
+例：
 DRAWBARLINE(H,O,L,C); //在最高价和最低价之间绘制BAR线，在开盘价位置绘制左侧横线，在收盘价位置绘制右侧横线。
 ```
 
@@ -4721,7 +4730,7 @@ DRAWBARLINE(H,O,L,C); //在最高价和最低价之间绘制BAR线，在开盘�
 
 设置背景图片
 
-``` cpp 
+```pascal
 DRAWBKBMP(COND,IMAGE) 设置背景图片。
 
 用法：
@@ -4742,7 +4751,7 @@ DRAWBKBMP(CLOSE>OPEN,'壁纸20140410112435');//当最后一根K线为阳线时�
 
 输出图片
 
-``` cpp 
+```pascal
 输出图片。
 
 用法：
@@ -4765,7 +4774,7 @@ DRAWBMP(CLOSE>OPEN,H,'壁纸20140410112435.BMP');//当K线为阳线时，在K线
 
 根据条件画相应颜色的线
 
-``` cpp 
+```pascal
 DRAWCOLORLINE（COND,DATA,COLOR1,COLOR2）;根据条件画相应颜色的线
 用法：当满足COND时，DATA为COLOR1颜色的线，不满足COND时，DATA为COLOR2颜色的线
 注：
@@ -4774,16 +4783,16 @@ A:DRAWCOLORLINE（COND,DATA,COLOR1,COLOR2）;
 2、该函数支持在函数后设置线型（LINETHICK1 - LINETHICK7、POINTDOT、DOT），即支持下面的写法：
 DRAWCOLORLINE(COND,DATA,COLOR1,COLOR2),LINETHICK;
 
-例1： 
+例1：
 MA1:=MA(C,5);
 DRAWCOLORLINE(MA1>REF(MA1,1),MA1,COLORRED,COLORGREEN); //如果当根5日均线的值大于前一根5日均线的值，MA1画红线，否则画绿线
 ```
 
 ### DRAWCOLORKLINE
 
-绘制K线
+绘制 K 线
 
-``` cpp 
+```pascal
 DRAWCOLORKLINE 绘制K线
 
 用法：
@@ -4802,7 +4811,7 @@ DRAWCOLORKLINE(C>O,COLORBLUE,0);//收盘价大于开盘价，用蓝色绘制实�
 
 画双向柱形图
 
-``` cpp 
+```pascal
 DRAWCOLUMNCHART 画柱形图。
 
 用法：
@@ -4822,7 +4831,7 @@ DRAWCOLUMNCHART(10,C>O,C>O);//满足收阳条件从0轴向上10个高度画红�
 
 设置渐变背景色
 
-``` cpp 
+```pascal
 DRAWGBK(COND,C1,C2,D) 设置渐变背景色。
 
 用法：
@@ -4844,9 +4853,9 @@ DRAWGBK(CLOSE>OPEN,COLORRED,COLORGREEN,1);//当最后一根K线为阳线时，�
 
 ### DRAWGBK1
 
-设置满足条件K线的背景颜色
+设置满足条件 K 线的背景颜色
 
-``` cpp 
+```pascal
 DRAWGBK1(COND,COLOR) 设置满足条件K线的背景颜色。
 
 用法：
@@ -4868,7 +4877,7 @@ DRAWGBK1(C>MA5,COLORRED);//表示在收盘价大于5周期均线的k线对应背
 
 画图标
 
-``` cpp 
+```pascal
 DRAWICON：绘制小图标。
 
 用法：
@@ -4894,9 +4903,9 @@ DRAWICON(C>MA5,MA5,2),ALIGN0,VALIGN0;//表示在收盘价大于5周期均线的k
 
 ### DRAWKLINE
 
-画K线
+画 K 线
 
-``` cpp 
+```pascal
 DRAWKLINE 自定义K线颜色，实空心及宽度。
 
 用法：
@@ -4915,9 +4924,9 @@ DRAWKLINE(0.5,COLORYELLOW,0,COLORBLUE,1);//绘制K线宽度比例为0.5,阳线�
 
 ### DRAWKLINE1
 
-绘制K线
+绘制 K 线
 
-``` cpp 
+```pascal
 DRAWKLINE1(H1,O1,L1,C1) 绘制K线。
 
 用法：DRAWKLINE1(H1,O1,L1,C1);以H1为最高价，L1为最低价，O1为开盘价，C1为收盘价绘制K线。
@@ -4935,9 +4944,9 @@ DRAWKLINE1(H,O,L,C);
 
 ### DRAWKLINE2
 
-绘制K线
+绘制 K 线
 
-``` cpp 
+```pascal
 DRAWKLINE2 绘制K线。
 
 用法：
@@ -4958,7 +4967,7 @@ DRAWKLINE2(0.75,COLORRED,1,COLORCYAN,0);//绘制K线宽度比例为0.75,阳线�
 
 画线
 
-``` cpp 
+```pascal
 DRAWLINE 绘制直线段。
 
 用法：
@@ -4985,7 +4994,7 @@ DRAWLINE(ISUP,C,ISUP,H,COLORRED),LINETHICK7;//表示当前k线收阳时，从收
 
 画线
 
-``` cpp 
+```pascal
 DRAWLINE1 绘制直线段。
 
 用法：
@@ -5009,7 +5018,7 @@ DRAWLINE1(ISUP,H,ISDOWN,L,0),COLORBLUE,LINETHICK7;//表示在阳线的最高价�
 
 画线
 
-``` cpp 
+```pascal
 DRAWLINE2 绘制直线段。
 
 用法：
@@ -5033,7 +5042,7 @@ DRAWLINE2(ISUP,H,ISDOWN,L,0),COLORBLUE,LINETHICK7;//表示在阳线的最高价�
 
 偏移周期画线
 
-``` cpp 
+```pascal
 DRAWLINE3 偏移周期绘制直线段
 
 用法：
@@ -5064,11 +5073,11 @@ DRAWLINE3(COD2,REF(L,2),2,COD1,REF(H,2),2,0),COLORRED;//满足COD2时向左偏�
 
 写数字
 
-``` cpp 
+```pascal
 DRAWNUMBER：输出数值。
 
 用法：
-DRAWNUMBER(COND,DATA,NUMBER,PRECISION,COLOR); 
+DRAWNUMBER(COND,DATA,NUMBER,PRECISION,COLOR);
 当条件满足时在DATA位置写数字NUMBER。PRECISION为精度（小数点后有几位数字）。COLOR为颜色。
 
 注：
@@ -5085,11 +5094,11 @@ DRAWNUMBER(DATE<>REF(DATE,1),L,REF(C,1),2,COLORRED),ALIGN0,VALIGN0;//表示在�
 
 写数字
 
-``` cpp 
+```pascal
 DRAWNUMBER1：输出数值。
 
 用法：
-DRAWNUMBER1(COND,DATA,NUMBER,PRECISION); 
+DRAWNUMBER1(COND,DATA,NUMBER,PRECISION);
 当条件满足时在DATA位置写数字NUMBER。PRECISION为精度（小数点后有几位数字）。
 
 注：
@@ -5107,7 +5116,7 @@ DRAWNUMBER1(DATE<>REF(DATE,1),L,REF(C,1),2),COLORRED,ALIGN0,VALIGN0;//表示在�
 
 画线（段）
 
-``` cpp 
+```pascal
 DRAWSL 绘制直线（段）。
 
 用法：
@@ -5134,7 +5143,7 @@ DRAWSL(LOW=LLV(LOW,50),LOW,5,3,2,COLORRED),LINETHICK5;//表示当前最低价等
 
 画线（段）
 
-``` cpp 
+```pascal
 DRAWSL1 绘制直线（段）。
 
 用法：
@@ -5162,7 +5171,7 @@ DRAWSL1(LOW=LLV(LOW,50),LOW,5,3,1),COLORRED,LINETHICK5;//表示当前最低价�
 
 显示文字
 
-``` cpp 
+```pascal
 DRAWTEXT：显示文字。
 
 用法：
@@ -5178,7 +5187,7 @@ DRAWTEXT：显示文字。
 4、该函数可以用COLOR设置文字的颜色，即该函数支持如下写法：DRAWTEXT(COND,PRICE,TEXT),COLOR;
 
 例1：
-DRAWTEXT(CLOSE<OPEN&&REF(CLOSE,1)<REF(OPEN,1)&&REF(VOL,1)*1.1<VOL,LOW,'注');// 
+DRAWTEXT(CLOSE<OPEN&&REF(CLOSE,1)<REF(OPEN,1)&&REF(VOL,1)*1.1<VOL,LOW,'注');//
 表示连续两日收阴并且成交量比前一日至少多10%时，在最低价上写"注"字。
 例2：
 DRAWTEXT(L<=LLV(L,10),LOW,'新低'),ALIGN0,FONTSIZE16,COLORRED;//表示当根k线创10周期新低时，在最低价写"新低"字，文字左对齐，字体大小为16，文字颜色为红色。
@@ -5188,11 +5197,11 @@ DRAWTEXT(L<=LLV(L,10),LOW,'新低'),ALIGN0,FONTSIZE16,COLORRED;//表示当根k�
 
 填充函数
 
-``` cpp 
+```pascal
 FILLRGN 条件满足时，填充某一区域。
 
 用法：
-FILLRGN(COND, DATA1, DATA2, COLOR); 
+FILLRGN(COND, DATA1, DATA2, COLOR);
 当条件COND满足时，以颜色COLOR填充DATA1及DATA2之间形成的区域。
 
 注：
@@ -5211,11 +5220,11 @@ FILLRGN(MA5>MA10,MA5,MA10,COLORRED);//表示MA5>MA10时以红色填充MA5和MA10
 
 填充函数
 
-``` cpp 
+```pascal
 FILLRGN1 条件满足时，填充某一区域。
 
 用法：
-FILLRGN1(COND, DATA1, DATA2); 
+FILLRGN1(COND, DATA1, DATA2);
 当条件COND满足时，填充DATA1及DATA2之间形成的区域。
 
 注：
@@ -5237,16 +5246,16 @@ FILLRGN1(MA5>MA10,MA5,MA10),COLORRED;//表示MA5>MA10时以红色填充MA5和MA1
 
 设置字体大小
 
-``` cpp 
+```pascal
 设置字体大小。
 用法：
 FONTSIZEX，X为8至72，表示字体由小到大。
 注：
 不支持将该函数直接定义为变量，即不支持下面的写法：A:FONTSIZE9;
 
-例1： 
+例1：
 DRAWTEXT(C>O,H,'阳线'),FONTSIZE10;//收盘价大于开盘价，则在K线最高价处以10的字体大小标注阳线。
-例2： 
+例2：
 DRAWTEXT(C<O,L,'阴线'),ALIGN0,VALIGN2,FONTSIZE30;//收盘价小于开盘价，则在K线最低价处以30的字体大小，居左居上标注阴线。
 ```
 
@@ -5254,7 +5263,7 @@ DRAWTEXT(C<O,L,'阴线'),ALIGN0,VALIGN2,FONTSIZE30;//收盘价小于开盘价，
 
 显示图标
 
-``` cpp 
+```pascal
 ICON函数 在k线图上，显示小图标。
 
 用法：ICON(TYPE,ICON);
@@ -5274,13 +5283,13 @@ CLOSE>OPEN,ICON(1,'ICO1');//表示K线收盘大于开盘时，在最高价上显
 
 ### KTEXT
 
-在K线附近标注文字
+在 K 线附近标注文字
 
-``` cpp 
+```pascal
 KTEXT函数 在k线上标注文字。
 
 用法：
-KTEXT(COND,POSITION,PRICE,LCR,COLOR,TEXT); 
+KTEXT(COND,POSITION,PRICE,LCR,COLOR,TEXT);
 当COND条件满足时,移动POSITION根K线,在PRICE位置书写COLOR色文字TEXT。LCR是文字占K线左(0)中(1)右(2)位置。
 
 注：
@@ -5300,7 +5309,7 @@ KTEXT(CROSS(C,MA5),-3,MA5,2,COLORRED,'买入');//在收盘价金叉5周期均线
 
 线型粗细控制
 
-``` cpp 
+```pascal
 添加线型粗细控制。
 用法：
 LINETHICK1  LINETHICK2————LINETHICK7 线型由细至粗。
@@ -5314,7 +5323,7 @@ LINETHICK1  LINETHICK2————LINETHICK7 线型由细至粗。
 
 不画线
 
-``` cpp 
+```pascal
 NODRAW 只显示返回数值，不画线。
 注：
 不支持将该函数直接定义为变量，即不支持下面的写法：A:NODRAW;
@@ -5327,7 +5336,7 @@ NODRAW 只显示返回数值，不画线。
 
 不显示数值
 
-``` cpp 
+```pascal
 NOTEXT 只显示画线，不显示数值。
 
 注：
@@ -5341,11 +5350,11 @@ NOTEXT 只显示画线，不显示数值。
 
 画线段
 
-``` cpp 
+```pascal
 PARTLINE 画线段。
 
 用法：
-PARTLINE(COND, DATA, COLOR); 
+PARTLINE(COND, DATA, COLOR);
 条件COND满足时，以COLOR颜色的直线连接DATA各点
 
 注：
@@ -5365,7 +5374,7 @@ PARTLINE(LOW<REF(LOW,1),LOW,COLORBLUE),LINETHICK5;//表示当期最低价小于�
 
 画线段
 
-``` cpp 
+```pascal
 PARTLINE1 画线段。
 
 用法：
@@ -5388,7 +5397,7 @@ PARTLINE1(HIGH>REF(HIGH,1),HIGH),COLORRED,LINETHICK5;//表示当期最高价大�
 
 声音函数
 
-``` cpp 
+```pascal
 PLAYSOUND 条件满足时，播放指定声音。
 
 用法：
@@ -5410,7 +5419,7 @@ PLAYSOUND(CLOSE>OPEN,'A');表示CLOSE>OPEN时播放自定义声音'A'。
 
 画点线
 
-``` cpp 
+```pascal
 画点线。
 用法：
 POINTDOT 画点线。
@@ -5423,16 +5432,16 @@ POINTDOT 画点线。
 
 画折线
 
-``` cpp 
+```pascal
 POLYLINE函数 画折线。
 
 用法：
-POLYLINE(COND,DATA,COLOR); 
+POLYLINE(COND,DATA,COLOR);
 条件COND满足时，用颜色COLOR的折线连接DATA的值。
 
 注：
 1、该函数是将满足条件的DATA以折线形式连接起来，连线连续
-2、该函数支持在函数后设置线型（LINETHICK1 - LINETHICK7、POINTDOT、DOT），即支持下面的写法：POLYLINE(COND,DATA,COLOR),LINETHICK; 
+2、该函数支持在函数后设置线型（LINETHICK1 - LINETHICK7、POINTDOT、DOT），即支持下面的写法：POLYLINE(COND,DATA,COLOR),LINETHICK;
 3、不支持将该函数定义为变量，即不支持下面的写法：
 A:POLYLINE(COND,DATA,COLOR);
 
@@ -5447,11 +5456,11 @@ POLYLINE(CLOSE<=LLV(CLOSE,10),CLOSE,COLORBLUE),LINETHICK7;//表示在收盘价�
 
 画折线
 
-``` cpp 
+```pascal
 POLYLINE1 画折线。
 
 用法：
-POLYLINE1(COND,DATA); 
+POLYLINE1(COND,DATA);
 条件COND满足时，用折线连接DATA的值。
 
 注：
@@ -5474,14 +5483,14 @@ POLYLINE1(CLOSE<=LLV(CLOSE,10),CLOSE),COLORBLUE,LINETHICK7;//表示在收盘价�
 
 指定数值的输出精度（小数位数）
 
-``` cpp 
+```pascal
 指定数值的输出精度（小数位数）。
 用法：
 PRECISX，X为0至6，表示小数位数从0到6。
 注：
 不支持将该函数直接定义为变量，即不支持下面的写法：A:PRECIS0;
 
-例1： 
+例1：
 MA(C,5),PRECIS4;//计算五周期均线，数值精度为4位小数。
 ```
 
@@ -5489,7 +5498,7 @@ MA(C,5),PRECIS4;//计算五周期均线，数值精度为4位小数。
 
 设置小数位数
 
-``` cpp 
+```pascal
 PRECISION(N) 设置小数位数，N为位数范
 
 注：
@@ -5506,7 +5515,7 @@ C,PRECISION(PRICEPRECISION); //返回收盘价，设置小数点位数为当前�
 
 取当前合约小数点位数
 
-``` cpp 
+```pascal
 PRICEPRECISION 取当前合约小数点位数
 
 用法：
@@ -5520,7 +5529,7 @@ C,PRECISION(PRICEPRECISION); //返回收盘价，设置小数点位数为当前�
 
 取指定合约设置的小数点位数
 
-``` cpp 
+```pascal
 PRICEPRECISION1('CODE') 取指定合约设置的小数点位数
 
 注：
@@ -5535,7 +5544,7 @@ C,PRECISION(PRICEPRECISION1('8608')); //返回收盘价，设置小数点位数�
 
 设定指标参考线
 
-``` cpp 
+```pascal
 设定指标参考线。
 
 用法：
@@ -5557,7 +5566,7 @@ REFLINE:-100,0,100;//在-100,0,100的位置画出指标参考线。
 
 设定指标参考线
 
-``` cpp 
+```pascal
 设定指标参考线。
 
 用法：
@@ -5579,7 +5588,7 @@ REFLINE1:-100,0,100;//在-100,0,100的位置画出指标参考线。
 
 线型的粗细和颜色控制
 
-``` cpp 
+```pascal
 SETSTYLECOLOR函数 设置线型的粗细和颜色。
 
 用法：
@@ -5600,7 +5609,7 @@ SETSTYLECOLOR(STYLE,COLOR);
 
 实心显示
 
-``` cpp 
+```pascal
 SOLID 实心显示。
 
 用法：
@@ -5617,7 +5626,7 @@ VOL,VOLUMESTICK,SOLID;//画成交量柱状线，柱线实心显示。
 
 播放声音
 
-``` cpp 
+```pascal
 SOUND 播放声音。
 
 用法：SOUND(NAME)，播放NAME
@@ -5637,14 +5646,14 @@ CLOSE>OPEN,SOUND('A');表示K线收盘大于开盘时，播放声音"A"
 
 画指定粗细的柱线
 
-``` cpp 
+```pascal
 STICK(COND,P1,P2,N,COLOR,Empty);画不同粗细的柱线
 用法：当满足COND时，在P1与P2之间画一条粗细为N、颜色为COLOR的柱状图；若Empty不为0，则为空心柱；Empty为 0，则为实心柱。。用法和STICKLINE函数类似。
 注：
 1、参数N取值在0~9之间，为3时和主图K线宽度一致；
 2、不支持将该函数直接定义为变量，即不支持下面的写法：A:STICK(OPEN-CLOSE>0,OPEN,CLOSE,3,COLORCYAN,0);
 
-例1： 
+例1：
 STICK(OPEN-CLOSE>0,OPEN,CLOSE,3,COLORCYAN,0);//表示当开盘价大于收盘价时，从开盘价到收盘价画宽度为3的青色的实心柱，即K线阴线的实体部分。
 ```
 
@@ -5652,11 +5661,11 @@ STICK(OPEN-CLOSE>0,OPEN,CLOSE,3,COLORCYAN,0);//表示当开盘价大于收盘价
 
 画柱线
 
-``` cpp 
+```pascal
 STICKLINE 在图形上画柱线。
 
 用法：
-STICKLINE(COND,P1,P2,Color,Empty); 
+STICKLINE(COND,P1,P2,Color,Empty);
 当COND条件满足时，从P1到P2画柱,颜色为Color。若Empty不为0，则为空心柱；Empty为0，则为实心柱，其中Empty不支持设置为变量。
 
 注：
@@ -5671,11 +5680,11 @@ STICKLINE(OPEN-CLOSE>0,OPEN,CLOSE,COLORCYAN,0);//表示当开盘价大于收盘�
 
 画柱线
 
-``` cpp 
+```pascal
 STICKLINE1 在图形上画柱线。
 
 用法：
-STICKLINE1(COND,P1,P2,Width,Empty); 
+STICKLINE1(COND,P1,P2,Width,Empty);
 当COND条件满足时，从P1到P2画柱,宽度为Width。若Empty不为0，则为空心柱；Empty为0，则为实心柱。
 
 注：
@@ -5692,7 +5701,7 @@ STICKLINE1(OPEN-CLOSE>0,OPEN,CLOSE,4,0),COLORCYAN;//表示当开盘价大于收�
 
 设置文字对齐方式（上中下）
 
-``` cpp 
+```pascal
 设置文字对齐方式（上中下）。
 
 用法：DRAWTEXT(COND,PRICE,TEXT),VALIGNX;
@@ -5707,11 +5716,11 @@ DRAWTEXT(C>O,H,'涨'),ALIGN1,VALIGN1,FONTSIZE20,COLORGREEN;//在阳线的最高�
 
 画垂直线
 
-``` cpp 
+```pascal
 VERTLINE 画垂直线。
 
 用法：
-VERTLINE(COND,COLOR); 
+VERTLINE(COND,COLOR);
 条件COND满足时，以颜色COLOR画垂直线。
 
 注：
@@ -5731,11 +5740,11 @@ VERTLINE(LOW<=LLV(LOW,30),COLORBLUE),LINETHICK3;//表示在价格创30天新低�
 
 画垂直线
 
-``` cpp 
+```pascal
 VERTLINE1 画垂直线。
 
 用法：
-VERTLINE1(COND); 
+VERTLINE1(COND);
 条件COND满足时，画垂直线。
 
 注：
@@ -5755,7 +5764,7 @@ VERTLINE1(LOW<=LLV(LOW,30)),COLORBLUE,LINETHICK3;//表示在价格创30天新低
 
 画柱线
 
-``` cpp 
+```pascal
 VOLSTICK 画柱线，K线为阳线画红色空心柱，K线为阴线画青色实心柱。
 
 注：
@@ -5774,7 +5783,7 @@ VOL,VOLSTICK,SOLID;//画成交量柱状线，柱线实心显示。
 
 画柱线
 
-``` cpp 
+```pascal
 VOLUMESTICK 画柱线，K线为阳线画红色空心柱，K线为阴线画青色实心柱。
 
 注：
@@ -5793,7 +5802,7 @@ VOL,VOLUMESTICK,SOLID;//画成交量柱状线，柱线实心显示。
 
 显示文字
 
-``` cpp 
+```pascal
 WORD,显示文字。
 
 用法：WORD(TYPE,TEXT) 当TYPE为1，则在K线最高价位置书写文字TEXT；不为1则在最低价位置书写文字TEXT。
@@ -5808,11 +5817,12 @@ CLOSE>OPEN,WORD(1,'阳'),ALIGN0,VALIGN0,FONTSIZE54,COLORRED;//表示K线收盘�
 ```
 
 ## 未来函数
+
 ### BACKSET
 
 向前赋值
 
-``` cpp 
+```pascal
 BACKSET将当前位置到若干周期前的数据设为1。
 
 用法：
@@ -5820,7 +5830,7 @@ BACKSET(X,N),若X非0,则将包含当前位置在内的一共N周期的数值设
 
 注：
 1、N包含当前k线。
-2、当N为有效值，但当前的k线数不足N根，按照实际的根数计算； 
+2、当N为有效值，但当前的k线数不足N根，按照实际的根数计算；
 3、N为0或空值的情况下，返回空值。
 4、N可以为变量
 5、该函数不支持与指令连用（即该函数不支持与BK\SK\BP\SP\BPK\SPK\CLOSEOUT\STOP\STOP1出现在同一个模型里）
@@ -5832,9 +5842,9 @@ BACKSET(X,N),若X非0,则将包含当前位置在内的一共N周期的数值设
 
 ### PEAK
 
-取之字转向的前M个波峰的值
+取之字转向的前 M 个波峰的值
 
-``` cpp 
+```pascal
 PEAK 取之字转向的前M个波峰的值。
 用法：
 
@@ -5849,11 +5859,11 @@ PEAK(X,P,M,C) X满足条件P形成之字转向的前M个波峰的值。C是标�
 
 ### PEAKBARS
 
-取之字转向的前M个波峰的位置
+取之字转向的前 M 个波峰的位置
 
-``` cpp 
+```pascal
 PEAKBARS取之字转向的前M个波峰的位置。
- 
+
 用法：
 PEAKBARS(X,P,M,C) 取得X满足条件P形成之字转向的前M个波峰的位置。C是标记量，取1表示P是百分比数值；取0表示P是绝对数值。
 
@@ -5886,7 +5896,7 @@ DRAWTRENDLINE(M1=0,T1,M1=0,T1,COLORGREEN);
 
 向后引用
 
-``` cpp 
+```pascal
 REFX引用后N个周期的数据。
 
 用法：
@@ -5906,7 +5916,7 @@ REFX(X,N)引用X在N个周期后的值。
 
 向后引用
 
-``` cpp 
+```pascal
 REFX1引用后N个周期的数据。
 
 用法：
@@ -5924,9 +5934,9 @@ REFX1(X,N)引用X在N个周期后的值，不足N周期取最后一根的值
 
 ### TROUGH
 
-取之字转向的前M个波谷的值
+取之字转向的前 M 个波谷的值
 
-``` cpp 
+```pascal
 TROUGH求之字转向的前M个波谷的值。
 
 用法：
@@ -5945,9 +5955,9 @@ TROUGH (MA(LOW,34),100,1,0);表示34个周期内最低价均线的100个价位�
 
 ### TROUGHBARS
 
-取之字转向的前M个波谷的位置
+取之字转向的前 M 个波谷的位置
 
-``` cpp 
+```pascal
 TROUGHBARS 求之字转向的前M个波谷的位置。
 
 用法：
@@ -5966,9 +5976,9 @@ TROUGHBARS (MA(LOW,34),100,1,0);表示34个周期内最低价均线的100个价�
 
 ### WAVEPEAK
 
-判断K线图波峰
+判断 K 线图波峰
 
-``` cpp 
+```pascal
 WAVEPEAK函数 返回K线图波峰位置。
 
 用法：
@@ -6001,7 +6011,7 @@ HH:=VALUEWHEN(WAVEPEAK(5),H);//取满足最高价大于前后5根k线最高价k�
 
 判断变量的波峰
 
-``` cpp 
+```pascal
 WAVEPEAK1(DATA, N)判断当前K线是否为DATA变量的波峰位置。
 
 用法：
@@ -6031,9 +6041,9 @@ HH:=VALUEWHEN(WAVEPEAK1(H,5),H);//取满足最高价大于前后5根k线最高�
 
 ### WAVEVALLEY
 
-判断K线图波谷
+判断 K 线图波谷
 
-``` cpp 
+```pascal
 WAVEVALLEY函数 返回K线图波谷位置。
 
 用法：
@@ -6067,7 +6077,7 @@ DRAWTEXT(TMP1,L,'底背离');
 
 判断变量的波谷
 
-``` cpp 
+```pascal
 WAVEVALLEY1(DATA, N)函数 判断当前K线是否为DATA变量的波谷位置。
 
 用法：
@@ -6100,7 +6110,7 @@ LL:=VALUEWHEN(WAVEVALLEY1(L,5),L);//取满足最低价小于前后5根k线最低
 
 之字转向
 
-``` cpp 
+```pascal
 ZIGZAG 求之字转向。
 
 用法：
@@ -6128,11 +6138,12 @@ ZIGZAG(MA(HIGH,34),100,0);//表示34个周期内最高价均线的100个价位�
 ```
 
 ## 计算控制函数
+
 ### AUTOFILTER
 
 启用一开一平信号过滤机制
 
-``` cpp 
+```pascal
 AUTOFILTER 启用一开一平信号过滤机制。
 
 用法：
@@ -6157,8 +6168,8 @@ AUTOFILTER; //启用一开一平信号过滤机制
 
 启用按需自动入金方式
 
-``` cpp 
-AUTOFINANCING 启用按需自动入金方式 
+```pascal
+AUTOFINANCING 启用按需自动入金方式
 
 用法：模型中含有AUTOFINANCING函数，则启用按需自动入金方式。
 
@@ -6185,7 +6196,7 @@ AUTOFINANCING;//启用自动入金方式
 
 公式条件单模型关键字
 
-``` cpp 
+```pascal
 公式条件单模型关键字
 
 用法：
@@ -6205,7 +6216,7 @@ CONDITION_ORDER;//公式条件单关键字
 
 公式条件单模型关键字
 
-``` cpp 
+```pascal
 公式条件单模型关键字
 
 用法：
@@ -6227,7 +6238,7 @@ CONDITION_ORDER1;//公式条件单关键字
 
 日内交易函数
 
-``` cpp 
+```pascal
 DAYTRADE 日内交易函数。
 
 用法：
@@ -6256,7 +6267,7 @@ DAYTRADE;//只用日内数据进行计算
 
 日内交易函数
 
-``` cpp 
+```pascal
 DAYTRADE1 日内交易函数。
 
 用法：
@@ -6288,7 +6299,7 @@ DAYTRADE1;//只用日内数据进行计算
 
 月内交易函数
 
-``` cpp 
+```pascal
 MONTHTRADE 月内交易函数。
 
 用法：
@@ -6317,7 +6328,7 @@ MONTHTRADE;//使用每月数据计算
 
 月内交易函数
 
-``` cpp 
+```pascal
 MONTHTRADE1 月内交易函数。
 
 用法：
@@ -6346,7 +6357,7 @@ MONTHTRADE1;//使用每月数据计算
 
 季内交易函数
 
-``` cpp 
+```pascal
 QUARTERTRADE 季内交易函数。
 
 用法：
@@ -6375,7 +6386,7 @@ QUARTERTRADE;//使用每季度数据计算
 
 季内交易函数
 
-``` cpp 
+```pascal
 QUARTERTRADE1 季内交易函数。
 
 用法：
@@ -6404,7 +6415,7 @@ QUARTERTRADE1;//使用每季度数据计算
 
 限制信号函数
 
-``` cpp 
+```pascal
 TRADE_AGAIN(N) 同一指令行可以连续出N个信号。
 
 用法：
@@ -6426,7 +6437,7 @@ TRADE_AGAIN(3);//同一指令行可以连续执行3次（如果连续三根阳�
 
 周内交易函数
 
-``` cpp 
+```pascal
 WEEKTRADE 周内交易函数。
 
 用法：
@@ -6455,7 +6466,7 @@ WEEKTRADE;//使用每周数据计算
 
 周内交易函数
 
-``` cpp 
+```pascal
 WEEKTRADE1 周内交易函数。
 
 用法：
@@ -6487,7 +6498,7 @@ WEEKTRADE1;//只用周内数据进行计算
 
 年内交易函数
 
-``` cpp 
+```pascal
 YEARTRADE 年内交易函数。
 
 用法：
@@ -6516,7 +6527,7 @@ YEARTRADE;//使用每年数据计算
 
 年内交易函数
 
-``` cpp 
+```pascal
 YEARTRADE1 年内交易函数。
 
 用法：
@@ -6542,11 +6553,12 @@ YEARTRADE1;//使用每年数据计算
 ```
 
 ## 信号记录函数
+
 ### AVAILABLE_OPI
 
 可用手数
 
-``` cpp 
+```pascal
 AVAILABLE_OPI 可用手数
 
 用法：
@@ -6567,7 +6579,7 @@ AVAILABLE_OPI>0&&CROSSDOWN(MA5,MA10),SP(AVAILABLE_OPI);//当前可用手数大�
 
 上一次买开信号位置
 
-``` cpp 
+```pascal
 BARSBK 上一次买开信号位置
 
 用法：
@@ -6592,7 +6604,7 @@ BARSBK返回值为上一个BK信号距离当前的K线根数（包含当前K线�
 AA:IFELSE(BARSBK>=1,HHV(H,BARSBK+1),H);
 （1）当根K线出现BK信号，BARSBK返回为空值，不满足BARSBK>=1的条件，则取值为当根K线的最高价H
 （2）发出BK信号之后K线BARSBK返回买开仓的K线距离当前K线的周期数，满足BARSBK>=1的条件，则取值为HHV(H,BARSBK+1)，即买开仓（包含开仓信号出现的当根k线）到当前的最高价的最大值。
-修改后如果平仓条件中用到了AA的值，当根K线满足了平仓条件，可以出现平仓信号 
+修改后如果平仓条件中用到了AA的值，当根K线满足了平仓条件，可以出现平仓信号
 3、AA:IFELSE(BARSBK>=1,REF(C,BARSBK),C);//取最近一次买开仓K线的收盘价
 （1）发出BK信号的当根k线BARSBK返回空值,则当根K线不满足BARSBK>=1的条件，AA返回当根k线的收盘价；
 （2）发出BK信号之后的k线BARSBK返回买开仓的K线距离当前K线的周期数，则AA返回REF(C,BARSBK)，即开仓k线的收盘价；
@@ -6603,7 +6615,7 @@ AA:IFELSE(BARSBK>=1,HHV(H,BARSBK+1),H);
 
 上一次买平信号位置
 
-``` cpp 
+```pascal
 BARSBP 上一次买平信号位置
 
 用法：
@@ -6621,12 +6633,12 @@ BARSBP返回值为上一个BP信号距离当前的K线根数（包含当前K线�
 （3）设置信号执行方式为K线走完复核（例如：在模型中写入CHECKSIG(BP,'A',N,'D',0,0);）
 BARSBP返回值为上一个BP信号距离当前的K线根数（包含当前K线）
 
-例： 
-1、BARSBP>10,BK;//上一次买平仓（不包含出现买平信号的那根K线）距离当前K线的周期数大于10，买开。 
-2、AA:HHV(H,BARSBP+1);//上一次买平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。 
+例：
+1、BARSBP>10,BK;//上一次买平仓（不包含出现买平信号的那根K线）距离当前K线的周期数大于10，买开。
+2、AA:HHV(H,BARSBP+1);//上一次买平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。
 当根K线出现BP信号，AA返回为空值，如果需要返回当根K线上最高价，模型需要修改为:
 AA:IFELSE(BARSBP>=1,HHV(H,BARSBP+1),H);
-（1）当根K线出现BP信号，BARSBP返回为空值，不满足BARSBP>=1的条件，则取值为当根K线的最高价H 
+（1）当根K线出现BP信号，BARSBP返回为空值，不满足BARSBP>=1的条件，则取值为当根K线的最高价H
 （2）发出BP信号之后K线BARSBP返回买平仓的K线距离当前K线的周期数，满足BARSBP>=1的条件，则取值为HHV(H,BARSBP+1)，即买平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。
 3、AA:IFELSE(BARSBP>=1,REF(C,BARSBP),C);//取最近一次买平仓K线的收盘价
 （1）发出BP信号的当根k线BARSBP返回空值,则当根K线不满足BARSBP>=1的条件，AA返回当根k线的收盘价；
@@ -6638,7 +6650,7 @@ AA:IFELSE(BARSBP>=1,HHV(H,BARSBP+1),H);
 
 上一次卖开信号位置
 
-``` cpp 
+```pascal
 BARSSK 上一次卖开信号位置
 
 用法：
@@ -6674,7 +6686,7 @@ AA:IFELSE(BARSSK>=1,LLV(L,BARSSK+1),L);
 
 上一次卖平信号位置
 
-``` cpp 
+```pascal
 BARSSP 上一次卖平信号位置
 
 用法：
@@ -6694,12 +6706,12 @@ BARSSP返回值为上一个SP信号距离当前的K线根数（包含当前K线�
 
 例：
 1、BARSSP>10,BK;//上一次卖平仓（不包含出现卖平信号的那根K线）距离当前K线的周期数大于10，买开。
-2、AA:HHV(H,BARSSP+1);//上一次，卖平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。 
+2、AA:HHV(H,BARSSP+1);//上一次，卖平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。
 当根K线出现SP信号，AA返回为空值，如果需要返回当根K线上最高价，模型需要修改为:
-AA:IFELSE(BARSSP>=1,HHV(H,BARSSP+1),H); 
-（1）当根K线出现SP信号，BARSSP返回为空值，不满足BARSSP>=1的条件，则取值为当根K线的最高价H 
+AA:IFELSE(BARSSP>=1,HHV(H,BARSSP+1),H);
+（1）当根K线出现SP信号，BARSSP返回为空值，不满足BARSSP>=1的条件，则取值为当根K线的最高价H
 （2）发出SP信号之后K线BARSSP返回买平仓的K线距离当前K线的周期数，满足BARSSP>=1的条件，则取值为HHV(H,BARSSP+1)，即卖平仓（包含平仓信号出现的当根k线）到当前的最高价的最大值。
-3、AA:IFELSE(BARSSP>=1,REF(C,BARSSP),C);//取最近一次卖平仓K线的收盘价 
+3、AA:IFELSE(BARSSP>=1,REF(C,BARSSP),C);//取最近一次卖平仓K线的收盘价
 （1）发出SP信号的当根k线BARSSP返回空值,则当根K线不满足BARSSP>=1的条件，AA返回当根k线的收盘价；
 （2）发出SP信号之后的k线BARSSP返回卖平仓的K线距离当前K线的周期数，则AA返回REF(C,BARSSP)，即平仓k线的收盘价；
 （3）1、2、3三根k线，1 K线为平仓信号的当根k线，则返回当根k线的收盘价，2、3 K线AA返回值为 1 K线的收盘价
@@ -6709,7 +6721,7 @@ AA:IFELSE(BARSSP>=1,HHV(H,BARSSP+1),H);
 
 返回数据合约买开仓以来的最高价
 
-``` cpp 
+```pascal
 返回数据合约买开仓以来的最高价
 用法：
 BKHIGH返回数据合约最近一次模型买开位置到当前的最高价。
@@ -6735,7 +6747,7 @@ AUTOFILTER;//最新价低于买开仓以来的数据合约最高价5个点，止
 
 返回数据合约买开仓以来的最低价
 
-``` cpp 
+```pascal
 返回数据合约买开仓以来的最低价
 用法：
 BKLOW返回数据合约最近一次模型买开位置到当前的最低价。
@@ -6761,7 +6773,7 @@ AUTOFILTER;//最新价高于买开仓以来数据合约的最低价5个点，平
 
 返回数据合约最近一次买开信号价位
 
-``` cpp 
+```pascal
 BKPRICE 返回数据合约最近一次买开信号价位。
 
 用法：
@@ -6792,7 +6804,7 @@ BKPRICE-CLOSE>60 && BKPRICE>0 && BKVOL>0, SP;//如果买开价位比当前价位
 
 返回交易合约最近一次买开信号价位
 
-``` cpp 
+```pascal
 BKPRICE1 返回交易合约最近一次买开信号价位。
 
 用法：
@@ -6818,7 +6830,7 @@ b.模组运行：复核前，返回上一次BK信号当根K线交易合约的行
 
 返回数据合约多头开仓均价
 
-``` cpp 
+```pascal
 BKPRICEAV 返回数据合约多头开仓均价。
 
 用法：
@@ -6845,7 +6857,7 @@ CLOSE-BKPRICEAV>60,SP(BKVOL);//当前价位比多头开仓均价高出60,平掉�
 
 返回交易合约多头开仓均价
 
-``` cpp 
+```pascal
 BKPRICEAV1 返回交易合约多头开仓均价
 
 用法：
@@ -6872,7 +6884,7 @@ CLOSE-BKPRICEAV1>60,SP(BKVOL);//当前价位比交易合约多头开仓均价高
 
 买开信号手数
 
-``` cpp 
+```pascal
 买开信号手数
 用法：
 BKVOL返回模型当前的多头理论持仓。
@@ -6894,7 +6906,7 @@ BKVOL>0&&L<REF(L,5),SP(BKVOL); //多头持仓大于0，并且当根K线的最低
 
 买开信号手数
 
-``` cpp 
+```pascal
 买开信号手数
 用法：
 BKVOL2返回模型当前的多头持仓。
@@ -6914,9 +6926,9 @@ BKVOL2>0&&L<REF(L,5),SP(BKVOL2); //多头持仓大于0，并且当根K线的最�
 
 ### COUNTSIG
 
-统计N周期内，X信号的数量
+统计 N 周期内，X 信号的数量
 
-``` cpp 
+```pascal
 COUNTSIG(X,N); 统计N周期内，X信号的数量；
 
 用法：
@@ -6924,7 +6936,7 @@ X可以为BK、SK、SP、BP、SPK、BPK、CLOSEOUT、STOP
 
 注：
 1、统计周期时，
-（1）包含当前k线； 
+（1）包含当前k线；
 （2）若N为0则从第一个有效值算起；
 （3）当N为有效值，但当前的k线数不足N根，从第一根统计到当前周期。
 （4）N 为空值时返回值为空值 。
@@ -6943,9 +6955,9 @@ BKN=0&&C>MA5,BK;//当日内日未出现过BK信号并且最新价大于5周期�
 
 ### ENTRYSIG_PLACE
 
-取指定开仓信号的K线位置
+取指定开仓信号的 K 线位置
 
-``` cpp 
+```pascal
 ENTRYSIG_PLACE(N) 取一次完整交易中第N个开仓信号所在K线的位置。
 
 用法：ENTRYSIG_PLACE(N) 取一次完整交易中第N个开仓信号所在K线的位置。如果没有开仓信号，则该函数返回空值。
@@ -6966,7 +6978,7 @@ ENTRYSIG_PLACE(3)=5&&BKVOL>0,SP;//如果第3个开仓信号所在K线距离当�
 
 取指定开仓信号的价格
 
-``` cpp 
+```pascal
 ENTRYSIG_PRICE(N) 取一次完整交易中第N个开仓信号的价格。
 
 用法：ENTRYSIG_PRICE(N) 取一次完整交易中第N个开仓信号的价格。如果没有开仓信号，则该函数返回空值。
@@ -6989,7 +7001,7 @@ ENTRYSIG_PRICE(3)=3000&&BKVOL>0,SP;//如果第3个固定的开仓信号的开仓
 
 取指定开仓信号的信号手数
 
-``` cpp 
+```pascal
 ENTRYSIG_VOL(N) 取一次完整交易中第N个开仓信号的信号手数。
 
 用法：ENTRYSIG_VOL(N) 取一次完整交易中第N个开仓信号的信号手数。如果没有开仓信号，则该函数返回空值。
@@ -7009,9 +7021,9 @@ ENTRYSIG_PRICE(3)=3000&&ENTRYSIG_VOL(3)>2,SP;//如果第3个固定的开仓信�
 
 ### EXITSIG_PLACE
 
-取指定平仓信号的K线位置
+取指定平仓信号的 K 线位置
 
-``` cpp 
+```pascal
 EXITSIG_PLACE(N) 取一次完整交易中第N个平仓信号所在K线的位置。
 
 用法：EXITSIG_PLACE(N) 取一次完整交易中第N个平仓信号所在K线的位置。如果没有平仓信号，则该函数返回空值。
@@ -7032,7 +7044,7 @@ EXITSIG_PLACE(3)=5&&BKVOL<=0,BK;//如果第3个平仓信号所在K线距离当�
 
 取指定平仓信号的价格
 
-``` cpp 
+```pascal
 EXITSIG_PRICE(N) 取一次完整交易中第N个平仓信号的价格。
 
 用法：EXITSIG_PRICE(N) 取一次完整交易中第N个平仓信号的价格。如果没有平仓信号，则该函数返回空值。
@@ -7055,7 +7067,7 @@ EXITSIG_PRICE(3)=3000&&BKVOL>0,SP;//如果第3个固定的平仓信号的平仓�
 
 取指定平仓信号的信号手数
 
-``` cpp 
+```pascal
 EXITSIG_VOL(N) 取一次完整交易中第N个平仓信号的信号手数。
 
 用法：EXITSIG_VOL(N) 取一次完整交易中第N个平仓信号的信号手数。如果没有平仓信号，则该函数返回空值。
@@ -7077,7 +7089,7 @@ EXITSIG_PRICE(3)=3000&&EXITSIG_VOL(3)>2,BK;//如果第3个固定的平仓信号�
 
 判断分组的组别
 
-``` cpp 
+```pascal
 GROUP('group') 判断分组的组别。
 
 注：
@@ -7095,7 +7107,7 @@ LASTSIG=200&&LASTSIGGROUP=GROUP('B'),SP('B',BKVOL);//上一个信号是B组的BK
 
 指令分组模型买开信号手数
 
-``` cpp 
+```pascal
 GROUPBKVOL('letter') 取指令分组模型letter组的买开信号手数。
 
 用法：
@@ -7120,7 +7132,7 @@ C<O,SP('B',GROUPBKVOL('B'));//K线收阴线，卖平所有的B组多头持仓
 
 指令分组模型卖开信号手数
 
-``` cpp 
+```pascal
 GROUPSKVOL('letter') 取指令分组模型letter组的卖开信号手数。
 
 用法：
@@ -7145,7 +7157,7 @@ C>O,BP('B',GROUPSKVOL('B')); //K线收阳线，买平所有的B组空头持仓
 
 指令分组模型相应组别的最近一次买开信号价位
 
-``` cpp 
+```pascal
 GROUPBKPRICE('letter') 指令分组模型letter组最近一次买开信号价位。
 
 用法：
@@ -7160,7 +7172,7 @@ BB:GROUPBKPRICE('A');//给BB赋值为A组指令中最近一次买开信号价位
 
 指令分组模型相应组别的最近一次卖开信号价位
 
-``` cpp 
+```pascal
 GROUPSKPRICE('letter')  指令分组模型letter组最近一次卖开信号价位。
 
 用法：
@@ -7173,9 +7185,9 @@ SS:GROUPSKPRICE('B');//给SS赋值为B组指令中最近一次卖开信号价位
 
 ### ISLASTBK
 
-判断上一个信号是否是BK
+判断上一个信号是否是 BK
 
-``` cpp 
+```pascal
 ISLASTBK 判断上一个交易信号是否是BK。
 
 用法：
@@ -7195,9 +7207,9 @@ AUTOFILTER;//上一个信号是BK信号，且最新价大于开仓价格，卖�
 
 ### ISLASTSK
 
-判断上一个信号是否是SK
+判断上一个信号是否是 SK
 
-``` cpp 
+```pascal
 ISLASTSK 判断上一个交易信号是否是SK。
 
 用法：
@@ -7217,9 +7229,9 @@ AUTOFILTER;//上一个信号是SK信号，且最新价小于开仓价格，买�
 
 ### ISLASTSTOP
 
-判断上一个信号是否是STOP
+判断上一个信号是否是 STOP
 
-``` cpp 
+```pascal
 ISLASTSTOP 判断上一个交易信号是否是STOP。
 
 用法：
@@ -7235,9 +7247,9 @@ ISLASTSTOP&&CROSS(C,MA(C,10)),BK(1);//上一个信号是STOP信号，且价格�
 
 ### ISLASTBP
 
-判断上一个信号是否是BP
+判断上一个信号是否是 BP
 
-``` cpp 
+```pascal
 ISLASTBP 判断上一个交易信号是否是BP。
 
 用法：
@@ -7255,9 +7267,9 @@ ISLASTBP,BP(1);//上一个信号是买平仓信号，则减仓一手
 
 ### ISLASTSP
 
-判断上一个信号是否是SP
+判断上一个信号是否是 SP
 
-``` cpp 
+```pascal
 ISLASTSP判断上一个交易信号是否是SP。
 
 用法：
@@ -7275,9 +7287,9 @@ ISLASTSP,SP(1);//上一个信号是卖平仓信号，则减仓一手
 
 ### ISLASTBPK
 
-判断上一个信号是否是BPK
+判断上一个信号是否是 BPK
 
-``` cpp 
+```pascal
 ISLASTBPK判断上一个交易信号是否是BPK。
 
 用法：
@@ -7297,9 +7309,9 @@ AUTOFILTER;//上一个信号是BPK信号，则反手SPK
 
 ### ISLASTSPK
 
-判断上一个信号是否是SPK
+判断上一个信号是否是 SPK
 
-``` cpp 
+```pascal
 ISLASTSPK判断上一个交易信号是否是SPK。
 
 用法：
@@ -7319,9 +7331,9 @@ AUTOFILTER;//上一个信号是SPK信号，则反手BPK
 
 ### ISLASTCLOSEOUT
 
-判断上一个信号是否是CLOSEOUT
+判断上一个信号是否是 CLOSEOUT
 
-``` cpp 
+```pascal
 ISLASTCLOSEOUT判断上一个信号是否CLOSEOUT 。
 
 用法：
@@ -7337,9 +7349,9 @@ ISLASTCLOSEOUT&&C>O,BK(1);//上一个信号是清仓信号，并且当根K线是
 
 ### KLINESIG
 
-判断当根K线上最后一个固定的信号
+判断当根 K 线上最后一个固定的信号
 
-``` cpp 
+```pascal
 KLINESIG 判断当根K线上最后一个固定的信号。
 
 用法：KLINESIG 判断当根K线上最后一个固定的信号。如果最后一根K线上没有信号，或者没有固定的信号，则该函数返回0。
@@ -7365,7 +7377,7 @@ KLINESIG=200&&BKVOL>0,SP;//如果最后一个固定的信号是BK信号，并且
 
 判断最近一个信号
 
-``` cpp 
+```pascal
 LASTSIG判断最近一个信号
 
 注：由BPK指令产生的BK信号按BPK信号处理，SPK指令产生的SK信号同理。
@@ -7386,7 +7398,7 @@ STOP:207;
 
 判断最近一个信号所在的分组
 
-``` cpp 
+```pascal
 LASTSIGGROUP 判断最近一个信号所在的分组。
 
 注：
@@ -7405,7 +7417,7 @@ LASTSIG=200&&LASTSIGGROUP=2,SP('B',BKVOL);//上一个信号是B组的BK信号，
 
 多头最大持仓手数
 
-``` cpp 
+```pascal
 MAXBKVOL 多头最大持仓手数
 
 用法：
@@ -7427,7 +7439,7 @@ MAXBKVOL=3,SP(BKVOL);//多头最大持仓手数为3时，卖平多头持仓
 
 空头最大持仓手数
 
-``` cpp 
+```pascal
 MAXSKVOL 空头最大持仓手数
 
 用法：
@@ -7447,9 +7459,9 @@ MAXSKVOL=3,BP(SKVOL);//空头最大持仓手数为3时，买平空头持仓
 
 ### REFSIG_PLACE
 
-判断指定信号的K线位置
+判断指定信号的 K 线位置
 
-``` cpp 
+```pascal
 REFSIG_PLACE(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号所在K线的位置。
 
 用法：REFSIG_PLACE(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号所在K线的位置。如果没有Sig信号，或者没有固定的Sig信号，则该函数返回空值。
@@ -7469,7 +7481,7 @@ REFSIG_PLACE(BK,3)=5&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固定�
 
 判断指定信号的信号价位
 
-``` cpp 
+```pascal
 REFSIG_PRICE(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的信号价位。
 
 用法：REFSIG_PRICE(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号的信号价位。如果没有Sig信号，或者没有固定的Sig信号，则该函数返回0。
@@ -7488,7 +7500,7 @@ REFSIG_PRICE(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固�
 
 判断指定信号的委托价格
 
-``` cpp 
+```pascal
 REFSIG_PRICE1(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的委托价格。
 
 用法：REFSIG_PRICE1(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号的委托价格。如果没有Sig信号，或者没有固定的Sig信号，则该函数返回0。
@@ -7513,7 +7525,7 @@ REFSIG_PRICE1(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固
 
 判断指定信号的成交价格
 
-``` cpp 
+```pascal
 REFSIG_PRICE2(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的成交价格。
 
 用法：REFSIG_PRICE2(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号的成交价格。如果没有Sig信号，或者没有固定的Sig信号，则该函数返回0。
@@ -7539,7 +7551,7 @@ REFSIG_PRICE2(BK,3)=3000&&BKVOL>0,SP;//如果从当根K线开始倒数第3个固
 
 判断指定信号的手数
 
-``` cpp 
+```pascal
 REFSIG_VOL(Sig,N) 返回从当根K线开始倒数第N个固定的Sig信号的信号手数(反手指令取开仓手数)。
 
 用法：REFSIG_VOL(Sig,N) 判断从当根K线开始倒数第N个固定的Sig信号的手数。如果没有Sig信号，或者没有固定的Sig信号，则该函数返回0。
@@ -7558,7 +7570,7 @@ REFSIG_PLACE(BK,3)=5&&REFSIG_VOL(BK,3)>2,SP(BKVOL);//如果从当根K线开始�
 
 定位一次交易过程中的信号位置
 
-``` cpp 
+```pascal
 SIGNUM，返回值为当前信号为一次交易过程中的第几个信号
 
 注：
@@ -7576,7 +7588,7 @@ TRADE_AGAIN(4);
 
 一次交易中指定信号的下单手数
 
-``` cpp 
+```pascal
 SIGVOL(N),返回一次交易中第N个信号的下单手数。
 
 注：
@@ -7601,7 +7613,7 @@ TRADE_AGAIN(10);
 
 返回数据合约卖开仓以来的最高价
 
-``` cpp 
+```pascal
 返回数据合约卖开仓以来的最高价
 用法：
 SKHIGH返回数据合约最近一次模型卖开位置到当前的最高价。
@@ -7627,7 +7639,7 @@ AUTOFILTER;//最新价低于卖开仓以来数据合约的最高价5个点，平
 
 返回数据合约卖开仓以来的最低价
 
-``` cpp 
+```pascal
 返回数据合约卖开仓以来的最低价
 用法：
 SKLOW返回数据合约最近一次模型卖开位置到当前的最低价。
@@ -7652,7 +7664,7 @@ AUTOFILTER;//最新价高于卖开仓以来数据合约的最低价5个点，止
 
 返回数据合约最近一次卖开信号价位
 
-``` cpp 
+```pascal
 SKPRICE 返回数据合约最近一次卖开信号价位。
 
 用法：
@@ -7683,7 +7695,7 @@ CLOSE-SKPRICE>60 && SKPRICE>0 && SKVOL>0, BP;//如果卖开价位比当前价位
 
 返回交易合约最近一次卖开信号价位
 
-``` cpp 
+```pascal
 SKPRICE1 返回交易合约最近一次卖开信号价位。
 
 用法：
@@ -7709,7 +7721,7 @@ SKPRICE1：返回交易合约最近一次卖开信号发出时的行情的最新
 
 返回数据合约空头开仓均价
 
-``` cpp 
+```pascal
 SKPRICEAV 返回数据合约空头开仓均价。
 
 用法：
@@ -7736,7 +7748,7 @@ SKPRICEAV-CLOSE>60,BP(SKVOL);//当前价位比空头开仓均价低出60,平掉�
 
 返回交易合约空头开仓均价
 
-``` cpp 
+```pascal
 SKPRICEAV1 返回交易合约空头开仓均价
 
 用法：
@@ -7763,7 +7775,7 @@ SKPRICEAV1-CLOSE>60,BP(SKVOL);//当前价位比交易合约空头开仓均价低
 
 卖开信号手数
 
-``` cpp 
+```pascal
 卖开信号手数
 用法：
 SKVOL返回模型当前的空头理论持仓。
@@ -7785,7 +7797,7 @@ SKVOL>0&&H>REF(H,5),BP(SKVOL); //空头持仓大于0，并且当根K线的最高
 
 卖开信号手数
 
-``` cpp 
+```pascal
 卖开信号手数
 用法：
 SKVOL2返回模型当前的空头持仓。
@@ -7804,11 +7816,12 @@ SKVOL2>0&&H<REF(H,5),BP(SKVOL2); //空头持仓大于0，并且当根K线的最�
 ```
 
 ## 信号执行函数
+
 ### CLOSEKLINE
 
-设置K线提前N秒走完
+设置 K 线提前 N 秒走完
 
-``` cpp 
+```pascal
 CLOSEKLINE(TYPE,N) 设置K线提前N秒走完，确认信号下单，K线走完进行复核
 
 用法：
@@ -7821,7 +7834,7 @@ A：如果提前确认信号下单后，不满足信号条件，在模组不关�
 B：休盘前最后N秒满足条件出现信号，在模组不关机连续运行的情况下，会在下根K线开盘立即下单。
 3、该函数回测报告中按收盘价计算价格，但含有该函数模型出的信号回测和盘中保持一致。
 4、该函数加载到页面盒子中，以收盘时间为结束时间的K线提前N秒确认信号下单，K线走完不进行信号复核。
-即：如果提前确认信号下单后，K线走完后不满足条件信号消失，也不进行信号消失处理 
+即：如果提前确认信号下单后，K线走完后不满足条件信号消失，也不进行信号消失处理
 5、N不支持变量，且N不能大于K线的总秒数。
 6、只有在休市开始时间和k线走完时间重合，此设置才起作用。例如：15分钟周期上，在10:15分k线走完时间和休市开始时间重合，10:15这根k线提前N秒走完。
 7、模型中不支持同时写入CLOSEKLINE和CLOSEKLINE_MIN函数。
@@ -7837,9 +7850,9 @@ AUTOFILTER;
 
 ### CLOSEKLINE_MIN
 
-设置K线提前N分钟走完
+设置 K 线提前 N 分钟走完
 
-``` cpp 
+```pascal
 CLOSEKLINE_MIN(TYPE,N) 设置K线提前N分钟走完，K线走完进行复核
 
 用法：
@@ -7870,7 +7883,7 @@ AUTOFILTER;
 
 设置模型中所有信号消失用相同委托方式进行处理
 
-``` cpp 
+```pascal
 SETALLLOSTSIGPRICETYPE(PRICE),设置模型中所有信号消失用相同委托方式进行处理
 
 用法：SETALLLOSTSIGPRICETYPE(PRICE),设置模型中所有信号消失处理的委托方式，PRICE为委托价格。
@@ -7910,7 +7923,7 @@ AUTOFILTER;
 
 设置模型中所有信号用相同委托方式
 
-``` cpp 
+```pascal
 SETALLSIGPRICETYPE(PRICE,IsCancel),设置模型中所有信号用相同委托方式。
 
 用法：SETALLSIGPRICETYPE(PRICE,IsCancel),设置模型中所有信号的委托方式，PRICE为委托价格，IsCancel为是否启用终止下单。
@@ -7956,7 +7969,7 @@ AUTOFILTER;
 
 不同的信号消失设置不同的委托方式
 
-``` cpp 
+```pascal
 SETLOSTSIGPRICETYPE(SIG,PRICE),不同的信号消失设置不同的委托方式。
 
 用法：SETLOSTSIGPRICETYPE(SIG,PRICE),设置SIG指令消失处理的委托方式，PRICE为委托价格。
@@ -7996,7 +8009,7 @@ AUTOFILTER;
 
 设置模组运行类型
 
-``` cpp 
+```pascal
 SETMODRUNTYPE 设置模组运行类型。
 
 用法：
@@ -8022,7 +8035,7 @@ AUTOFILTER;
 
 设置模组换月移仓的委托方式
 
-``` cpp 
+```pascal
 SETMOVEOPIPRICE(PRICE),设置模组换月移仓的委托方式。
 
 用法：SETMOVEOPIPRICE(PRICE)，模组中交易合约如果设置为主力合约（自动移仓），则主力合约切换时以PRICE的委托方式进行移仓。
@@ -8052,7 +8065,7 @@ AUTOFILTER;
 
 不同的信号设置不同的委托方式
 
-``` cpp 
+```pascal
 SETSIGPRICETYPE(SIG,PRICE,IsCancel),不同的信号设置不同的委托方式。
 
 用法：SETSIGPRICETYPE(SIG,PRICE1,IsCancel),设置SIG指令的委托方式，PRICE为委托价格，IsCancel为是否启用终止下单。
@@ -8099,9 +8112,9 @@ AUTOFILTER;
 
 ### T_PLUS
 
-设置开仓手数为默认手数的N倍
+设置开仓手数为默认手数的 N 倍
 
-``` cpp 
+```pascal
 T_PLUS 设置开仓手数为默认手数的N倍
 
 用法：COND,T_PLUS(N) 当条件满足时，一开一平信号过滤模型的开仓手数为默认手数*N倍。
@@ -8121,11 +8134,12 @@ AUTOFILTER;
 ```
 
 ## 模组头寸函数
+
 ### FEE
 
 手续费
 
-``` cpp 
+```pascal
 FEE手续费
 
 用法：FEE返回当前合约的手续费，用于模型中资金、手数相关计算。
@@ -8144,7 +8158,7 @@ K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓�
 
 模组初次加载时的起始资金
 
-``` cpp 
+```pascal
 INITMONEY 模组初次加载时的起始资金
 
 用法：INITMONEY 返回模组初次加载时的起始资金。
@@ -8164,7 +8178,7 @@ K:=INITMONEY*0.2/(C*MARGIN*UNIT+FEE); //模组子账户初始资金的20%可以�
 
 最近一次交易的平仓盈亏
 
-``` cpp 
+```pascal
 LASTOFFSETPROFIT 最近一次交易的平仓盈亏
 
 用法：LASTOFFSETPROFIT返回当前距当前K线最近一次交易的平仓盈亏，用于风险控制。
@@ -8187,7 +8201,7 @@ LASTOFFSETPROFIT<=-40 && C<BKPRICE-60,CLOSEOUT;//最近一次交易的亏损额�
 
 保证金
 
-``` cpp 
+```pascal
 MARGIN 保证金
 
 用法：MARGIN返回当前合约的保证金比率，用于模型中资金、手数相关计算。
@@ -8195,7 +8209,7 @@ MARGIN 保证金
 注：
 1、MARGIN返回值为小数
 2、主图加载、回测中，MARGIN取值为回测参数中，对保证金的设置
-3、模组子账户运行时MARGIN取值为模组子账户加载时保证金参数中保证金的设置 
+3、模组子账户运行时MARGIN取值为模组子账户加载时保证金参数中保证金的设置
 
 例：
 K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓的手数（此写法适用于按固定手数收取手续费的合约）
@@ -8205,7 +8219,7 @@ K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓�
 
 模组子账户可用资金
 
-``` cpp 
+```pascal
 MONEY 模组子账户可用资金
 
 用法：MONEY返回模组子账户可用资金，用于仓位、手数等计算。
@@ -8237,7 +8251,7 @@ K:=MONEY*0.2/(C*MARGIN*UNIT+FEE); //模组子账户可用资金的20%可以开�
 
 模组子账户资金使用率
 
-``` cpp 
+```pascal
 MONEYRATIO 模组子账户资金使用率
 
 用法：MONEYRATIO返回当前的模组子账户的资金使用率，模型进行资金管理控制仓位时使用。
@@ -8261,7 +8275,7 @@ A&&MONEYRATIO<0.3,BK;//A条件满足并资金使用率不超过30%时，买开�
 
 模组子账户实际权益
 
-``` cpp 
+```pascal
 MONEYREAL 模组子账户实际权益
 
 用法：MONEYREAL返回当前模组子账户实际权益，显示为模组的实际资金曲线
@@ -8283,7 +8297,7 @@ K:=MONEYREAL*0.2/(C*MARGIN*UNIT+FEE); //模组子账户实际权益的20%可以�
 
 模组子账户权益
 
-``` cpp 
+```pascal
 MONEYTOT 模组子账户权益
 
 用法：MONEYTOT返回当前模组子账户权益，模型进行仓位控制、下单手数等资金管理时使用
@@ -8310,7 +8324,7 @@ K:=MONEYTOT*0.2/(C*MARGIN*UNIT+FEE); //模组子账户权益的20%可以开仓�
 
 取下单手数
 
-``` cpp 
+```pascal
 MYVOL 取下单手数
 
 用法：取下单手数，多用于在加减仓模型加载多个合约的时候的手数计算。
@@ -8334,7 +8348,7 @@ C<O,SP(BKVOL);
 
 模组子账户的平仓盈亏
 
-``` cpp 
+```pascal
 OFFSETPROFIT 模组子账户的平仓盈亏
 
 用法：OFFSETPROFIT返回当前模组子账户的平仓盈亏，用于风险控制。
@@ -8357,7 +8371,7 @@ OFFSETPROFIT<-5000&&C>O,BK;//平仓盈亏大于-5000，并且当前K线为阳线
 
 累计平仓盈亏
 
-``` cpp 
+```pascal
 OFFSETPROFIT1 累计平仓盈亏
 
 用法：OFFSETPROFIT1返回加载的全部K线的累计平仓盈亏。
@@ -8380,7 +8394,7 @@ OFFSETPROFIT1<=-100,CLOSEOUT;//累计亏损大于100，清仓
 
 模组子账户逐笔浮盈
 
-``` cpp 
+```pascal
 PROFIT 模组子账户逐笔浮盈
 
 用法：PROFIT返回当前的模组子账户逐笔浮动盈亏，用于交易策略风险控制。
@@ -8409,7 +8423,7 @@ PROFIT<-2000,SP;//亏损2000元止损
 
 按模组子账户的理论资金比例下单
 
-``` cpp 
+```pascal
 SETDEALPERCENT 按模组子账户的理论资金比例下单
 
 用法：SETDEALPERCENT(fPercent)表示每次按模组子账户理论资金的fPercent比例下单。
@@ -8433,7 +8447,7 @@ SETDEALPERCENT(20); //每次按理论资金比例的20%下单
 
 判断平均盈亏额
 
-``` cpp 
+```pascal
 TAVWINLOSS 判断平均盈亏额
 
 注：
@@ -8457,7 +8471,7 @@ AUTOFILTER;
 
 判断平均盈利额
 
-``` cpp 
+```pascal
 TAVWIN 判断平均盈利额
 
 注：
@@ -8481,7 +8495,7 @@ AUTOFILTER;
 
 判断平均亏损额
 
-``` cpp 
+```pascal
 TAVLOSS 判断平均亏损额
 
 注：
@@ -8505,7 +8519,7 @@ AUTOFILTER;
 
 判断单次盈利最大额
 
-``` cpp 
+```pascal
 TMAXWIN 判断单次盈利最大额
 
 注：
@@ -8529,7 +8543,7 @@ AUTOFILTER;
 
 判断单次亏损最大额
 
-``` cpp 
+```pascal
 TMAXLOSS 判断单次亏损最大额
 
 注：
@@ -8553,7 +8567,7 @@ AUTOFILTER;
 
 判断连续亏损交易的最大次数
 
-``` cpp 
+```pascal
 TMAXSEQLOSS 判断连续亏损交易的最大次数。
 
 注：
@@ -8574,7 +8588,7 @@ TSEQLOSS>60||TMAXSEQLOSS>3,SP(BKVOL);//最大连续亏损额大于60时或最大
 
 判断连续赢利交易的最大次数
 
-``` cpp 
+```pascal
 TMAXSEQWIN 判断连续赢利交易的最大次数。
 
 注：
@@ -8595,7 +8609,7 @@ TSEQWIN>20||TMAXSEQWIN>3,BK(2);//最大连续赢利额大于20时或最大连续
 
 判断持续亏损的次数
 
-``` cpp 
+```pascal
 TNUMSEQLOSS 判断持续亏损的次数。
 
 注：
@@ -8616,7 +8630,7 @@ TNUMSEQLOSS>2,SP(BKVOL);//连续亏损的次数大于2时，平掉全部多头�
 
 判断持续赢利的次数
 
-``` cpp 
+```pascal
 TNUMSEQWIN 判断持续赢利的次数。
 
 注：
@@ -8637,7 +8651,7 @@ TNUMSEQWIN>=2,BK(1);//连续赢利的次数大于等于2次时，加仓一手
 
 判断当日平出次数
 
-``` cpp 
+```pascal
 TODAYDEUCETIMES 判断当日平出次数。
 
 注：
@@ -8658,7 +8672,7 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 
 判断当日亏损次数
 
-``` cpp 
+```pascal
 TODAYLOSSTIMES 判断当日亏损次数。
 
 注：
@@ -8679,7 +8693,7 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 
 判断当日赢利次数
 
-``` cpp 
+```pascal
 TODAYWINTIMES 判断当日赢利次数。
 
 注：
@@ -8699,9 +8713,9 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 
 ### TPROFIT_REF
 
-取得前第N次交易的盈亏额
+取得前第 N 次交易的盈亏额
 
-``` cpp 
+```pascal
 TPROFIT_REF(N) 取得前第N次交易的盈亏额。
 
 注：
@@ -8721,9 +8735,9 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 
 ### TRADE_REF
 
-判断前N次交易是否赢利
+判断前 N 次交易是否赢利
 
-``` cpp 
+```pascal
 TRADE_REF(N) 判断前N次交易是否赢利。
 
 注：
@@ -8745,7 +8759,7 @@ CROSS(MA(C,5),C),SP(BKVOL);//最新价下穿五周期均线，卖平多头持仓
 
 判断最大连续亏损额
 
-``` cpp 
+```pascal
 TSEQLOSS 判断最大连续亏损额。
 
 注：
@@ -8766,7 +8780,7 @@ TSEQLOSS<-5000,SK(2);//最大连续亏损额达到5000时，反向开仓2手
 
 判断最大连续赢利额
 
-``` cpp 
+```pascal
 TSEQWIN 判断最大连续赢利额。
 
 注：
@@ -8787,7 +8801,7 @@ TSEQWIN>20,BK(2);//最大连续赢利额大于20时，加仓2手
 
 取交易合约的限制拥有持仓数
 
-``` cpp 
+```pascal
 UNITLIMIT 取交易合约的限制拥有持仓数
 
 用法：UNITLIMIT自动取该合约交易所规定的限制拥有持仓数，避免违规。
@@ -8803,7 +8817,7 @@ UNITLIMIT 取交易合约的限制拥有持仓数
 
 模组子账户持仓保证金
 
-``` cpp 
+```pascal
 VOLMARGIN 模组子账户持仓保证金
 
 用法：VOLMARGIN计算当前模组子账户的持仓保证金，用于资金管理。
@@ -8821,11 +8835,12 @@ VOLMARGIN 模组子账户持仓保证金
 ```
 
 ## 账户头寸函数
+
 ### ACCOUNTMONEY
 
 返回交易账户中的可用资金
 
-``` cpp 
+```pascal
 返回交易账户中的可用资金。
 用法：
 ACCOUNTMONEY 在盒子中返回交易账户中的可用资金。
@@ -8839,7 +8854,7 @@ ACCOUNTMONEY 在盒子中返回交易账户中的可用资金。
 
 返回交易账户中的权益
 
-``` cpp 
+```pascal
 返回交易账户中的权益。
 用法：
 ACCOUNTMONEYTOT 在盒子中返回交易账户中的权益。
@@ -8853,7 +8868,7 @@ ACCOUNTMONEYTOT 在盒子中返回交易账户中的权益。
 
 取交易账户中的多头持仓
 
-``` cpp 
+```pascal
 取交易账户中的多头持仓。
 用法：
 BUYPOSITION 在盒子中取交易账户中的多头持仓。
@@ -8867,7 +8882,7 @@ BUYPOSITION 在盒子中取交易账户中的多头持仓。
 
 取交易账户中的多头可用持仓
 
-``` cpp 
+```pascal
 取交易账户中的多头可用持仓。
 用法：
 BUYREMAINPOSITION 在盒子中取交易账户中的多头可用持仓。
@@ -8881,7 +8896,7 @@ BUYREMAINPOSITION 在盒子中取交易账户中的多头可用持仓。
 
 取交易账户中的空头持仓
 
-``` cpp 
+```pascal
 取交易账户中的空头持仓。
 用法：
 SELLPOSITION 在盒子中取交易账户中的空头持仓。
@@ -8895,7 +8910,7 @@ SELLPOSITION 在盒子中取交易账户中的空头持仓。
 
 取交易账户中的空头可用持仓
 
-``` cpp 
+```pascal
 取交易账户中的空头可用持仓。
 用法：
 SELLREMAINPOSITION 在盒子中取交易账户中的空头可用持仓。
@@ -8906,11 +8921,12 @@ SELLREMAINPOSITION 在盒子中取交易账户中的空头可用持仓。
 ```
 
 ## 策略优化函数
+
 ### CHECKSIG
 
-设置信号确认与复核的指令价方式（TICK逐笔回测，可设置回测精度）
+设置信号确认与复核的指令价方式（TICK 逐笔回测，可设置回测精度）
 
-``` cpp 
+```pascal
 CHECKSIG 设置信号确认与复核的指令价方式（TICK逐笔回测，可设置回测精度）
 
 用法：
@@ -8978,7 +8994,7 @@ AUTOFILTER;
 
 设置信号确认与复核的指令价方式（逐分钟回测）
 
-``` cpp 
+```pascal
 CHECKSIG_MIN 设置信号确认与复核的指令价方式（逐分钟回测）
 
 用法：
@@ -9031,7 +9047,7 @@ AUTOFILTER;
 
 限制开仓信号发出委托
 
-``` cpp 
+```pascal
 IDLE(COND) 限制开仓信号发出委托
 
 用法：IDLE(COND)，当开仓信号发出时，如果COND条件成立，该信号不委托。IDLE函数对平仓信号不起作用，有持仓时即使满足COND也可以平仓。
@@ -9065,13 +9081,13 @@ AUTOFILTER;
 
 ### MULTSIG
 
-设置一根k线多信号的指令价方式（TICK逐笔回测，可设置回测精度）
+设置一根 k 线多信号的指令价方式（TICK 逐笔回测，可设置回测精度）
 
-``` cpp 
+```pascal
 MULTSIG(Sec1,Sec2,N,INTERVAL) 设置一根k线多信号的指令价方式（TICK逐笔回测，可设置回测精度）
 
 用法：
-MULTSIG(Sec1,Sec2,N,INTERVAL) 
+MULTSIG(Sec1,Sec2,N,INTERVAL)
 1、当INTERVAL不为0时，INTERVAL为数据时间间隔,每隔INTERVAL秒计算一次信号，开仓信号在出信号后的第Sec1个数据时间间隔时下单不复核,平仓信号在出信号后的第Sec2个数据时间间隔下单不复核，一根K线上最大的信号个数为N。
 （例：INTERVAL为10，豆粕合约开盘第一根K线21：00：09为第一次计算模型，21：00：19为第二次计算模型...）
 2、当INTERVAL为0时，每笔TICK计算一次信号，开仓信号Sec1秒后下单不复核,平仓信号Sec2秒后下单不复核，一根K线上最大的信号个数为N。
@@ -9105,9 +9121,9 @@ AUTOFILTER;
 
 ### MULTSIG_MIN
 
-设置一根k线多信号的指令价方式（逐分钟回测）
+设置一根 k 线多信号的指令价方式（逐分钟回测）
 
-``` cpp 
+```pascal
 设置一根k线多信号的指令价方式（逐分钟回测）
 
 用法：
@@ -9138,7 +9154,7 @@ AUTOFILTER;
 
 判断是否为盘整
 
-``` cpp 
+```pascal
 PANZHENG 判断当前行情是否为盘整
 
 用法：返回1:表示盘整，返回0:表示不是盘整。
@@ -9159,7 +9175,7 @@ AUTOFILTER;
 
 设置信号确认与复核的指令价方式（股票合约逐分钟回测）
 
-``` cpp 
+```pascal
 PANZHONG_MIN 设置信号确认与复核的指令价方式（股票合约逐分钟回测）
 
 用法：
@@ -9185,7 +9201,7 @@ PANZHONG_MIN(0);
 
 指定交易合约
 
-``` cpp 
+```pascal
 TRADE_OTHER('CODE') 指定CODE合约为交易合约，CODE为合约代码。
 
 注：
@@ -9233,7 +9249,7 @@ AUTOFILTER;
 
 消除隔日跳空函数
 
-``` cpp 
+```pascal
 TRADE_SMOOTHING 消除隔日跳空函数
 
 用法：
@@ -9261,11 +9277,12 @@ AUTOFILTER;
 ```
 
 ## 加密输出函数
+
 ### SETEXPIREDATE
 
 设置加密模型的使用有效期的到期时间
 
-``` cpp 
+```pascal
 SETEXPIREDATE 设置加密模型的使用有效期的到期时间。
 
 用法：SETEXPIREDATE('yyyymmdd'); 设置加密模型的使用有效期的到期时间为yyyymmdd。
@@ -9287,7 +9304,7 @@ AUTOFILTER;
 
 设置模型加密输出使用者的文华行情账号
 
-``` cpp 
+```pascal
 SETQUOTACCOUNT 设置模型加密输出使用者的文华行情账号。
 
 用法：SETQUOTACCOUNT('ACCOUNT1'); 设置该模型加密输出给文华行情账号为ACCOUNT1的使用者。
@@ -9310,7 +9327,7 @@ AUTOFILTER;
 
 设置模型加密输出使用者的文华资金账号
 
-``` cpp 
+```pascal
 SETTRADEACCOUNT 设置模型加密输出使用者的文华资金账号。
 
 用法：SETTRADEACCOUNT('ACCOUNT1'); 设置该模型加密输出给文华资金账号为ACCOUNT1的使用者。
@@ -9330,11 +9347,12 @@ AUTOFILTER;
 ```
 
 ## 基本面函数
+
 ### DRAWVALID
 
 连接基本数据的有效值画折线
 
-``` cpp 
+```pascal
 DRAWVALID 连接基本数据的有效值画折线
 
 用法：
@@ -9350,7 +9368,7 @@ DRAWVALID(DATA);连接DATA中的有效值画折线
 
 返回基本面数据的具体数值
 
-``` cpp 
+```pascal
 GETBASEINFO 返回基本面数据的具体数值
 
 用法：
@@ -9367,7 +9385,7 @@ GETBASEINFO(1);//返回中国大豆产量的具体数值
 
 判断是否发生突发事件并显示图标
 
-``` cpp 
+```pascal
 GETEVENT 判断是否发生突发事件并显示图标
 
 用法：
@@ -9381,11 +9399,12 @@ GETEVENT(CLASS, SHOW);判断是否发生了CLASS的突发事件，并显示图�
 ```
 
 ## 股票除权函数
+
 ### DIVIDEND
 
-返回之前第N次派息的每股派息数量
+返回之前第 N 次派息的每股派息数量
 
-``` cpp 
+```pascal
 DIVIDEND(N) 返回之前第N次派息的每股派息数量。
 
 用法：
@@ -9403,9 +9422,9 @@ DIVIDEND(N) 返回之前第N次派息的每股派息数量。
 
 ### DIVIDENDBARS
 
-返回从之前第N个派息日到当前的周期数
+返回从之前第 N 个派息日到当前的周期数
 
-``` cpp 
+```pascal
 DIVIDENDBARS(N) 返回从之前第N个派息日到当前的周期数。
 
 用法：
@@ -9421,9 +9440,9 @@ DIVIDENDBARS(N) 返回从之前第N个派息日到当前的周期数。
 
 ### ISRECORDDAY
 
-判断当根K线是否为股权登记日
+判断当根 K 线是否为股权登记日
 
-``` cpp 
+```pascal
 ISRECORDDAY  判断当根K线是否为股权登记日
 
 用法：ISRECORDDAY  判断当根K线是否为股权登记日，根K线是股权登记日返回是1（Yes），否则返回0（No）。
@@ -9439,7 +9458,7 @@ ISRECORDDAY  判断当根K线是否为股权登记日
 
 设置股票复权
 
-``` cpp 
+```pascal
 STOCKDIVD()  设置股票复权
 
 用法：
@@ -9462,9 +9481,9 @@ AUTOFILTER;
 
 ### SPLIT
 
-返回之前第N次除权(送股或配股)的除权比例
+返回之前第 N 次除权(送股或配股)的除权比例
 
-``` cpp 
+```pascal
 SPLIT(N) 返回之前第N次除权(送股或配股)的除权比例，表示除权后股价的下跌比例。
 
 用法：
@@ -9489,9 +9508,9 @@ SPLIT(N) 返回之前第N次除权(送股或配股)的除权比例，表示除�
 
 ### SPLITBARS
 
-返回从之前第N个除权日到当前的周期数
+返回从之前第 N 个除权日到当前的周期数
 
-``` cpp 
+```pascal
 SPLITBARS(N) 返回从之前第N个除权日到当前的周期数。
 
 用法：
@@ -9508,11 +9527,12 @@ SPLITBARS(N) 返回从之前第N个除权日到当前的周期数。
 ```
 
 ## 公式选股
+
 ### SELECT
 
 公式选股
 
-``` cpp 
+```pascal
 SELECT 公式选股
 
 用法：
@@ -9532,7 +9552,7 @@ C>HV(C,10),SELECT;//选出收盘价高于前10个周期收盘价的最高值的�
 
 股票市场排序函数
 
-``` cpp 
+```pascal
 SORTINDEX 股票市场排序函数
 
 用法：SORTINDEX('年市盈率',MarketID,Type) 股票市场排序函数。
@@ -9600,12 +9620,13 @@ NUM1:SORTINDEX('年市盈率',1,0);//返回按年市盈率在A股市场从小到
 CLOSE>OPEN && SORTINDEX('年市盈率',1,1)<20,SELECT;//
 ```
 
-## 股票T+0函数
+## 股票 T+0 函数
+
 ### LIMITVOL
 
-取股票T+0底仓额度
+取股票 T+0 底仓额度
 
-``` cpp 
+```pascal
 LIMITVOL  返回股票T+0底仓额度
 
 用法：LIMITVOL 返回股票设置的T+0底仓额度
@@ -9621,9 +9642,9 @@ LIMITVOL  返回股票T+0底仓额度
 
 ### STOCKT0
 
-设置股票T+0交易
+设置股票 T+0 交易
 
-``` cpp 
+```pascal
 STOCKT0 设置股票T+0交易
 
 用法：
@@ -9656,4 +9677,3 @@ AUTOFILTER;
 STOCKT0;//股票T+0交易
 AUTOFINANCING;
 ```
-
