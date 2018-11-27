@@ -3,3 +3,4 @@
 - [文华公式库](wenhua_all_formular.md)
 - [均线函数](ma_doc.md)
 - [通达信函数库](tdx_all_function.md)
+- [通达信公式库](tdx_all_formular.md)
