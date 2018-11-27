@@ -1,10 +1,10 @@
-## ����ָ�깫ʽ
+## 技术指标公式
 
 ``` pascal
 
 ```
 
-## MA  ����(ϵͳ)
+## MA  均线(系统)
 
 ``` pascal
 MA1:MA(CLOSE,M1);
@@ -13,7 +13,7 @@ MA3:MA(CLOSE,M3);
 MA4:MA(CLOSE,M4);
 ```
 
-## MA2  ����(ϵͳ)
+## MA2  均线(系统)
 
 ``` pascal
 MA1:MA(CLOSE,M1);
@@ -28,42 +28,42 @@ MA9:MA(CLOSE,M9);
 MA10:MA(CLOSE,M10);
 ```
 
-## ABI  ���Թ���ָ��(ϵͳ)
+## ABI  绝对广量指标(系统)
 
 ``` pascal
 ABI:100*ABS(ADVANCE-DECLINE)/(ADVANCE+DECLINE);
 MAABI:EMA(ABI,M);
 ```
 
-## ADL  ����ָ��(ϵͳ)
+## ADL  腾落指标(系统)
 
 ``` pascal
 ADL:SUM(ADVANCE-DECLINE,0);
 MAADL:MA(ADL,M);
 ```
 
-## ADR  �ǵ�����(ϵͳ)
+## ADR  涨跌比率(系统)
 
 ``` pascal
 ADR:SUM(ADVANCE,N)/SUM(DECLINE,N);
 MAADR:MA(ADR,M);
 ```
 
-## ARMS  ��ķ��ָ��(ϵͳ)
+## ARMS  阿姆氏指标(系统)
 
 ``` pascal
 ARMS:EMA(ADVANCE/DECLINE,N);
 MAARMS:MA(ARMS,M);
 ```
 
-## BTI  ��������ָ��(ϵͳ)
+## BTI  广量冲力指标(系统)
 
 ``` pascal
 BTI:EMA(100*ADVANCE/(ADVANCE+DECLINE),N);
 MABTI:MA(BTI,M);
 ```
 
-## MCL  �����ָ��(ϵͳ)
+## MCL  麦克连指标(系统)
 
 ``` pascal
 DIF:=ADVANCE-DECLINE;
@@ -74,34 +74,34 @@ MAMCL1:EMA1;
 MAMCL2:EMA2;
 ```
 
-## MSI  �����ۺ�ָ��(ϵͳ)
+## MSI  麦氏综合指标(系统)
 
 ``` pascal
 
 ```
 
-## OBOS  ������ָ��(ϵͳ)
+## OBOS  超买超卖指标(系统)
 
 ``` pascal
 OBOS:EMA(ADVANCE-DECLINE,N);
 MAOBOS:MA(OBOS,M);
 ```
 
-## STIX  ָ��ƽ������(ϵͳ)
+## STIX  指数平滑广量(系统)
 
 ``` pascal
 TBR:100*ADVANCE/(ADVANCE+DECLINE);
 MATBR:EMA(TBR,M);
 ```
 
-## CCI  ��Ʒ·��ָ��(ϵͳ)
+## CCI  商品路径指标(系统)
 
 ``` pascal
 TYP:=(HIGH+LOW+CLOSE)/3;
 CCI:(TYP-MA(TYP,N))/(0.015*AVEDEV(TYP,N));
 ```
 
-## KDJ  ���ָ��(ϵͳ)
+## KDJ  随机指标(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -110,13 +110,13 @@ D:SMA(K,M2,1);
 J:3*K-2*D;
 ```
 
-## KDJ-TDX  ���ָ��-��ͳ��(ϵͳ)
+## KDJ-TDX  随机指标-传统版(系统)
 
 ``` pascal
 
 ```
 
-## MFI  �ʽ�����ָ��(ϵͳ)
+## MFI  资金流量指标(系统)
 
 ``` pascal
 TYP := (HIGH + LOW + CLOSE)/3;
@@ -124,28 +124,28 @@ V1:=SUM(IF(TYP>REF(TYP,1),TYP*VOL,0),N)/SUM(IF(TYP<REF(TYP,1),TYP*VOL,0),N);
 MFI:100-(100/(1+V1));
 ```
 
-## MTM  ������(ϵͳ)
+## MTM  动量线(系统)
 
 ``` pascal
 MTM:CLOSE-REF(CLOSE,N);
 MTMMA:MA(MTM,M);
 ```
 
-## OSC  �䶯������(ϵͳ)
+## OSC  变动速率线(系统)
 
 ``` pascal
 OSC:100*(CLOSE-MA(CLOSE,N));
 MAOSC:EXPMEMA(OSC,M);
 ```
 
-## ROC  �䶯��ָ��(ϵͳ)
+## ROC  变动率指标(系统)
 
 ``` pascal
 ROC:100*(CLOSE-REF(CLOSE,N))/REF(CLOSE,N);
 MAROC:MA(ROC,M);
 ```
 
-## RSI  ���ǿ��ָ��(ϵͳ)
+## RSI  相对强弱指标(系统)
 
 ``` pascal
 LC:=REF(CLOSE,1);
@@ -155,7 +155,7 @@ RSI3:SMA(MAX(CLOSE-LC,0),N3,1)/SMA(ABS(CLOSE-LC),N3,1)*100;
 
 ```
 
-## KD  ���ָ��KD(ϵͳ)
+## KD  随机指标KD(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -163,7 +163,7 @@ K:SMA(RSV,M1,1);
 D:SMA(K,M2,1);
 ```
 
-## SKDJ  �������ָ��(ϵͳ)
+## SKDJ  慢速随机指标(系统)
 
 ``` pascal
 LOWV:=LLV(LOW,N);
@@ -173,21 +173,21 @@ K:EMA(RSV,M);
 D:MA(K,M);
 ```
 
-## UDL  ������(ϵͳ)
+## UDL  引力线(系统)
 
 ``` pascal
 UDL:(MA(CLOSE,N1)+MA(CLOSE,N2)+MA(CLOSE,N3)+MA(CLOSE,N4))/4;
 MAUDL:MA(UDL,M);
 ```
 
-## WR  ����ָ��(ϵͳ)
+## WR  威廉指标(系统)
 
 ``` pascal
 WR1:100*(HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N));
 WR2:100*(HHV(HIGH,N1)-CLOSE)/(HHV(HIGH,N1)-LLV(LOW,N1));
 ```
 
-## LWR  LWR����ָ��(ϵͳ)
+## LWR  LWR威廉指标(系统)
 
 ``` pascal
 RSV:= (HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -195,7 +195,7 @@ LWR1:SMA(RSV,M1,1);
 LWR2:SMA(LWR1,M2,1);
 ```
 
-## MARSI  ���ǿ��ƽ����(ϵͳ)
+## MARSI  相对强弱平均线(系统)
 
 ``` pascal
 DIF:=CLOSE-REF(CLOSE,1);
@@ -209,14 +209,14 @@ RSI10:MA(100*MAU1/(MAU1+MAD1),M1);
 RSI6:MA(100*MAU2/(MAU2+MAD2),M2);
 ```
 
-## BIAS-QL  ������-��ͳ��(ϵͳ)
+## BIAS-QL  乖离率-传统版(系统)
 
 ``` pascal
 BIAS :(CLOSE-MA(CLOSE,N))/MA(CLOSE,N)*100;
 BIASMA :MA(BIAS,M);
 ```
 
-## BIAS  ������(ϵͳ)
+## BIAS  乖离率(系统)
 
 ``` pascal
 BIAS1 :(CLOSE-MA(CLOSE,N1))/MA(CLOSE,N1)*100;
@@ -224,7 +224,7 @@ BIAS2 :(CLOSE-MA(CLOSE,N2))/MA(CLOSE,N2)*100;
 BIAS3 :(CLOSE-MA(CLOSE,N3))/MA(CLOSE,N3)*100;
 ```
 
-## BIAS36  ��������(ϵͳ)
+## BIAS36  三六乖离(系统)
 
 ``` pascal
 BIAS36:MA(CLOSE,3)-MA(CLOSE,6);
@@ -232,25 +232,25 @@ BIAS612:MA(CLOSE,6)-MA(CLOSE,12);
 MABIAS:MA(BIAS36,M);
 ```
 
-## BB  ���ּ���(ϵͳ)
+## BB  布林极限(系统)
 
 ``` pascal
 
 ```
 
-## WIDTH  ���޿�(ϵͳ)
+## WIDTH  极限宽(系统)
 
 ``` pascal
 
 ```
 
-## ASI  ������ָ��(ϵͳ)
+## ASI  振动升降指标(系统)
 
 ``` pascal
 
 ```
 
-## CHO  ����ָ��(ϵͳ)
+## CHO  佳庆指标(系统)
 
 ``` pascal
 MID:=SUM(VOL*(2*CLOSE-HIGH-LOW)/(HIGH+LOW),0);
@@ -258,14 +258,14 @@ CHO:MA(MID,N1)-MA(MID,N2);
 MACHO:MA(CHO,M);
 ```
 
-## DMA  ƽ����(ϵͳ)
+## DMA  平均差(系统)
 
 ``` pascal
 DIF:MA(CLOSE,N1)-MA(CLOSE,N2);
 DIFMA:MA(DIF,M);
 ```
 
-## DMI  ����ָ��(ϵͳ)
+## DMI  趋向指标(系统)
 
 ``` pascal
 MTR:=SUM(MAX(MAX(HIGH-LOW,ABS(HIGH-REF(CLOSE,1))),ABS(REF(CLOSE,1)-LOW)),N);
@@ -279,14 +279,14 @@ ADX: MA(ABS(MDI-PDI)/(MDI+PDI)*100,M);
 ADXR:(ADX+REF(ADX,M))/2;
 ```
 
-## DPO  ��������(ϵͳ)
+## DPO  区间震荡线(系统)
 
 ``` pascal
 DPO:CLOSE-REF(MA(CLOSE,N),N/2+1);
 MADPO:MA(DPO,M);
 ```
 
-## EMV  ���ײ���ָ��(ϵͳ)
+## EMV  简易波动指标(系统)
 
 ``` pascal
 VOLUME:=MA(VOL,N)/VOL;
@@ -295,7 +295,7 @@ EMV:MA(MID*VOLUME*(HIGH-LOW)/MA(HIGH-LOW,N),N);
 MAEMV:MA(EMV,M);
 ```
 
-## MACD  ƽ����ͬƽ��(ϵͳ)
+## MACD  平滑异同平均(系统)
 
 ``` pascal
 DIF:EMA(CLOSE,SHORT)-EMA(CLOSE,LONG);
@@ -303,7 +303,7 @@ DEA:EMA(DIF,MID);
 MACD:(DIF-DEA)*2,COLORSTICK;
 ```
 
-## VMACD  ��ƽ����ͬƽ��(ϵͳ)
+## VMACD  量平滑异同平均(系统)
 
 ``` pascal
 DIF:EMA(VOL,SHORT)-EMA(VOL,LONG);
@@ -311,7 +311,7 @@ DEA:EMA(DIF,MID);
 MACD:DIF-DEA,COLORSTICK;
 ```
 
-## QACD  ������ͬƽ��(ϵͳ)
+## QACD  快速异同平均(系统)
 
 ``` pascal
 DIF:EMA(CLOSE,N1)-EMA(CLOSE,N2);
@@ -319,7 +319,7 @@ MACD:EMA(DIF,M);
 DDIF:DIF-MACD;
 ```
 
-## TRIX  ����ָ��ƽ����(ϵͳ)
+## TRIX  三重指数平均线(系统)
 
 ``` pascal
 MTR:=EMA(EMA(EMA(CLOSE,N),N),N);
@@ -327,7 +327,7 @@ TRIX:(MTR-REF(MTR,1))/REF(MTR,1)*100;
 MATRIX:MA(TRIX,M) ;
 ```
 
-## UOS  �ռ�ָ��(ϵͳ)
+## UOS  终极指标(系统)
 
 ``` pascal
 TH:=MAX(HIGH,REF(CLOSE,1));
@@ -339,28 +339,28 @@ UOS:(ACC1*N2*N3+ACC2*N1*N3+ACC3*N1*N2)*100/(N1*N2+N1*N3+N2*N3);
 MAUOS:EXPMEMA(UOS,M);
 ```
 
-## VPT  ��������(ϵͳ)
+## VPT  量价曲线(系统)
 
 ``` pascal
 VPT:SUM(VOL*(CLOSE-REF(CLOSE,1))/REF(CLOSE,1),N);
 MAVPT:MA(VPT,M);
 ```
 
-## WVAD  ����������ɢ��(ϵͳ)
+## WVAD  威廉变异离散量(系统)
 
 ``` pascal
 WVAD:SUM((CLOSE-OPEN)/(HIGH-LOW)*VOL,N)/10000;
 MAWVAD:MA(WVAD,M);
 ```
 
-## BRAR  ����ָ��(ϵͳ)
+## BRAR  情绪指标(系统)
 
 ``` pascal
 BR:SUM(MAX(0,HIGH-REF(CLOSE,1)),N)/SUM(MAX(0,REF(CLOSE,1)-LOW),N)*100;
 AR:SUM(HIGH-OPEN,N)/SUM(OPEN-LOW,N)*100;
 ```
 
-## CR  ��״������(ϵͳ)
+## CR  带状能量线(系统)
 
 ``` pascal
 MID:=REF(HIGH+LOW,1)/2;
@@ -371,21 +371,21 @@ MA3:REF(MA(CR,M3),M3/2.5+1);
 MA4:REF(MA(CR,M4),M4/2.5+1);
 ```
 
-## MASS  ÷˹��(ϵͳ)
+## MASS  梅斯线(系统)
 
 ``` pascal
 MASS:SUM(MA(HIGH-LOW,N1)/MA(MA(HIGH-LOW,N1),N1),N2);
 MAMASS:MA(MASS,M);
 ```
 
-## PSY  ������(ϵͳ)
+## PSY  心理线(系统)
 
 ``` pascal
 PSY:COUNT(CLOSE>REF(CLOSE,1),N)/N*100;
 PSYMA:MA(PSY,M);
 ```
 
-## VR  �ɽ���������(ϵͳ)
+## VR  成交量变异率(系统)
 
 ``` pascal
 TH:=SUM(IF(CLOSE>REF(CLOSE,1),VOL,0),N);
@@ -395,7 +395,7 @@ VR:100*(TH*2+TQ)/(TL*2+TQ);
 MAVR:MA(VR,M);
 ```
 
-## WAD  �������������(ϵͳ)
+## WAD  威廉多空力度线(系统)
 
 ``` pascal
 MIDA:=CLOSE-MIN(REF(CLOSE,1),LOW);
@@ -404,7 +404,7 @@ WAD:SUM(IF(CLOSE>REF(CLOSE,1),MIDA,MIDB),0);
 MAWAD:MA(WAD,M);
 ```
 
-## AMO  �ɽ����(ϵͳ)
+## AMO  成交金额(系统)
 
 ``` pascal
 AMOW:AMOUNT/10000.0,VOLSTICK;
@@ -412,7 +412,7 @@ AMO1:MA(AMOW,M1);
 AMO2:MA(AMOW,M2);
 ```
 
-## OBV  �ۻ�������(ϵͳ)
+## OBV  累积能量线(系统)
 
 ``` pascal
 VA:=IF(CLOSE>REF(CLOSE,1),VOL,-VOL);
@@ -420,7 +420,7 @@ OBV:SUM(IF(CLOSE=REF(CLOSE,1),0,VA),0);
 MAOBV:MA(OBV,M);
 ```
 
-## VOL  �ɽ���(ϵͳ)
+## VOL  成交量(系统)
 
 ``` pascal
 VOLUME:VOL,VOLSTICK;
@@ -428,7 +428,7 @@ MAVOL1:MA(VOLUME,M1);
 MAVOL2:MA(VOLUME,M2);
 ```
 
-## VOL-TDX  �ɽ���(����)(ϵͳ)
+## VOL-TDX  成交量(虚拟)(系统)
 
 ``` pascal
 TOTAL:=IF(PERIOD=1,5,IF(PERIOD=2,15,IF(PERIOD=3,30,IF(PERIOD=4,60,IF(PERIOD=5,TOTALFZNUM,1)))));
@@ -441,7 +441,7 @@ MAVOL1:MA(VOLUME,M1);
 MAVOL2:MA(VOLUME,M2);
 ```
 
-## AMO-TDX  �ɽ����(����)(ϵͳ)
+## AMO-TDX  成交金额(虚拟)(系统)
 
 ``` pascal
 TOTAL:=IF(PERIOD=1,5,IF(PERIOD=2,15,IF(PERIOD=3,30,IF(PERIOD=4,60,IF(PERIOD=5,TOTALFZNUM,1)))));
@@ -454,21 +454,21 @@ AMO1:MA(AMOW,M1);
 AMO2:MA(AMOW,M2);
 ```
 
-## SHORTVOL  �׿���(�����ڸ۹�)(ϵͳ)
+## SHORTVOL  抛空量(适用于港股)(系统)
 
 ``` pascal
-�׿���:HKSHORTVOL,VOLSTICK;
-MACCL:MA(�׿���,M);
+抛空量:HKSHORTVOL,VOLSTICK;
+MACCL:MA(抛空量,M);
 ```
 
-## CCL  �ֲ���(�������ڻ�)(ϵͳ)
+## CCL  持仓量(适用于期货)(系统)
 
 ``` pascal
-�ֲ���:VOLINSTK;
-MACCL:MA(�ֲ���,M);
+持仓量:VOLINSTK;
+MACCL:MA(持仓量,M);
 ```
 
-## VRSI  ���ǿ����(ϵͳ)
+## VRSI  相对强弱量(系统)
 
 ``` pascal
 LC:=REF(VOL,1);
@@ -478,7 +478,7 @@ RSI3:SMA(MAX(VOL-LC,0),N3,1)/SMA(ABS(VOL-LC),N3,1)*100;
 
 ```
 
-## ACD  ������(ϵͳ)
+## ACD  升降线(系统)
 
 ``` pascal
 LC:=REF(CLOSE,1);
@@ -487,27 +487,27 @@ ACD:SUM(IF(CLOSE=LC,0,DIF),0);
 MAACD:EXPMEMA(ACD,M);
 ```
 
-## BBI  ��վ���(ϵͳ)
+## BBI  多空均线(系统)
 
 ``` pascal
 BBI:(MA(CLOSE,M1)+MA(CLOSE,M2)+MA(CLOSE,M3)+MA(CLOSE,M4))/4;
 ```
 
-## EXPMA  ָ��ƽ����(ϵͳ)
+## EXPMA  指数平均线(系统)
 
 ``` pascal
 EXP1:EMA(CLOSE,M1);
 EXP2:EMA(CLOSE,M2);
 ```
 
-## EXPMA_S  ָ��ƽ����-��ͼ(ϵͳ)
+## EXPMA_S  指数平均线-副图(系统)
 
 ``` pascal
 EXP1:EMA(CLOSE,M1);
 EXP2:EMA(CLOSE,M2);
 ```
 
-## HMA  �߼�ƽ����(ϵͳ)
+## HMA  高价平均线(系统)
 
 ``` pascal
 HMA1:MA(HIGH,M1);
@@ -517,7 +517,7 @@ HMA4:MA(HIGH,M4);
 HMA5:MA(HIGH,M5);
 ```
 
-## LMA  �ͼ�ƽ����(ϵͳ)
+## LMA  低价平均线(系统)
 
 ``` pascal
 LMA1:MA(LOW,M1);
@@ -527,7 +527,7 @@ LMA4:MA(LOW,M4);
 LMA5:MA(LOW,M5);
 ```
 
-## VMA  ����ƽ����(ϵͳ)
+## VMA  变异平均线(系统)
 
 ``` pascal
 VV:=(HIGH+OPEN+LOW+CLOSE)/4;
@@ -538,20 +538,20 @@ VMA4:MA(VV,M4);
 VMA5:MA(VV,M5);
 ```
 
-## PCNT  ���ȱ�(ϵͳ)
+## PCNT  幅度比(系统)
 
 ``` pascal
 PCNT:(CLOSE-REF(CLOSE,1))/CLOSE*100;
 MAPCNT:EXPMEMA(PCNT,M);
 ```
 
-## BOLL-M  ������-��ͳ��(ϵͳ)
+## BOLL-M  布林线-传统版(系统)
 
 ``` pascal
 
 ```
 
-## BOLL  ������(ϵͳ)
+## BOLL  布林线(系统)
 
 ``` pascal
 BOLL:MA(CLOSE,M);
@@ -559,29 +559,29 @@ UB:BOLL+2*STD(CLOSE,M);
 LB:BOLL-2*STD(CLOSE,M);
 ```
 
-## XT  ����(ϵͳ)
+## XT  箱体(系统)
 
 ``` pascal
-���䶥��:PEAK(CLOSE,N,1)*0.98;
-����ס�:TROUGH(CLOSE,N,1)*1.02;
-����ߡ�:100*(���䶥��-����ס�)/����ס�,NODRAW;
+【箱顶】:PEAK(CLOSE,N,1)*0.98;
+【箱底】:TROUGH(CLOSE,N,1)*1.02;
+【箱高】:100*(【箱顶】-【箱底】)/【箱底】,NODRAW;
 ```
 
-## JAX  �ð���(ϵͳ)
+## JAX  济安线(系统)
 
 ``` pascal
 AA:=ABS((2*CLOSE+HIGH+LOW)/4-MA(CLOSE,N))/MA(CLOSE,N);
-�ð���:DMA((2*CLOSE+LOW+HIGH)/4,AA),LINETHICK3,COLORMAGENTA;
-CC:=(CLOSE/�ð���);
+济安线:DMA((2*CLOSE+LOW+HIGH)/4,AA),LINETHICK3,COLORMAGENTA;
+CC:=(CLOSE/济安线);
 MA1:=MA(CC*(2*CLOSE+HIGH+LOW)/4,3);
-MAAA:=((MA1-�ð���)/�ð���)/3;
+MAAA:=((MA1-济安线)/济安线)/3;
 TMP:=MA1-MAAA*MA1;
-J:IF(TMP<=�ð���,�ð���,DRAWNULL),LINETHICK3,COLORCYAN;
+J:IF(TMP<=济安线,济安线,DRAWNULL),LINETHICK3,COLORCYAN;
 A:TMP,LINETHICK2,COLORYELLOW;
-X:IF(TMP<=�ð���,TMP,DRAWNULL),LINETHICK2,COLORGREEN;
+X:IF(TMP<=济安线,TMP,DRAWNULL),LINETHICK2,COLORGREEN;
 ```
 
-## PBX  �ٲ���(ϵͳ)
+## PBX  瀑布线(系统)
 
 ``` pascal
 PBX1:(EMA(CLOSE,M1)+MA(CLOSE,M1*2)+MA(CLOSE,M1*4))/3;
@@ -592,7 +592,7 @@ PBX5:(EMA(CLOSE,M5)+MA(CLOSE,M5*2)+MA(CLOSE,M5*4))/3;
 PBX6:(EMA(CLOSE,M6)+MA(CLOSE,M6*2)+MA(CLOSE,M6*4))/3;
 ```
 
-## ENE  �����(ϵͳ)
+## ENE  轨道线(系统)
 
 ``` pascal
 UPPER:(1+M1/100)*MA(CLOSE,N);
@@ -600,7 +600,7 @@ LOWER:(1-M2/100)*MA(CLOSE,N);
 ENE:(UPPER+LOWER)/2;
 ```
 
-## MIKE  ���֧��ѹ��(ϵͳ)
+## MIKE  麦克支撑压力(系统)
 
 ``` pascal
 HLC:=REF(MA((HIGH+LOW+CLOSE)/3,N),1);
@@ -614,37 +614,37 @@ MIDS:EMA(HLC-HV+LV,3);
 STOS:EMA(2*LV-HV,3);
 ```
 
-## SAR  ������ָ��(ϵͳ)
+## SAR  抛物线指标(系统)
 
 ``` pascal
 
 ```
 
-## TDXWAVE  ͨ����������(ϵͳ)
+## TDXWAVE  通达信趋势浪(系统)
 
 ``` pascal
 
 ```
 
-## VTY  �۸������(ϵͳ)
+## VTY  价格变异率(系统)
 
 ``` pascal
 
 ```
 
-## ZXNH  ֱ�����(ϵͳ)
+## ZXNH  直线拟合(系统)
 
 ``` pascal
 
 ```
 
-## ZX  ������(ϵͳ)
+## ZX  重心线(系统)
 
 ``` pascal
 AV:0.01*AMOUNT/VOL;
 ```
 
-## AMV  �ɱ��۾���(ϵͳ)
+## AMV  成本价均线(系统)
 
 ``` pascal
 AMOV:=VOL*(OPEN+CLOSE)/2;
@@ -654,57 +654,57 @@ AMV3:SUM(AMOV,M3)/SUM(VOL,M3);
 AMV4:SUM(AMOV,M4)/SUM(VOL,M4);
 ```
 
-## PAV  ��������(ϵͳ)
+## PAV  筹码引力(系统)
 
 ``` pascal
 
 ```
 
-## PAVE  ǿ��������(ϵͳ)
+## PAVE  强筹码引力(系统)
 
 ``` pascal
 
 ```
 
-## MCST  �г��ɱ�(ϵͳ)
+## MCST  市场成本(系统)
 
 ``` pascal
 
 ```
 
-## NVI  ���ɽ���(ϵͳ)
+## NVI  负成交量(系统)
 
 ``` pascal
 
 ```
 
-## PVI  ���ɽ���(ϵͳ)
+## PVI  正成交量(系统)
 
 ``` pascal
 
 ```
 
-## SSRP  �����(ϵͳ)
+## SSRP  筹码峰(系统)
 
 ``` pascal
 
 ```
 
-## HSL  ������(ϵͳ)
+## HSL  换手线(系统)
 
 ``` pascal
 HSL:IF((SETCODE==0||SETCODE==1),100*VOL,VOL)/(FINANCE(7)/100);
 MAHSL:MA(HSL,N);
 ```
 
-## HSCOL  ������(ϵͳ)
+## HSCOL  换手柱(系统)
 
 ``` pascal
 HSCOL:IF((SETCODE==0||SETCODE==1),100*VOL,VOL)/(FINANCE(7)/100),VOLSTICK;
 MAHSL:MA(HSCOL,N);
 ```
 
-## DBQR  �Ա�ǿ��(����������)(ϵͳ)
+## DBQR  对比强弱(需下载日线)(系统)
 
 ``` pascal
 ZS:(INDEXC-REF(INDEXC,N))/REF(INDEXC,N);
@@ -714,14 +714,14 @@ MADBQR2:MA(GG,M2);
 MADBQR3:MA(GG,M3);
 ```
 
-## DBQRV  �Ա�ǿ����(����������)(ϵͳ)
+## DBQRV  对比强弱量(需下载日线)(系统)
 
 ``` pascal
 ZS:(INDEXV-REF(INDEXV,N))/REF(INDEXV,N);
 GG:(VOL-REF(VOL,N))/REF(VOL,N);
 ```
 
-## JS  ������(ϵͳ)
+## JS  加速线(系统)
 
 ``` pascal
 JS:100*(CLOSE-REF(CLOSE,N))/(N*REF(CLOSE,N));
@@ -730,7 +730,7 @@ MAJS2:MA(JS,M2);
 MAJS3:MA(JS,M3);
 ```
 
-## DBLB  �Ա�����(����������)(ϵͳ)
+## DBLB  对比量比(需下载日线)(系统)
 
 ``` pascal
 GG:=VOL/SUM(REF(VOL,1),N);
@@ -739,7 +739,7 @@ DBLB:GG/ZS;
 MADBLB:MA(DBLB,M);
 ```
 
-## BBIBOLL  ��ղ�����(ϵͳ)
+## BBIBOLL  多空布林线(系统)
 
 ``` pascal
 CV:=CLOSE;
@@ -748,29 +748,29 @@ UPR:BBIBOLL+M*STD(BBIBOLL,N);
 DWN:BBIBOLL-M*STD(BBIBOLL,N);
 ```
 
-## ALLIGAT  ������(ϵͳ)
+## ALLIGAT  鳄鱼线(系统)
 
 ``` pascal
 NN:=(H+L)/2;
-�ϴ�:REF(MA(NN,5),3),COLOR40FF40;
-����:REF(MA(NN,8),5),COLOR0000C0;
-���:REF(MA(NN,13),8),COLORFF4040;
+上唇:REF(MA(NN,5),3),COLOR40FF40;
+牙齿:REF(MA(NN,8),5),COLOR0000C0;
+下颚:REF(MA(NN,13),8),COLORFF4040;
 ```
 
-## ACCER  ��������(ϵͳ)
+## ACCER  幅度涨速(系统)
 
 ``` pascal
 ACCER:SLOPE(CLOSE,N)/CLOSE;
 ```
 
-## CYD  �н�����(ϵͳ)
+## CYD  承接因子(系统)
 
 ``` pascal
 CYDS:WINNER(CLOSE)/(VOL/CAPITAL);
 CYDN:WINNER(CLOSE)/MA(VOL/CAPITAL,N);
 ```
 
-## CYE  �г�����(ϵͳ)
+## CYE  市场趋势(系统)
 
 ``` pascal
 MAL:=MA(CLOSE,5);
@@ -779,7 +779,7 @@ CYEL:(MAL-REF(MAL,1))/REF(MAL,1)*100;
 CYES:(MAS-REF(MAS,1))/REF(MAS,1)*100;
 ```
 
-## CYR  �г�ǿ��(ϵͳ)
+## CYR  市场强弱(系统)
 
 ``` pascal
 DIVE:=0.01*EMA(AMOUNT,N)/EMA(VOL,N);
@@ -787,20 +787,20 @@ CYR:(DIVE/REF(DIVE,1)-1)*100;
 MACYR:MA(CYR,M);
 ```
 
-## CYF  �г�����(ϵͳ)
+## CYF  市场能量(系统)
 
 ``` pascal
 CYF:100-100/(1+EMA(HSL,N));
 ```
 
-## FSL  ��ˮ��(ϵͳ)
+## FSL  分水岭(系统)
 
 ``` pascal
 SWL:(EMA(CLOSE,5)*7+EMA(CLOSE,10)*3)/10;
 SWS:DMA(EMA(CLOSE,12),MAX(1,100*(SUM(VOL,5)/(3*CAPITAL))));
 ```
 
-## ADTM  ��̬������ָ��(ϵͳ)
+## ADTM  动态买卖气指标(系统)
 
 ``` pascal
 DTM:=IF(OPEN<=REF(OPEN,1),0,MAX((HIGH-OPEN),(OPEN-REF(OPEN,1))));
@@ -811,14 +811,14 @@ ADTM:IF(STM>SBM,(STM-SBM)/STM,IF(STM=SBM,0,(STM-SBM)/SBM));
 MAADTM:MA(ADTM,M);
 ```
 
-## ATR  ��ʵ����(ϵͳ)
+## ATR  真实波幅(系统)
 
 ``` pascal
 MTR:MAX(MAX((HIGH-LOW),ABS(REF(CLOSE,1)-HIGH)),ABS(REF(CLOSE,1)-LOW));
 ATR:MA(MTR,N);
 ```
 
-## DKX  �����(ϵͳ)
+## DKX  多空线(系统)
 
 ``` pascal
 MID:=(3*CLOSE+LOW+OPEN+HIGH)/6;
@@ -831,21 +831,21 @@ DKX:(20*MID+19*REF(MID,1)+18*REF(MID,2)+17*REF(MID,3)+
 MADKX:MA(DKX,M);
 ```
 
-## TAPI  ��Ȩָ���ɽ�ֵ(����������)(ϵͳ)
+## TAPI  加权指数成交值(需下载日线)(系统)
 
 ``` pascal
 TAPI:AMOUNT/INDEXC;
 MATAIP:MA(TAPI,M);
 ```
 
-## PUCU  ��ʱ������(ϵͳ)
+## PUCU  逆时钟曲线(系统)
 
 ``` pascal
 PU:MA(CLOSE,N);
 CU:MA(VOL,N);
 ```
 
-## XS  Ѧ˹ͨ��(ϵͳ)
+## XS  薛斯通道(系统)
 
 ``` pascal
 VAR2:=CLOSE*VOL;
@@ -857,169 +857,169 @@ LUP:EMA(VAR4*1.14,5);
 LDN:EMA(VAR4*0.86,5);
 ```
 
-## XS2  Ѧ˹ͨ��II(ϵͳ)
+## XS2  薛斯通道II(系统)
 
 ``` pascal
 AA:=MA((2*CLOSE+HIGH+LOW)/4,5); 
-ͨ��1:AA*N/100; 
-ͨ��2:AA*(200-N)/100; 
+通道1:AA*N/100; 
+通道2:AA*(200-N)/100; 
 CC:=ABS((2*CLOSE+HIGH+LOW)/4-MA(CLOSE,20))/MA(CLOSE,20); 
 DD:=DMA(CLOSE,CC); 
-ͨ��3:(1+M/100)*DD; 
-ͨ��4:(1-M/100)*DD;
+通道3:(1+M/100)*DD; 
+通道4:(1-M/100)*DD;
 ```
 
-## QR  ǿ��ָ��(����������)(ϵͳ)
+## QR  强弱指标(需下载日线)(系统)
 
 ``` pascal
-����: (CLOSE-REF(CLOSE,N))/REF(CLOSE,N)*100; 
-����: (INDEXC-REF(INDEXC,N))/REF(INDEXC,N)*100; 
-ǿ��ֵ:EMA(����-����,2),COLORSTICK;
+个股: (CLOSE-REF(CLOSE,N))/REF(CLOSE,N)*100; 
+大盘: (INDEXC-REF(INDEXC,N))/REF(INDEXC,N)*100; 
+强弱值:EMA(个股-大盘,2),COLORSTICK;
 ```
 
-## GDX  �����(ϵͳ)
+## GDX  轨道线(系统)
 
 ``` pascal
 AA:=ABS((2*CLOSE+HIGH+LOW)/4-MA(CLOSE,N))/MA(CLOSE,N); 
-���:DMA(CLOSE,AA);
-ѹ����:(1+M/100)*���; 
-֧����:(1-M/100)*���;  
+轨道:DMA(CLOSE,AA);
+压力线:(1+M/100)*轨道; 
+支撑线:(1-M/100)*轨道;  
 ```
 
-## JLHB  ��·����(ϵͳ)
+## JLHB  绝路航标(系统)
 
 ``` pascal
 VAR1:=(CLOSE-LLV(LOW,60))/(HHV(HIGH,60)-LLV(LOW,60))*80; 
 B:SMA(VAR1,N,1); 
 VAR2:SMA(B,M,1); 
-��·����:IF(CROSS(B,VAR2) AND B<40,50,0);
+绝路航标:IF(CROSS(B,VAR2) AND B<40,50,0);
 ```
 
-## MA����  MA����(ϵͳ)(�ɽ���)
+## MA交易  MA交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
-{������ֵ}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
+{变量赋值}
 MA1:=MA(CLOSE,SHORT);
 MA2:=MA(CLOSE,LONG);
-{��������}
-ƽ�տ���:=CROSS(MA1,MA2);
-ƽ�࿪��:=CROSS(MA2,MA1);
-{����ϵͳ}
-BUYSHORT_BUY(ƽ�տ���,LOW);
-SELL_SELLSHORT(ƽ�࿪��,HIGH);
-{�����źŹ���}
+{交易条件}
+平空开多:=CROSS(MA1,MA2);
+平多开空:=CROSS(MA2,MA1);
+{交易系统}
+BUYSHORT_BUY(平空开多,LOW);
+SELL_SELLSHORT(平多开空,HIGH);
+{交易信号过滤}
 AUTOFILTER;
 ```
 
-## MACD����  MACD����(ϵͳ)(�ɽ���)
+## MACD交易  MACD交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
 DIFF:=EMA(CLOSE,SHORT)-EMA(CLOSE,LONG);
 DEA:=EMA(DIFF,MID);
 MACD:=2*(DIFF-DEA);
-ƽ�տ���:=CROSS(MACD,0);
-ƽ�࿪��:=CROSS(0,MACD);
-BUYSHORT_BUY(ƽ�տ���,LOW);
-SELL_SELLSHORT(ƽ�࿪��,HIGH);
+平空开多:=CROSS(MACD,0);
+平多开空:=CROSS(0,MACD);
+BUYSHORT_BUY(平空开多,LOW);
+SELL_SELLSHORT(平多开空,HIGH);
 AUTOFILTER;
 ```
 
-## KDJ����  KDJ����(ϵͳ)(�ɽ���)
+## KDJ交易  KDJ交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
 K:=SMA(RSV,M1,1);
 D:=SMA(K,M1,1);
 J:=3*K-2*D;
-ƽ�տ���:=CROSS(J,0);
-ƽ�࿪��:=CROSS(100,J);
-BUYSHORT_BUY(ƽ�տ���,LOW);
-SELL_SELLSHORT(ƽ�࿪��,HIGH);
+平空开多:=CROSS(J,0);
+平多开空:=CROSS(100,J);
+BUYSHORT_BUY(平空开多,LOW);
+SELL_SELLSHORT(平多开空,HIGH);
 AUTOFILTER;
 ```
 
-## ������  ������ͨ������(ϵͳ)(�ɽ���)
+## 肯特纳  肯特纳通道交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
 MA1:=REF(MA((HIGH+LOW+CLOSE)/3,AVGLENGTH),1);
 UPPERBAND:=MA1+REF(MA(TR,ATRLENGTH),1);
 LOWERBAND:=MA1-REF(MA(TR,ATRLENGTH),1);
-��������:=MA1>REF(MA1,1) AND HIGH>=UPPERBAND;
-ƽ������:=LOW<=MA1;
-��������:=MA1<REF(MA1,1) AND LOW<=LOWERBAND;
-ƽ������:=HIGH>=MA1;
-GL1:=NOT(��������=1 AND ƽ������=1);
-GL2:=NOT(��������=1 AND ƽ������=1);
-SELL(ƽ������,HIGH);
-BUYSHORT(ƽ������,LOW);
-BUY(�������� AND GL1,LOW);
-SELLSHORT(�������� AND GL2,HIGH);
+开多条件:=MA1>REF(MA1,1) AND HIGH>=UPPERBAND;
+平多条件:=LOW<=MA1;
+开空条件:=MA1<REF(MA1,1) AND LOW<=LOWERBAND;
+平空条件:=HIGH>=MA1;
+GL1:=NOT(开多条件=1 AND 平多条件=1);
+GL2:=NOT(开空条件=1 AND 平空条件=1);
+SELL(平多条件,HIGH);
+BUYSHORT(平空条件,LOW);
+BUY(开多条件 AND GL1,LOW);
+SELLSHORT(开空条件 AND GL2,HIGH);
 AUTOFILTER;
 ```
 
-## ���氲  ���氲ͨ������(ϵͳ)(�ɽ���)
+## 唐奇安  唐奇安通道交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
-���ڸߵ�:=REF(HHV(H,X1),1);
-���ڵ͵�:=REF(LLV(L,X2),1);
-ƽ�տ���:=HIGH>=���ڸߵ�;
-ƽ�࿪��:=LOW<=���ڵ͵�;
-BUYSHORT_BUY(ƽ�տ���,LOW);
-SELL_SELLSHORT(ƽ�࿪��,HIGH);
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
+周期高点:=REF(HHV(H,X1),1);
+周期低点:=REF(LLV(L,X2),1);
+平空开多:=HIGH>=周期高点;
+平多开空:=LOW<=周期低点;
+BUYSHORT_BUY(平空开多,LOW);
+SELL_SELLSHORT(平多开空,HIGH);
 AUTOFILTER;
 ```
 
-## ����ͻ��  ����ͻ�ƽ���(ϵͳ)(�ɽ���)
+## 日内突破  日内突破交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
-{������ֵ}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
+{变量赋值}
 NBAR:=BARSLAST(DATE<>REF(DATE,1))+1;
 HHN:REF(HHV(H,N),1);
 LLN:REF(LLV(L,N),1);
 MID:(HHN+LLN)/2;
-T1:=TIME>900 AND TIME <1455;{����Ʒ�ֵĽ���ʱ���ѡ�����������Ӧ����}
-T2:=TIME>=1455;{����Ʒ�ֵĽ���ʱ���ѡ�����������Ӧ����}
-{��������}
-��������:=H>HHN AND (HHN-MID)/MID<M/1000 AND NBAR>=30 AND T1;
-��������:=L<LLN AND (MID-LLN)/MID<M/1000 AND NBAR>=30 AND T1;
-{����ϵͳ}
-BUY(��������,LOW);
-SELLSHORT(��������,HIGH);
+T1:=TIME>900 AND TIME <1455;{根据品种的交易时间和选择的周期做相应调整}
+T2:=TIME>=1455;{根据品种的交易时间和选择的周期做相应调整}
+{交易条件}
+开多条件:=H>HHN AND (HHN-MID)/MID<M/1000 AND NBAR>=30 AND T1;
+开空条件:=L<LLN AND (MID-LLN)/MID<M/1000 AND NBAR>=30 AND T1;
+{交易系统}
+BUY(开多条件,LOW);
+SELLSHORT(开空条件,HIGH);
 SELL(T2,HIGH);
 BUYSHORT(T2,LOW);
 AUTOFILTER;
 ```
 
-## HANS123  ����HANS����(ϵͳ)(�ɽ���)
+## HANS123  日内HANS交易(系统)(可交易)
 
 ``` pascal
-{��ģ��Ϊʾ��ģ��,������˵���㷨�﷨,�û�������Լ����׾����޸ĺ���ʵ��Ӧ��}
-{������ֵ}
+{该模型为示范模型,仅用于说明算法语法,用户需根据自己交易经验修改后再实际应用}
+{变量赋值}
 N:=BARSLAST(DATE<>REF(DATE,1))+1;
 HHH:=VALUEWHEN(TIME<=900+NMIN1,HHV(H,N));
 LLL:=VALUEWHEN(TIME<=900+NMIN1,LLV(L,N));
-�Ϲ�:HHH+M*MINDIFF;
-�¹�:LLL-M*MINDIFF;
-{��������}
-��������:=C>�Ϲ�;
-��������:=C<�¹�;
-����ʱ��:=TIME>900+NMIN1 AND TIME<1450;
-ƽ��ʱ��:=TIME>=1500-NMIN2;
-{����ϵͳ}
-BUY(�������� AND ����ʱ��,LOW);
-SELLSHORT(�������� AND ����ʱ��,HIGH);
-SELL(ƽ��ʱ��,HIGH);
-BUYSHORT(ƽ��ʱ��,LOW);
+上轨:HHH+M*MINDIFF;
+下轨:LLL-M*MINDIFF;
+{交易条件}
+开多条件:=C>上轨;
+开空条件:=C<下轨;
+交易时间:=TIME>900+NMIN1 AND TIME<1450;
+平仓时间:=TIME>=1500-NMIN2;
+{交易系统}
+BUY(开多条件 AND 交易时间,LOW);
+SELLSHORT(开空条件 AND 交易时间,HIGH);
+SELL(平仓时间,HIGH);
+BUYSHORT(平仓时间,LOW);
 AUTOFILTER;
 ```
 
-## SG-XDT  �ĵ�ͼ(����������)(ϵͳ)
+## SG-XDT  心电图(需下载日线)(系统)
 
 ``` pascal
 QR:CLOSE/INDEXC*1000;
@@ -1027,7 +1027,7 @@ MQR1:MA(QR,5);
 MQR2:MA(QR,10);
 ```
 
-## SG-NDB  �Ե粨(��ϵ)(ϵͳ)
+## SG-NDB  脑电波(神系)(系统)
 
 ``` pascal
 HH:=IF(C/REF(C,1)>1.093 AND L>REF(H,1),2*C-REF(C,1)-H,2*C-H-L);
@@ -1038,7 +1038,7 @@ MDK5:MA(DK,P1);
 MDK10:MA(DK,P2);
 ```
 
-## SG-SMX  ������(����������)(ϵͳ)
+## SG-SMX  生命线(需下载日线)(系统)
 
 ``` pascal
 H1:=HHV(HIGH,N);
@@ -1051,16 +1051,16 @@ ZY2:EMA(ZY,17);
 ZY3:EMA(ZY,34);
 ```
 
-## SG-LB  ����(����������)(ϵͳ)
+## SG-LB  量比(需下载日线)(系统)
 
 ``` pascal
 ZY2:=VOL/INDEXV*1000;
-����:ZY2;
+量比:ZY2;
 MA5:MA(ZY2,5);
 MA10:MA(ZY2,10);
 ```
 
-## SG-PF  ǿ�ƹ�����(����������)(ϵͳ)
+## SG-PF  强势股评分(需下载日线)(系统)
 
 ``` pascal
 ZY1:=CLOSE/INDEXC*1000;
@@ -1069,10 +1069,10 @@ A2:=IF(ZY1>HHV(ZY1,5),15,0);
 A3:=IF(ZY1>HHV(ZY1,10),20,0);
 A4:=IF(ZY1>HHV(ZY1,2),10,0);
 A5:=COUNT(ZY1>REF(ZY1,1) ,9)*5;
-ǿ�ƹ�����:A1+A2+A3+A4+A5;
+强势股评分:A1+A2+A3+A4+A5;
 ```
 
-## CYC  �ɱ�����(ϵͳ)
+## CYC  成本均线(系统)
 
 ``` pascal
 JJJ:=IF(DYNAINFO(8)>0.01,0.01*DYNAINFO(10)/DYNAINFO(8),DYNAINFO(3));
@@ -1081,23 +1081,23 @@ JJJT:=IF(DDD,1,(JJJ<(DYNAINFO(5)+0.01) && JJJ>(DYNAINFO(6)-0.01)));
 CYC1:IF(JJJT,0.01*EMA(AMOUNT,P1)/EMA(VOL,P1),EMA((HIGH+LOW+CLOSE)/3,P1));
 CYC2:IF(JJJT,0.01*EMA(AMOUNT,P2)/EMA(VOL,P2),EMA((HIGH+LOW+CLOSE)/3,P2));
 CYC3:IF(JJJT,0.01*EMA(AMOUNT,P3)/EMA(VOL,P3),EMA((HIGH+LOW+CLOSE)/3,P3));
-CYC��:IF(JJJT,DMA(AMOUNT/(100*VOL),100*VOL/FINANCE(7)),EMA((HIGH+LOW+CLOSE)/3,120));
+CYC∞:IF(JJJT,DMA(AMOUNT/(100*VOL),100*VOL/FINANCE(7)),EMA((HIGH+LOW+CLOSE)/3,120));
 ```
 
-## CYS  �г�ӯ��(ϵͳ)
+## CYS  市场盈亏(系统)
 
 ``` pascal
 CYC13:=0.01*EMA(AMOUNT,13)/EMA(VOL,13);
 CYS:(CLOSE-CYC13)/CYC13*100;
 ```
 
-## CYQKL  ����K�߳���(ϵͳ)
+## CYQKL  博弈K线长度(系统)
 
 ``` pascal
 KL:100*(WINNER(CLOSE)-WINNER(OPEN));
 ```
 
-## CYW  ��������(ϵͳ)
+## CYW  主力控盘(系统)
 
 ``` pascal
 VAR1:=CLOSE-LOW;
@@ -1107,7 +1107,7 @@ VAR4:=IF(HIGH>LOW,(VAR1/VAR2+VAR3/VAR2)*VOL,0);
 CYW: SUM(VAR4,10)/10000, COLORSTICK;
 ```
 
-## RAD  �����״�(����������)(ϵͳ)
+## RAD  威力雷达(需下载日线)(系统)
 
 ``` pascal
 SM:=(OPEN+HIGH+CLOSE+LOW)/4;
@@ -1120,7 +1120,7 @@ RADER1:SUM((SI1-II)*2,S)*1000;
 RADERMA:SMA(RADER1,M,1);
 ```
 
-## LON  ��ϵ����(ϵͳ)
+## LON  龙系长线(系统)
 
 ``` pascal
 LC := REF(CLOSE,1);
@@ -1134,7 +1134,7 @@ LONMA : MA(LON,N);
 LONT : LON, COLORSTICK;
 ```
 
-## SHT  ��ϵ����(ϵͳ)
+## SHT  龙系短线(系统)
 
 ``` pascal
 VAR1:=MA((VOL-REF(VOL,1))/REF(VOL,1),5);
@@ -1144,7 +1144,7 @@ SHT: MY, COLORSTICK;
 SHTMA: MA(SHT,N);
 ```
 
-## ZLJC  ��������(ϵͳ)
+## ZLJC  主力进出(系统)
 
 ``` pascal
 VAR1:=(CLOSE+LOW+HIGH)/3; 
@@ -1155,7 +1155,7 @@ JCM:MA(VAR3,12);
 JCL:MA(VAR3,26);
 ```
 
-## ZLMM  ��������(ϵͳ)
+## ZLMM  主力买卖(系统)
 
 ``` pascal
 LC :=REF(CLOSE,1);
@@ -1166,20 +1166,20 @@ MMM:EMA(MMS,8);
 MML:MA(3*RSI3-2*SMA(MAX(CLOSE-LC,0),12,1)/SMA(ABS(CLOSE-LC),12,1)*100,5);
 ```
 
-## SLZT  ��������(ϵͳ)
+## SLZT  神龙在天(系统)
 
 ``` pascal
-����: MA(CLOSE,125);
-����: ����+2*STD(CLOSE,170);
-����: ����-2*STD(CLOSE,145);
-����: SAR(125,1,7), LINESTICK;
+白龙: MA(CLOSE,125);
+黄龙: 白龙+2*STD(CLOSE,170);
+紫龙: 白龙-2*STD(CLOSE,145);
+青龙: SAR(125,1,7), LINESTICK;
 VAR2:=HHV(HIGH,70);
 VAR3:=HHV(HIGH,20);
-����: VAR2*0.83;
-����: VAR3*0.91;
+红龙: VAR2*0.83;
+蓝龙: VAR3*0.91;
 ```
 
-## ADVOL  ��ϵ��ɢ��(ϵͳ)
+## ADVOL  龙系离散量(系统)
 
 ``` pascal
 A:=SUM(((CLOSE-LOW)-(HIGH-CLOSE))*VOL/10000/(HIGH-LOW),0);
@@ -1188,7 +1188,7 @@ MA1:MA(A,30);
 MA2:MA(MA1,100);
 ```
 
-## CJDX  ��������(ϵͳ)
+## CJDX  超级短线(系统)
 
 ``` pascal
 VAR1:=(2*CLOSE+HIGH+LOW)/4;
@@ -1198,36 +1198,36 @@ D: MA(J,3);
 K: MA(J,1);
 ```
 
-## ZJTJ  ׯ��̧��(ϵͳ)
+## ZJTJ  庄家抬轿(系统)
 
 ``` pascal
 VAR1:=EMA(EMA(CLOSE,9),9);
-����:=(VAR1-REF(VAR1,1))/REF(VAR1,1)*1000;
-STICKLINE(����<0,����,0,1,0),COLORWHITE;
-A10:=CROSS(����,0);
-��ׯ����:IF(����<0,����,0),COLORWHITE,NODRAW;
-��ʼ����:IF(A10,5,0),LINETHICK1,COLORYELLOW;
-STICKLINE(����>REF(����,1) AND ����>0,����,0,1,0),COLORRED;
-��ׯ����:IF(����>REF(����,1) AND ����>0,����,0),COLORRED,NODRAW;
+控盘:=(VAR1-REF(VAR1,1))/REF(VAR1,1)*1000;
+STICKLINE(控盘<0,控盘,0,1,0),COLORWHITE;
+A10:=CROSS(控盘,0);
+无庄控盘:IF(控盘<0,控盘,0),COLORWHITE,NODRAW;
+开始控盘:IF(A10,5,0),LINETHICK1,COLORYELLOW;
+STICKLINE(控盘>REF(控盘,1) AND 控盘>0,控盘,0,1,0),COLORRED;
+有庄控盘:IF(控盘>REF(控盘,1) AND 控盘>0,控盘,0),COLORRED,NODRAW;
 VAR2:=100*WINNER(CLOSE*0.95);
-STICKLINE(VAR2>50 AND COST(85)<CLOSE AND ����>0,����,0,1,0),COLORFF00FF;
-�߶ȿ���:IF(VAR2>50 AND COST(85)<CLOSE AND ����>0,����,0),COLORFF00FF,NODRAW;
-STICKLINE(����<REF(����,1) AND ����>0,����,0,1,0),COLOR00FF00;
-��������:IF(����<REF(����,1) AND ����>0,����,0),COLOR00FF00,NODRAW;
+STICKLINE(VAR2>50 AND COST(85)<CLOSE AND 控盘>0,控盘,0,1,0),COLORFF00FF;
+高度控盘:IF(VAR2>50 AND COST(85)<CLOSE AND 控盘>0,控盘,0),COLORFF00FF,NODRAW;
+STICKLINE(控盘<REF(控盘,1) AND 控盘>0,控盘,0,1,0),COLOR00FF00;
+主力出货:IF(控盘<REF(控盘,1) AND 控盘>0,控盘,0),COLOR00FF00,NODRAW;
 ```
 
-## ZBCD  ׼������(ϵͳ)
+## ZBCD  准备抄底(系统)
 
 ``` pascal
 VAR1:=AMOUNT/VOL/7;
 VAR2:=(3*HIGH+LOW+OPEN+2*CLOSE)/7;
 VAR3:=SUM(AMOUNT,N)/VAR1/7;
 VAR4:=DMA(VAR2,VOL/VAR3);
-����:(CLOSE-VAR4)/VAR4*100,COLORLIMAGENTA;
-DRAWICON(CROSS(-7.0,����),����,1);
+抄底:(CLOSE-VAR4)/VAR4*100,COLORLIMAGENTA;
+DRAWICON(CROSS(-7.0,抄底),抄底,1);
 ```
 
-## BDZX  ����֮��(ϵͳ)
+## BDZX  波段之星(系统)
 
 ``` pascal
 VAR2:=(HIGH+LOW+CLOSE*2)/4;
@@ -1241,59 +1241,59 @@ AJ: 3*AK-2*AD1;
 AA:100;
 BB:0;
 CC:80;
-���: IF(CROSS(AK,AD1),58,20);
-����: IF(CROSS(AD1,AK),58,20);
+买进: IF(CROSS(AK,AD1),58,20);
+卖出: IF(CROSS(AD1,AK),58,20);
 ```
 
-## LHXJ  �Ժ��Ⱦ�(ϵͳ)
+## LHXJ  猎狐先觉(系统)
 
 ``` pascal
 VAR1:=(CLOSE*2+HIGH+LOW)/4;
 VAR2:=EMA(VAR1,13)-EMA(VAR1,34);
 VAR3:=EMA(VAR2,5);
-��������: (-2)*(VAR2-VAR3)*3.8;
-��������: 2*(VAR2-VAR3)*3.8;
+主力弃盘: (-2)*(VAR2-VAR3)*3.8;
+主力控盘: 2*(VAR2-VAR3)*3.8;
 ```
 
-## LYJH  ��ӥ�ߺ�(ϵͳ)
+## LYJH  猎鹰歼狐(系统)
 
 ``` pascal
 VAR1:=(HHV(HIGH,36)-CLOSE)/(HHV(HIGH,36)-LLV(LOW,36))*100;
-��������������: SMA(VAR1,2,1);
+机构做空能量线: SMA(VAR1,2,1);
 VAR2:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
-��������������: SMA(VAR2,5,1)-8;
+机构做多能量线: SMA(VAR2,5,1)-8;
 LH: M;
 LH1: M1;
 ```
 
-## JFZX  쫷���������(ϵͳ)
+## JFZX  飓风智能中线(系统)
 
 ``` pascal
 VAR2:=SUM(IF(CLOSE>OPEN,VOL,0),N)/SUM(VOL,N)*100;
 VAR3:=100-SUM(IF(CLOSE>OPEN,VOL,0),N)/SUM(VOL,N)*100;
-��ͷ����: VAR2;
-��ͷ����: VAR3;
-���ƽ��: 50;
+多头力量: VAR2;
+空头力量: VAR3;
+多空平衡: 50;
 ```
 
-## CYHT  ���˺�ͨ(ϵͳ)
+## CYHT  财运亨通(系统)
 
 ``` pascal
 VAR1:=(2*CLOSE+HIGH+LOW+OPEN)/5;
-����: 80;
+高抛: 80;
 VAR2:=LLV(LOW,34);
 VAR3:=HHV(HIGH,34);
 SK: EMA((VAR1-VAR2)/(VAR3-VAR2)*100,13);
 SD: EMA(SK,3);
-����: 20;
-ǿ���ֽ�: 50;
+低吸: 20;
+强弱分界: 50;
 VAR4:=IF(CROSS(SK,SD),40,22);
 VAR5:=IF(CROSS(SD,SK),60,78);
-����: VAR5;
-���: VAR4;
+卖出: VAR5;
+买进: VAR4;
 ```
 
-## SCR  ���뼯�ж�(ϵͳ)
+## SCR  筹码集中度(系统)
 
 ``` pascal
 A:=P1+(100-P1)/2;
@@ -1303,37 +1303,37 @@ DD:=COST(B);
 SCR:(CC-DD)/(CC+DD)*100/2;
 ```
 
-## ASR  �������(ϵͳ)
+## ASR  浮筹比例(系统)
 
 ``` pascal
 ASR:(WINNER(C*1.1)-WINNER(C*0.9))/WINNER(HHV(H,0))*100;
 ```
 
-## BSQJ  ��������(ϵͳ)
+## BSQJ  买卖区间(系统)
 
 ``` pascal
-����:=EMA(C,2);
-����:=EMA(SLOPE(C,21)*20+C,42);
-STICKLINE(����>=����,REFDATE(HHV(H,0),DATE),REFDATE(LLV(L,0),DATE),6,0),COLOR001050;
-STICKLINE(����<����,REFDATE(HHV(H,0),DATE),REFDATE(LLV(L,0),DATE),6,0),COLOR404050;
+买线:=EMA(C,2);
+卖线:=EMA(SLOPE(C,21)*20+C,42);
+STICKLINE(买线>=卖线,REFDATE(HHV(H,0),DATE),REFDATE(LLV(L,0),DATE),6,0),COLOR001050;
+STICKLINE(买线<卖线,REFDATE(HHV(H,0),DATE),REFDATE(LLV(L,0),DATE),6,0),COLOR404050;
 DRAWKLINE(H,O,L,C);
-ָ��:=EMA((EMA(CLOSE,4)+EMA(CLOSE,6)+EMA(CLOSE,12)+EMA(CLOSE,24))/4,2);
-��:=MA(CLOSE,27);
-B��:IF(CROSS(ָ��,��) OR CROSS(����,����),C,DRAWNULL),COLORMAGENTA,NODRAW;
-�ֲ�:IF(����>=����,C,DRAWNULL),COLORRED,NODRAW;
-S��:IF(CROSS(��,ָ��) OR CROSS(����,����),C,DRAWNULL),COLORLIGRAY,NODRAW;
-�ղ�:IF(����<����,C,DRAWNULL),COLORGREEN,NODRAW;
-DRAWICON(CROSS(����,����),L,1);
-DRAWICON(CROSS(����,����),H,2);
+指导:=EMA((EMA(CLOSE,4)+EMA(CLOSE,6)+EMA(CLOSE,12)+EMA(CLOSE,24))/4,2);
+界:=MA(CLOSE,27);
+B买:IF(CROSS(指导,界) OR CROSS(买线,卖线),C,DRAWNULL),COLORMAGENTA,NODRAW;
+持仓:IF(买线>=卖线,C,DRAWNULL),COLORRED,NODRAW;
+S卖:IF(CROSS(界,指导) OR CROSS(卖线,买线),C,DRAWNULL),COLORLIGRAY,NODRAW;
+空仓:IF(买线<卖线,C,DRAWNULL),COLORGREEN,NODRAW;
+DRAWICON(CROSS(买线,卖线),L,1);
+DRAWICON(CROSS(卖线,买线),H,2);
 ```
 
-## ZJL  �ۼ���,��������(ϵͳ)
+## ZJL  折价率,用于排序(系统)
 
 ``` pascal
-�ۼ���:IF(FINANCE(34)>0.001,(FINANCE(34)-CLOSE)*100.0/FINANCE(34),0);
+折价率:IF(FINANCE(34)>0.001,(FINANCE(34)-CLOSE)*100.0/FINANCE(34),0);
 ```
 
-## CDP-STD  ���Ʋ���(ϵͳ)
+## CDP-STD  逆势操作(系统)
 
 ``` pascal
 CH:=REF(H,1);
@@ -1346,7 +1346,7 @@ NL:CDP+CDP-CH;
 AL:2*CDP-2*CH+CL;
 ```
 
-## TBP-STD  ����ƽ���(ϵͳ)
+## TBP-STD  趋势平衡点(系统)
 
 ``` pascal
 APX:=(H+L+C)/3;
@@ -1358,67 +1358,67 @@ DIRECT1:=BARSLAST(MF0>MF1 AND MF0>MF2);
 DIRECT2:=BARSLAST(MF0<MF1 AND MF0<MF2);
 DIRECT0:=IF(DIRECT1<DIRECT2,100,-100);
 TBP:REF(REF(C,1)+IF(DIRECT0>50,MIN(MF0,MF1),MAX(MF0,MF1)),1);
-��ͷ����:REF(IF(DIRECT0>50,APX*2-L,DRAWNULL),1),NODRAW;
-��ͷͣ��:REF(IF(DIRECT0>50,APX-TR0,DRAWNULL),1),NODRAW;
-��ͷ�ز�:REF(IF(DIRECT0<-50,APX*2-H,DRAWNULL),1),NODRAW;
-��ͷͣ��:REF(IF(DIRECT0<-50,APX+TR0,DRAWNULL),1),NODRAW;
+多头获利:REF(IF(DIRECT0>50,APX*2-L,DRAWNULL),1),NODRAW;
+多头停损:REF(IF(DIRECT0>50,APX-TR0,DRAWNULL),1),NODRAW;
+空头回补:REF(IF(DIRECT0<-50,APX*2-H,DRAWNULL),1),NODRAW;
+空头停损:REF(IF(DIRECT0<-50,APX+TR0,DRAWNULL),1),NODRAW;
 ```
 
-## SC  ����(ϵͳ)
+## SC  三叉(系统)
 
 ``` pascal
 
 ```
 
-## NDB  �Ե粨(ϵͳ)
+## NDB  脑电波(系统)
 
 ``` pascal
 
 ```
 
-## JYJL  ���ײο�����(ϵͳ)
+## JYJL  交易参考均量(系统)
 
 ``` pascal
-��λʱ������: SUM(VOL,N)*100,NODRAW;
-��λʱ���ھ���: ��λʱ������/(N/M);
+单位时间总量: SUM(VOL,N)*100,NODRAW;
+单位时间内均量: 单位时间总量/(N/M);
 ```
 
-## JSJG  �ο������(�����ڽ����ڻ�)(ϵͳ)
+## JSJG  参考结算价(适用于金融期货)(系统)
 
 ``` pascal
 FIRST:=IF(PERIOD=0,HOUR=14 AND MINUTE=16,DRAWNULL);
 TOTAL:=IF(PERIOD=0,60,0);
 MAMIN:=BARSLAST(FIRST)+1;
 COUNTFLAG:=(PERIOD=0 AND ( (HOUR=14 AND MINUTE>=16) OR HOUR=15 ));
-�ƽ�����۸�:IF(COUNTFLAG,SUM(C*V,MAMIN)/SUM(V,MAMIN),DRAWNULL);
+逼近结算价格:IF(COUNTFLAG,SUM(C*V,MAMIN)/SUM(V,MAMIN),DRAWNULL);
 LASTP:=C;
 LASTM:=MAMIN;
 LASTV:=MA(V,MAMIN);
-�ο�����۸�:IF(COUNTFLAG,(SUM(C*V,MAMIN)+LASTP*LASTV*(TOTAL-LASTM))/(LASTV*TOTAL),DRAWNULL);
+参考结算价格:IF(COUNTFLAG,(SUM(C*V,MAMIN)+LASTP*LASTV*(TOTAL-LASTM))/(LASTV*TOTAL),DRAWNULL);
 ```
 
-## PRICEV  �۸񲨶���(ϵͳ)
+## PRICEV  价格波动率(系统)
 
 ``` pascal
 VR:STDDEV(CLOSE,N)*100;
 VRMA:MA(VR,M);
 ```
 
-## HISV  ��ʷ������(ϵͳ)
+## HISV  历史波动率(系统)
 
 ``` pascal
-������:STDDEV(CLOSE,N)*SQRT(250)*100.0;
+波动率:STDDEV(CLOSE,N)*SQRT(250)*100.0;
 ```
 
-## VOLATILITY  ��Ȩ������(ϵͳ)
+## VOLATILITY  期权波动率(系统)
 
 ``` pascal
 HV:IVOLAT(N,0)*100.0;
-����������:IVOLAT(N,1)*100.0;
-������:(����������-HV),COLORSTICK;
+隐含波动率:IVOLAT(N,1)*100.0;
+波动差:(隐含波动率-HV),COLORSTICK;
 ```
 
-## CPBS  ����BS��(ϵͳ)
+## CPBS  操盘BS点(系统)
 
 ``` pascal
 BU:=CROSS(HIGH,SAR(3,1,20));
@@ -1427,7 +1427,7 @@ DRAWTEXT(BU,LOW,'B'),COLORYELLOW,LINETHICK2;
 DRAWTEXT(SEL,1.01*HIGH,'S'),COLORGREEN,LINETHICK2;
 ```
 
-## CYX  ��ѹ��(ϵͳ)
+## CYX  撑压线(系统)
 
 ``` pascal
 Z1:=STRCAT(HYBLOCK,' ');
@@ -1470,68 +1470,68 @@ NOTEXT1:DRAWLINE(S2,H,S1,H,1),LINETHICK2,COLORRED;
 NOTEXT2:DRAWLINE(U2,L,U1,L,1),LINETHICK2,COLORGREEN;
 ```
 
-## WAVE  ���˷���(ϵͳ)
+## WAVE  波浪分析(系统)
 
 ``` pascal
-ZIG(3,����);
+ZIG(3,因子);
 ```
 
-## SKSD  ʱ������(ϵͳ)
+## SKSD  时空隧道(系统)
 
 ``` pascal
 STICKLINE(CURRBARSCOUNT<=N,H,L,-1,0),COLORBLACK;
-DRAWTEXT_FIX(ISLASTBAR,0,0,0,STRCAT(CON2STR(N,0),'����ǰK��  ѡ����ͼ��ALT+T�����ڻ��˵�����')),COLORLIMAGENTA;
+DRAWTEXT_FIX(ISLASTBAR,0,0,0,STRCAT(CON2STR(N,0),'周期前K线  选中主图后按ALT+T键调节回退的周期')),COLORLIMAGENTA;
 NOTEXT1:IF(CURRBARSCOUNT>=N+1,MA(C,M),DRAWNULL),COLORWHITE;
 NOTEXT2:IF(CURRBARSCOUNT<=N,MA(C,M),DRAWNULL),COLORBLACK; 
 ```
 
-## ���߾���  ���ֹ߳ɳֱ���(ϵͳ)
+## 短线决策  短线持股持币区(系统)
 
 ``` pascal
 
 ```
 
-## ���߾���  ���ֹ߳ɳֱ���(ϵͳ)
+## 中线决策  中线持股持币区(系统)
 
 ``` pascal
 
 ```
 
-## XLPL  ��������(ϵͳ)
+## XLPL  吸拉派落(系统)
 
 ``` pascal
 
 ```
 
-## GSTQ  ��������(ϵͳ)
+## GSTQ  股市天气(系统)
 
 ``` pascal
 
 ```
 
-## AROON  ��¡ָ��(ϵͳ)
+## AROON  阿隆指标(系统)
 
 ``` pascal
-�Ϲ�:(N-HHVBARS(H,N))/N*100,COLORRED;
-�¹�:(N-LLVBARS(H,N))/N*100,COLORGREEN;
+上轨:(N-HHVBARS(H,N))/N*100,COLORRED;
+下轨:(N-LLVBARS(H,N))/N*100,COLORGREEN;
 ```
 
-## CFJT  �Ƹ�����(ϵͳ)
+## CFJT  财富阶梯(系统)
 
 ``` pascal
-ͻ��:=REF(EMA(C,14),1);
-A1X:=(EMA(C,10)-ͻ��)/ͻ��*100;
-�෽:=IF(A1X>=0,REF(EMA(C,10),BARSLAST(CROSS(A1X,0))+1),DRAWNULL);
-�շ�:=IF(A1X<0,REF(EMA(C,10),BARSLAST(CROSS(0,A1X))+1),DRAWNULL);
-STICKLINE(A1X>=0,�෽,ͻ��,10,0),COLOR000099;
-STICKLINE(A1X<0,�շ�,ͻ��,10,0),COLOR00CC66;
+突破:=REF(EMA(C,14),1);
+A1X:=(EMA(C,10)-突破)/突破*100;
+多方:=IF(A1X>=0,REF(EMA(C,10),BARSLAST(CROSS(A1X,0))+1),DRAWNULL);
+空方:=IF(A1X<0,REF(EMA(C,10),BARSLAST(CROSS(0,A1X))+1),DRAWNULL);
+STICKLINE(A1X>=0,多方,突破,10,0),COLOR000099;
+STICKLINE(A1X<0,空方,突破,10,0),COLOR00CC66;
 ```
 
-## TJCJL  ̫���ɽ���(ϵͳ)
+## TJCJL  太极成交量(系统)
 
 ``` pascal
-����:VOL,NODRAW;
-DRAWTEXT_FIX(ISLASTBAR,0,0,0,'˵��: ��ɫ��Ϊ������,��ɫΪ������,��ɫΪ����,��ɫΪ����'),COLORGRAY;
+总量:VOL,NODRAW;
+DRAWTEXT_FIX(ISLASTBAR,0,0,0,'说明: 红色柱为吸货量,绿色为出货量,黄色为天量,蓝色为地量'),COLORGRAY;
 ZZ:=IF(REF(C,1)>REF(O,1) AND O>REF(C,1)*1.014 AND C<O*1.02,1,3);
 V5:=MA(V,5);
 V12:=MA(V,12);
@@ -1546,7 +1546,7 @@ STICKLINE(VOL>MA(VOL,5)*2 AND V>V34*3 AND C<REF(C,1)*1.05 AND CROSS(C,C6) AND V>
 STICKLINE(VOL>MA(VOL,5)*2 AND V>V34*3 AND C<REF(C,1)*1.05 AND CROSS(C6,C) AND V>V5*1.2 AND V>V12*1.2,VOL*0.5,0,1,0),COLORRED;
 ```
 
-## ZJFZ  ׷����ת(ϵͳ)
+## ZJFZ  追击反转(系统)
 
 ``` pascal
 VAR2:=REF(LOW,1);
@@ -1561,24 +1561,24 @@ STICKLINE(VAR8>1 AND "KDJ.J">REF("KDJ.J",1) AND REF("KDJ.J",1)<REF("KDJ.J",2),0,
 STICKLINE(VAR8>0.1 AND VAR8<1 AND "KDJ.J">REF("KDJ.J",1) AND REF("KDJ.J",1)<REF("KDJ.J",2),0,VAR8,3,0),COLOR00FFFF;
 ```
 
-## ZSDB  ָ���Ա�(��ͼ,����������)(ϵͳ)
+## ZSDB  指数对比(副图,需下载日线)(系统)
 
 ``` pascal
 A:=REF(INDEXC,1);
-ָ���Ƿ�:IF(A>0,(INDEXC-A)*100/A,0),NODRAW;
+指数涨幅:IF(A>0,(INDEXC-A)*100/A,0),NODRAW;
 HYDB:DRAWKLINE(INDEXH,INDEXO,INDEXL,INDEXC);
 ```
 
-## HYDB  ��ҵ�Ա�(��ͼ,����������)(ϵͳ)
+## HYDB  行业对比(副图,需下载日线)(系统)
 
 ``` pascal
 A:=REF(HY_INDEXC,1);
-��ҵ�Ƿ�:IF(A>0,(HY_INDEXC-A)*100/A,0),NODRAW;
+行业涨幅:IF(A>0,(HY_INDEXC-A)*100/A,0),NODRAW;
 DRAWTEXT_FIX(ISLASTBAR,0,0,0,HYBLOCK),COLOR00C0C0;
 HYDB:DRAWKLINE(HY_INDEXH,HY_INDEXO,HY_INDEXL,HY_INDEXC);
 ```
 
-## DKCOL  ���������(�����ڷ�ʱ��ͼ)(ϵͳ)
+## DKCOL  多空能量柱(适用于分时主图)(系统)
 
 ``` pascal
 FF:=(C-REF(C,N))/REF(C,N);
@@ -1586,134 +1586,134 @@ STICKLINE(FF>0,DYNAINFO(3),DYNAINFO(3)*(1+FF),0.5,0),COLORRED;
 STICKLINE(FF<0,DYNAINFO(3),DYNAINFO(3)*(1+FF),0.5,0),COLORGREEN;
 ```
 
-## FKX  ��K��(ϵͳ)
+## FKX  反K线(系统)
 
 ``` pascal
 DRAWKLINE(-LOW, -OPEN, -HIGH, -CLOSE);
 ```
 
-## ZJLX  �ʽ�����(ϵͳ)
+## ZJLX  资金流向(系统)
 
 ``` pascal
-��B:=L2_AMO(0,2)/10000.0;
-��B:=L2_AMO(1,2)/10000.0;
-��B:=L2_AMO(2,2)/10000.0;
-СB:=L2_AMO(3,2)/10000.0;
-��S:=L2_AMO(0,3)/10000.0;
-��S:=L2_AMO(1,3)/10000.0;
-��S:=L2_AMO(2,3)/10000.0;
-СS:=L2_AMO(3,3)/10000.0;
-�ʽ�����:(��B+��B+��B+СB)-(��S+��S+��S+СS),NODRAW;
-STICKLINE(�ʽ�����>0,0,�ʽ�����,2,0),COLORRED;
-STICKLINE(�ʽ�����<0,0,�ʽ�����,2,0),COLORCYAN;
-��5������:SUM(�ʽ�����,5),NODRAW;
-��10������:SUM(�ʽ�����,10),NODRAW;
+超B:=L2_AMO(0,2)/10000.0;
+大B:=L2_AMO(1,2)/10000.0;
+中B:=L2_AMO(2,2)/10000.0;
+小B:=L2_AMO(3,2)/10000.0;
+超S:=L2_AMO(0,3)/10000.0;
+大S:=L2_AMO(1,3)/10000.0;
+中S:=L2_AMO(2,3)/10000.0;
+小S:=L2_AMO(3,3)/10000.0;
+资金流向:(超B+大B+中B+小B)-(超S+大S+中S+小S),NODRAW;
+STICKLINE(资金流向>0,0,资金流向,2,0),COLORRED;
+STICKLINE(资金流向<0,0,资金流向,2,0),COLORCYAN;
+近5日流向:SUM(资金流向,5),NODRAW;
+近10日流向:SUM(资金流向,10),NODRAW;
 ```
 
-## ZJQDL  �ʽ�������(ϵͳ)
+## ZJQDL  资金驱动力(系统)
 
 ``` pascal
-��B:=L2_AMO(0,2)/10000.0;
-��B:=L2_AMO(1,2)/10000.0;
-��B:=L2_AMO(2,2)/10000.0;
-СB:=L2_AMO(3,2)/10000.0;
-��S:=L2_AMO(0,3)/10000.0;
-��S:=L2_AMO(1,3)/10000.0;
-��S:=L2_AMO(2,3)/10000.0;
-СS:=L2_AMO(3,3)/10000.0;
-������:(��B+��B+��B+СB)-(��S+��S+��S+СS);
-���ھ�����:(��B+��B)-(��S+��S);
+超B:=L2_AMO(0,2)/10000.0;
+大B:=L2_AMO(1,2)/10000.0;
+中B:=L2_AMO(2,2)/10000.0;
+小B:=L2_AMO(3,2)/10000.0;
+超S:=L2_AMO(0,3)/10000.0;
+大S:=L2_AMO(1,3)/10000.0;
+中S:=L2_AMO(2,3)/10000.0;
+小S:=L2_AMO(3,3)/10000.0;
+净流入:(超B+大B+中B+小B)-(超S+大S+中S+小S);
+大宗净流入:(超B+大B)-(超S+大S);
 ```
 
-## ZJBY  �ʽ���(ϵͳ)
+## ZJBY  资金搏弈(系统)
 
 ``` pascal
-��B:=L2_AMO(0,2)/10000.0;
-��B:=L2_AMO(1,2)/10000.0;
-��B:=L2_AMO(2,2)/10000.0;
-СB:=L2_AMO(3,2)/10000.0;
-��S:=-L2_AMO(0,3)/10000.0;
-��S:=-L2_AMO(1,3)/10000.0;
-��S:=-L2_AMO(2,3)/10000.0;
-СS:=-L2_AMO(3,3)/10000.0;
-������:(��B+��B+��B+СB)+(��S+��S+��S+СS),NODRAW;
-����:(��B)+(��S);
-��:(��B)+(��S);
-�е�:(��B)+(��S);
-С��:(СB)+(СS);
+超B:=L2_AMO(0,2)/10000.0;
+大B:=L2_AMO(1,2)/10000.0;
+中B:=L2_AMO(2,2)/10000.0;
+小B:=L2_AMO(3,2)/10000.0;
+超S:=-L2_AMO(0,3)/10000.0;
+大S:=-L2_AMO(1,3)/10000.0;
+中S:=-L2_AMO(2,3)/10000.0;
+小S:=-L2_AMO(3,3)/10000.0;
+净流入:(超B+大B+中B+小B)+(超S+大S+中S+小S),NODRAW;
+超大单:(超B)+(超S);
+大单:(大B)+(大S);
+中单:(中B)+(中S);
+小单:(小B)+(小S);
 ```
 
-## DDX  �󵥶���(ϵͳ)
+## DDX  大单动向(系统)
 
 ``` pascal
-�󵥶���:(LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7),NODRAW;
-NOTEXT1:MA(�󵥶���,N)*3;
-STICKLINE(�󵥶���>0,0,�󵥶���,2,0),COLORRED;
-STICKLINE(�󵥶���<0,0,�󵥶���,2,0),COLORCYAN;
+大单动向:(LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7),NODRAW;
+NOTEXT1:MA(大单动向,N)*3;
+STICKLINE(大单动向>0,0,大单动向,2,0),COLORRED;
+STICKLINE(大单动向<0,0,大单动向,2,0),COLORCYAN;
 ```
 
-## DDY  �ǵ�����(ϵͳ)
+## DDY  涨跌动因(系统)
 
 ``` pascal
-�ǵ�����:IF(TRADENUM>0,(TRADEOUTNUM-TRADEINNUM)*100/TRADENUM,0),NODRAW;
-NOTEXT1:MA(�ǵ�����,N)*3;
-STICKLINE(�ǵ�����>0,0,�ǵ�����,2,0),COLORRED;
-STICKLINE(�ǵ�����<0,0,�ǵ�����,2,0),COLORCYAN;
+涨跌动因:IF(TRADENUM>0,(TRADEOUTNUM-TRADEINNUM)*100/TRADENUM,0),NODRAW;
+NOTEXT1:MA(涨跌动因,N)*3;
+STICKLINE(涨跌动因>0,0,涨跌动因,2,0),COLORRED;
+STICKLINE(涨跌动因<0,0,涨跌动因,2,0),COLORCYAN;
 ```
 
-## DDZ  �󵥲��(ϵͳ)
+## DDZ  大单差分(系统)
 
 ``` pascal
-�󵥲��:IF(TRADENUM>0,(LARGETRDINNUM-LARGETRDOUTNUM)/TRADENUM*100,0),NODRAW;
-DDZ1:=�󵥲��*7;
-DDZ2:=�󵥲��*3;
+大单差分:IF(TRADENUM>0,(LARGETRDINNUM-LARGETRDOUTNUM)/TRADENUM*100,0),NODRAW;
+DDZ1:=大单差分*7;
+DDZ2:=大单差分*3;
 DRAWBAND(DDZ1,RGB(255,32,32),DDZ2,RGB(0,224,224));
 ```
 
-## DDF  ��Ƶ��(ϵͳ)
+## DDF  大单频率(系统)
 
 ``` pascal
-��Ƶ��:IF(TRADENUM>0,LARGETRDINNUM*100/TRADENUM,0),NODRAW;
-NOTEXT1:MA(��Ƶ��,N)*2;
-STICKLINE(1,0,��Ƶ��,2,0);
+大单频率:IF(TRADENUM>0,LARGETRDINNUM*100/TRADENUM,0),NODRAW;
+NOTEXT1:MA(大单频率,N)*2;
+STICKLINE(1,0,大单频率,2,0);
 ```
 
-## SUPL  ������ɢ��(ϵͳ)
+## SUPL  主力集散线(系统)
 
 ``` pascal
-������ɢ��:SUM((LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7),0),LINETHICK2;
-MA1:MA(������ɢ��,N),COLORBROWN;
+主力集散线:SUM((LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7),0),LINETHICK2;
+MA1:MA(主力集散线,N),COLORBROWN;
 ```
 
-## SUPV  ����������(ϵͳ)
+## SUPV  主力净买量(系统)
 
 ``` pascal
-����������:(LARGEINTRDVOL-LARGEOUTTRDVOL);
-��������:LARGEINTRDVOL,COLORRED,NODRAW;
-��������:LARGEOUTTRDVOL,COLORGREEN,NODRAW;
-STICKLINE(1,0,IF(��������>0,VOL,0),2,0),COLORBROWN;
-STICKLINE(1,0,IF(��������>0,-VOL,0),2,0),COLORBROWN;
-STICKLINE(1,0,��������,2,0),COLORRED;
-STICKLINE(1,0,(-1*��������),2,0),COLORGREEN;
+主力净买量:(LARGEINTRDVOL-LARGEOUTTRDVOL);
+主力买量:LARGEINTRDVOL,COLORRED,NODRAW;
+主力卖量:LARGEOUTTRDVOL,COLORGREEN,NODRAW;
+STICKLINE(1,0,IF(主力买量>0,VOL,0),2,0),COLORBROWN;
+STICKLINE(1,0,IF(主力卖量>0,-VOL,0),2,0),COLORBROWN;
+STICKLINE(1,0,主力买量,2,0),COLORRED;
+STICKLINE(1,0,(-1*主力卖量),2,0),COLORGREEN;
 ```
 
-## SUPH  ������Ծ��(ϵͳ)
+## SUPH  主力活跃度(系统)
 
 ``` pascal
 TMP:=LARGEINTRDVOL-LARGEOUTTRDVOL;
-������Ծ��:(LARGEINTRDVOL+LARGEOUTTRDVOL)*10000/(2*FINANCE(7)),NODRAW;
-STICKLINE(TMP>0,0,������Ծ��,2,0),COLORLIRED;
-STICKLINE(TMP=0,0,������Ծ��,2,0),COLORYELLOW;
-STICKLINE(TMP<0,0,������Ծ��,2,0),COLORLIGREEN;
+主力活跃度:(LARGEINTRDVOL+LARGEOUTTRDVOL)*10000/(2*FINANCE(7)),NODRAW;
+STICKLINE(TMP>0,0,主力活跃度,2,0),COLORLIRED;
+STICKLINE(TMP=0,0,主力活跃度,2,0),COLORYELLOW;
+STICKLINE(TMP<0,0,主力活跃度,2,0),COLORLIGREEN;
 ```
 
-## SUPAMO  �����ʽ���(ϵͳ)
+## SUPAMO  主力资金线(系统)
 
 ``` pascal
-�����ʽ���:(L2_AMO(0,0)+L2_AMO(1,0)-L2_AMO(0,1)-L2_AMO(1,1))/10000.0,LINETHICK2;
+主力资金线:(L2_AMO(0,0)+L2_AMO(1,0)-L2_AMO(0,1)-L2_AMO(1,1))/10000.0,LINETHICK2;
 ```
 
-## DDE����  DDE,��������(ϵͳ)
+## DDE排序  DDE,用于排序(系统)
 
 ``` pascal
 DDX:(LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7);
@@ -1721,7 +1721,7 @@ DDY:IF(TRADENUM>0,(TRADEOUTNUM-TRADEINNUM)*100/TRADENUM,0);
 DDZ:IF(TRADENUM>0,(LARGETRDINNUM-LARGETRDOUTNUM)/TRADENUM*100,0);
 ```
 
-## SUP����  SUP,��������(ϵͳ)
+## SUP排序  SUP,用于排序(系统)
 
 ``` pascal
 SUPL:SUM((LARGEINTRDVOL-LARGEOUTTRDVOL)*10000/FINANCE(7),0);
@@ -1730,38 +1730,38 @@ SUPH:(LARGEINTRDVOL+LARGEOUTTRDVOL)*10000/(2*FINANCE(7));
 SUPAMO:(L2_AMO(0,0)+L2_AMO(1,0)-L2_AMO(0,1)-L2_AMO(1,1))/10000.0;
 ```
 
-## DDE����  DDE����,��������(ϵͳ)
+## DDE力度  DDE力度,用于排序(系统)
 
 ``` pascal
-����������:LARGEINTRDVOL*100/VOL;
-����������:LARGEOUTTRDVOL*100/VOL;
+主力买力度:LARGEINTRDVOL*100/VOL;
+主力卖力度:LARGEOUTTRDVOL*100/VOL;
 ```
 
-## ����ѡ�ɹ�ʽ
+## 条件选股公式
 
 ``` pascal
 
 ```
 
-## UPN  ��������(ϵͳ)
+## UPN  连涨数天(系统)
 
 ``` pascal
 UP3:UPNDAY(CLOSE,N);
 ```
 
-## DOWNN  ��������(ϵͳ)
+## DOWNN  连跌数天(系统)
 
 ``` pascal
 DOWN3:DOWNNDAY(CLOSE,N);
 ```
 
-## BIAS����  ��������������ѡ��(ϵͳ)
+## BIAS买入  乖离率买入条件选股(系统)
 
 ``` pascal
 (CLOSE-MA(CLOSE,N))/MA(CLOSE,N)*100+LL<0;
 ```
 
-## KD����  KD��������ѡ��(ϵͳ)
+## KD买入  KD买入条件选股(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -1770,7 +1770,7 @@ D:=SMA(K,M2,1);
 KD:CROSS(K,D)&&K<20;
 ```
 
-## MSTAR  �糿֮��(ϵͳ)
+## MSTAR  早晨之星(系统)
 
 ``` pascal
 STAR:REF(CLOSE,2)/REF(OPEN,2)<0.95&&
@@ -1779,19 +1779,19 @@ ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.03&&
 CLOSE/OPEN>1.05&&CLOSE>REF(CLOSE,2);
 ```
 
-## W&R����  ����ָ����������ѡ��(ϵͳ)
+## W&R买入  威廉指标买入条件选股(系统)
 
 ``` pascal
 CROSS(LL,WR(N,N));
 ```
 
-## MTM����  MTM��������ѡ��(ϵͳ)
+## MTM买入  MTM买入条件选股(系统)
 
 ``` pascal
 IMTM:CROSS(MTM(N,N),0);
 ```
 
-## KDJ����  KDJ��������ѡ��(ϵͳ)
+## KDJ买入  KDJ买入条件选股(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N1))/(HHV(HIGH,N1)-LLV(LOW,N1))*100;
@@ -1801,7 +1801,7 @@ J:=3*K-2*D;
 CROSS(J,0);
 ```
 
-## SWORD  ��(ϵͳ)
+## SWORD  剑(系统)
 
 ``` pascal
 AA:=VOL>REF(VOL,1)||VOL>CAPITAL;
@@ -1814,26 +1814,26 @@ GG:=(ABS(OPEN-CLOSE))/2<(MIN(OPEN,CLOSE)-LOW);
 STAR:AA&&BB&&CC&&DD&&EE&&FF&&GG;
 ```
 
-## TLFZ  ��������(ϵͳ)
+## TLFZ  天量法则(系统)
 
 ``` pascal
 STAR:CLOSE>OPEN&&HHV(CLOSE,50)=CLOSE&&DYNAINFO(37)>0.1&&
 DYNAINFO(13)<0.14;
 ```
 
-## GREEN4  �Ĵ���(ϵͳ)
+## GREEN4  四串阴(系统)
 
 ``` pascal
 STAR:EVERY(CLOSE<OPEN,4);
 ```
 
-## RED4  �Ĵ���(ϵͳ)
+## RED4  四串阳(系统)
 
 ``` pascal
 A:EVERY(CLOSE>OPEN,4);
 ```
 
-## CSFR  ��ˮܽ��(ϵͳ)
+## CSFR  出水芙蓉(系统)
 
 ``` pascal
 AAA:=CLOSE>OPEN;
@@ -1842,26 +1842,26 @@ CCC:=BBB&&OPEN<MA(CLOSE,M)&&OPEN<MA(CLOSE,N);
 CSFR:CCC&&(CLOSE-OPEN)>0.0618*CLOSE;
 ```
 
-## NHIGH  ���մ���ʷ�¸�(ϵͳ)
+## NHIGH  近日创历史新高(系统)
 
 ``` pascal
 HHV(HIGH,N)=HHV(HIGH,0);
 ```
 
-## NLOW  ���մ���ʷ�µ�(ϵͳ)
+## NLOW  近日创历史新低(系统)
 
 ``` pascal
 LLV(LOW,N)=LLV(LOW,0);
 ```
 
-## XRDS  ���ճ���(ϵͳ)
+## XRDS  旭日初升(系统)
 
 ``` pascal
 BUY1:=LAST(CLOSE<MA(CLOSE,N),0,5);
 BUYIT:CLOSE>MA(CLOSE,N)&&VOL>MA(VOL,5)*2&&BUY1;
 ```
 
-## QTDS  ���ѵ�ˮ(ϵͳ)
+## QTDS  蜻蜓点水(系统)
 
 ``` pascal
 BUY1:=LAST(CLOSE>MA(CLOSE,N),0,5);
@@ -1869,31 +1869,31 @@ BUY2:=EXIST(CLOSE<MA(CLOSE,N),5);
 BUYIT:USEDDATANUM>N+50 && CLOSE>MA(CLOSE,N) && BUY1 && BUY2;
 ```
 
-## A001  �Ͷ�̬��ӯ��ѡ��(ϵͳ)
+## A001  低动态市盈率选股(系统)
 
 ``` pascal
 DYNAINFO(39)>0 AND DYNAINFO(39)<=N;
 ```
 
-## A003  Ӫҵ������ѡ��(ϵͳ)
+## A003  营业利润率选股(系统)
 
 ``` pascal
 FINANCE(20)>0 && FINANCE(23)/FINANCE(20)>N/100;
 ```
 
-## A004  �о���ѡ��(ϵͳ)
+## A004  市净率选股(系统)
 
 ``` pascal
 FINANCE(34)>0 AND CLOSE/FINANCE(34)<N;
 ```
 
-## A005  ���¹�ѡ��(ϵͳ)
+## A005  次新股选股(系统)
 
 ``` pascal
 FINANCE(42)<N;
 ```
 
-## A006  PEGѡ��(ϵͳ)
+## A006  PEG选股(系统)
 
 ``` pascal
 PE:=DYNAINFO(39);
@@ -1901,68 +1901,68 @@ EPSRATE:=FINANCE(43);
 PE>0 && PE<50 && EPSRATE>0 && PE/EPSRATE<1;
 ```
 
-## A008  �ͷ���ѡ��(ϵͳ)
+## A008  巴菲特选股(系统)
 
 ``` pascal
-A1:=(FINANCE(20)-FINANCE(21) )/FINANCE(20)*100>N1;{����ë����}
-A2:=FINANCE(30)/FINANCE(20)*100>N2;{������}
-A3:=FINANCE(30)/FINANCE(19)*100>N3;{���ʲ�������}
+A1:=(FINANCE(20)-FINANCE(21) )/FINANCE(20)*100>N1;{销售毛利率}
+A2:=FINANCE(30)/FINANCE(20)*100>N2;{净利率}
+A3:=FINANCE(30)/FINANCE(19)*100>N3;{净资产收益率}
 A1 AND A2 AND A3;
 ```
 
-## A011  ���ܵ�ָ��ɻ��Ĺ�(ϵͳ)
+## A011  可能的指标股或标的股(系统)
 
 ``` pascal
-AAA:=BARSLASTCOUNT(FINANCE(7)*CLOSE>��ֵ*10000*10000)>=����;
-BBB:=(10000*(SUM(VOL,����2))/FINANCE(7))>����;
-CCC:=(FINANCE(7)>�ɱ�*10000*10000);
+AAA:=BARSLASTCOUNT(FINANCE(7)*CLOSE>市值*10000*10000)>=天数;
+BBB:=(10000*(SUM(VOL,天数2))/FINANCE(7))>换手;
+CCC:=(FINANCE(7)>股本*10000*10000);
 AAA&&BBB&&CCC;
 ```
 
-## B003  ������ѡ��(����)(ϵͳ)
+## B003  内外盘选股(上涨)(系统)
 
 ``` pascal
 (DYNAINFO(23)>DYNAINFO(22)) AND (DYNAINFO(7)>DYNAINFO(3));
 ```
 
-## B004  ������ѡ��(�µ�)(ϵͳ)
+## B004  内外盘选股(下跌)(系统)
 
 ``` pascal
 (DYNAINFO(22)>DYNAINFO(23)) AND (DYNAINFO(7)<DYNAINFO(3));
 ```
 
-## B005  ���л�Ծ�ͼ۹�(ϵͳ)
+## B005  盘中活跃低价股(系统)
 
 ``` pascal
-DYNAINFO(7)<�۸� AND DYNAINFO(14)>(����Ƿ�/100) AND DYNAINFO(14)<0.2 AND DYNAINFO(17)>���� AND (SELLVOL/BUYVOL)<�����;
+DYNAINFO(7)<价格 AND DYNAINFO(14)>(最低涨幅/100) AND DYNAINFO(14)<0.2 AND DYNAINFO(17)>量比 AND (SELLVOL/BUYVOL)<内外比;
 ```
 
-## B006  ���з�ʱ���ֽ��(ϵͳ)
+## B006  盘中分时出现金叉(系统)
 
 ``` pascal
 DYNAINFO(7)>MAX(DYNAINFO(11)+0.01,DYNAINFO(11)*1.001) AND DYNAINFO(25)<DYNAINFO(11);
 ```
 
-## B007  ��ǰ�����ǵ�ͣѡ��(ϵͳ)
+## B007  当前沪深涨跌停选股(系统)
 
 ``` pascal
-ISST��:=NAMEINCLUDE('ST');
-��ͣ10:=NOT(ISST��) AND DYNAINFO(5)=ZTPRICE(DYNAINFO(3),0.1) AND DYNAINFO(5)>0;
-��ͣ5:=ISST�� AND DYNAINFO(5)=ZTPRICE(DYNAINFO(3),0.05) AND DYNAINFO(5)>0;
-������ͣ:=(��ͣ10 OR ��ͣ5) AND (����һ�ְ� OR (NOT(����һ�ְ�) AND DYNAINFO(5)!=DYNAINFO(6)));
-��ǰ��ͣ:=������ͣ AND MAX(DYNAINFO(20),DYNAINFO(7))=DYNAINFO(5) AND DYNAINFO(59)<1;
-��������ͣ:=������ͣ AND NOT(��ǰ��ͣ);
-��ͣ10:=NOT(ISST��) AND DYNAINFO(6)=DTPRICE(DYNAINFO(3),0.1) AND DYNAINFO(6)>0;
-��ͣ5:=ISST�� AND DYNAINFO(6)=DTPRICE(DYNAINFO(3),0.05) AND DYNAINFO(6)>0;
-���е�ͣ:=(��ͣ10 OR ��ͣ5) AND (����һ�ְ� OR (NOT(����һ�ְ�) AND DYNAINFO(5)!=DYNAINFO(6)));
-��ǰ��ͣ:=���е�ͣ AND MIN(DYNAINFO(21),DYNAINFO(7))=DYNAINFO(6) AND DYNAINFO(58)<1;
-�����е�ͣ:=���е�ͣ AND NOT(��ǰ��ͣ);
-��ͣRET:=IF(�ǵ�ͣ����=0,������ͣ,IF(�ǵ�ͣ����=1,��ǰ��ͣ,��������ͣ));
-��ͣRET:=IF(�ǵ�ͣ����=3,���е�ͣ,IF(�ǵ�ͣ����=4,��ǰ��ͣ,�����е�ͣ));
-IF(�ǵ�ͣ����<3,��ͣRET,��ͣRET);
+ISST股:=NAMEINCLUDE('ST');
+涨停10:=NOT(ISST股) AND DYNAINFO(5)=ZTPRICE(DYNAINFO(3),0.1) AND DYNAINFO(5)>0;
+涨停5:=ISST股 AND DYNAINFO(5)=ZTPRICE(DYNAINFO(3),0.05) AND DYNAINFO(5)>0;
+所有涨停:=(涨停10 OR 涨停5) AND (包括一字板 OR (NOT(包括一字板) AND DYNAINFO(5)!=DYNAINFO(6)));
+当前涨停:=所有涨停 AND MAX(DYNAINFO(20),DYNAINFO(7))=DYNAINFO(5) AND DYNAINFO(59)<1;
+仅盘中涨停:=所有涨停 AND NOT(当前涨停);
+跌停10:=NOT(ISST股) AND DYNAINFO(6)=DTPRICE(DYNAINFO(3),0.1) AND DYNAINFO(6)>0;
+跌停5:=ISST股 AND DYNAINFO(6)=DTPRICE(DYNAINFO(3),0.05) AND DYNAINFO(6)>0;
+所有跌停:=(跌停10 OR 跌停5) AND (包括一字板 OR (NOT(包括一字板) AND DYNAINFO(5)!=DYNAINFO(6)));
+当前跌停:=所有跌停 AND MIN(DYNAINFO(21),DYNAINFO(7))=DYNAINFO(6) AND DYNAINFO(58)<1;
+仅盘中跌停:=所有跌停 AND NOT(当前跌停);
+涨停RET:=IF(涨跌停类型=0,所有涨停,IF(涨跌停类型=1,当前涨停,仅盘中涨停));
+跌停RET:=IF(涨跌停类型=3,所有跌停,IF(涨跌停类型=4,当前跌停,仅盘中跌停));
+IF(涨跌停类型<3,涨停RET,跌停RET);
 ```
 
-## DTPL  ���߶�ͷ����(ϵͳ)
+## DTPL  均线多头排列(系统)
 
 ``` pascal
 A1:=MA(CLOSE,N);
@@ -1972,7 +1972,7 @@ A4:=MA(CLOSE,N3);
 CLOSE>A1 AND A1>A2 AND A2>A3 AND A3>A4 AND CLOSE>OPEN;
 ```
 
-## KTPL  ���߿�ͷ����(ϵͳ)
+## KTPL  均线空头排列(系统)
 
 ``` pascal
 A1:=MA(CLOSE,N);
@@ -1982,7 +1982,7 @@ A4:=MA(CLOSE,N3);
 CLOSE<A1 AND A1<A2 AND A2<A3 AND A3<A4 AND CLOSE<OPEN;
 ```
 
-## QSZL  ǿ������(ϵͳ)
+## QSZL  强势整理(系统)
 
 ``` pascal
 A1:=ABS(CLOSE-OPEN)/OPEN<0.015;
@@ -1992,31 +1992,31 @@ REF(CLOSE,N)/REF(CLOSE,N+1)>1+M/100;
 A2 AND A3;
 ```
 
-## W-103  �߿�������(ϵͳ)
+## W-103  高开大阴线(系统)
 
 ``` pascal
 OPEN/REF(CLOSE,1)>=1+M/100 && CLOSE/OPEN<=1-N/100;
 ```
 
-## W-104  �Ϳ�������(ϵͳ)
+## W-104  低开大阳线(系统)
 
 ``` pascal
 OPEN/REF(CLOSE,1)<=1-M/100 && CLOSE/OPEN>=1+N/100;
 ```
 
-## W-105  ����ȱ��ѡ��(ϵͳ)
+## W-105  跳空缺口选股(系统)
 
 ``` pascal
 HIGH<(REF(LOW,1)-0.001) || LOW>(REF(HIGH,1)+0.001);
 ```
 
-## BIAS����  ��������������ѡ��(ϵͳ)
+## BIAS卖出  乖离率卖出条件选股(系统)
 
 ``` pascal
 100*(CLOSE-MA(CLOSE,N))/MA(CLOSE,N)>M;
 ```
 
-## BOLL����  ���ִ���������ѡ��(ϵͳ)
+## BOLL买入  布林带买入条件选股(系统)
 
 ``` pascal
 MID :=  MA(CLOSE,N);
@@ -2025,7 +2025,7 @@ LOWER:= MID-S*STD(CLOSE,N);
 CROSS(CLOSE,LOWER);
 ```
 
-## BOLL����  ���ִ���������ѡ��(ϵͳ)
+## BOLL卖出  布林带卖出条件选股(系统)
 
 ``` pascal
 MID :=  MA(CLOSE,N);
@@ -2034,7 +2034,7 @@ LOWER:= MID-PP*STD(CLOSE,N);
 CROSS(UPPER,CLOSE);
 ```
 
-## KD����  KD��������ѡ��(ϵͳ)
+## KD卖出  KD卖出条件选股(系统)
 
 ``` pascal
 RSV:= (CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -2043,7 +2043,7 @@ D:=SMA(K,N2,1);
 CROSS(D,K) AND D>N3;
 ```
 
-## KDJ����  KDJ��������ѡ��(ϵͳ)
+## KDJ卖出  KDJ卖出条件选股(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N1))/(HHV(HIGH,N1)-LLV(LOW,N1))*100;
@@ -2053,19 +2053,19 @@ J:=3*K-2*D;
 CROSS(100,J);
 ```
 
-## MA����  ������������ѡ��(ϵͳ)
+## MA买入  均线买入条件选股(系统)
 
 ``` pascal
 CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG));
 ```
 
-## MA����  ������������ѡ��(ϵͳ)
+## MA卖出  均线卖出条件选股(系统)
 
 ``` pascal
 CROSS(MA(CLOSE,M),MA(CLOSE,N));
 ```
 
-## MACD����  MACD���������ѡ��(ϵͳ)
+## MACD买入  MACD买入点条件选股(系统)
 
 ``` pascal
 DIFF := EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);
@@ -2073,7 +2073,7 @@ DEA  := EMA(DIFF,M);
 CROSS(DIFF,DEA);
 ```
 
-## MACD����  MACD��������ѡ��(ϵͳ)
+## MACD卖出  MACD卖出条件选股(系统)
 
 ``` pascal
 DIFF := EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);
@@ -2081,13 +2081,13 @@ DEA  := EMA(DIFF,M);
 CROSS(DEA ,DIFF);
 ```
 
-## MTM����  MTM��������ѡ��(ϵͳ)
+## MTM卖出  MTM卖出条件选股(系统)
 
 ``` pascal
 CROSS(0,MA(CLOSE-REF(CLOSE,N),N1));
 ```
 
-## RSI����  RSI��������ѡ��(ϵͳ)
+## RSI买入  RSI买入条件选股(系统)
 
 ``` pascal
 LC:= REF(CLOSE,1);
@@ -2095,7 +2095,7 @@ RSI1:=SMA(MAX(CLOSE-LC,0),N,1)/SMA(ABS(CLOSE-LC),N,1)*100;
 CROSS(RSI1,LL);
 ```
 
-## RSI����  RSI��������ѡ��(ϵͳ)
+## RSI卖出  RSI卖出条件选股(系统)
 
 ``` pascal
 LC := REF(CLOSE,1);
@@ -2103,154 +2103,154 @@ RSI1:=SMA(MAX(CLOSE-LC,0),N,1)/SMA(ABS(CLOSE-LC),N,1)*100;
 CROSS(LL,RSI1);
 ```
 
-## SAR����  ����ת����������ѡ��(ϵͳ)
+## SAR买入  抛物转向买入条件选股(系统)
 
 ``` pascal
 SARTURN(N,STEP,MAXP)=1;
 ```
 
-## SAR����  ����ת����������(ϵͳ)
+## SAR卖出  抛物转向卖出条件(系统)
 
 ``` pascal
 SARTURN(N,STEP,MAXP)=-1;
 ```
 
-## W&R����  ����ָ����������ѡ��(ϵͳ)
+## W&R卖出  威廉指标卖出条件选股(系统)
 
 ``` pascal
 WR:=100*(HHV(HIGH,N)-CLOSE)/(HHV(HIGH,N)-LLV(LOW,N));
 CROSS(M,WR);
 ```
 
-## RUBLINE  �����(ϵͳ)
+## RUBLINE  揉搓线(系统)
 
 ``` pascal
-A1:=(REF(H,1)-MAX(REF(C,1),REF(O,1)))/(REF(H,1)-REF(L,1))*100>N;{��Ӱ��ռK�ߵ�N%����}
-A2:=(MIN(O,C)-L)/(H-L)*100>N;{��Ӱ��ռK�ߵ�N%����}
-A3:=ABS(C-REF(C,1))/MIN(C,REF(C,1))*100<2;{��ӰK�ĵ������ܳ���2%}
-A4:=REF(C,2)>REF(C,3);{�����̬ǰ����}
-A5:=V<REF(V,1);{����}
+A1:=(REF(H,1)-MAX(REF(C,1),REF(O,1)))/(REF(H,1)-REF(L,1))*100>N;{上影线占K线的N%以上}
+A2:=(MIN(O,C)-L)/(H-L)*100>N;{下影线占K线的N%以上}
+A3:=ABS(C-REF(C,1))/MIN(C,REF(C,1))*100<2;{下影K的跌幅不能超过2%}
+A4:=REF(C,2)>REF(C,3);{揉搓形态前收涨}
+A5:=V<REF(V,1);{缩量}
 A7:A1 AND A2 AND A3 AND A4 AND A5;
 ```
 
-## SP  �͵���Ѱ(ϵͳ)
+## SP  低点搜寻(系统)
 
 ``` pascal
 W:=MA((LLV(LOW,45)-CLOSE)/(HHV(HIGH,45)-LLV(LOW,45))*100,N);
 CROSS(-5,W);
 ```
 
-## TP  ͻ��(ϵͳ)
+## TP  突破(系统)
 
 ``` pascal
-M1:=MA(C,N1);{���ڲ�����5}
-M2:=MA(C,N2);{���ڲ�����10}
-M3:=MA(C,N3);{���ڲ�����30}
-{���¼��㽻����������}
-D1:=BARSLAST(CROSS(M1,M2));{���ϴ���}
-D2:=BARSLAST(CROSS(M1,M3));{���ϴ���}
-D3:=BARSLAST(CROSS(M2,M3));{���ϴ���}
-T1:=CROSS(M2,M3);{���������ϴ�����}
-T2:=D1>=D2 AND D2>=D3;{���水ָ�����Ⱥ����}
-T3:=COUNT(CROSS(M2,M1) OR CROSS(M3,M2) OR CROSS(M3,M1),D1)=0;{�м��޼�����������}
-T4:=REF(M1<M3 AND M2<M3,D1+1);{���ϴ���ǰһ��̡������ڳ���֮��}
-JT:T1 AND T2 AND T3 AND T4;{����ȷ��};
+M1:=MA(C,N1);{短期参数：5}
+M2:=MA(C,N2);{中期参数：10}
+M3:=MA(C,N3);{长期参数：30}
+{以下计算交叉点距今的天数}
+D1:=BARSLAST(CROSS(M1,M2));{短上穿中}
+D2:=BARSLAST(CROSS(M1,M3));{短上穿长}
+D3:=BARSLAST(CROSS(M2,M3));{中上穿长}
+T1:=CROSS(M2,M3);{今天中线上穿长线}
+T2:=D1>=D2 AND D2>=D3;{交叉按指定的先后出现}
+T3:=COUNT(CROSS(M2,M1) OR CROSS(M3,M2) OR CROSS(M3,M1),D1)=0;{中间无夹杂其它交叉}
+T4:=REF(M1<M3 AND M2<M3,D1+1);{短上穿中前一天短、中线在长线之下}
+JT:T1 AND T2 AND T3 AND T4;{价托确定};
 ```
 
-## PRD  ��͸��(����)(ϵͳ)
+## PRD  穿透率(大于)(系统)
 
 ``` pascal
 PR:(WINNER(CLOSE)-REF(WINNER(CLOSE),1))>P1*VOL/CAPITAL;
 ```
 
-## PRX  ��͸��(С��)(ϵͳ)
+## PRX  穿透率(小于)(系统)
 
 ``` pascal
 PR:(WINNER(CLOSE)-REF(WINNER(CLOSE),1))<P1*VOL/CAPITAL;
 ```
 
-## ASRD  �������(����)(ϵͳ)
+## ASRD  浮筹比例(大于)(系统)
 
 ``` pascal
 ASR:100*(WINNER(CLOSE*1.1)-WINNER(CLOSE*0.9))>P1*WINNER(HHV(HIGH,0));
 ```
 
-## ASRX  �������(С��)(ϵͳ)
+## ASRX  浮筹比例(小于)(系统)
 
 ``` pascal
 ASR:100*(WINNER(CLOSE*1.1)-WINNER(CLOSE*0.9))<P1*WINNER(HHV(HIGH,0));
 ```
 
-## C101  N���ڴ��¸�(ϵͳ)
+## C101  N日内创新高(系统)
 
 ``` pascal
 HHV(HIGH,N)=HHV(HIGH,0) AND BARSCOUNT(CLOSE)>=N;
 ```
 
-## C102  N���ڴ��µ�(ϵͳ)
+## C102  N日内创新低(系统)
 
 ``` pascal
 LLV(LOW,N)=LLV(LOW,0) AND BARSCOUNT(CLOSE)>=N;
 ```
 
-## C103  M�������߶�������(ϵͳ)
+## C103  M日内阴线多于阳线(系统)
 
 ``` pascal
 COUNT(OPEN>CLOSE,M)/M >= N/100;
 ```
 
-## C104  M�������߶�������(ϵͳ)
+## C104  M日内阳线多于阴线(系统)
 
 ``` pascal
 COUNT(OPEN<CLOSE,M)/M >= N/100;
 ```
 
-## C105  N�������Ƕ����µ�(ϵͳ)
+## C105  N日内上涨多于下跌(系统)
 
 ``` pascal
 COUNT(CLOSE>REF(CLOSE,1),M)/M >= N/100;
 ```
 
-## C106  N�����µ���������(ϵͳ)
+## C106  N日内下跌多于上涨(系统)
 
 ``` pascal
 COUNT(CLOSE<REF(CLOSE,1),M)/M >= N/100;
 ```
 
-## C107  ����N��������(ϵͳ)
+## C107  连续N天收阳线(系统)
 
 ``` pascal
 EVERY(CLOSE>OPEN,N);
 ```
 
-## C108  ����N��������(ϵͳ)
+## C108  连续N天收阴线(系统)
 
 ``` pascal
 EVERY(OPEN>CLOSE,N);
 ```
 
-## C128  N���ڳ�������ͣ����(ϵͳ)
+## C128  N天内出现以涨停收盘(系统)
 
 ``` pascal
-ZT:=(CLOSE>=ZTPRICE(REF(CLOSE,1),0.1)); { ����ͣ���� }
-ZTO:FINANCE(42)>200 AND EXIST(ZT,N); { ������200��,N���������ͣ���� };
+ZT:=(CLOSE>=ZTPRICE(REF(CLOSE,1),0.1)); { 以涨停收盘 }
+ZTO:FINANCE(42)>200 AND EXIST(ZT,N); { 上市满200天,N天存在以涨停收盘 };
 ```
 
-## C129  N���ڳ�����ͣ(ϵͳ)
+## C129  N天内出现涨停(系统)
 
 ``` pascal
-EZT:=(HIGH>=ZTPRICE(REF(CLOSE,1),0.1)); { ���ֹ���ͣ }
-EZTO:FINANCE(42)>200 AND EXIST(EZT,N); { ������200��,N���ڴ��ڹ���ͣ };
+EZT:=(HIGH>=ZTPRICE(REF(CLOSE,1),0.1)); { 出现过涨停 }
+EZTO:FINANCE(42)>200 AND EXIST(EZT,N); { 上市满200天,N天内存在过涨停 };
 ```
 
-## C130  N���ھ�����ͣ(ϵͳ)
+## C130  N天内经常涨停(系统)
 
 ``` pascal
 ZTTJ:=(CLOSE>=ZTPRICE(REF(CLOSE,1),0.1));
-FINANCE(42)>200 AND COUNT(ZTTJ,N)>=��ͣ����;
+FINANCE(42)>200 AND COUNT(ZTTJ,N)>=涨停天数;
 ```
 
-## C110  ���շ���(ϵͳ)
+## C110  单日放量(系统)
 
 ``` pascal
 A1:=MA(VOL,5);
@@ -2258,31 +2258,31 @@ A2:=REF(A1,1);
 VOL/A2>N AND (IF((SETCODE==0||SETCODE==1),100*VOL,VOL))/CAPITAL>M;
 ```
 
-## C111  �׶�����(ϵͳ)
+## C111  阶段缩量(系统)
 
 ``` pascal
 100*SUM(VOL,N)/CAPITAL<=M;
 ```
 
-## C112  �׶η���(ϵͳ)
+## C112  阶段放量(系统)
 
 ``` pascal
 100*SUM(VOL,N)/CAPITAL>=M;
 ```
 
-## C113  ��������(ϵͳ)
+## C113  持续放量(系统)
 
 ``` pascal
 EVERY(VOL>=REF(VOL,1),M);
 ```
 
-## C114  ��������(ϵͳ)
+## C114  持续缩量(系统)
 
 ``` pascal
 COUNT(VOL<=REF(VOL,1),M)=M;
 ```
 
-## C115  �������(ϵͳ)
+## C115  间隔放量(系统)
 
 ``` pascal
 A:=MA(VOL,5);
@@ -2290,7 +2290,7 @@ BARSCOUNT(CLOSE)>=N AND HHV(A,N)<N1*LLV(A,N)
 AND COUNT(VOL>N2*A,N)>N3;
 ```
 
-## C116  �����Ϲ�(ϵͳ)
+## C116  放量上攻(系统)
 
 ``` pascal
 A:= (CLOSE-REF(CLOSE,1))/REF(CLOSE,1)>=(N/100);
@@ -2298,40 +2298,40 @@ A:= (CLOSE-REF(CLOSE,1))/REF(CLOSE,1)>=(N/100);
 AND COUNT(VOL>REF(VOL,1),N3)=N3 AND  COUNT(A,N3)=N3;
 ```
 
-## C117  �ºͷ����Ϲ�(ϵͳ)
+## C117  温和放量上攻(系统)
 
 ``` pascal
 A1:=CLOSE/REF(CLOSE,1);
 A2:=A1>1 AND A1<1.03;
-{�ɼ�С������}
+{股价小幅上扬}
 B1:=VOL/REF(VOL,1);
 B2:=B1>1 AND B1<2;
 C1:=100*MA(VOL,N)/CAPITAL<5;
-{�ɽ���С������}
+{成交量小幅上扬}
 COUNT(A2 AND B2,N)/N>0.6 AND C1;
 ```
 
-## C118  ͻȻ����(ϵͳ)
+## C118  突然放量(系统)
 
 ``` pascal
 VOL>REF(HHV(VOL,N),1)*M;
 ```
 
-## C119  ƽ̨����(ϵͳ)
+## C119  平台整理(系统)
 
 ``` pascal
 COUNT(CLOSE>0,0)>N && 
 (HHV(CLOSE,N)-LLV(CLOSE,N))/LLV(CLOSE,N)<=(N1/100);
 ```
 
-## C123  ͻ�Ƴ�������(ϵͳ)
+## C123  突破长期盘整(系统)
 
 ``` pascal
 REF(((HHV(HIGH,N)-LLV(LOW,N))/LLV(LOW,N)),1)<=(N1/100) 
  && CLOSE>=REF(HHV(HIGH,N),1) && BARSCOUNT(CLOSE)>N;
 ```
 
-## C124  �׶�ǿ�ڴ���(ϵͳ)
+## C124  阶段强于大盘(系统)
 
 ``` pascal
 A:=SUM(IF(CURRBARSCOUNT=N,INDEXC,0),0);
@@ -2341,7 +2341,7 @@ F:=SUM(IF(CURRBARSCOUNT=N1,CLOSE,0),0);
 ((F-E)/E)>(((B-A)/A)+0.01);
 ```
 
-## C125  �׶����ڴ���(ϵͳ)
+## C125  阶段弱于大盘(系统)
 
 ``` pascal
 A:=SUM(IF(CURRBARSCOUNT=N,INDEXC,0),0);
@@ -2351,13 +2351,13 @@ F:=SUM(IF(CURRBARSCOUNT=N1,CLOSE,0),0);
 ((F-E)/E)<(((B-A)/A)-0.01);
 ```
 
-## C126  ����ͬ��ѡ��(ϵͳ)
+## C126  大盘同步选股(系统)
 
 ``` pascal
 COUNT((CLOSE>OPEN && INDEXC>INDEXO) || (CLOSE<OPEN && INDEXC<INDEXO),N)/N>M/100;
 ```
 
-## C127  N����ǿ�ƹ�(ϵͳ)
+## C127  N日内强势股(系统)
 
 ``` pascal
 GG:=(CLOSE-REF(OPEN,N))/REF(OPEN,N);
@@ -2366,7 +2366,7 @@ DP:=(INDEXC-REF(INDEXO,N))/REF(INDEXO,N);
 QSG:GGG/DP>=M;
 ```
 
-## C131  �µ������ٷ�������(ϵͳ)
+## C131  下跌多日再放量上涨(系统)
 
 ``` pascal
 A1:=REF(CLOSE,5)>REF(CLOSE,4);
@@ -2377,7 +2377,7 @@ A5:=CLOSE>REF(HIGH,1) AND V>REF(V,1);
 RET:A1 AND A2 AND A3 AND A4 AND A5;
 ```
 
-## C132  ���ո߿���Ϳ�(ϵͳ)
+## C132  跳空高开或低开(系统)
 
 ``` pascal
 A:= (O>REF(H,1) AND (O-REF(C,1))/REF(C,1)*100>N);
@@ -2385,13 +2385,13 @@ B:= (O<REF(L,1) AND (O-REF(C,1))/REF(C,1)*100<N);
 IF(N>0,A,B);
 ```
 
-## ר��ϵͳ��ʽ
+## 专家系统公式
 
 ``` pascal
 
 ```
 
-## BIAS  ������ר��ϵͳ(ϵͳ)
+## BIAS  乖离率专家系统(系统)
 
 ``` pascal
 BIAS:=(CLOSE-MA(CLOSE,N))/MA(CLOSE,N)*100;
@@ -2399,7 +2399,7 @@ ENTERLONG:CROSS(-LL,BIAS);
 EXITLONG:CROSS(BIAS,LH);
 ```
 
-## CCI  CCIר��ϵͳ(ϵͳ)
+## CCI  CCI专家系统(系统)
 
 ``` pascal
 INDEX:=CCI(N);
@@ -2407,7 +2407,7 @@ ENTERLONG:CROSS(INDEX,-100);
 EXITLONG:CROSS(100,INDEX);
 ```
 
-## DMI  ����ר��ϵͳ(ϵͳ)
+## DMI  趋向专家系统(系统)
 
 ``` pascal
 MTR:=SUM(MAX(MAX(HIGH-LOW,ABS(HIGH-REF(CLOSE,1))),ABS(LOW-REF(CLOSE,1))),N);
@@ -2421,7 +2421,7 @@ ENTERLONG:CROSS(PDI,MDI);
 EXITLONG:CROSS(MDI,PDI);
 ```
 
-## KD  KDָ��ר��ϵͳ(ϵͳ)
+## KD  KD指标专家系统(系统)
 
 ``` pascal
 WRSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -2431,7 +2431,7 @@ ENTERLONG:CROSS(WK,D)&&WK<20;
 EXITLONG:CROSS(D,WK)&&WK>80;
 ```
 
-## BOLL  ���ִ�ר��ϵͳ(ϵͳ)
+## BOLL  布林带专家系统(系统)
 
 ``` pascal
 MID :=MA(CLOSE,N);
@@ -2441,7 +2441,7 @@ ENTERLONG:CROSS(CLOSE,LOWER);
 EXITLONG:CROSS(CLOSE,UPPER);
 ```
 
-## KDJ  KDJר��ϵͳ(ϵͳ)
+## KDJ  KDJ专家系统(系统)
 
 ``` pascal
 RSV:=(CLOSE-LLV(LOW,N))/(HHV(HIGH,N)-LLV(LOW,N))*100;
@@ -2452,14 +2452,14 @@ ENTERLONG:CROSS(J,0);
 EXITLONG:CROSS(100,J);
 ```
 
-## MA  ����ר��ϵͳ(ϵͳ)
+## MA  均线专家系统(系统)
 
 ``` pascal
 ENTERLONG:CROSS(MA(CLOSE,SHORT),MA(CLOSE,LONG));
 EXITLONG:CROSS(MA(CLOSE,LONG),MA(CLOSE,SHORT));
 ```
 
-## MACD  MACDר��ϵͳ(ϵͳ)
+## MACD  MACD专家系统(系统)
 
 ``` pascal
 DIFF:=EMA(CLOSE,SHORT) - EMA(CLOSE,LONG);
@@ -2469,7 +2469,7 @@ ENTERLONG:CROSS(MACD,0);
 EXITLONG:CROSS(0,MACD);
 ```
 
-## MTM  ����ָ��ר��ϵͳ(ϵͳ)
+## MTM  动力指标专家系统(系统)
 
 ``` pascal
 WMTM:=MTM;
@@ -2477,7 +2477,7 @@ ENTERLONG:CROSS(WMTM,0);
 EXITLONG:CROSS(0,WMTM);
 ```
 
-## PSY  PSY������ר��ϵͳ(ϵͳ)
+## PSY  PSY心理线专家系统(系统)
 
 ``` pascal
 MYPSY:=PSY(N,1);
@@ -2485,7 +2485,7 @@ ENTERLONG:CROSS(LL,MYPSY);
 EXITLONG:CROSS(MYPSY,LH);
 ```
 
-## ROC  �䶯����ר��ϵͳ(ϵͳ)
+## ROC  变动速率专家系统(系统)
 
 ``` pascal
 WROC:=ROC(N,M);
@@ -2493,7 +2493,7 @@ ENTERLONG:CROSS(WROC,0);
 EXITLONG:CROSS(0,WROC);
 ```
 
-## RSI  ���ǿ��ר��ϵͳ(ϵͳ)
+## RSI  相对强弱专家系统(系统)
 
 ``` pascal
 LC:=REF(CLOSE,1);
@@ -2502,7 +2502,7 @@ ENTERLONG:CROSS(WRSI,LL);
 EXITLONG:CROSS(LH,WRSI);
 ```
 
-## VR  VR��������ר��ϵͳ(ϵͳ)
+## VR  VR容量比率专家系统(系统)
 
 ``` pascal
 WVR := SUM((IF(CLOSE>OPEN,VOL,0)+IF(CLOSE=OPEN,VOL/2,0)),N)/
@@ -2511,7 +2511,7 @@ ENTERLONG:CROSS(LL,WVR);
 EXITLONG:CROSS(WVR,LH);
 ```
 
-## DPSJ  �������ר��ϵͳ(ϵͳ)
+## DPSJ  大盘随机专家系统(系统)
 
 ``` pascal
 RSV:=(INDEXC-LLV(INDEXL,N1))/(HHV(INDEXH,N1)-LLV(INDEXL,N1))*100;
@@ -2520,19 +2520,19 @@ ENTERLONG: CROSS(K,20);
 EXITLONG: (CROSS(HSL,5) OR CROSS(K,80));
 ```
 
-## ���K�߹�ʽ
+## 五彩K线公式
 
 ``` pascal
 
 ```
 
-## KSTAR1  ʮ����(ϵͳ)
+## KSTAR1  十字星(系统)
 
 ``` pascal
 KSTAR:CLOSE=OPEN&&HIGH>LOW;
 ```
 
-## KSTAR2  �糿֮��(ϵͳ)
+## KSTAR2  早晨之星(系统)
 
 ``` pascal
 KSTAR:(REF(CLOSE,2)/REF(OPEN,2)<0.95)&&
@@ -2541,7 +2541,7 @@ KSTAR:(REF(CLOSE,2)/REF(OPEN,2)<0.95)&&
 CLOSE/OPEN>1.05 && CLOSE>REF(CLOSE,2);
 ```
 
-## KSTAR3  �ƻ�֮��(ϵͳ)
+## KSTAR3  黄昏之星(系统)
 
 ``` pascal
 KSTAR:REF(CLOSE,2)/REF(OPEN,2)>1.05&&
@@ -2550,13 +2550,13 @@ ABS(REF(OPEN,1)-REF(CLOSE,1))/REF(CLOSE,1)<0.03&&
 CLOSE/OPEN<0.95&&CLOSE<REF(CLOSE,2);
 ```
 
-## SHI1  ��ʮ��(ϵͳ)
+## SHI1  长十字(系统)
 
 ``` pascal
 KSTAR:CLOSE=OPEN&&HIGH/LOW>1.03;
 ```
 
-## K220  ��������(ϵͳ)
+## K220  身怀六甲(系统)
 
 ``` pascal
 KSTAR:ABS(REF(CLOSE,1)-REF(OPEN,1))/REF(CLOSE,1)>0.04&&
@@ -2565,37 +2565,37 @@ MAX(CLOSE,OPEN)<MAX(REF(CLOSE,1),REF(OPEN,1))&&
 MIN(CLOSE,OPEN)>MIN(REF(CLOSE,1),REF(OPEN,1));
 ```
 
-## K300  ��������ʿ(ϵͳ)
+## K300  三个白武士(系统)
 
 ``` pascal
 KSTAR:UPNDAY(CLOSE,3)&&NDAY(CLOSE,OPEN,3);
 ```
 
-## K310  ��ֻ��ѻ(ϵͳ)
+## K310  三只乌鸦(系统)
 
 ``` pascal
 KSTAR:DOWNNDAY(CLOSE,3)&&NDAY(OPEN,CLOSE,3);
 ```
 
-## K380  ��ͷ����(ϵͳ)
+## K380  光头阳线(系统)
 
 ``` pascal
 KSTAR:HIGH=CLOSE&&HIGH>LOW;
 ```
 
-## K390  �������(ϵͳ)
+## K390  光脚阴线(系统)
 
 ``` pascal
 KSTAR:LOW=CLOSE&&HIGH>LOW;
 ```
 
-## K134  ����ʮ��(ϵͳ)
+## K134  垂死十字(系统)
 
 ``` pascal
 KSTAR:CLOSE=OPEN&&CLOSE=LOW&&CLOSE<HIGH;
 ```
 
-## K140  �糿ʮ����(ϵͳ)
+## K140  早晨十字星(系统)
 
 ``` pascal
 KSTAR:REF(CLOSE,2)/REF(OPEN,2)<0.95&&
@@ -2604,7 +2604,7 @@ REF(OPEN,1)=REF(CLOSE,1)&&
 CLOSE/OPEN>1.05&&CLOSE>REF(CLOSE,2);
 ```
 
-## K150  �ƻ�ʮ����(ϵͳ)
+## K150  黄昏十字星(系统)
 
 ``` pascal
 KSTAR:REF(CLOSE,2)/REF(OPEN,2)>1.05&&
@@ -2613,7 +2613,7 @@ REF(OPEN,1)=REF(CLOSE,1)&&
 CLOSE/OPEN<0.95&&CLOSE<REF(CLOSE,2);
 ```
 
-## K160  ���֮��(ϵͳ)
+## K160  射击之星(系统)
 
 ``` pascal
 KSTAR:MIN(OPEN,CLOSE)=LOW&&
@@ -2621,7 +2621,7 @@ HIGH-LOW>3*(MAX(OPEN,CLOSE)-LOW)&&
 CLOSE>MA(CLOSE,5);
 ```
 
-## K165  ��ת��ͷ(ϵͳ)
+## K165  倒转锤头(系统)
 
 ``` pascal
 KSTAR:MIN(OPEN,CLOSE)=LOW&&
@@ -2629,7 +2629,7 @@ HIGH-LOW>3*(MAX(OPEN,CLOSE)-LOW)&&
 CLOSE<MA(CLOSE,5);
 ```
 
-## K170  ��ͷ(ϵͳ)
+## K170  锤头(系统)
 
 ``` pascal
 OUT:HIGH=MAX(OPEN,CLOSE)&&
@@ -2637,7 +2637,7 @@ HIGH-LOW>3*(HIGH-MIN(OPEN,CLOSE))&&
 CLOSE<MA(CLOSE,5);
 ```
 
-## K180  ����(ϵͳ)
+## K180  吊颈(系统)
 
 ``` pascal
 OUT:HIGH=MAX(OPEN,CLOSE)&&
@@ -2645,7 +2645,7 @@ HIGH-LOW>3*(HIGH-MIN(OPEN,CLOSE))&&
 CLOSE>MA(CLOSE,5);
 ```
 
-## K190  ��ͷ�ƽ�(ϵͳ)
+## K190  穿头破脚(系统)
 
 ``` pascal
 OUT:(REF(CLOSE,1)/REF(OPEN,1)>1.03&&
@@ -2656,7 +2656,7 @@ CLOSE/OPEN>1.04&&
 CLOSE>REF(OPEN,1)&&OPEN<REF(CLOSE,1));
 ```
 
-## SWORD  ��(ϵͳ)
+## SWORD  剑(系统)
 
 ``` pascal
 AA:=VOL>REF(VOL,1)||VOL>(CAPITAL*0.1);
@@ -2669,7 +2669,7 @@ GG:=(ABS(OPEN-CLOSE))/2<(MIN(OPEN,CLOSE)-LOW);
 SWORDO:AA&&BB&&CC&&DD&&EE&&FF&&GG;
 ```
 
-## CSFR  ��ˮܽ��(ϵͳ)
+## CSFR  出水芙蓉(系统)
 
 ``` pascal
 A:=CLOSE>OPEN;
@@ -2678,7 +2678,7 @@ CC:=B&&OPEN<MA(CLOSE,M)&&OPEN<MA(CLOSE,LL);
 CSFRO:CC&&(CLOSE-OPEN)>0.0618*CLOSE;
 ```
 
-## WYGD  ���ƸǶ� (ϵͳ)
+## WYGD  乌云盖顶 (系统)
 
 ``` pascal
 BACKSET( 
@@ -2687,7 +2687,7 @@ CLOSE/OPEN<0.97 AND
 OPEN>REF(CLOSE,1) AND CLOSE<REF(CLOSE,1), 3);
 ```
 
-## SGCJ  ������ (ϵͳ)
+## SGCJ  曙光初现 (系统)
 
 ``` pascal
 BACKSET( 
@@ -2696,7 +2696,7 @@ CLOSE/OPEN>1.03 AND
 OPEN<REF(CLOSE,1) AND CLOSE>REF(CLOSE,1), 3);
 ```
 
-## SZTAI  ʮ��̥ (ϵͳ)
+## SZTAI  十字胎 (系统)
 
 ``` pascal
 BACKSET( ABS(REF(CLOSE,1)-REF(OPEN,1))/REF(CLOSE,1) > 0.04 AND 
@@ -2704,53 +2704,53 @@ CLOSE=OPEN AND CLOSE < MAX(REF(CLOSE,1),REF(OPEN,1)) AND
 CLOSE > MIN(REF(CLOSE,1),REF(OPEN,1)), 2);
 ```
 
-## PINGDING  ƽ�� (ϵͳ)
+## PINGDING  平顶 (系统)
 
 ``` pascal
 BACKSET(ABS(HIGH-REF(HIGH,1))/HIGH<0.001,2);
 ```
 
-## PINGDI  ƽ�� (ϵͳ)
+## PINGDI  平底 (系统)
 
 ``` pascal
 BACKSET((ABS(LOW-REF(LOW,1))/LOW<0.001 AND 
 ABS(REF(LOW,1)-REF(LOW,2))/REF(LOW,1)<=0.001),2);
 ```
 
-## DAYANZHU  ������ (ϵͳ)
+## DAYANZHU  大阳烛 (系统)
 
 ``` pascal
 CLOSE/OPEN>1.05 AND 
 HIGH/LOW < CLOSE/OPEN+0.018;
 ```
 
-## DAYINGZHU  ������ (ϵͳ)
+## DAYINGZHU  大阴烛 (系统)
 
 ``` pascal
 OPEN/CLOSE > 1.05 AND 
 HIGH/LOW < OPEN/CLOSE+0.018;
 ```
 
-## HYFG  ���ѷ��� (ϵͳ)
+## HYFG  好友反攻 (系统)
 
 ``` pascal
 BACKSET( (REF(CLOSE,1)<REF(OPEN,1) AND 
 CLOSE>OPEN AND ABS(CLOSE-REF(CLOSE,1))/CLOSE<0.002),2);
 ```
 
-## TKQK  ����ȱ�� (ϵͳ)
+## TKQK  跳空缺口 (系统)
 
 ``` pascal
 BACKSET( HIGH<REF(LOW,1) OR LOW>REF(HIGH,1),2);
 ```
 
-## SFWY  ˫����ѻ (ϵͳ)
+## SFWY  双飞乌鸦 (系统)
 
 ``` pascal
 BACKSET( REF(CLOSE,1)<REF(OPEN,1) AND CLOSE<OPEN AND CLOSE/OPEN<0.98,1);
 ```
 
-## SSSBQ  ����������(ϵͳ)
+## SSSBQ  上升三部曲(系统)
 
 ``` pascal
 BACKSET( 
@@ -2768,7 +2768,7 @@ CLOSE/OPEN>1.03 AND
 CLOSE>REF(CLOSE,4), 5);
 ```
 
-## XDSBQ  �µ�������(ϵͳ)
+## XDSBQ  下跌三部曲(系统)
 
 ``` pascal
 BACKSET( 
@@ -2786,26 +2786,26 @@ CLOSE/OPEN<0.97 AND
 CLOSE<REF(CLOSE,4), 5);
 ```
 
-## CHXY  ����Ӱ(ϵͳ)
+## CHXY  长下影(系统)
 
 ``` pascal
 (MIN(CLOSE,OPEN)-LOW)/(HIGH-LOW)>0.667;
 ```
 
-## CHSY  ����Ӱ(ϵͳ)
+## CHSY  长上影(系统)
 
 ``` pascal
 (HIGH-MAX(CLOSE,OPEN))/(HIGH-LOW)>0.667,COLORBLUE;
 ```
 
-## FENLI  ����(ϵͳ)
+## FENLI  分离(系统)
 
 ``` pascal
 BACKSET( OPEN=REF(OPEN,1) AND 
 (CLOSE-OPEN)*(REF(CLOSE,1)-REF(OPEN,1))<0,2);
 ```
 
-## NXSD  ţ��ʱ��(ϵͳ)
+## NXSD  牛熊时段(系统)
 
 ``` pascal
 
